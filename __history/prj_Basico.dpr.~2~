@@ -1,0 +1,16 @@
+program prj_Basico;
+
+uses
+  Vcl.Forms,
+  U_FormMain in 'Forms\U_FormMain.pas' {frm_Principal},
+  U_Dados in 'Forms\U_Dados.pas' {DataModule1: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(Tfrm_Principal, frm_Principal);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.Run;
+end.
