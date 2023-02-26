@@ -3,8 +3,8 @@ object frm_ConfigIni: Tfrm_ConfigIni
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Config Ini'
-  ClientHeight = 173
-  ClientWidth = 431
+  ClientHeight = 172
+  ClientWidth = 427
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,12 +14,12 @@ object frm_ConfigIni: Tfrm_ConfigIni
   Position = poDefault
   OnClose = FormClose
   DesignSize = (
-    431
-    173)
+    427
+    172)
   TextHeight = 15
   object img_bd: TImage
     Left = 0
-    Top = 24
+    Top = 23
     Width = 129
     Height = 134
     Anchors = [akLeft]
@@ -353,7 +353,6 @@ object frm_ConfigIni: Tfrm_ConfigIni
       764DB58D15D58F5BAFDC1280E2FC373E556C2A9B8BB15C0000000049454E44AE
       426082}
     Stretch = True
-    ExplicitTop = 23
   end
   object lb_localBD: TLabel
     Left = 152

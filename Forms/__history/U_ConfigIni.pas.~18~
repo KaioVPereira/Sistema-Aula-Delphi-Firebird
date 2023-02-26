@@ -16,9 +16,9 @@ type
     opn_pastas: TOpenDialog;
     btn_salvar: TButton;
     txt_porta: TEdit;
-    Edit2: TEdit;
+    txt_server: TEdit;
     txt_usarname: TEdit;
-    Edit4: TEdit;
+    txt_pass: TEdit;
     lb_username: TLabel;
     lb_port: TLabel;
     lb_servidor: TLabel;
@@ -58,6 +58,8 @@ begin
 
 end;
 
+
+// Procedure para encontrar o caminho do banco e gravar no Tedit.text
 procedure Tfrm_ConfigIni.Configurar;
 var
   vFileName: String;
@@ -69,13 +71,11 @@ begin
     vFileName        := ExtractFilePath(application.ExeName) + 'config.ini';
     ArqIni (vFileName,'CONFIGURACAO', 'LOCAL_DB', txt_localBD.Text );
     try
-      dm_Dados.fd_Connection.Params.Database := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','LOCAL_DB');
-      dm_Dados.fd_Connection.Connected := True;
+      dm_Dados.fd_Connection.Params.Values['DataBase'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','LOCAL_DB');
     except
-      //showmessage('Caminho de conexão com banco inválido');
-      //frm_ConfigIni.showModal;
+
   end;
-    ShowMessage('Configurado');
+
   end;
 
 end;
@@ -85,20 +85,24 @@ begin
   Application.Terminate;
 end;
 
+//Procedure para usar no botãos salvar
 procedure Tfrm_ConfigIni.SalvaValidaConexao;
 var vFileName : String;
 begin
   vFileName        := ExtractFilePath(application.ExeName) + 'config.ini';
+  ArqIni (vFileName,'CONFIGURACAO', 'SERVIDOR',txt_server.Text);
   ArqIni (vFileName,'CONFIGURACAO', 'PORTA', txt_porta.Text);
   ArqIni (vFileName,'CONFIGURACAO', 'USER', txt_usarname.Text);
+  ArqIni (vFileName,'CONFIGURACAO', 'PASSWORD', txt_pass.Text);
 
   try
-    dm_Dados.fd_Connection.Params.Database := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','LOCAL_DB');
-    dm_Dados.fd_Connection.Params.UserName := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','USER');
-    dm_Dados.fd_Connection.Params.Port     := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PORTA');
+    dm_Dados.fd_Connection.Params.Values['DataBase'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','LOCAL_DB');
+    dm_Dados.fd_Connection.Params.Values['UserName'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','USER');
+    dm_Dados.fd_Connection.Params.Values['Port']     := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PORTA');
+    dm_Dados.fd_Connection.Params.Values['Password'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PASSWORD');
     dm_Dados.fd_Connection.Connected := True;
   except
-    showmessage(dm_Dados.fd_Connection.Params.UserName);
+    showmessage('Configuração de banco incorreta, valide as informações e tente novamente');
   end;
 end;
 
