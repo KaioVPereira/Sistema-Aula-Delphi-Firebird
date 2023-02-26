@@ -102,7 +102,7 @@ begin
     dm_Dados.fd_Connection.Params.Values['Password'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PASSWORD');
     dm_Dados.fd_Connection.Connected := True;
   except
-    showmessage('Configuração de bancoo incorreta, valide as informações e tente novamente');
+    showmessage('Configuração de banco incorreta, valide as informações e tente novamente');
   end;
 end;
 
