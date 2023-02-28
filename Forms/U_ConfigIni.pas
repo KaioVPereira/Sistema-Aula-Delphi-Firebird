@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
-  Vcl.Imaging.pngimage, U_Biblioteca, U_Dados;
+  Vcl.Imaging.pngimage, U_Biblioteca, U_Dados,U_FormMain;
 
 type
   Tfrm_ConfigIni = class(TForm)
@@ -101,6 +101,11 @@ begin
     dm_Dados.fd_Connection.Params.Values['Port']     := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PORTA');
     dm_Dados.fd_Connection.Params.Values['Password'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PASSWORD');
     dm_Dados.fd_Connection.Connected := True;
+    showMessage('Conexão feita com sucesso');
+    Self.Close;
+    //frm_Principal.Create(self);
+    //frm_Principal.showmodal
+    //
   except
     showmessage('Configuração de banco incorreta, valide as informações e tente novamente');
   end;

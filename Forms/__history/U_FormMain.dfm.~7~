@@ -1,10 +1,9 @@
 object frm_Principal: Tfrm_Principal
   Left = 0
   Top = 0
-  BorderStyle = bsSingle
   Caption = 'Principal'
-  ClientHeight = 296
-  ClientWidth = 618
+  ClientHeight = 441
+  ClientWidth = 624
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -210,4 +209,12 @@ object frm_Principal: Tfrm_Principal
     F1FFEFC4F8BF3530FE6F3FCCEA12FF99B820C371FE1F7481BF36D60D6E510000
     000049454E44AE426082}
   TextHeight = 15
+  object Button1: TButton
+    Left = 8
+    Top = 32
+    Width = 75
+    Height = 25
+    Caption = 'Button1'
+    TabOrder = 0
+  end
 end
