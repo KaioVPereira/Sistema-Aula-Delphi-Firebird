@@ -217,62 +217,50 @@ object frm_Principal: Tfrm_Principal
     Height = 41
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = 200
-    ExplicitTop = 80
-    ExplicitWidth = 185
-    object BitBtn1: TBitBtn
+    ExplicitWidth = 614
+    object btn_novo: TBitBtn
       Left = 0
       Top = 0
       Width = 75
       Height = 41
       Caption = 'Novo'
       TabOrder = 0
-      OnClick = BitBtn1Click
+      OnClick = btn_novoClick
     end
-    object BitBtn2: TBitBtn
+    object btn_gravar: TBitBtn
       Left = 81
       Top = 0
       Width = 75
       Height = 41
       Caption = 'Gravar'
       TabOrder = 1
-      OnClick = BitBtn2Click
+      OnClick = btn_gravarClick
     end
-    object BitBtn3: TBitBtn
+    object btn_cancelar: TBitBtn
       Left = 162
       Top = 0
       Width = 75
       Height = 41
       Caption = 'Cancelar'
       TabOrder = 2
+      OnClick = btn_cancelarClick
     end
-    object BitBtn4: TBitBtn
+    object btn_excluir: TBitBtn
       Left = 243
       Top = 0
       Width = 75
       Height = 41
       Caption = 'Excluir'
       TabOrder = 3
+      OnClick = btn_excluirClick
     end
-    object BitBtn5: TBitBtn
-      Left = 324
+    object btn_sair: TBitBtn
+      Left = 543
       Top = 0
       Width = 75
       Height = 41
-      Caption = 'Consultar'
-      TabOrder = 4
-    end
-    object BitBtn6: TBitBtn
-      Left = 542
-      Top = 1
-      Width = 75
-      Height = 39
-      Align = alRight
       Caption = 'Sair'
-      TabOrder = 5
-      ExplicitLeft = 543
-      ExplicitTop = 0
-      ExplicitHeight = 41
+      TabOrder = 4
     end
   end
   object fd_QueryCadastro: TFDQuery
@@ -284,12 +272,12 @@ object frm_Principal: Tfrm_Principal
   end
   object fd_UpdCadastros: TFDUpdateSQL
     Connection = dm_Dados.fd_Connection
-    Left = 400
-    Top = 216
+    Left = 552
+    Top = 200
   end
   object fd_transaction: TFDTransaction
     Connection = dm_Dados.fd_Connection
-    Left = 304
-    Top = 152
+    Left = 552
+    Top = 176
   end
 end

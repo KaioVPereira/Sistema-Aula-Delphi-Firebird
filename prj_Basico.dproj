@@ -118,6 +118,10 @@
             <Form>frm_ConfigIni</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\U_Inicio.pas">
+            <Form>frm_inicio</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

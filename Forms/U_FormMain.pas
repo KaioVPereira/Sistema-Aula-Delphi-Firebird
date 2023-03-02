@@ -13,17 +13,19 @@ uses
 type
   Tfrm_Principal = class(TForm)
     pn_cabecalho: TPanel;
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
-    BitBtn4: TBitBtn;
-    BitBtn5: TBitBtn;
-    BitBtn6: TBitBtn;
+    btn_novo: TBitBtn;
+    btn_gravar: TBitBtn;
+    btn_cancelar: TBitBtn;
+    btn_excluir: TBitBtn;
     fd_QueryCadastro: TFDQuery;
     fd_UpdCadastros: TFDUpdateSQL;
     fd_transaction: TFDTransaction;
-    procedure BitBtn1Click(Sender: TObject);
-    procedure BitBtn2Click(Sender: TObject);
+    btn_sair: TBitBtn;
+    procedure btn_novoClick(Sender: TObject);
+    procedure btn_gravarClick(Sender: TObject);
+    procedure btn_cancelarClick(Sender: TObject);
+    procedure btn_excluirClick(Sender: TObject);
+    procedure btn_sairClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,7 +41,7 @@ implementation
 
 uses U_Dados;
 
-procedure Tfrm_Principal.BitBtn1Click(Sender: TObject);
+procedure Tfrm_Principal.btn_novoClick(Sender: TObject);
 begin
   if not (fd_QueryCadastro.State in [dsEdit, dsInsert]) then
   begin
@@ -48,7 +50,7 @@ begin
 
 end;
 
-procedure Tfrm_Principal.BitBtn2Click(Sender: TObject);
+procedure Tfrm_Principal.btn_gravarClick(Sender: TObject);
 begin
   if fd_QueryCadastro.State in [dsEdit, dsInsert] then
   begin
@@ -57,4 +59,25 @@ begin
   end;
 end;
 
+procedure Tfrm_Principal.btn_sairClick(Sender: TObject);
+begin
+    Self.Close;
+end;
+
+procedure Tfrm_Principal.btn_cancelarClick(Sender: TObject);
+  begin
+    if fd_QueryCadastro.State in [dsEdit, dsInsert] then
+      begin
+        fd_QueryCadastro.Cancel;
+        fd_transaction.RollbackRetaining;
+      end;
+  end;
+
+procedure Tfrm_Principal.btn_excluirClick(Sender: TObject);
+  begin
+    fd_QueryCadastro.Edit;
+    fd_QueryCadastro.FieldByName('DT_EXCLUIDO').AsDateTime := Date;
+    fd_QueryCadastro.Post;
+    fd_transaction.CommitRetaining;
+  end;
 end.
