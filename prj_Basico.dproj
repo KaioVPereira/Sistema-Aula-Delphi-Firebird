@@ -126,6 +126,14 @@
             <Form>frm_CadClientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\U_CadastroEstados.pas">
+            <Form>frm_CadastrosEstados</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="U_CadastroCidades.pas">
+            <Form>frm_CadatroCidade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

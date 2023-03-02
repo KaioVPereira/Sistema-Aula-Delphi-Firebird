@@ -7,7 +7,9 @@ uses
   U_Biblioteca in 'Classes\U_Biblioteca.pas',
   U_ConfigIni in 'Forms\U_ConfigIni.pas' {frm_ConfigIni},
   U_Inicio in 'Forms\U_Inicio.pas' {frm_inicio},
-  U_CadastroClientes in 'Forms\U_CadastroClientes.pas' {frm_CadClientes};
+  U_CadastroClientes in 'Forms\U_CadastroClientes.pas' {frm_CadClientes},
+  U_CadastroEstados in 'Forms\U_CadastroEstados.pas' {frm_CadastrosEstados},
+  U_CadastroCidades in 'U_CadastroCidades.pas' {frm_CadatroCidade};
 
 {$R *.res}
 
@@ -18,5 +20,7 @@ begin
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
   Application.CreateForm(Tdm_Dados, dm_Dados);
   Application.CreateForm(Tfrm_CadClientes, frm_CadClientes);
+  Application.CreateForm(Tfrm_CadastrosEstados, frm_CadastrosEstados);
+  Application.CreateForm(Tfrm_CadatroCidade, frm_CadatroCidade);
   Application.Run;
 end.

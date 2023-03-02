@@ -21,6 +21,13 @@ object frm_inicio: Tfrm_inicio
         Caption = 'Clientes'
         OnClick = CadastrarCliente1Click
       end
+      object Estado: TMenuItem
+        Caption = 'Estado'
+        OnClick = EstadoClick
+      end
+      object Cidades: TMenuItem
+        Caption = 'Cidades'
+      end
     end
   end
 end
