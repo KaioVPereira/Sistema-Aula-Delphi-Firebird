@@ -15,6 +15,7 @@ type
     Cidades: TMenuItem;
     procedure CadastrarCliente1Click(Sender: TObject);
     procedure EstadoClick(Sender: TObject);
+    procedure CidadesClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,11 +29,16 @@ implementation
 
 {$R *.dfm}
 
-uses U_CadastroClientes, U_CadastroEstados;
+uses U_CadastroClientes, U_CadastroEstados, U_CadastroCidades;
 
 procedure Tfrm_inicio.CadastrarCliente1Click(Sender: TObject);
 begin
   frm_CadClientes.Show;
+end;
+
+procedure Tfrm_inicio.CidadesClick(Sender: TObject);
+begin
+  frm_CadatroCidade.Show;
 end;
 
 procedure Tfrm_inicio.EstadoClick(Sender: TObject);

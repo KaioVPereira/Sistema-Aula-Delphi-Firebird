@@ -27,6 +27,7 @@ object frm_inicio: Tfrm_inicio
       end
       object Cidades: TMenuItem
         Caption = 'Cidades'
+        OnClick = CidadesClick
       end
     end
   end
