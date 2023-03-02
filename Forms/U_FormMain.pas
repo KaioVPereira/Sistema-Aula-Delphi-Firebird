@@ -21,11 +21,13 @@ type
     fd_UpdCadastros: TFDUpdateSQL;
     fd_transaction: TFDTransaction;
     btn_sair: TBitBtn;
+    ds_cadastros: TDataSource;
     procedure btn_novoClick(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
     procedure btn_cancelarClick(Sender: TObject);
     procedure btn_excluirClick(Sender: TObject);
     procedure btn_sairClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,6 +64,11 @@ end;
 procedure Tfrm_Principal.btn_sairClick(Sender: TObject);
 begin
     Self.Close;
+end;
+
+procedure Tfrm_Principal.FormCreate(Sender: TObject);
+begin
+  fd_QueryCadastro.Open()
 end;
 
 procedure Tfrm_Principal.btn_cancelarClick(Sender: TObject);

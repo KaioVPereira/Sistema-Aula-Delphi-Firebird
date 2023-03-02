@@ -5,12 +5,13 @@ object dm_Dados: Tdm_Dados
   object fd_Connection: TFDConnection
     Params.Strings = (
       
-        'Database=C:\Users\kaioV\OneDrive\Documentos\Embarcadero\Studio\P' +
-        'rojects\SistemaDelphiFirebird\BANCOAULA.IB'
+        'Database=C:\Users\Presence1\Documents\Embarcadero\Studio\Project' +
+        's\Clone\Sistema-Aula-Delphi-Firebird\BANCOAULA.IB'
       'User_Name=SYSDBA'
       'Protocol=TCPIP'
       'Server=127.0.0.1'
       'Port=3051'
+      'Password=masterkey'
       'DriverID=FB')
     Left = 40
     Top = 8

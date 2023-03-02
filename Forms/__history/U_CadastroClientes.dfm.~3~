@@ -1,0 +1,19 @@
+inherited frm_Principal1: Tfrm_Principal1
+  Caption = 'Cadastro de Clientes'
+  ExplicitWidth = 634
+  ExplicitHeight = 335
+  TextHeight = 15
+  inherited pn_cabecalho: TPanel
+    ExplicitWidth = 618
+  end
+  inherited fd_QueryCadastro: TFDQuery
+    Left = 560
+  end
+  inherited fd_UpdCadastros: TFDUpdateSQL
+    Top = 192
+  end
+  inherited fd_transaction: TFDTransaction
+    Left = 560
+    Top = 144
+  end
+end
