@@ -13,6 +13,7 @@ object dm_Dados: Tdm_Dados
       'Port=3051'
       'Password=masterkey'
       'DriverID=FB')
+    Connected = True
     Left = 40
     Top = 8
   end

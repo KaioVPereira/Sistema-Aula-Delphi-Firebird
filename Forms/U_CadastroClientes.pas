@@ -25,33 +25,36 @@ type
     fd_QueryCadastroCOMPLEMENTO: TStringField;
     fd_QueryCadastroNUMERO: TStringField;
     fd_QueryCadastroIE_RG: TStringField;
-    fd_QueryCadastroDT_EXLUIDO: TDateField;
-    Label1: TLabel;
-    DBEdit1: TDBEdit;
+    lb_controle: TLabel;
+    txt_controle: TDBEdit;
     Label2: TLabel;
-    DBEdit2: TDBEdit;
+    txt_razao: TDBEdit;
     Label3: TLabel;
-    DBEdit3: TDBEdit;
+    txt_fantasia: TDBEdit;
     Label4: TLabel;
-    DBEdit4: TDBEdit;
-    txt_tipopessoa: TDBComboBox;
+    txt_CNPJCPF: TDBEdit;
+    cbbox_tipopessoa: TDBComboBox;
     Label5: TLabel;
     Label6: TLabel;
-    DBEdit5: TDBEdit;
+    txt_nome: TDBEdit;
     Label7: TLabel;
-    DBEdit6: TDBEdit;
+    txt_email: TDBEdit;
     Label8: TLabel;
-    DBEdit7: TDBEdit;
+    txt_site: TDBEdit;
     Label9: TLabel;
-    DBEdit8: TDBEdit;
+    txt_endereco: TDBEdit;
     Label10: TLabel;
-    DBEdit9: TDBEdit;
+    txt_bairro: TDBEdit;
     Label11: TLabel;
-    DBEdit10: TDBEdit;
+    txt_complemento: TDBEdit;
     Label12: TLabel;
-    DBEdit11: TDBEdit;
+    txt_numero: TDBEdit;
     Label13: TLabel;
-    DBEdit12: TDBEdit;
+    txt_ierg: TDBEdit;
+    fd_QueryCadastroDT_EXCLUIDO: TDateField;
+    procedure FormCreate(Sender: TObject);
+    procedure btn_novoClick(Sender: TObject);
+    procedure btn_gravarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -64,5 +67,92 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure Tfrm_CadClientes.btn_gravarClick(Sender: TObject);
+begin
+  inherited;
+  txt_controle.Enabled     := false;
+  txt_razao.Enabled        := false;
+  txt_fantasia.Enabled     := false;
+  txt_CNPJCPF.Enabled      := false;
+  txt_nome.Enabled         := false;
+  txt_email.Enabled        := false;
+  txt_site.Enabled         := false;
+  txt_endereco.Enabled     := false;
+  txt_bairro.Enabled       := false;
+  txt_complemento.Enabled  := false;
+  txt_numero.Enabled       := false;
+  txt_ierg.Enabled         := false;
+  cbbox_tipopessoa.Enabled := false;
+
+  txt_controle.Clear;
+  txt_controle.Clear;
+  txt_razao.Clear;
+  txt_fantasia.Clear;
+  txt_CNPJCPF.Clear;
+  txt_nome.Clear;
+  txt_email.Clear;
+  txt_site.Clear;
+  txt_endereco.Clear;
+  txt_bairro.Clear;
+  txt_complemento.Clear;
+  txt_numero.Clear;
+  txt_ierg.Clear;
+  //cbbox_tipopessoa.Clear;
+end;
+
+procedure Tfrm_CadClientes.btn_novoClick(Sender: TObject);
+begin
+  inherited;
+  //txt_controle.Enabled     := true;
+  txt_razao.Enabled        := true;
+  txt_fantasia.Enabled     := true;
+  txt_CNPJCPF.Enabled      := true;
+  txt_nome.Enabled         := true;
+  txt_email.Enabled        := true;
+  txt_site.Enabled         := true;
+  txt_endereco.Enabled     := true;
+  txt_bairro.Enabled       := true;
+  txt_complemento.Enabled  := true;
+  txt_numero.Enabled       := true;
+  txt_ierg.Enabled         := true;
+  cbbox_tipopessoa.Enabled := true;
+
+end;
+
+procedure Tfrm_CadClientes.FormCreate(Sender: TObject);
+begin
+  inherited;
+  txt_controle.Enabled     := false;
+  txt_razao.Enabled        := false;
+  txt_fantasia.Enabled     := false;
+  txt_CNPJCPF.Enabled      := false;
+  txt_nome.Enabled         := false;
+  txt_email.Enabled        := false;
+  txt_site.Enabled         := false;
+  txt_endereco.Enabled     := false;
+  txt_bairro.Enabled       := false;
+  txt_complemento.Enabled  := false;
+  txt_numero.Enabled       := false;
+  txt_ierg.Enabled         := false;
+  cbbox_tipopessoa.Enabled := false;
+
+  txt_controle.Clear;
+  txt_controle.Clear;
+  txt_razao.Clear;
+  txt_fantasia.Clear;
+  txt_CNPJCPF.Clear;
+  txt_nome.Clear;
+  txt_email.Clear;
+  txt_site.Clear;
+  txt_endereco.Clear;
+  txt_bairro.Clear;
+  txt_complemento.Clear;
+  txt_numero.Clear;
+  txt_ierg.Clear;
+  //cbbox_tipopessoa.Clear;
+
+
+end;
 
 end.

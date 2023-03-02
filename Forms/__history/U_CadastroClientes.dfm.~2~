@@ -1,4 +1,0 @@
-inherited frm_Principal1: Tfrm_Principal1
-  Caption = 'Cadastro de Clientes'
-  TextHeight = 15
-end

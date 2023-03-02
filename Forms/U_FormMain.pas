@@ -56,6 +56,7 @@ procedure Tfrm_Principal.btn_gravarClick(Sender: TObject);
 begin
   if fd_QueryCadastro.State in [dsEdit, dsInsert] then
   begin
+    fd_transaction.StartTransaction;
     fd_QueryCadastro.Post;
     fd_transaction.CommitRetaining;
   end;
@@ -84,6 +85,7 @@ procedure Tfrm_Principal.btn_excluirClick(Sender: TObject);
   begin
     fd_QueryCadastro.Edit;
     fd_QueryCadastro.FieldByName('DT_EXCLUIDO').AsDateTime := Date;
+    fd_transaction.StartTransaction;
     fd_QueryCadastro.Post;
     fd_transaction.CommitRetaining;
   end;

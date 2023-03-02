@@ -262,6 +262,7 @@ object frm_Principal: Tfrm_Principal
       Height = 41
       Caption = 'Sair'
       TabOrder = 4
+      OnClick = btn_sairClick
     end
   end
   object fd_QueryCadastro: TFDQuery

@@ -3,108 +3,108 @@ inherited frm_CadClientes: Tfrm_CadClientes
   ClientWidth = 791
   ExplicitWidth = 803
   TextHeight = 15
-  object Label1: TLabel [0]
+  object lb_controle: TLabel [0]
     Left = 0
     Top = 47
-    Width = 115
+    Width = 63
     Height = 15
-    Caption = 'CONTROLE_CLIENTES'
-    FocusControl = DBEdit1
+    Caption = 'CONTROLE:'
+    FocusControl = txt_controle
   end
   object Label2: TLabel [1]
     Left = 144
     Top = 47
-    Width = 84
+    Width = 85
     Height = 15
-    Caption = 'RAZAO_SOCIAL'
-    FocusControl = DBEdit2
+    Caption = 'RAZAO SOCIAL:'
+    FocusControl = txt_razao
   end
   object Label3: TLabel [2]
     Left = 368
     Top = 47
-    Width = 52
+    Width = 55
     Height = 15
-    Caption = 'FANTASIA'
-    FocusControl = DBEdit3
+    Caption = 'FANTASIA:'
+    FocusControl = txt_fantasia
   end
   object Label4: TLabel [3]
-    Left = 641
+    Left = 689
     Top = 48
-    Width = 150
+    Width = 56
     Height = 15
-    Caption = 'CPF_CNPJ'
-    FocusControl = DBEdit4
+    Caption = 'CPF/CNPJ:'
+    FocusControl = txt_CNPJCPF
   end
   object Label5: TLabel [4]
-    Left = 584
+    Left = 568
     Top = 47
-    Width = 40
+    Width = 90
     Height = 15
-    Caption = 'TIPO_FJ'
+    Caption = 'TIPO DE PESSOA:'
   end
   object Label6: TLabel [5]
     Left = 0
     Top = 97
-    Width = 35
+    Width = 38
     Height = 15
-    Caption = 'NOME'
-    FocusControl = DBEdit5
+    Caption = 'NOME:'
+    FocusControl = txt_nome
   end
   object Label7: TLabel [6]
     Left = 224
     Top = 97
-    Width = 34
+    Width = 42
     Height = 15
-    Caption = 'EMAIL'
-    FocusControl = DBEdit6
+    Caption = 'E-MAIL:'
+    FocusControl = txt_email
   end
   object Label8: TLabel [7]
     Left = 547
     Top = 97
-    Width = 21
+    Width = 24
     Height = 15
-    Caption = 'SITE'
-    FocusControl = DBEdit7
+    Caption = 'SITE:'
+    FocusControl = txt_site
   end
   object Label9: TLabel [8]
     Left = 0
     Top = 147
-    Width = 59
+    Width = 62
     Height = 15
-    Caption = 'ENDERECO'
-    FocusControl = DBEdit8
+    Caption = 'ENDERECO:'
+    FocusControl = txt_endereco
   end
   object Label10: TLabel [9]
     Left = 320
     Top = 147
-    Width = 41
+    Width = 44
     Height = 15
-    Caption = 'BAIRRO'
-    FocusControl = DBEdit9
+    Caption = 'BAIRRO:'
+    FocusControl = txt_bairro
   end
   object Label11: TLabel [10]
     Left = 547
     Top = 147
-    Width = 87
+    Width = 90
     Height = 15
-    Caption = 'COMPLEMENTO'
-    FocusControl = DBEdit10
+    Caption = 'COMPLEMENTO:'
+    FocusControl = txt_complemento
   end
   object Label12: TLabel [11]
     Left = 733
     Top = 147
-    Width = 50
+    Width = 53
     Height = 15
-    Caption = 'NUMERO'
-    FocusControl = DBEdit11
+    Caption = 'NUMERO:'
+    FocusControl = txt_numero
   end
   object Label13: TLabel [12]
     Left = 0
     Top = 197
-    Width = 29
+    Width = 32
     Height = 15
-    Caption = 'IE_RG'
-    FocusControl = DBEdit12
+    Caption = 'IE/RG:'
+    FocusControl = txt_ierg
   end
   inherited pn_cabecalho: TPanel
     Width = 791
@@ -115,7 +115,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
       ExplicitTop = 1
     end
   end
-  object DBEdit1: TDBEdit [14]
+  object txt_controle: TDBEdit [14]
     Left = 0
     Top = 68
     Width = 103
@@ -124,7 +124,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     TabOrder = 1
   end
-  object DBEdit2: TDBEdit [15]
+  object txt_razao: TDBEdit [15]
     Left = 144
     Top = 68
     Width = 200
@@ -133,7 +133,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     TabOrder = 2
   end
-  object DBEdit3: TDBEdit [16]
+  object txt_fantasia: TDBEdit [16]
     Left = 368
     Top = 68
     Width = 200
@@ -142,7 +142,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     TabOrder = 3
   end
-  object DBEdit4: TDBEdit [17]
+  object txt_CNPJCPF: TDBEdit [17]
     Left = 641
     Top = 68
     Width = 150
@@ -151,7 +151,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     TabOrder = 4
   end
-  object txt_tipopessoa: TDBComboBox [18]
+  object cbbox_tipopessoa: TDBComboBox [18]
     Left = 584
     Top = 68
     Width = 41
@@ -163,7 +163,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
       'J')
     TabOrder = 5
   end
-  object DBEdit5: TDBEdit [19]
+  object txt_nome: TDBEdit [19]
     Left = 0
     Top = 118
     Width = 200
@@ -172,7 +172,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     TabOrder = 6
   end
-  object DBEdit6: TDBEdit [20]
+  object txt_email: TDBEdit [20]
     Left = 224
     Top = 118
     Width = 300
@@ -181,7 +181,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     TabOrder = 7
   end
-  object DBEdit7: TDBEdit [21]
+  object txt_site: TDBEdit [21]
     Left = 547
     Top = 118
     Width = 236
@@ -190,7 +190,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     TabOrder = 8
   end
-  object DBEdit8: TDBEdit [22]
+  object txt_endereco: TDBEdit [22]
     Left = 0
     Top = 168
     Width = 300
@@ -199,7 +199,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     TabOrder = 9
   end
-  object DBEdit9: TDBEdit [23]
+  object txt_bairro: TDBEdit [23]
     Left = 320
     Top = 168
     Width = 200
@@ -208,7 +208,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     TabOrder = 10
   end
-  object DBEdit10: TDBEdit [24]
+  object txt_complemento: TDBEdit [24]
     Left = 547
     Top = 168
     Width = 174
@@ -217,7 +217,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     TabOrder = 11
   end
-  object DBEdit11: TDBEdit [25]
+  object txt_numero: TDBEdit [25]
     Left = 733
     Top = 168
     Width = 50
@@ -226,7 +226,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     TabOrder = 12
   end
-  object DBEdit12: TDBEdit [26]
+  object txt_ierg: TDBEdit [26]
     Left = 0
     Top = 218
     Width = 156
@@ -242,7 +242,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     UpdateOptions.AutoIncFields = 'CONTROLE_CLIENTES'
     UpdateObject = nil
     SQL.Strings = (
-      'SELECT * FROM CLIENTES ')
+      'SELECT * FROM CLIENTES')
     Left = 368
     Top = 248
     object fd_QueryCadastroCONTROLE_CLIENTES: TIntegerField
@@ -309,9 +309,9 @@ inherited frm_CadClientes: Tfrm_CadClientes
       Origin = 'IE_RG'
       Size = 30
     end
-    object fd_QueryCadastroDT_EXLUIDO: TDateField
-      FieldName = 'DT_EXLUIDO'
-      Origin = 'DT_EXLUIDO'
+    object fd_QueryCadastroDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
     end
   end
   inherited fd_UpdCadastros: TFDUpdateSQL
