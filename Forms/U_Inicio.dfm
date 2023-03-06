@@ -2,8 +2,8 @@ object frm_inicio: Tfrm_inicio
   Left = 0
   Top = 0
   Caption = 'In'#237'cio'
-  ClientHeight = 313
-  ClientWidth = 624
+  ClientHeight = 311
+  ClientWidth = 616
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,7 +14,8 @@ object frm_inicio: Tfrm_inicio
   WindowState = wsMaximized
   TextHeight = 15
   object MainMenu1: TMainMenu
-    Top = 32
+    Left = 24
+    Top = 48
     object Cadastris1: TMenuItem
       Caption = 'Cadastros'
       object CadastrarCliente1: TMenuItem

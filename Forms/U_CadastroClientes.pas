@@ -52,9 +52,18 @@ type
     Label13: TLabel;
     txt_ierg: TDBEdit;
     fd_QueryCadastroDT_EXCLUIDO: TDateField;
+    fd_QueryCadastroCONTROLE_CIDADE: TIntegerField;
+    fd_QueryCadastroCONTROLE_ESTADO: TIntegerField;
+    Cbox_Estado: TDBLookupComboBox;
+    cbox_cidades: TDBLookupComboBox;
+    lb_Estado: TLabel;
+    lb_cidade: TLabel;
+    fd_QueryCadastroNOME_CIDADE: TStringField;
+    fd_QueryCadastroUF: TStringField;
     procedure FormCreate(Sender: TObject);
     procedure btn_novoClick(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -68,8 +77,12 @@ implementation
 
 {$R *.dfm}
 
+uses U_LookUp;
+
 procedure Tfrm_CadClientes.btn_gravarClick(Sender: TObject);
 begin
+  fd_QueryCadastro.FieldByName('UF').AsString := Cbox_Estado.Text;
+  fd_QueryCadastro.FieldByName('NOME_CIDADE').AsString := cbox_cidades.Text;
   inherited;
   txt_controle.Enabled     := false;
   txt_razao.Enabled        := false;
@@ -84,6 +97,8 @@ begin
   txt_numero.Enabled       := false;
   txt_ierg.Enabled         := false;
   cbbox_tipopessoa.Enabled := false;
+  Cbox_Estado.Enabled      := false;
+  cbox_cidades.Enabled     := false;
 
   txt_controle.Clear;
   txt_controle.Clear;
@@ -104,6 +119,11 @@ end;
 procedure Tfrm_CadClientes.btn_novoClick(Sender: TObject);
 begin
   inherited;
+  LookUp.FD_qryEstados.Open();
+  LookUp.FD_qryEstados.FetchAll;
+
+  LookUp.FD_qryCidades.Open();
+  LookUp.FD_qryCidades.FetchAll;
   //txt_controle.Enabled     := true;
   txt_razao.Enabled        := true;
   txt_fantasia.Enabled     := true;
@@ -117,12 +137,32 @@ begin
   txt_numero.Enabled       := true;
   txt_ierg.Enabled         := true;
   cbbox_tipopessoa.Enabled := true;
+  Cbox_Estado.Enabled      := true;
+  cbox_cidades.Enabled     := true;
 
 end;
 
 procedure Tfrm_CadClientes.FormCreate(Sender: TObject);
 begin
   inherited;
+
+
+
+  //cbbox_tipopessoa.Clear;
+
+
+end;
+
+procedure Tfrm_CadClientes.FormShow(Sender: TObject);
+begin
+  inherited;
+  LookUp.FD_qryEstados.Open();
+  LookUp.FD_qryEstados.FetchAll;
+
+  LookUp.FD_qryCidades.Open();
+  LookUp.FD_qryCidades.FetchAll;
+  //LookUp.FD_qryCidades.
+
   txt_controle.Enabled     := false;
   txt_razao.Enabled        := false;
   txt_fantasia.Enabled     := false;
@@ -136,6 +176,8 @@ begin
   txt_numero.Enabled       := false;
   txt_ierg.Enabled         := false;
   cbbox_tipopessoa.Enabled := false;
+  Cbox_Estado.Enabled      := false;
+  cbox_cidades.Enabled     := false;
 
   txt_controle.Clear;
   txt_controle.Clear;
@@ -150,8 +192,6 @@ begin
   txt_complemento.Clear;
   txt_numero.Clear;
   txt_ierg.Clear;
-  //cbbox_tipopessoa.Clear;
-
 
 end;
 

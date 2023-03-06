@@ -22,6 +22,8 @@ type
     Label3: TLabel;
     txt_UF: TDBEdit;
     procedure btn_gravarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btn_novoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,9 +53,36 @@ begin
   else
   begin
    inherited;
+    txt_controle.Enabled      := false;
+    txt_UF.Enabled            := false;
+    txt_nome.Enabled          := false;
+
+    txt_controle.Clear;
+    txt_nome.Clear;
+    txt_UF.Clear;
   end;
 
 
+end;
+
+procedure Tfrm_CadastrosEstados.btn_novoClick(Sender: TObject);
+begin
+  inherited;
+  //txt_controle.Enabled      := true;
+  txt_UF.Enabled            := true;
+  txt_nome.Enabled          := true;
+end;
+
+procedure Tfrm_CadastrosEstados.FormShow(Sender: TObject);
+begin
+  inherited;
+  txt_controle.Enabled      := false;
+  txt_UF.Enabled            := false;
+  txt_nome.Enabled          := false;
+
+  txt_controle.Clear;
+  txt_nome.Clear;
+  txt_UF.Clear;
 end;
 
 end.
