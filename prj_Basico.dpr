@@ -6,11 +6,11 @@ uses
   U_Dados in 'Forms\U_Dados.pas' {dm_Dados: TDataModule},
   U_Biblioteca in 'Classes\U_Biblioteca.pas',
   U_ConfigIni in 'Forms\U_ConfigIni.pas' {frm_ConfigIni},
-  U_Inicio in 'Forms\U_Inicio.pas' {frm_inicio},
   U_CadastroClientes in 'Forms\U_CadastroClientes.pas' {frm_CadClientes},
   U_CadastroEstados in 'Forms\U_CadastroEstados.pas' {frm_CadastrosEstados},
   U_CadastroCidades in 'U_CadastroCidades.pas' {frm_CadatroCidade},
-  U_LookUp in 'Shared\U_LookUp.pas' {LookUp: TDataModule};
+  U_LookUp in 'Shared\U_LookUp.pas' {LookUp: TDataModule},
+  U_Inicio in 'Forms\U_Inicio.pas' {frm_inicio};
 
 {$R *.res}
 

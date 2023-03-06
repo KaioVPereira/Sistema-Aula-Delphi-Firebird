@@ -1,0 +1,39 @@
+unit U_Inicio;
+
+interface
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
+  Dialogs, AdvToolBar, AdvToolBarStylers, AdvPreviewMenu,
+  AdvPreviewMenuStylers, AdvShapeButton, AdvOfficeStatusBar,
+  AdvOfficeStatusBarStylers, Unit2;
+
+type
+  TTMSForm3 = class(TAdvToolBarForm)
+    AdvToolBarPager1: TAdvToolBarPager;
+    AdvPage1: TAdvPage;
+    AdvToolBarOfficeStyler1: TAdvToolBarOfficeStyler;
+    AdvToolBar1: TAdvToolBar;
+    AdvPreviewMenu1: TAdvPreviewMenu;
+    AdvPreviewMenuOfficeStyler1: TAdvPreviewMenuOfficeStyler;
+    AdvOfficeStatusBar1: TAdvOfficeStatusBar;
+    AdvOfficeStatusBarOfficeStyler1: TAdvOfficeStatusBarOfficeStyler;
+    AdvQuickAccessToolBar1: TAdvQuickAccessToolBar;
+    AdvShapeButton1: TAdvShapeButton;
+    TMSFrame2: TTMSFrame2;
+  private
+    { Private declarations }
+  protected
+    { Protected declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TMSForm3: TTMSForm3;
+
+implementation
+
+{$R *.dfm}
+
+
+end.
