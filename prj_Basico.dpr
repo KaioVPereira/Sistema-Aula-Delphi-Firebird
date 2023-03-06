@@ -10,7 +10,9 @@ uses
   U_CadastroEstados in 'Forms\U_CadastroEstados.pas' {frm_CadastrosEstados},
   U_CadastroCidades in 'U_CadastroCidades.pas' {frm_CadatroCidade},
   U_LookUp in 'Shared\U_LookUp.pas' {LookUp: TDataModule},
-  U_Inicio in 'Forms\U_Inicio.pas' {frm_inicio};
+  U_Inicio in 'Forms\U_Inicio.pas' {frm_inicio},
+  U_FormMainConsultas in 'Forms\U_FormMainConsultas.pas' {frm_MainConsultas},
+  U_ConsultaClientes in 'Forms\U_ConsultaClientes.pas' {frm_ConsultaClientes};
 
 {$R *.res}
 
@@ -21,8 +23,5 @@ begin
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
   Application.CreateForm(Tdm_Dados, dm_Dados);
   Application.CreateForm(TLookUp, LookUp);
-  Application.CreateForm(Tfrm_CadClientes, frm_CadClientes);
-  Application.CreateForm(Tfrm_CadastrosEstados, frm_CadastrosEstados);
-  Application.CreateForm(Tfrm_CadatroCidade, frm_CadatroCidade);
   Application.Run;
 end.

@@ -6,7 +6,7 @@ uses
   Dialogs, AdvToolBar, AdvToolBarStylers, AdvPreviewMenu,
   AdvPreviewMenuStylers, AdvShapeButton, AdvOfficeStatusBar,
   AdvOfficeStatusBarStylers, Unit2, AdvGlowButton, U_CadastroCidades,
-  U_CadastroClientes, U_CadastroEstados;
+  U_CadastroClientes, U_CadastroEstados, U_ConsultaClientes;
 
 type
   Tfrm_inicio = class(TAdvToolBarForm)
@@ -29,9 +29,11 @@ type
     btn_CadastroCidades: TAdvGlowButton;
     AdvToolBarSeparator1: TAdvToolBarSeparator;
     AdvToolBarSeparator2: TAdvToolBarSeparator;
+    btn_ConsultaCliente: TAdvGlowButton;
     procedure btn_CadastroClienteClick(Sender: TObject);
     procedure btn_CadastroCidadesClick(Sender: TObject);
     procedure btn_CadastroEstadosClick(Sender: TObject);
+    procedure btn_ConsultaClienteClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -50,17 +52,43 @@ implementation
 
 procedure Tfrm_inicio.btn_CadastroCidadesClick(Sender: TObject);
 begin
-  frm_CadatroCidade.ShowModal;
+  frm_CadatroCidade := Tfrm_CadatroCidade.Create(self);
+  try
+    frm_CadatroCidade.Showmodal;
+  finally
+    FreeAndNil(frm_CadatroCidade);
+  end;
 end;
 
 procedure Tfrm_inicio.btn_CadastroClienteClick(Sender: TObject);
 begin
-  frm_CadClientes.Showmodal;
+  frm_CadClientes := Tfrm_CadClientes.Create(self);
+  try
+    frm_CadClientes.Showmodal;
+  finally
+    FreeAndNil(frm_CadClientes);
+  end;
+
 end;
 
 procedure Tfrm_inicio.btn_CadastroEstadosClick(Sender: TObject);
 begin
-  frm_CadastrosEstados.ShowModal;
+   frm_CadastrosEstados := Tfrm_CadastrosEstados.Create(self);
+  try
+    frm_CadastrosEstados.Showmodal;
+  finally
+    FreeAndNil(frm_CadastrosEstados);
+  end;
+end;
+
+procedure Tfrm_inicio.btn_ConsultaClienteClick(Sender: TObject);
+begin
+  try
+    frm_ConsultaClientes := Tfrm_ConsultaClientes.Create(self);
+    frm_ConsultaClientes.show;
+  finally
+
+  end;
 end;
 
 end.

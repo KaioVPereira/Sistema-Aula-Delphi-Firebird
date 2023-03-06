@@ -2,8 +2,8 @@ object frm_inicio: Tfrm_inicio
   Left = 250
   Top = 200
   Caption = 'Inicio'
-  ClientHeight = 606
-  ClientWidth = 681
+  ClientHeight = 458
+  ClientWidth = 762
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -27,9 +27,9 @@ object frm_inicio: Tfrm_inicio
   object AdvToolBarPager1: TAdvToolBarPager
     Left = 0
     Top = 0
-    Width = 681
+    Width = 762
     Height = 149
-    ActivePage = AdvPage1
+    ActivePage = AdvPage2
     Caption.Caption = 'Sistema ERP'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]
@@ -123,11 +123,11 @@ object frm_inicio: Tfrm_inicio
       FFFFFFFFFFFDFD000000FD070707070707FDFD000000FDFDFDFDFDFDFDFDFD00
       0000}
     TabOrder = 0
-    ExplicitWidth = 680
+    ExplicitWidth = 758
     object AdvPage1: TAdvPage
       Left = 4
       Top = 52
-      Width = 673
+      Width = 754
       Height = 92
       Caption = 'Cadastros'
       object AdvToolBar1: TAdvToolBar
@@ -308,7 +308,6 @@ object frm_inicio: Tfrm_inicio
         Top = 3
         Width = 219
         Height = 86
-        UIStyle = tsOffice2019White
         AllowFloating = True
         AutoSize = False
         Caption = 'Untitled'
@@ -333,7 +332,6 @@ object frm_inicio: Tfrm_inicio
         Top = 3
         Width = 206
         Height = 86
-        UIStyle = tsOffice2019White
         AllowFloating = True
         AutoSize = False
         Caption = 'Untitled'
@@ -357,18 +355,17 @@ object frm_inicio: Tfrm_inicio
     object AdvPage2: TAdvPage
       Left = 4
       Top = 52
-      Width = 673
+      Width = 754
       Height = 92
       Caption = 'Consultas'
       object AdvToolBar4: TAdvToolBar
         Left = 3
         Top = 3
-        Width = 120
+        Width = 237
         Height = 86
-        UIStyle = tsOffice2019White
         AllowFloating = True
         AutoSize = False
-        Caption = 'Untitled'
+        Caption = 'Cadastros Gerais'
         CaptionFont.Charset = DEFAULT_CHARSET
         CaptionFont.Color = clWindowText
         CaptionFont.Height = -12
@@ -384,12 +381,57 @@ object frm_inicio: Tfrm_inicio
         ToolBarStyler = AdvToolBarOfficeStyler1
         ParentOptionPicture = True
         ToolBarIndex = 0
+        object btn_ConsultaCliente: TAdvGlowButton
+          Left = 2
+          Top = 2
+          Width = 59
+          Height = 71
+          Caption = 'Clientes'
+          FocusType = ftHot
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          Rounded = True
+          TabOrder = 0
+          OnClick = btn_ConsultaClienteClick
+          Appearance.BorderColor = 14727579
+          Appearance.BorderColorHot = 10079963
+          Appearance.BorderColorDown = 4548219
+          Appearance.BorderColorChecked = 4548219
+          Appearance.Color = 15653832
+          Appearance.ColorTo = 16178633
+          Appearance.ColorChecked = 11918331
+          Appearance.ColorCheckedTo = 7915518
+          Appearance.ColorDisabled = 15921906
+          Appearance.ColorDisabledTo = 15921906
+          Appearance.ColorDown = 7778289
+          Appearance.ColorDownTo = 4296947
+          Appearance.ColorHot = 15465983
+          Appearance.ColorHotTo = 11332863
+          Appearance.ColorMirror = 15586496
+          Appearance.ColorMirrorTo = 16245200
+          Appearance.ColorMirrorHot = 5888767
+          Appearance.ColorMirrorHotTo = 10807807
+          Appearance.ColorMirrorDown = 946929
+          Appearance.ColorMirrorDownTo = 5021693
+          Appearance.ColorMirrorChecked = 10480637
+          Appearance.ColorMirrorCheckedTo = 5682430
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
+          Appearance.GradientHot = ggVertical
+          Appearance.GradientMirrorHot = ggVertical
+          Appearance.GradientDown = ggVertical
+          Appearance.GradientMirrorDown = ggVertical
+          Appearance.GradientChecked = ggVertical
+        end
       end
     end
     object AdvPage3: TAdvPage
       Left = 4
       Top = 52
-      Width = 673
+      Width = 754
       Height = 92
       Caption = 'Configura'#231#245'es'
       object AdvToolBar5: TAdvToolBar
@@ -397,7 +439,6 @@ object frm_inicio: Tfrm_inicio
         Top = 3
         Width = 120
         Height = 86
-        UIStyle = tsOffice2019White
         AllowFloating = True
         AutoSize = False
         Caption = 'Untitled'
@@ -459,8 +500,8 @@ object frm_inicio: Tfrm_inicio
   end
   object AdvOfficeStatusBar1: TAdvOfficeStatusBar
     Left = 0
-    Top = 587
-    Width = 681
+    Top = 439
+    Width = 762
     Height = 19
     AnchorHint = False
     Font.Charset = DEFAULT_CHARSET
@@ -570,6 +611,8 @@ object frm_inicio: Tfrm_inicio
     Styler = AdvOfficeStatusBarOfficeStyler1
     UseSystemFont = False
     Version = '1.7.3.4'
+    ExplicitTop = 438
+    ExplicitWidth = 758
   end
   object AdvToolBarOfficeStyler1: TAdvToolBarOfficeStyler
     AppColor.AppButtonColor = 14851584
@@ -871,44 +914,44 @@ object frm_inicio: Tfrm_inicio
   end
   object AdvOfficeStatusBarOfficeStyler1: TAdvOfficeStatusBarOfficeStyler
     Style = psOffice2007Luna
-    BorderColor = 11566422
+    BorderColor = 15987699
     PanelAppearanceLight.BorderColor = clNone
-    PanelAppearanceLight.BorderColorHot = 10079963
-    PanelAppearanceLight.BorderColorDown = 4548219
-    PanelAppearanceLight.Color = 16377559
-    PanelAppearanceLight.ColorTo = 16309447
-    PanelAppearanceLight.ColorHot = 16515071
-    PanelAppearanceLight.ColorHotTo = 12644607
-    PanelAppearanceLight.ColorDown = 7845111
-    PanelAppearanceLight.ColorDownTo = 4561657
-    PanelAppearanceLight.ColorMirror = 16109747
-    PanelAppearanceLight.ColorMirrorTo = 16244941
-    PanelAppearanceLight.ColorMirrorHot = 7067903
-    PanelAppearanceLight.ColorMirrorHotTo = 10544892
-    PanelAppearanceLight.ColorMirrorDown = 1671928
-    PanelAppearanceLight.ColorMirrorDownTo = 241407
-    PanelAppearanceLight.TextColor = 6365193
+    PanelAppearanceLight.BorderColorHot = 13421772
+    PanelAppearanceLight.BorderColorDown = 9803157
+    PanelAppearanceLight.Color = clWhite
+    PanelAppearanceLight.ColorTo = clWhite
+    PanelAppearanceLight.ColorHot = 13421772
+    PanelAppearanceLight.ColorHotTo = 13421772
+    PanelAppearanceLight.ColorDown = 9803157
+    PanelAppearanceLight.ColorDownTo = 9803157
+    PanelAppearanceLight.ColorMirror = clWhite
+    PanelAppearanceLight.ColorMirrorTo = clWhite
+    PanelAppearanceLight.ColorMirrorHot = 13421772
+    PanelAppearanceLight.ColorMirrorHotTo = 13421772
+    PanelAppearanceLight.ColorMirrorDown = 9803157
+    PanelAppearanceLight.ColorMirrorDownTo = 9803157
+    PanelAppearanceLight.TextColor = clBlack
     PanelAppearanceLight.TextColorHot = clBlack
     PanelAppearanceLight.TextColorDown = clBlack
     PanelAppearanceLight.TextStyle = []
     PanelAppearanceDark.BorderColor = clNone
-    PanelAppearanceDark.BorderColorHot = 10079963
-    PanelAppearanceDark.BorderColorDown = 4548219
-    PanelAppearanceDark.Color = 16309445
-    PanelAppearanceDark.ColorTo = 16103047
-    PanelAppearanceDark.ColorHot = 16515071
-    PanelAppearanceDark.ColorHotTo = 12644607
-    PanelAppearanceDark.ColorDown = 7845111
-    PanelAppearanceDark.ColorDownTo = 4561657
-    PanelAppearanceDark.ColorMirror = 15382160
-    PanelAppearanceDark.ColorMirrorTo = 12752244
-    PanelAppearanceDark.ColorMirrorHot = 7067903
-    PanelAppearanceDark.ColorMirrorHotTo = 10544892
-    PanelAppearanceDark.ColorMirrorDown = 1671928
-    PanelAppearanceDark.ColorMirrorDownTo = 241407
-    PanelAppearanceDark.TextColor = 6365193
-    PanelAppearanceDark.TextColorHot = 6365193
-    PanelAppearanceDark.TextColorDown = 6365193
+    PanelAppearanceDark.BorderColorHot = 13421772
+    PanelAppearanceDark.BorderColorDown = 9803157
+    PanelAppearanceDark.Color = clWhite
+    PanelAppearanceDark.ColorTo = clWhite
+    PanelAppearanceDark.ColorHot = 13421772
+    PanelAppearanceDark.ColorHotTo = 13421772
+    PanelAppearanceDark.ColorDown = 9803157
+    PanelAppearanceDark.ColorDownTo = 9803157
+    PanelAppearanceDark.ColorMirror = clWhite
+    PanelAppearanceDark.ColorMirrorTo = clWhite
+    PanelAppearanceDark.ColorMirrorHot = 13421772
+    PanelAppearanceDark.ColorMirrorHotTo = 13421772
+    PanelAppearanceDark.ColorMirrorDown = 9803157
+    PanelAppearanceDark.ColorMirrorDownTo = 9803157
+    PanelAppearanceDark.TextColor = clBlack
+    PanelAppearanceDark.TextColorHot = clBlack
+    PanelAppearanceDark.TextColorDown = clBlack
     PanelAppearanceDark.TextStyle = []
     Left = 592
     Top = 240
