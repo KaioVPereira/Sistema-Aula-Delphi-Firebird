@@ -2,8 +2,8 @@ object frm_inicio: Tfrm_inicio
   Left = 0
   Top = 0
   Caption = 'In'#237'cio'
-  ClientHeight = 311
-  ClientWidth = 616
+  ClientHeight = 310
+  ClientWidth = 612
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
