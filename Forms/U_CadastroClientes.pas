@@ -64,6 +64,7 @@ type
     procedure btn_novoClick(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Cbox_EstadoExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -122,8 +123,9 @@ begin
   LookUp.FD_qryEstados.Open();
   LookUp.FD_qryEstados.FetchAll;
 
-  LookUp.FD_qryCidades.Open();
-  LookUp.FD_qryCidades.FetchAll;
+  //LookUp.FD_qryCidades.Open();
+  //LookUp.FD_qryCidades.FetchAll;
+
   //txt_controle.Enabled     := true;
   txt_razao.Enabled        := true;
   txt_fantasia.Enabled     := true;
@@ -142,6 +144,20 @@ begin
 
 end;
 
+procedure Tfrm_CadClientes.Cbox_EstadoExit(Sender: TObject);
+begin
+
+  inherited;
+  LookUp.FD_qryCidades.Close;
+  LookUp.FD_qryCidades.SQL.clear;
+  LookUp.FD_qryCidades.SQL.Add('SELECT * FROM CIDADE WHERE UF ='+ QuotedStr(Cbox_Estado.Text));
+
+  LookUp.FD_qryCidades.Open();
+  LookUp.FD_qryCidades.FetchAll;
+
+
+end;
+
 procedure Tfrm_CadClientes.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -156,12 +172,12 @@ end;
 procedure Tfrm_CadClientes.FormShow(Sender: TObject);
 begin
   inherited;
-  LookUp.FD_qryEstados.Open();
-  LookUp.FD_qryEstados.FetchAll;
+  //LookUp.FD_qryEstados.Open();
+  //LookUp.FD_qryEstados.FetchAll;
 
-  LookUp.FD_qryCidades.Open();
-  LookUp.FD_qryCidades.FetchAll;
-  //LookUp.FD_qryCidades.
+  //LookUp.FD_qryCidades.Open();
+  //LookUp.FD_qryCidades.FetchAll;
+
 
   txt_controle.Enabled     := false;
   txt_razao.Enabled        := false;

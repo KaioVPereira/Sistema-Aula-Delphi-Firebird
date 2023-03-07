@@ -260,8 +260,9 @@ inherited frm_CadClientes: Tfrm_CadClientes
     DataSource = ds_cadastros
     KeyField = 'CONTROLE_ESTADO'
     ListField = 'UF'
-    ListSource = LookUp.ds_cidades
+    ListSource = LookUp.ds_estados
     TabOrder = 14
+    OnExit = Cbox_EstadoExit
   end
   object cbox_cidades: TDBLookupComboBox [30]
     Left = 388
@@ -270,7 +271,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     Height = 23
     DataField = 'CONTROLE_CIDADE'
     DataSource = ds_cadastros
-    KeyField = 'CONTROLE_CIDADE'
+    KeyField = 'CONTROLE_ESTADO'
     ListField = 'NOME'
     ListSource = LookUp.ds_cidades
     TabOrder = 15

@@ -6,13 +6,13 @@ object LookUp: TLookUp
     Transaction = FD_TransactionLookup
     SQL.Strings = (
       'SELECT * FROM ESTADO')
-    Left = 592
-    Top = 392
+    Left = 584
+    Top = 448
   end
   object ds_estados: TDataSource
     DataSet = FD_qryEstados
-    Left = 592
-    Top = 440
+    Left = 584
+    Top = 392
   end
   object FD_TransactionLookup: TFDTransaction
     Connection = dm_Dados.fd_Connection
@@ -23,7 +23,7 @@ object LookUp: TLookUp
     SQL.Strings = (
       'SELECT * FROM CIDADE')
     Left = 488
-    Top = 440
+    Top = 448
   end
   object ds_cidades: TDataSource
     DataSet = FD_qryCidades
