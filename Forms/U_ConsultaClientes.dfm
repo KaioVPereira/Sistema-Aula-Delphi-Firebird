@@ -1,16 +1,29 @@
 inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
   Caption = 'Consulta Clientes'
-  WindowState = wsMaximized
+  ClientHeight = 419
+  ClientWidth = 800
+  ExplicitTop = -28
+  ExplicitWidth = 812
   TextHeight = 15
   inherited Panel1: TPanel
+    Width = 800
+    Height = 65
+    ExplicitWidth = 1026
+    ExplicitHeight = 65
     inherited txt_consultar: TEdit
+      Left = 120
+      Top = 18
       Width = 209
+      ExplicitLeft = 120
+      ExplicitTop = 18
       ExplicitWidth = 209
     end
     inherited btn_consultar: TButton
-      Left = 223
+      Left = 351
+      Top = 17
       OnClick = btn_consultarClick
-      ExplicitLeft = 223
+      ExplicitLeft = 351
+      ExplicitTop = 17
     end
     inherited cboc_filtro: TComboBox
       Text = ''
@@ -29,11 +42,12 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
   end
   object DBGrid1: TDBGrid [1]
     Left = 0
-    Top = 97
-    Width = 1026
-    Height = 322
+    Top = 65
+    Width = 800
+    Height = 354
     Align = alClient
     DataSource = DS_Consultas
+    ReadOnly = True
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText

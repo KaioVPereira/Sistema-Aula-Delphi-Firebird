@@ -150,7 +150,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     TabOrder = 2
   end
   object txt_fantasia: TDBEdit [18]
-    Left = 362
+    Left = 371
     Top = 68
     Width = 200
     Height = 23
@@ -252,7 +252,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     TabOrder = 13
   end
   object Cbox_Estado: TDBLookupComboBox [29]
-    Left = 320
+    Left = 319
     Top = 218
     Width = 44
     Height = 23

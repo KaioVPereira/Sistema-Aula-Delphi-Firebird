@@ -45,10 +45,58 @@ begin
   FD_qryConsultas.SQL.Add( 'WHERE 1 = 1');
 
 
-  if Trim(txt_consultar.text) <>'' then
+  if cboc_filtro.text = 'NOME' then
   begin
     FD_qryConsultas.sql.add ('AND UPPER (TRIM (NOME)) LIKE ' + QuotedStr('%'+ UpperCase(Trim(txt_consultar.text))+'%'))
+  end
+
+  else if cboc_filtro.Text = 'CNPJ/CPF' then
+  begin
+    FD_qryConsultas.sql.add ('AND CPF_CNPJ = ' + txt_consultar.text)
+  end
+
+  else if (cboc_filtro.Text = 'CODIGO') and (txt_consultar.Text <> '') then
+  begin
+    FD_qryConsultas.sql.add ('AND CONTROLE_CLIENTES = ' + txt_consultar.Text)
+  end
+
+  else if (cboc_filtro.Text = 'RAZÃO SOCIAL') and (txt_consultar.Text <> '') then
+  begin
+    FD_qryConsultas.sql.add ('AND UPPER (TRIM (RAZAO_SOCIAL)) LIKE ' + QuotedStr('%'+ UpperCase(Trim(txt_consultar.text))+'%'))
+  end
+
+  else if (cboc_filtro.Text = 'TIPO DE PESSOA') and (txt_consultar.Text <> '') then
+  begin
+    FD_qryConsultas.sql.add ('AND UPPER (TRIM (TIPO_FJ)) LIKE ' + QuotedStr('%'+ UpperCase(Trim(txt_consultar.text))+'%'))
+  end
+
+  else if (cboc_filtro.Text = 'E-MAIL') and (txt_consultar.Text <> '') then
+  begin
+    FD_qryConsultas.sql.add ('AND UPPER (TRIM (EMAIL)) LIKE ' + QuotedStr('%'+ UpperCase(Trim(txt_consultar.text))+'%'))
+  end
+
+  else if (cboc_filtro.Text = 'BAIRRO') and (txt_consultar.Text <> '') then
+  begin
+    FD_qryConsultas.sql.add ('AND UPPER (TRIM (BAIRRO)) LIKE ' + QuotedStr('%'+ UpperCase(Trim(txt_consultar.text))+'%'))
+  end
+
+  else if (cboc_filtro.Text = 'CIDADE') and (txt_consultar.Text <> '') then
+  begin
+    FD_qryConsultas.sql.add ('AND UPPER (TRIM (NOME_CIDADE)) LIKE ' + QuotedStr('%'+ UpperCase(Trim(txt_consultar.text))+'%'))
+  end
+
+  else if (cboc_filtro.Text = 'UF') and (txt_consultar.Text <> '') then
+  begin
+    FD_qryConsultas.sql.add ('AND UPPER (TRIM (UF)) = ' + QuotedStr(UpperCase(Trim(txt_consultar.text))))
+  end
+
+   else if (cboc_filtro.Text = 'RG') and (txt_consultar.Text <> '') then
+  begin
+    FD_qryConsultas.sql.add ('AND IE_RG =' + txt_consultar.text)
   end;
+
+
+    ;
 
   FD_qryConsultas.Open();
   FD_qryConsultas.FetchAll;

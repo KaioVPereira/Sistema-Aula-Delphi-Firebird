@@ -1,4 +1,0 @@
-inherited frm_MainConsultas3: Tfrm_MainConsultas3
-  Caption = 'frm_MainConsultas3'
-  TextHeight = 15
-end
