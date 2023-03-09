@@ -30,10 +30,13 @@ type
     AdvToolBarSeparator1: TAdvToolBarSeparator;
     AdvToolBarSeparator2: TAdvToolBarSeparator;
     btn_ConsultaCliente: TAdvGlowButton;
+    AdvToolBarSeparator3: TAdvToolBarSeparator;
+    btn_fornecedor: TAdvGlowButton;
     procedure btn_CadastroClienteClick(Sender: TObject);
     procedure btn_CadastroCidadesClick(Sender: TObject);
     procedure btn_CadastroEstadosClick(Sender: TObject);
     procedure btn_ConsultaClienteClick(Sender: TObject);
+    procedure btn_fornecedorClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -48,6 +51,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses U_CadastrosFornecedores;
 
 
 procedure Tfrm_inicio.btn_CadastroCidadesClick(Sender: TObject);
@@ -88,6 +93,16 @@ begin
     frm_ConsultaClientes.show;
   finally
 
+  end;
+end;
+
+procedure Tfrm_inicio.btn_fornecedorClick(Sender: TObject);
+begin
+  frm_CadastrosFornecedores := Tfrm_CadastrosFornecedores.Create(self);
+  try
+    frm_CadastrosFornecedores.Showmodal;
+  finally
+    FreeAndNil(frm_CadastrosFornecedores);
   end;
 end;
 

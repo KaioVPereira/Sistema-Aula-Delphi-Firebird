@@ -3,6 +3,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
   ClientWidth = 791
   OnShow = FormShow
   ExplicitWidth = 803
+  ExplicitHeight = 333
   TextHeight = 15
   object lb_controle: TLabel [0]
     Left = 8
@@ -165,7 +166,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     Height = 23
     DataField = 'CPF_CNPJ'
     DataSource = ds_cadastros
-    TabOrder = 4
+    TabOrder = 5
   end
   object cbbox_tipopessoa: TDBComboBox [20]
     Left = 577
@@ -177,7 +178,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     Items.Strings = (
       'F'
       'J')
-    TabOrder = 5
+    TabOrder = 4
   end
   object txt_nome: TDBEdit [21]
     Left = 8

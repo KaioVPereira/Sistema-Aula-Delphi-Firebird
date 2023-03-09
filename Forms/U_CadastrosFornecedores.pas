@@ -26,7 +26,7 @@ uses
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVisualStudio2013Blue,
   dxSkinVisualStudio2013Dark, dxSkinVisualStudio2013Light, dxSkinVS2010,
   dxSkinWhiteprint, dxSkinXmas2008Blue, cxDBEdit, cxTextEdit, cxMaskEdit,
-  cxSpinEdit;
+  cxSpinEdit, Vcl.DBCtrls, Vcl.Mask;
 
 type
   Tfrm_CadastrosFornecedores = class(Tfrm_Principal)
@@ -42,26 +42,27 @@ type
     fd_QueryCadastroCONTROLE_ESTADO: TIntegerField;
     fd_QueryCadastroEMAIL: TStringField;
     Label1: TLabel;
-    cxDBSpinEdit1: TcxDBSpinEdit;
     Label2: TLabel;
-    cxDBTextEdit1: TcxDBTextEdit;
     Label3: TLabel;
-    cxDBTextEdit2: TcxDBTextEdit;
     Label4: TLabel;
-    cxDBTextEdit3: TcxDBTextEdit;
     Label5: TLabel;
-    cxDBTextEdit4: TcxDBTextEdit;
     Label6: TLabel;
-    cxDBTextEdit5: TcxDBTextEdit;
     Label7: TLabel;
-    cxDBTextEdit6: TcxDBTextEdit;
     fd_QueryCadastroUF: TStringField;
     Label8: TLabel;
-    cxDBTextEdit7: TcxDBTextEdit;
     Label9: TLabel;
-    cxDBTextEdit8: TcxDBTextEdit;
     Label10: TLabel;
-    cxDBTextEdit9: TcxDBTextEdit;
+    cbox_UF: TDBLookupComboBox;
+    cbox_Cidade: TDBLookupComboBox;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    procedure cbox_UFExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -74,5 +75,18 @@ var
 implementation
 
 {$R *.dfm}
+
+uses U_LookUp;
+
+procedure Tfrm_CadastrosFornecedores.cbox_UFExit(Sender: TObject);
+begin
+  inherited;
+  LookUp.FD_qryCidades.Close;
+  LookUp.FD_qryCidades.SQL.clear;
+  LookUp.FD_qryCidades.SQL.Add('SELECT * FROM CIDADE WHERE UF ='+ QuotedStr(cbox_UF.Text));
+
+  LookUp.FD_qryCidades.Open();
+  LookUp.FD_qryCidades.FetchAll;
+end;
 
 end.
