@@ -103,6 +103,7 @@ begin
   cbbox_tipopessoa.Enabled := false;
   Cbox_Estado.Enabled      := false;
   cbox_cidades.Enabled     := false;
+  btn_novo.Enabled         := True;
 
   txt_controle.Clear;
   txt_controle.Clear;
@@ -117,7 +118,6 @@ begin
   txt_complemento.Clear;
   txt_numero.Clear;
   txt_ierg.Clear;
-  //cbbox_tipopessoa.Clear;
 end;
 
 procedure Tfrm_CadClientes.btn_novoClick(Sender: TObject);
@@ -142,6 +142,7 @@ begin
   cbbox_tipopessoa.Enabled := true;
   Cbox_Estado.Enabled      := true;
   cbox_cidades.Enabled     := true;
+  btn_novo.Enabled         := False;
 
 end;
 

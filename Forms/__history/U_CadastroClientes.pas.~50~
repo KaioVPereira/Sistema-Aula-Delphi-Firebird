@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Mask;
+  Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Mask, U_constantes;
 
 type
   Tfrm_CadClientes = class(Tfrm_Principal)
@@ -66,9 +66,12 @@ type
     procedure FormShow(Sender: TObject);
     procedure Cbox_EstadoExit(Sender: TObject);
   private
+    Fmodo: TModoAbertura;
     { Private declarations }
   public
-    { Public declarations }
+
+  property modo: TModoAbertura read Fmodo write Fmodo;
+
   end;
 
 var
@@ -120,13 +123,11 @@ end;
 procedure Tfrm_CadClientes.btn_novoClick(Sender: TObject);
 begin
   inherited;
+
   LookUp.FD_qryEstados.Open();
   LookUp.FD_qryEstados.FetchAll;
 
-  //LookUp.FD_qryCidades.Open();
-  //LookUp.FD_qryCidades.FetchAll;
 
-  //txt_controle.Enabled     := true;
   txt_razao.Enabled        := true;
   txt_fantasia.Enabled     := true;
   txt_CNPJCPF.Enabled      := true;
@@ -161,17 +162,14 @@ end;
 procedure Tfrm_CadClientes.FormCreate(Sender: TObject);
 begin
   inherited;
-
-
-
-  //cbbox_tipopessoa.Clear;
-
+  Fmodo := maInicial;
 
 end;
 
 procedure Tfrm_CadClientes.FormShow(Sender: TObject);
 begin
   inherited;
+
   //LookUp.FD_qryEstados.Open();
   //LookUp.FD_qryEstados.FetchAll;
 
@@ -195,19 +193,25 @@ begin
   Cbox_Estado.Enabled      := false;
   cbox_cidades.Enabled     := false;
 
-  txt_controle.Clear;
-  txt_controle.Clear;
-  txt_razao.Clear;
-  txt_fantasia.Clear;
-  txt_CNPJCPF.Clear;
-  txt_nome.Clear;
-  txt_email.Clear;
-  txt_site.Clear;
-  txt_endereco.Clear;
-  txt_bairro.Clear;
-  txt_complemento.Clear;
-  txt_numero.Clear;
-  txt_ierg.Clear;
+  if Fmodo = maInicial then
+    Begin
+    txt_controle.Clear;
+    txt_controle.Clear;
+    txt_razao.Clear;
+    txt_fantasia.Clear;
+    txt_CNPJCPF.Clear;
+    txt_nome.Clear;
+    txt_email.Clear;
+    txt_site.Clear;
+    txt_endereco.Clear;
+    txt_bairro.Clear;
+    txt_complemento.Clear;
+    txt_numero.Clear;
+    txt_ierg.Clear
+    End;
+
+  if Fmodo = maInclusao then
+  btn_novoClick(Sender);
 
 end;
 
