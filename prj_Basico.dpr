@@ -13,7 +13,8 @@ uses
   U_Inicio in 'Forms\U_Inicio.pas' {frm_inicio},
   U_FormMainConsultas in 'Forms\U_FormMainConsultas.pas' {frm_MainConsultas},
   U_ConsultaClientes in 'Forms\U_ConsultaClientes.pas' {frm_ConsultaClientes},
-  U_constantes in 'Classes\U_constantes.pas';
+  U_constantes in 'Classes\U_constantes.pas',
+  U_CadastrosFornecedores in 'Forms\U_CadastrosFornecedores.pas' {frm_CadastrosFornecedores};
 
 {$R *.res}
 
@@ -24,5 +25,6 @@ begin
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
   Application.CreateForm(Tdm_Dados, dm_Dados);
   Application.CreateForm(TLookUp, LookUp);
+  Application.CreateForm(Tfrm_CadastrosFornecedores, frm_CadastrosFornecedores);
   Application.Run;
 end.

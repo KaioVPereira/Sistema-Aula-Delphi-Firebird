@@ -148,6 +148,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\U_constantes.pas"/>
+        <DCCReference Include="Forms\U_CadastrosFornecedores.pas">
+            <Form>frm_CadastrosFornecedores</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
