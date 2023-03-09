@@ -147,6 +147,7 @@
             <Form>frm_ConsultaClientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Classes\U_constantes.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

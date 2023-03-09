@@ -2,13 +2,15 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
   Caption = 'Consulta Clientes'
   ClientHeight = 419
   ClientWidth = 800
-  ExplicitTop = -28
+  FormStyle = fsMDIChild
+  Visible = True
+  WindowState = wsMaximized
   ExplicitWidth = 812
   TextHeight = 15
   inherited Panel1: TPanel
     Width = 800
     Height = 65
-    ExplicitWidth = 1026
+    ExplicitWidth = 796
     ExplicitHeight = 65
     inherited txt_consultar: TEdit
       Left = 120
@@ -39,6 +41,44 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
         'UF'
         'RG')
     end
+    object btn_incluir: TButton
+      Left = 504
+      Top = 17
+      Width = 75
+      Height = 25
+      Caption = 'Incluir'
+      TabOrder = 3
+      OnClick = btn_incluirClick
+    end
+    object btn_visualizar: TButton
+      Left = 585
+      Top = 17
+      Width = 75
+      Height = 25
+      Caption = 'Visualizar'
+      TabOrder = 4
+      OnClick = btn_visualizarClick
+    end
+    object Panel2: TPanel
+      Left = 680
+      Top = 1
+      Width = 119
+      Height = 63
+      Align = alRight
+      BevelOuter = bvNone
+      Caption = 'Panel2'
+      TabOrder = 5
+      ExplicitLeft = 676
+      object btn_sair: TButton
+        Left = 24
+        Top = 16
+        Width = 75
+        Height = 25
+        Caption = 'Sair'
+        TabOrder = 0
+        OnClick = btn_sairClick
+      end
+    end
   end
   object DBGrid1: TDBGrid [1]
     Left = 0
@@ -65,12 +105,14 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
         Expanded = False
         FieldName = 'NOME'
         Title.Caption = 'Nome'
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CPF_CNPJ'
         Title.Caption = 'CPF/CNPJ'
+        Width = 64
         Visible = True
       end
       item
@@ -83,46 +125,139 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
         Expanded = False
         FieldName = 'EMAIL'
         Title.Caption = 'E-mail'
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'BAIRRO'
         Title.Caption = 'Bairro'
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'ENDERECO'
         Title.Caption = 'Endere'#231'o'
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'NUMERO'
         Title.Caption = 'N'#250'mero'
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'NOME_CIDADE'
         Title.Caption = 'Cidade'
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'UF'
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'IE_RG'
         Title.Caption = 'RG/IE'
+        Width = 64
         Visible = True
       end>
   end
   inherited FD_qryConsultas: TFDQuery
     SQL.Strings = (
       'SELECT * FROM CLIENTES')
+    object FD_qryConsultasCONTROLE_CLIENTES: TIntegerField
+      FieldName = 'CONTROLE_CLIENTES'
+      Origin = 'CONTROLE_CLIENTES'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object FD_qryConsultasRAZAO_SOCIAL: TStringField
+      FieldName = 'RAZAO_SOCIAL'
+      Origin = 'RAZAO_SOCIAL'
+      Size = 80
+    end
+    object FD_qryConsultasFANTASIA: TStringField
+      FieldName = 'FANTASIA'
+      Origin = 'FANTASIA'
+      Size = 80
+    end
+    object FD_qryConsultasCPF_CNPJ: TStringField
+      FieldName = 'CPF_CNPJ'
+      Origin = 'CPF_CNPJ'
+    end
+    object FD_qryConsultasTIPO_FJ: TStringField
+      FieldName = 'TIPO_FJ'
+      Origin = 'TIPO_FJ'
+      Size = 1
+    end
+    object FD_qryConsultasNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 80
+    end
+    object FD_qryConsultasEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      Size = 255
+    end
+    object FD_qryConsultasSITE: TStringField
+      FieldName = 'SITE'
+      Origin = 'SITE'
+      Size = 255
+    end
+    object FD_qryConsultasBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Origin = 'BAIRRO'
+      Size = 50
+    end
+    object FD_qryConsultasENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Origin = 'ENDERECO'
+      Size = 255
+    end
+    object FD_qryConsultasCOMPLEMENTO: TStringField
+      FieldName = 'COMPLEMENTO'
+      Origin = 'COMPLEMENTO'
+      Size = 255
+    end
+    object FD_qryConsultasNUMERO: TStringField
+      FieldName = 'NUMERO'
+      Origin = 'NUMERO'
+    end
+    object FD_qryConsultasIE_RG: TStringField
+      FieldName = 'IE_RG'
+      Origin = 'IE_RG'
+      Size = 30
+    end
+    object FD_qryConsultasDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
+    object FD_qryConsultasCONTROLE_CIDADE: TIntegerField
+      FieldName = 'CONTROLE_CIDADE'
+      Origin = 'CONTROLE_CIDADE'
+    end
+    object FD_qryConsultasCONTROLE_ESTADO: TIntegerField
+      FieldName = 'CONTROLE_ESTADO'
+      Origin = 'CONTROLE_ESTADO'
+    end
+    object FD_qryConsultasNOME_CIDADE: TStringField
+      FieldName = 'NOME_CIDADE'
+      Origin = 'NOME_CIDADE'
+      Size = 60
+    end
+    object FD_qryConsultasUF: TStringField
+      FieldName = 'UF'
+      Origin = 'UF'
+      Size = 2
+    end
   end
 end

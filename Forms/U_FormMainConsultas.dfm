@@ -19,7 +19,7 @@ object frm_MainConsultas: Tfrm_MainConsultas
     Height = 97
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 1022
+    ExplicitLeft = 8
     object txt_consultar: TEdit
       Left = 8
       Top = 48

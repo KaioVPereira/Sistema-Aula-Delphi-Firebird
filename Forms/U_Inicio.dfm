@@ -2,14 +2,15 @@ object frm_inicio: Tfrm_inicio
   Left = 250
   Top = 200
   Caption = 'Inicio'
-  ClientHeight = 456
-  ClientWidth = 754
+  ClientHeight = 453
+  ClientWidth = 742
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsMDIForm
   Icon.Data = {
     0000010001001010100000000000280100001600000028000000100000002000
     00000100040000000000C0000000000000000000000000000000000000000000
@@ -27,7 +28,7 @@ object frm_inicio: Tfrm_inicio
   object AdvToolBarPager1: TAdvToolBarPager
     Left = 0
     Top = 0
-    Width = 754
+    Width = 742
     Height = 149
     ActivePage = AdvPage1
     Caption.Caption = 'Sistema ERP'
@@ -126,7 +127,7 @@ object frm_inicio: Tfrm_inicio
     object AdvPage1: TAdvPage
       Left = 4
       Top = 52
-      Width = 746
+      Width = 734
       Height = 92
       Caption = 'Cadastros'
       object AdvToolBar1: TAdvToolBar
@@ -354,7 +355,7 @@ object frm_inicio: Tfrm_inicio
     object AdvPage2: TAdvPage
       Left = 4
       Top = 52
-      Width = 746
+      Width = 734
       Height = 92
       Caption = 'Consultas'
       object AdvToolBar4: TAdvToolBar
@@ -430,7 +431,7 @@ object frm_inicio: Tfrm_inicio
     object AdvPage3: TAdvPage
       Left = 4
       Top = 52
-      Width = 746
+      Width = 734
       Height = 92
       Caption = 'Configura'#231#245'es'
       object AdvToolBar5: TAdvToolBar
@@ -499,8 +500,8 @@ object frm_inicio: Tfrm_inicio
   end
   object AdvOfficeStatusBar1: TAdvOfficeStatusBar
     Left = 0
-    Top = 437
-    Width = 754
+    Top = 434
+    Width = 742
     Height = 19
     AnchorHint = False
     Font.Charset = DEFAULT_CHARSET

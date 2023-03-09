@@ -12,7 +12,8 @@ uses
   U_LookUp in 'Shared\U_LookUp.pas' {LookUp: TDataModule},
   U_Inicio in 'Forms\U_Inicio.pas' {frm_inicio},
   U_FormMainConsultas in 'Forms\U_FormMainConsultas.pas' {frm_MainConsultas},
-  U_ConsultaClientes in 'Forms\U_ConsultaClientes.pas' {frm_ConsultaClientes};
+  U_ConsultaClientes in 'Forms\U_ConsultaClientes.pas' {frm_ConsultaClientes},
+  U_constantes in 'Classes\U_constantes.pas';
 
 {$R *.res}
 
