@@ -35,13 +35,15 @@ type
     FD_qryConsultasCONTROLE_ESTADO: TIntegerField;
     FD_qryConsultasNOME_CIDADE: TStringField;
     FD_qryConsultasUF: TStringField;
+    btn_alterar: TButton;
     procedure btn_consultarClick(Sender: TObject);
     procedure btn_sairClick(Sender: TObject);
     procedure btn_incluirClick(Sender: TObject);
     procedure btn_visualizarClick(Sender: TObject);
+    procedure btn_alterarClick(Sender: TObject);
   private
     procedure Consultar;
-
+    procedure ValidaSQLConsultar;
     { Private declarations }
   public
     { Public declarations }
@@ -57,6 +59,20 @@ implementation
 uses U_CadastroClientes;
 
 { Tfrm_ConsultaClientes }
+
+procedure Tfrm_ConsultaClientes.btn_alterarClick(Sender: TObject);
+begin
+  inherited;
+  frm_CadClientes := Tfrm_CadClientes.Create(self);
+  try
+    frm_CadClientes.modo := maEdicao;
+    frm_CadClientes.fd_QueryCadastro.Locate('CONTROLE_CLIENTES', FD_qryConsultas.FieldByName('CONTROLE_CLIENTES').AsInteger, []);
+    frm_CadClientes.Showmodal;
+  finally
+    FreeAndNil(frm_CadClientes);
+  end;
+
+end;
 
 procedure Tfrm_ConsultaClientes.btn_consultarClick(Sender: TObject);
 begin
@@ -87,6 +103,7 @@ procedure Tfrm_ConsultaClientes.btn_visualizarClick(Sender: TObject);
 begin
   inherited;
   frm_CadClientes := Tfrm_CadClientes.Create(self);
+  ValidaSQLConsultar;
   try
     frm_CadClientes.modo := maConsulta;
     frm_CadClientes.fd_QueryCadastro.Locate('CONTROLE_CLIENTES', FD_qryConsultas.FieldByName('CONTROLE_CLIENTES').AsInteger, []);
@@ -112,7 +129,7 @@ begin
 
   else if (cboc_filtro.Text = 'CNPJ/CPF') and (txt_consultar.Text <> '') then
   begin
-    FD_qryConsultas.sql.add ('AND UPPER (TRIM ( REPLACE (REPLACE (REPLACE (CPF_CNPJ, ''.'','''')),''-'',''''),''/'',''''))LIKE '+ QuotedStr('%' + UpperCase(Trim(txt_consultar.Text))+'%'))
+    FD_qryConsultas.sql.add ( 'AND UPPER (TRIM(replace (REPLACE (REPLACE(CPF_CNPJ, ''.'',''''),''-'',''''),''/'','''')))LIKE '+ QuotedStr('%' + UpperCase(Trim(txt_consultar.Text))+'%'))
   end
 
   else IF cboc_filtro.Text = 'CODIGO' THEN
@@ -160,6 +177,15 @@ begin
   FD_qryConsultas.FetchAll;
 
 
+end;
+
+procedure Tfrm_ConsultaClientes.ValidaSQLConsultar;
+begin
+  if FD_qryConsultas.IsEmpty then
+  begin
+    ShowMessage ('É necessário selecionar um cliente');
+    Abort;
+  end;
 end;
 
 end.

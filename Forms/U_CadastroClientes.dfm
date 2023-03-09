@@ -271,7 +271,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
     Height = 23
     DataField = 'CONTROLE_CIDADE'
     DataSource = ds_cadastros
-    KeyField = 'CONTROLE_ESTADO'
+    KeyField = 'CONTROLE_CIDADE'
     ListField = 'NOME'
     ListSource = LookUp.ds_cidades
     TabOrder = 15

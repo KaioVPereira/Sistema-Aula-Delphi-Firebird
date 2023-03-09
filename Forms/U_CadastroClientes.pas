@@ -143,6 +143,7 @@ begin
   Cbox_Estado.Enabled      := true;
   cbox_cidades.Enabled     := true;
   btn_novo.Enabled         := False;
+  txt_razao.SetFocus;
 
 end;
 
@@ -171,8 +172,8 @@ procedure Tfrm_CadClientes.FormShow(Sender: TObject);
 begin
   inherited;
 
-  //LookUp.FD_qryEstados.Open();
-  //LookUp.FD_qryEstados.FetchAll;
+  LookUp.FD_qryEstados.Open();
+  LookUp.FD_qryEstados.FetchAll;
 
   //LookUp.FD_qryCidades.Open();
   //LookUp.FD_qryCidades.FetchAll;
@@ -196,20 +197,40 @@ begin
 
   if Fmodo = maInicial then
     Begin
-    txt_controle.Clear;
-    txt_controle.Clear;
-    txt_razao.Clear;
-    txt_fantasia.Clear;
-    txt_CNPJCPF.Clear;
-    txt_nome.Clear;
-    txt_email.Clear;
-    txt_site.Clear;
-    txt_endereco.Clear;
-    txt_bairro.Clear;
-    txt_complemento.Clear;
-    txt_numero.Clear;
-    txt_ierg.Clear
+      txt_controle.Clear;
+      txt_controle.Clear;
+      txt_razao.Clear;
+      txt_fantasia.Clear;
+      txt_CNPJCPF.Clear;
+      txt_nome.Clear;
+      txt_email.Clear;
+      txt_site.Clear;
+      txt_endereco.Clear;
+      txt_bairro.Clear;
+      txt_complemento.Clear;
+      txt_numero.Clear;
+      txt_ierg.Clear
     End;
+
+  if Fmodo = maEdicao then
+    begin
+      txt_razao.Enabled        := true;
+      txt_fantasia.Enabled     := true;
+      txt_CNPJCPF.Enabled      := true;
+      txt_nome.Enabled         := true;
+      txt_email.Enabled        := true;
+      txt_site.Enabled         := true;
+      txt_endereco.Enabled     := true;
+      txt_bairro.Enabled       := true;
+      txt_complemento.Enabled  := true;
+      txt_numero.Enabled       := true;
+      txt_ierg.Enabled         := true;
+      cbbox_tipopessoa.Enabled := true;
+      Cbox_Estado.Enabled      := true;
+      cbox_cidades.Enabled     := true;
+      btn_novo.Enabled         := False;
+      txt_razao.SetFocus;
+    end;
 
   if Fmodo = maInclusao then
   btn_novoClick(Sender);
