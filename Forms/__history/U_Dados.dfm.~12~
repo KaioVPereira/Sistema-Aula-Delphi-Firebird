@@ -4,7 +4,9 @@ object dm_Dados: Tdm_Dados
   Width = 503
   object fd_Connection: TFDConnection
     Params.Strings = (
-      'Database=C:\SCL\Sistema-Aula-Delphi-Firebird\BANCOAULA.IB'
+      
+        'Database=C:\Users\Presence1\Documents\Embarcadero\Studio\Project' +
+        's\Sistema-Aula-Delphi-Firebird\BANCOAULA.IB'
       'User_Name=SYSDBA'
       'Protocol=TCPIP'
       'Server=127.0.0.1'

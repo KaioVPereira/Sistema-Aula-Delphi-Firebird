@@ -152,6 +152,10 @@
             <Form>frm_CadastrosFornecedores</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\U_ConsultaFornecedores.pas">
+            <Form>frm_ConsultaFornecedor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -185,7 +189,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Exe\prj_Basico.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="C:\Users\kaioV\OneDrive\Documentos\Embarcadero\Studio\Projects\Sistema-Aula-Delphi-Firebird-main\Exe\prj_Basico.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>prj_Basico.exe</RemoteName>
                         <Overwrite>true</Overwrite>

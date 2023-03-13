@@ -61,8 +61,8 @@ uses U_CadastrosFornecedores;
 procedure Tfrm_inicio.btn_ConsultaFornecedorClick(Sender: TObject);
 begin
   try
-    frm_ConsultaFornecedor := Tfrm_ConsultaFornecedor.Create(self);
-    frm_ConsultaFornecedor.show;
+    frm_ := Tfrm_ConsultaClientes.Create(self);
+    frm_ConsultaClientes.show;
   finally
 
   end;

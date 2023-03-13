@@ -1,5 +1,6 @@
 inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
   Caption = 'Consulta Clientes'
+  ClientHeight = 419
   ClientWidth = 1082
   FormStyle = fsMDIChild
   Visible = True

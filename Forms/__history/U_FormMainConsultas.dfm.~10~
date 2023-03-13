@@ -19,7 +19,7 @@ object frm_MainConsultas: Tfrm_MainConsultas
     Height = 97
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 1022
+    ExplicitLeft = 8
     object txt_consultar: TEdit
       Left = 8
       Top = 48
@@ -47,12 +47,12 @@ object frm_MainConsultas: Tfrm_MainConsultas
   object FD_qryConsultas: TFDQuery
     Connection = dm_Dados.fd_Connection
     Transaction = FD_TransactionConsultas
-    Left = 928
+    Left = 920
     Top = 176
   end
   object DS_Consultas: TDataSource
     DataSet = FD_qryConsultas
-    Left = 936
+    Left = 928
     Top = 240
   end
   object FD_TransactionConsultas: TFDTransaction

@@ -171,6 +171,7 @@ end;
 procedure Tfrm_CadClientes.FormShow(Sender: TObject);
 begin
   inherited;
+
   LookUp.FD_qryEstados.Open();
   LookUp.FD_qryEstados.FetchAll;
 

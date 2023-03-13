@@ -9,7 +9,8 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
   inherited Panel1: TPanel
     Width = 1082
     Height = 65
-    ExplicitWidth = 1078
+    ExplicitTop = -6
+    ExplicitWidth = 1082
     ExplicitHeight = 65
     inherited txt_consultar: TEdit
       Left = 120
@@ -67,7 +68,7 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
       BevelOuter = bvNone
       Caption = 'Panel2'
       TabOrder = 5
-      ExplicitLeft = 958
+      ExplicitLeft = 676
       object btn_sair: TButton
         Left = 24
         Top = 16

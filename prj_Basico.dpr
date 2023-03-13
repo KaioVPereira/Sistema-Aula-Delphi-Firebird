@@ -13,7 +13,8 @@ uses
   U_FormMainConsultas in 'Forms\U_FormMainConsultas.pas' {frm_MainConsultas},
   U_ConsultaClientes in 'Forms\U_ConsultaClientes.pas' {frm_ConsultaClientes},
   U_constantes in 'Classes\U_constantes.pas',
-  U_CadastrosFornecedores in 'Forms\U_CadastrosFornecedores.pas' {frm_CadastrosFornecedores};
+  U_CadastrosFornecedores in 'Forms\U_CadastrosFornecedores.pas' {frm_CadastrosFornecedores},
+  U_ConsultaFornecedores in 'Forms\U_ConsultaFornecedores.pas' {frm_ConsultaFornecedor};
 
 {$R *.res}
 begin

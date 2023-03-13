@@ -49,7 +49,6 @@ type
     procedure btn_novoClick(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
     procedure ValidaModoAbertura;
-    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
     Fmodo : TModoAbertura;
@@ -149,12 +148,6 @@ begin
   txt_Numero.Clear;
   txt_Email.Clear;
 
-end;
-
-procedure Tfrm_CadastrosFornecedores.FormShow(Sender: TObject);
-begin
-  inherited;
-  ValidaModoAbertura;
 end;
 
 procedure Tfrm_CadastrosFornecedores.ValidaModoAbertura;
