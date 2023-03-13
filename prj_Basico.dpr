@@ -1,5 +1,4 @@
 program prj_Basico;
-
 uses
   Vcl.Forms,
   U_FormMain in 'Forms\U_FormMain.pas' {frm_Principal},
@@ -17,7 +16,6 @@ uses
   U_CadastrosFornecedores in 'Forms\U_CadastrosFornecedores.pas' {frm_CadastrosFornecedores};
 
 {$R *.res}
-
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
@@ -25,6 +23,5 @@ begin
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
   Application.CreateForm(Tdm_Dados, dm_Dados);
   Application.CreateForm(TLookUp, LookUp);
-  Application.CreateForm(Tfrm_CadastrosFornecedores, frm_CadastrosFornecedores);
   Application.Run;
 end.
