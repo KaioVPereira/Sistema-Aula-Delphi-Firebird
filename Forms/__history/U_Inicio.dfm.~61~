@@ -2,8 +2,8 @@ object frm_inicio: Tfrm_inicio
   Left = 250
   Top = 200
   Caption = 'Inicio'
-  ClientHeight = 450
-  ClientWidth = 730
+  ClientHeight = 449
+  ClientWidth = 726
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -28,9 +28,9 @@ object frm_inicio: Tfrm_inicio
   object AdvToolBarPager1: TAdvToolBarPager
     Left = 0
     Top = 0
-    Width = 730
+    Width = 726
     Height = 149
-    ActivePage = AdvPage2
+    ActivePage = AdvPage1
     Caption.Caption = 'Sistema ERP'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]
@@ -124,11 +124,10 @@ object frm_inicio: Tfrm_inicio
       FFFFFFFFFFFDFD000000FD070707070707FDFD000000FDFDFDFDFDFDFDFDFD00
       0000}
     TabOrder = 0
-    ExplicitWidth = 726
     object AdvPage1: TAdvPage
       Left = 4
       Top = 52
-      Width = 722
+      Width = 718
       Height = 92
       Caption = 'Cadastros'
       object AdvToolBar1: TAdvToolBar
@@ -401,7 +400,7 @@ object frm_inicio: Tfrm_inicio
     object AdvPage2: TAdvPage
       Left = 4
       Top = 52
-      Width = 722
+      Width = 718
       Height = 92
       Caption = 'Consultas'
       object AdvToolBar4: TAdvToolBar
@@ -439,7 +438,7 @@ object frm_inicio: Tfrm_inicio
           Top = 2
           Width = 63
           Height = 71
-          Caption = 'Fornecedor'
+          Caption = 'Produtos'
           FocusType = ftHot
           NotesFont.Charset = DEFAULT_CHARSET
           NotesFont.Color = clWindowText
@@ -479,7 +478,7 @@ object frm_inicio: Tfrm_inicio
           Appearance.GradientMirrorDown = ggVertical
           Appearance.GradientChecked = ggVertical
         end
-        object AdvGlowButton2: TAdvGlowButton
+        object btn_ConsultaFornecedor: TAdvGlowButton
           Left = 2
           Top = 2
           Width = 63
@@ -493,7 +492,7 @@ object frm_inicio: Tfrm_inicio
           NotesFont.Style = []
           Rounded = True
           TabOrder = 1
-          OnClick = btn_ConsultaProdutosClick
+          OnClick = btn_ConsultaFornecedorClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219
@@ -598,7 +597,7 @@ object frm_inicio: Tfrm_inicio
     object AdvPage3: TAdvPage
       Left = 4
       Top = 52
-      Width = 722
+      Width = 718
       Height = 92
       Caption = 'Configura'#231#245'es'
       object AdvToolBar5: TAdvToolBar
@@ -667,8 +666,8 @@ object frm_inicio: Tfrm_inicio
   end
   object AdvOfficeStatusBar1: TAdvOfficeStatusBar
     Left = 0
-    Top = 431
-    Width = 730
+    Top = 430
+    Width = 726
     Height = 19
     AnchorHint = False
     Font.Charset = DEFAULT_CHARSET
@@ -778,8 +777,6 @@ object frm_inicio: Tfrm_inicio
     Styler = AdvOfficeStatusBarOfficeStyler1
     UseSystemFont = False
     Version = '1.7.3.4'
-    ExplicitTop = 430
-    ExplicitWidth = 726
   end
   object AdvToolBarOfficeStyler1: TAdvToolBarOfficeStyler
     AppColor.AppButtonColor = 14851584

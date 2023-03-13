@@ -30,7 +30,7 @@ object frm_inicio: Tfrm_inicio
     Top = 0
     Width = 730
     Height = 149
-    ActivePage = AdvPage2
+    ActivePage = AdvPage1
     Caption.Caption = 'Sistema ERP'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]

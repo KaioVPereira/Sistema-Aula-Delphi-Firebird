@@ -813,7 +813,7 @@ object frm_inicio: Tfrm_inicio
     CaptionAppearance.CaptionColor = 15915714
     CaptionAppearance.CaptionColorTo = 15784385
     CaptionAppearance.CaptionTextColor = 11168318
-    CaptionAppearance.CaptionBorderColor = 16181724
+    CaptionAppearance.CaptionBorderColor = clHighlight
     CaptionAppearance.CaptionColorHot = 16769224
     CaptionAppearance.CaptionColorHotTo = 16772566
     CaptionAppearance.CaptionTextColorHot = 11168318
@@ -1075,7 +1075,7 @@ object frm_inicio: Tfrm_inicio
     TabAppearance.HighLightColorDown = 16776144
     TabAppearance.BackGround.Color = 16767935
     TabAppearance.BackGround.ColorTo = clNone
-    TabAppearance.BackGround.Direction = gdHorizontal
+    TabAppearance.BackGround.Direction = gdVertical
     Left = 592
     Top = 176
   end

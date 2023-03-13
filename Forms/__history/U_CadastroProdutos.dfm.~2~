@@ -1,0 +1,324 @@
+inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
+  Caption = 'Cadastrar Produtos'
+  ClientHeight = 452
+  ClientWidth = 827
+  ExplicitWidth = 843
+  ExplicitHeight = 491
+  TextHeight = 15
+  object Label1: TLabel [0]
+    Left = 8
+    Top = 51
+    Width = 45
+    Height = 15
+    Caption = 'CODIGO'
+    FocusControl = cxDBSpinEdit1
+  end
+  object Label2: TLabel [1]
+    Left = 8
+    Top = 104
+    Width = 63
+    Height = 15
+    Caption = 'DESCRICAO'
+    FocusControl = cxDBTextEdit1
+  end
+  object Label3: TLabel [2]
+    Left = 8
+    Top = 163
+    Width = 87
+    Height = 15
+    Caption = 'DEPARTAMENTO'
+    FocusControl = cxDBSpinEdit2
+  end
+  object Label4: TLabel [3]
+    Left = 152
+    Top = 163
+    Width = 54
+    Height = 15
+    Caption = 'COLECAO'
+    FocusControl = cxDBSpinEdit3
+  end
+  object Label5: TLabel [4]
+    Left = 288
+    Top = 163
+    Width = 39
+    Height = 15
+    Caption = 'GRUPO'
+    FocusControl = cxDBSpinEdit4
+  end
+  object Label6: TLabel [5]
+    Left = 432
+    Top = 163
+    Width = 35
+    Height = 15
+    Caption = 'LINHA'
+    FocusControl = cxDBSpinEdit5
+  end
+  object Label7: TLabel [6]
+    Left = 575
+    Top = 163
+    Width = 42
+    Height = 15
+    Caption = 'MARCA'
+    FocusControl = cxDBSpinEdit6
+  end
+  object Label8: TLabel [7]
+    Left = 714
+    Top = 163
+    Width = 50
+    Height = 15
+    Caption = 'UNIDADE'
+    FocusControl = cxDBSpinEdit7
+  end
+  object Label9: TLabel [8]
+    Left = 8
+    Top = 224
+    Width = 79
+    Height = 15
+    Caption = 'PESO_LIQUIDO'
+    FocusControl = DBEdit1
+  end
+  object Label10: TLabel [9]
+    Left = 162
+    Top = 227
+    Width = 69
+    Height = 15
+    Caption = 'PESO_BRUTO'
+    FocusControl = DBEdit2
+  end
+  object Label11: TLabel [10]
+    Left = 8
+    Top = 291
+    Width = 140
+    Height = 15
+    Caption = 'CONTROLE_FORNECEDOR'
+    FocusControl = cxDBSpinEdit8
+  end
+  object Label12: TLabel [11]
+    Left = 8
+    Top = 339
+    Width = 22
+    Height = 15
+    Caption = 'QTD'
+    FocusControl = DBEdit3
+  end
+  object Label13: TLabel [12]
+    Left = 8
+    Top = 389
+    Width = 36
+    Height = 15
+    Caption = 'CUSTO'
+    FocusControl = DBEdit4
+  end
+  object Label14: TLabel [13]
+    Left = 200
+    Top = 389
+    Width = 93
+    Height = 15
+    Caption = 'VALOR_UNITARIO'
+    FocusControl = DBEdit5
+  end
+  inherited pn_cabecalho: TPanel
+    Width = 827
+    ExplicitWidth = 618
+    inherited btn_sair: TBitBtn
+      Left = 751
+      Top = 1
+      Height = 39
+      Align = alRight
+    end
+  end
+  object cxDBSpinEdit1: TcxDBSpinEdit [15]
+    Left = 8
+    Top = 64
+    DataBinding.DataField = 'CODIGO'
+    DataBinding.DataSource = ds_cadastros
+    TabOrder = 1
+    Width = 121
+  end
+  object cxDBTextEdit1: TcxDBTextEdit [16]
+    Left = 8
+    Top = 125
+    DataBinding.DataField = 'DESCRICAO'
+    DataBinding.DataSource = ds_cadastros
+    TabOrder = 2
+    Width = 497
+  end
+  object cxDBSpinEdit2: TcxDBSpinEdit [17]
+    Left = 8
+    Top = 176
+    DataBinding.DataField = 'DEPARTAMENTO'
+    DataBinding.DataSource = ds_cadastros
+    TabOrder = 3
+    Width = 121
+  end
+  object cxDBSpinEdit3: TcxDBSpinEdit [18]
+    Left = 152
+    Top = 176
+    DataBinding.DataField = 'COLECAO'
+    DataBinding.DataSource = ds_cadastros
+    TabOrder = 4
+    Width = 121
+  end
+  object cxDBSpinEdit4: TcxDBSpinEdit [19]
+    Left = 288
+    Top = 176
+    DataBinding.DataField = 'GRUPO'
+    DataBinding.DataSource = ds_cadastros
+    TabOrder = 5
+    Width = 121
+  end
+  object cxDBSpinEdit5: TcxDBSpinEdit [20]
+    Left = 432
+    Top = 176
+    DataBinding.DataField = 'LINHA'
+    DataBinding.DataSource = ds_cadastros
+    TabOrder = 6
+    Width = 121
+  end
+  object cxDBSpinEdit6: TcxDBSpinEdit [21]
+    Left = 575
+    Top = 176
+    DataBinding.DataField = 'MARCA'
+    DataBinding.DataSource = ds_cadastros
+    TabOrder = 7
+    Width = 121
+  end
+  object cxDBSpinEdit7: TcxDBSpinEdit [22]
+    Left = 714
+    Top = 176
+    DataBinding.DataField = 'UNIDADE'
+    DataBinding.DataSource = ds_cadastros
+    TabOrder = 8
+    Width = 105
+  end
+  object DBEdit1: TDBEdit [23]
+    Left = 8
+    Top = 245
+    Width = 121
+    Height = 23
+    DataField = 'PESO_LIQUIDO'
+    DataSource = ds_cadastros
+    TabOrder = 9
+  end
+  object DBEdit2: TDBEdit [24]
+    Left = 162
+    Top = 245
+    Width = 154
+    Height = 23
+    DataField = 'PESO_BRUTO'
+    DataSource = ds_cadastros
+    TabOrder = 10
+  end
+  object cxDBSpinEdit8: TcxDBSpinEdit [25]
+    Left = 8
+    Top = 304
+    DataBinding.DataField = 'CONTROLE_FORNECEDOR'
+    DataBinding.DataSource = ds_cadastros
+    TabOrder = 11
+    Width = 121
+  end
+  object DBEdit3: TDBEdit [26]
+    Left = 8
+    Top = 352
+    Width = 154
+    Height = 23
+    DataField = 'QTD'
+    DataSource = ds_cadastros
+    TabOrder = 12
+  end
+  object DBEdit4: TDBEdit [27]
+    Left = 8
+    Top = 402
+    Width = 154
+    Height = 23
+    DataField = 'CUSTO'
+    DataSource = ds_cadastros
+    TabOrder = 13
+  end
+  object DBEdit5: TDBEdit [28]
+    Left = 200
+    Top = 402
+    Width = 154
+    Height = 23
+    DataField = 'VALOR_UNITARIO'
+    DataSource = ds_cadastros
+    TabOrder = 14
+  end
+  inherited fd_QueryCadastro: TFDQuery
+    SQL.Strings = (
+      'SELECT * FROM PRODUTOS')
+    Left = 640
+    Top = 368
+    object fd_QueryCadastroCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object fd_QueryCadastroDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Size = 80
+    end
+    object fd_QueryCadastroDEPARTAMENTO: TIntegerField
+      FieldName = 'DEPARTAMENTO'
+      Origin = 'DEPARTAMENTO'
+    end
+    object fd_QueryCadastroCOLECAO: TIntegerField
+      FieldName = 'COLECAO'
+      Origin = 'COLECAO'
+    end
+    object fd_QueryCadastroGRUPO: TIntegerField
+      FieldName = 'GRUPO'
+      Origin = 'GRUPO'
+    end
+    object fd_QueryCadastroLINHA: TIntegerField
+      FieldName = 'LINHA'
+      Origin = 'LINHA'
+    end
+    object fd_QueryCadastroMARCA: TIntegerField
+      FieldName = 'MARCA'
+      Origin = 'MARCA'
+    end
+    object fd_QueryCadastroUNIDADE: TIntegerField
+      FieldName = 'UNIDADE'
+      Origin = 'UNIDADE'
+    end
+    object fd_QueryCadastroPESO_LIQUIDO: TSingleField
+      FieldName = 'PESO_LIQUIDO'
+      Origin = 'PESO_LIQUIDO'
+    end
+    object fd_QueryCadastroPESO_BRUTO: TSingleField
+      FieldName = 'PESO_BRUTO'
+      Origin = 'PESO_BRUTO'
+    end
+    object fd_QueryCadastroCONTROLE_FORNECEDOR: TIntegerField
+      FieldName = 'CONTROLE_FORNECEDOR'
+      Origin = 'CONTROLE_FORNECEDOR'
+    end
+    object fd_QueryCadastroQTD: TSingleField
+      FieldName = 'QTD'
+      Origin = 'QTD'
+    end
+    object fd_QueryCadastroCUSTO: TSingleField
+      FieldName = 'CUSTO'
+      Origin = 'CUSTO'
+    end
+    object fd_QueryCadastroVALOR_UNITARIO: TSingleField
+      FieldName = 'VALOR_UNITARIO'
+      Origin = 'VALOR_UNITARIO'
+    end
+  end
+  inherited fd_UpdCadastros: TFDUpdateSQL
+    Left = 536
+    Top = 360
+  end
+  inherited fd_transaction: TFDTransaction
+    Left = 488
+    Top = 368
+  end
+  inherited ds_cadastros: TDataSource
+    Left = 728
+    Top = 368
+  end
+end
