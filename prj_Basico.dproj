@@ -156,6 +156,10 @@
             <Form>frm_ConsultaFornecedor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\U_ConsultaProdutos.pas">
+            <Form>frm_ConsultaProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

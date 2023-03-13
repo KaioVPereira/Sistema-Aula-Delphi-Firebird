@@ -1,0 +1,114 @@
+inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
+  Caption = 'Consultar Produtos'
+  ClientHeight = 419
+  ClientWidth = 1026
+  ExplicitWidth = 1042
+  ExplicitHeight = 458
+  TextHeight = 15
+  inherited Panel1: TPanel
+    Width = 1026
+    Height = 65
+    ExplicitWidth = 1026
+    ExplicitHeight = 65
+    inherited txt_consultar: TEdit
+      Left = 95
+      Top = 14
+      ExplicitLeft = 95
+      ExplicitTop = 14
+    end
+    inherited btn_consultar: TButton
+      Left = 360
+      Top = 13
+      ExplicitLeft = 360
+      ExplicitTop = 13
+    end
+    inherited cboc_filtro: TComboBox
+      Left = 0
+      Top = 14
+      Text = ''
+      Items.Strings = (
+        'C'#211'DIGO'
+        'DESCRI'#199#195'O')
+      ExplicitLeft = 0
+      ExplicitTop = 14
+    end
+  end
+  object DBGrid1: TDBGrid [1]
+    Left = 0
+    Top = 65
+    Width = 1026
+    Height = 354
+    Align = alClient
+    DataSource = DS_Consultas
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+  end
+  inherited FD_qryConsultas: TFDQuery
+    Active = True
+    SQL.Strings = (
+      'SELECT * FROM PRODUTOS')
+    object FD_qryConsultasCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object FD_qryConsultasDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Size = 80
+    end
+    object FD_qryConsultasDEPARTAMENTO: TIntegerField
+      FieldName = 'DEPARTAMENTO'
+      Origin = 'DEPARTAMENTO'
+    end
+    object FD_qryConsultasCOLECAO: TIntegerField
+      FieldName = 'COLECAO'
+      Origin = 'COLECAO'
+    end
+    object FD_qryConsultasGRUPO: TIntegerField
+      FieldName = 'GRUPO'
+      Origin = 'GRUPO'
+    end
+    object FD_qryConsultasLINHA: TIntegerField
+      FieldName = 'LINHA'
+      Origin = 'LINHA'
+    end
+    object FD_qryConsultasMARCA: TIntegerField
+      FieldName = 'MARCA'
+      Origin = 'MARCA'
+    end
+    object FD_qryConsultasUNIDADE: TIntegerField
+      FieldName = 'UNIDADE'
+      Origin = 'UNIDADE'
+    end
+    object FD_qryConsultasPESO_LIQUIDO: TSingleField
+      FieldName = 'PESO_LIQUIDO'
+      Origin = 'PESO_LIQUIDO'
+    end
+    object FD_qryConsultasPESO_BRUTO: TSingleField
+      FieldName = 'PESO_BRUTO'
+      Origin = 'PESO_BRUTO'
+    end
+    object FD_qryConsultasCONTROLE_FORNECEDOR: TIntegerField
+      FieldName = 'CONTROLE_FORNECEDOR'
+      Origin = 'CONTROLE_FORNECEDOR'
+    end
+    object FD_qryConsultasQTD: TSingleField
+      FieldName = 'QTD'
+      Origin = 'QTD'
+    end
+    object FD_qryConsultasCUSTO: TSingleField
+      FieldName = 'CUSTO'
+      Origin = 'CUSTO'
+    end
+    object FD_qryConsultasVALOR_UNITARIO: TSingleField
+      FieldName = 'VALOR_UNITARIO'
+      Origin = 'VALOR_UNITARIO'
+    end
+  end
+end

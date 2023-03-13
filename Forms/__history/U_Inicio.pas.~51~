@@ -6,7 +6,8 @@ uses
   Dialogs, AdvToolBar, AdvToolBarStylers, AdvPreviewMenu,
   AdvPreviewMenuStylers, AdvShapeButton, AdvOfficeStatusBar,
   AdvOfficeStatusBarStylers, Unit2, AdvGlowButton, U_CadastroCidades,
-  U_CadastroClientes, U_CadastroEstados;
+  U_CadastroClientes, U_CadastroEstados, U_ConsultaClientes,
+  U_ConsultaFornecedores;
 
 type
   Tfrm_inicio = class(TAdvToolBarForm)
@@ -27,11 +28,18 @@ type
     btn_CadastroEstados: TAdvGlowButton;
     btn_CadastroCliente: TAdvGlowButton;
     btn_CadastroCidades: TAdvGlowButton;
-    AdvToolBarSeparator1: TAdvToolBarSeparator;
     AdvToolBarSeparator2: TAdvToolBarSeparator;
+    AdvToolBarSeparator3: TAdvToolBarSeparator;
+    btn_fornecedor: TAdvGlowButton;
+    AdvToolBar6: TAdvToolBar;
+    AdvGlowButton1: TAdvGlowButton;
+    btn_ConsultaFornecedor: TAdvGlowButton;
     procedure btn_CadastroClienteClick(Sender: TObject);
     procedure btn_CadastroCidadesClick(Sender: TObject);
     procedure btn_CadastroEstadosClick(Sender: TObject);
+    procedure btn_ConsultaClienteClick(Sender: TObject);
+    procedure btn_fornecedorClick(Sender: TObject);
+    procedure btn_ConsultaFornecedorClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -47,6 +55,19 @@ implementation
 
 {$R *.dfm}
 
+uses U_CadastrosFornecedores;
+
+
+procedure Tfrm_inicio.btn_ConsultaFornecedorClick(Sender: TObject);
+begin
+  try
+    frm_ConsultaFornecedor := Tfrm_ConsultaFornecedor.Create(self);
+    frm_ConsultaFornecedor.show;
+  finally
+
+  end;
+
+end;
 
 procedure Tfrm_inicio.btn_CadastroCidadesClick(Sender: TObject);
 begin
@@ -54,7 +75,7 @@ begin
   try
     frm_CadatroCidade.Showmodal;
   finally
-    FreeAndNil(frm_CadClientes);
+    FreeAndNil(frm_CadatroCidade);
   end;
 end;
 
@@ -75,7 +96,27 @@ begin
   try
     frm_CadastrosEstados.Showmodal;
   finally
-    FreeAndNil(frm_CadClientes);
+    FreeAndNil(frm_CadastrosEstados);
+  end;
+end;
+
+procedure Tfrm_inicio.btn_ConsultaClienteClick(Sender: TObject);
+begin
+  try
+    frm_ConsultaClientes := Tfrm_ConsultaClientes.Create(self);
+    frm_ConsultaClientes.show;
+  finally
+
+  end;
+end;
+
+procedure Tfrm_inicio.btn_fornecedorClick(Sender: TObject);
+begin
+  frm_CadastrosFornecedores := Tfrm_CadastrosFornecedores.Create(self);
+  try
+    frm_CadastrosFornecedores.Showmodal;
+  finally
+    FreeAndNil(frm_CadastrosFornecedores);
   end;
 end;
 

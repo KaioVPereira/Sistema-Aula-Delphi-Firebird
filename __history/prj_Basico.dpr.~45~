@@ -1,5 +1,4 @@
 program prj_Basico;
-
 uses
   Vcl.Forms,
   U_FormMain in 'Forms\U_FormMain.pas' {frm_Principal},
@@ -11,10 +10,13 @@ uses
   U_CadastroCidades in 'U_CadastroCidades.pas' {frm_CadatroCidade},
   U_LookUp in 'Shared\U_LookUp.pas' {LookUp: TDataModule},
   U_Inicio in 'Forms\U_Inicio.pas' {frm_inicio},
-  U_FormMainConsultas in 'Forms\U_FormMainConsultas.pas' {frm_MainConsultas};
+  U_FormMainConsultas in 'Forms\U_FormMainConsultas.pas' {frm_MainConsultas},
+  U_ConsultaClientes in 'Forms\U_ConsultaClientes.pas' {frm_ConsultaClientes},
+  U_constantes in 'Classes\U_constantes.pas',
+  U_CadastrosFornecedores in 'Forms\U_CadastrosFornecedores.pas' {frm_CadastrosFornecedores},
+  U_ConsultaFornecedores in 'Forms\U_ConsultaFornecedores.pas' {frm_ConsultaFornecedor};
 
 {$R *.res}
-
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
@@ -22,9 +24,5 @@ begin
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
   Application.CreateForm(Tdm_Dados, dm_Dados);
   Application.CreateForm(TLookUp, LookUp);
-  Application.CreateForm(Tfrm_CadClientes, frm_CadClientes);
-  Application.CreateForm(Tfrm_CadastrosEstados, frm_CadastrosEstados);
-  Application.CreateForm(Tfrm_CadatroCidade, frm_CadatroCidade);
-  Application.CreateForm(Tfrm_MainConsultas, frm_MainConsultas);
   Application.Run;
 end.
