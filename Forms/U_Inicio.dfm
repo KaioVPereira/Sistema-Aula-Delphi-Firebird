@@ -124,6 +124,7 @@ object frm_inicio: Tfrm_inicio
       FFFFFFFFFFFDFD000000FD070707070707FDFD000000FDFDFDFDFDFDFDFDFD00
       0000}
     TabOrder = 0
+    ExplicitWidth = 718
     object AdvPage1: TAdvPage
       Left = 4
       Top = 52
@@ -940,6 +941,8 @@ object frm_inicio: Tfrm_inicio
     Styler = AdvOfficeStatusBarOfficeStyler1
     UseSystemFont = False
     Version = '1.7.3.4'
+    ExplicitTop = 428
+    ExplicitWidth = 718
   end
   object AdvToolBarOfficeStyler1: TAdvToolBarOfficeStyler
     AppColor.AppButtonColor = 14851584
