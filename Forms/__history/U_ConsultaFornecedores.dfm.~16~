@@ -1,12 +1,14 @@
 inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
   Caption = 'Consulta Fornecedores'
-  ClientWidth = 1022
-  ExplicitHeight = 458
+  ClientHeight = 419
+  FormStyle = fsMDIChild
+  Visible = True
+  WindowState = wsMaximized
+  ExplicitWidth = 1034
   TextHeight = 15
   inherited Panel1: TPanel
-    Width = 1022
     Height = 65
-    ExplicitTop = -6
+    ExplicitWidth = 1018
     ExplicitHeight = 65
     inherited txt_consultar: TEdit
       Left = 120
@@ -17,10 +19,12 @@ inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
     inherited btn_consultar: TButton
       Left = 376
       Top = 17
+      OnClick = btn_consultarClick
       ExplicitLeft = 376
       ExplicitTop = 17
     end
     inherited cboc_filtro: TComboBox
+      Text = ''
       Items.Strings = (
         'CONTROLE'
         'RAZ'#195'O SOCIAL'
@@ -31,12 +35,14 @@ inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
         'CIDADE')
     end
     object Panel2: TPanel
-      Left = 880
-      Top = 0
+      Left = 879
+      Top = 1
       Width = 142
-      Height = 97
+      Height = 63
+      Align = alRight
       BevelOuter = bvNone
       TabOrder = 3
+      ExplicitLeft = 875
       object btn_sar: TButton
         Left = 48
         Top = 17
@@ -44,6 +50,7 @@ inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
         Height = 25
         Caption = 'Sair'
         TabOrder = 0
+        OnClick = btn_sarClick
       end
     end
     object btn_incluir: TButton
@@ -53,6 +60,7 @@ inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
       Height = 25
       Caption = 'Incluir'
       TabOrder = 4
+      OnClick = btn_incluirClick
     end
     object btn_alterar: TButton
       Left = 609
@@ -61,6 +69,7 @@ inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
       Height = 25
       Caption = 'Alterar'
       TabOrder = 5
+      OnClick = btn_alterarClick
     end
     object btn_visualzar: TButton
       Left = 690
@@ -69,6 +78,7 @@ inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
       Height = 25
       Caption = 'Visualizar'
       TabOrder = 6
+      OnClick = btn_visualzarClick
     end
   end
   object DBGrid1: TDBGrid [1]
@@ -139,7 +149,6 @@ inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
       end>
   end
   inherited FD_qryConsultas: TFDQuery
-    Active = True
     SQL.Strings = (
       'SELECT * FROM FORNECEDOR')
   end

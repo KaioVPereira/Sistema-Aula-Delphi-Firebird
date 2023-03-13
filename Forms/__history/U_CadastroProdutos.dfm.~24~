@@ -112,12 +112,6 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   inherited pn_cabecalho: TPanel
     Width = 816
     ExplicitWidth = 812
-    inherited btn_sair: TBitBtn
-      Left = 740
-      Top = 1
-      Height = 39
-      Align = alRight
-    end
   end
   object txt_pesobruto: TDBEdit [15]
     Left = 8
@@ -237,11 +231,6 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Top = 286
     Width = 229
     Height = 23
-    DataField = 'CONTROLE_FORNECEDOR'
-    DataSource = ds_cadastros
-    KeyField = 'CONTROLE_FORNECEDOR'
-    ListField = 'FANTASIA'
-    ListSource = LookUp.ds_fornec
     TabOrder = 14
   end
   inherited fd_QueryCadastro: TFDQuery

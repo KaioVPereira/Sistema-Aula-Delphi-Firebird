@@ -15,8 +15,6 @@ type
     FD_TransactionLookup: TFDTransaction;
     FD_qryCidades: TFDQuery;
     ds_cidades: TDataSource;
-    ds_fornec: TDataSource;
-    FD_qryFornec: TFDQuery;
   private
     { Private declarations }
   public

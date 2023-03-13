@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls, U_constantes, U_LookUp;
+  Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls, U_constantes;
 type
   Tfrm_CadastroProdutos = class(Tfrm_Principal)
     fd_QueryCadastroCODIGO: TIntegerField;
@@ -55,8 +55,6 @@ type
     cbox_Fornecedor: TDBLookupComboBox;
     procedure FormCreate(Sender: TObject);
     procedure btn_novoClick(Sender: TObject);
-    procedure btn_gravarClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
   private
     Fmodo : TModoAbertura;
     procedure ValidaAbertura;
@@ -75,25 +73,11 @@ implementation
 
 { Tfrm_CadastroProdutos }
 
-procedure Tfrm_CadastroProdutos.btn_gravarClick(Sender: TObject);
-begin
-  inherited;
-  modo := maConsulta;
-  ValidaAbertura;
-end;
-
 procedure Tfrm_CadastroProdutos.btn_novoClick(Sender: TObject);
 begin
   inherited;
-    txt_pesobruto.Enabled     := true;
-    txt_pesoliqudo.Enabled    := true;
-    txt_quantidade.Enabled    := true;
-    txt_custo.Enabled         := true;
-    txt_valorunitario.Enabled := true;
-    txt_codigo.Enabled        := false;
-    txt_descricao.Enabled     := true;
-    cbox_Fornecedor.Enabled   := true;
-    //ValidaAbertura;
+  modo := maInclusao;
+  ValidaAbertura;
 end;
 
 procedure Tfrm_CadastroProdutos.FormCreate(Sender: TObject);
@@ -101,15 +85,6 @@ begin
   inherited;
   modo := maInicial;
   ValidaAbertura;
-end;
-
-procedure Tfrm_CadastroProdutos.FormShow(Sender: TObject);
-begin
-  inherited;
-  ValidaAbertura;
-  LookUp.FD_qryFornec.open();
-  LookUp.FD_qryFornec.fetchall;
-
 end;
 
 procedure Tfrm_CadastroProdutos.ValidaAbertura;
@@ -136,7 +111,14 @@ begin
 
   if modo = maInclusao then
   begin
-    btn_novoClick(self);
+    txt_pesobruto.Enabled     := true;
+    txt_pesoliqudo.Enabled    := true;
+    txt_quantidade.Enabled    := true;
+    txt_custo.Enabled         := true;
+    txt_valorunitario.Enabled := true;
+    txt_codigo.Enabled        := false;
+    txt_descricao.Enabled     := true;
+    cbox_Fornecedor.Enabled   := true;
   end;
 
   if modo = maConsulta then

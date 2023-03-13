@@ -112,12 +112,6 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   inherited pn_cabecalho: TPanel
     Width = 816
     ExplicitWidth = 812
-    inherited btn_sair: TBitBtn
-      Left = 740
-      Top = 1
-      Height = 39
-      Align = alRight
-    end
   end
   object txt_pesobruto: TDBEdit [15]
     Left = 8

@@ -31,7 +31,6 @@ type
     procedure btn_incluirClick(Sender: TObject);
     procedure btn_alterarClick(Sender: TObject);
     procedure btn_visualizarClick(Sender: TObject);
-    procedure btn_sairClick(Sender: TObject);
   private
   Procedure Consultar;
   procedure ValidaSql;
@@ -79,12 +78,6 @@ begin
   finally
     FreeAndNil(frm_CadastroProdutos);
   end;
-end;
-
-procedure Tfrm_ConsultaProdutos.btn_sairClick(Sender: TObject);
-begin
-  inherited;
-  self.Close;
 end;
 
 procedure Tfrm_ConsultaProdutos.btn_visualizarClick(Sender: TObject);

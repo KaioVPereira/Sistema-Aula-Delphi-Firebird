@@ -107,8 +107,7 @@ procedure Tfrm_CadastroProdutos.FormShow(Sender: TObject);
 begin
   inherited;
   ValidaAbertura;
-  LookUp.FD_qryFornec.open();
-  LookUp.FD_qryFornec.fetchall;
+  LookUp.FD_qryFornec.open ();
 
 end;
 

@@ -36,16 +36,12 @@ inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
       ExplicitWidth = 97
     end
     object Panel2: TPanel
-      Left = 895
-      Top = 1
+      Left = 896
+      Top = 0
       Width = 130
-      Height = 63
-      Align = alRight
+      Height = 65
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitLeft = 896
-      ExplicitTop = 0
-      ExplicitHeight = 65
       object btn_sair: TButton
         Left = 32
         Top = 13
@@ -53,7 +49,6 @@ inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
         Height = 25
         Caption = 'Sair'
         TabOrder = 0
-        OnClick = btn_sairClick
       end
     end
     object btn_incluir: TButton
@@ -81,7 +76,6 @@ inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
       Height = 25
       Caption = 'Visualizar'
       TabOrder = 6
-      OnClick = btn_visualizarClick
     end
   end
   object DBGrid1: TDBGrid [1]

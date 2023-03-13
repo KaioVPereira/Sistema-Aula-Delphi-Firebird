@@ -32,12 +32,17 @@ type
     AdvToolBarSeparator3: TAdvToolBarSeparator;
     btn_fornecedor: TAdvGlowButton;
     AdvToolBar6: TAdvToolBar;
-    AdvGlowButton1: TAdvGlowButton;
+    btn_cidades: TAdvGlowButton;
     btn_ConsultaProdutos: TAdvGlowButton;
     btn_ConsultaFornecedor: TAdvGlowButton;
     AdvToolBarSeparator1: TAdvToolBarSeparator;
     Produtos: TAdvGlowButton;
     AdvToolBarSeparator4: TAdvToolBarSeparator;
+    AdvGlowButton2: TAdvGlowButton;
+    AdvToolBarSeparator5: TAdvToolBarSeparator;
+    AdvToolBarSeparator6: TAdvToolBarSeparator;
+    Estados: TAdvGlowButton;
+    AdvToolBarSeparator7: TAdvToolBarSeparator;
     procedure btn_CadastroClienteClick(Sender: TObject);
     procedure btn_CadastroCidadesClick(Sender: TObject);
     procedure btn_CadastroEstadosClick(Sender: TObject);

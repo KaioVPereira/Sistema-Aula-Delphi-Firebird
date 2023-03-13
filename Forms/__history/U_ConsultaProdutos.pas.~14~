@@ -30,8 +30,6 @@ type
     procedure btn_consultarClick(Sender: TObject);
     procedure btn_incluirClick(Sender: TObject);
     procedure btn_alterarClick(Sender: TObject);
-    procedure btn_visualizarClick(Sender: TObject);
-    procedure btn_sairClick(Sender: TObject);
   private
   Procedure Consultar;
   procedure ValidaSql;
@@ -76,26 +74,6 @@ begin
   try
     frm_CadastroProdutos.modo := maInclusao;
     frm_CadastroProdutos.ShowModal;
-  finally
-    FreeAndNil(frm_CadastroProdutos);
-  end;
-end;
-
-procedure Tfrm_ConsultaProdutos.btn_sairClick(Sender: TObject);
-begin
-  inherited;
-  self.Close;
-end;
-
-procedure Tfrm_ConsultaProdutos.btn_visualizarClick(Sender: TObject);
-begin
-  inherited;
-  ValidaSQL;
-   frm_CadastroProdutos := Tfrm_CadastroProdutos.Create(self);
-  try
-    frm_CadastroProdutos.modo := maConsulta;
-    frm_CadastroProdutos.fd_QueryCadastro.Locate('CODIGO', FD_qryConsultas.FieldByName('CODIGO').AsInteger, []);
-    frm_CadastroProdutos.Showmodal;
   finally
     FreeAndNil(frm_CadastroProdutos);
   end;

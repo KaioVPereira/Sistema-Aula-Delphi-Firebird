@@ -30,17 +30,4 @@ object LookUp: TLookUp
     Left = 488
     Top = 392
   end
-  object ds_fornec: TDataSource
-    DataSet = FD_qryFornec
-    Left = 400
-    Top = 392
-  end
-  object FD_qryFornec: TFDQuery
-    Connection = dm_Dados.fd_Connection
-    Transaction = FD_TransactionLookup
-    SQL.Strings = (
-      'SELECT * FROM FORNECEDOR')
-    Left = 400
-    Top = 448
-  end
 end

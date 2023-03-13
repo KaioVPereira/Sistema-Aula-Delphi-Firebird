@@ -12,21 +12,16 @@ uses
 
 type
   Tfrm_ConsultaProdutos = class(Tfrm_MainConsultas)
+    DBGrid1: TDBGrid;
     FD_qryConsultasCODIGO: TIntegerField;
     FD_qryConsultasDESCRICAO: TStringField;
-    FD_qryConsultasDEPARTAMENTO: TIntegerField;
-    FD_qryConsultasCOLECAO: TIntegerField;
-    FD_qryConsultasGRUPO: TIntegerField;
-    FD_qryConsultasLINHA: TIntegerField;
-    FD_qryConsultasMARCA: TIntegerField;
     FD_qryConsultasUNIDADE: TIntegerField;
     FD_qryConsultasPESO_LIQUIDO: TSingleField;
     FD_qryConsultasPESO_BRUTO: TSingleField;
-    FD_qryConsultasCONTROLE_FORNECEDOR: TIntegerField;
     FD_qryConsultasQTD: TSingleField;
     FD_qryConsultasCUSTO: TSingleField;
     FD_qryConsultasVALOR_UNITARIO: TSingleField;
-    DBGrid1: TDBGrid;
+    FD_qryConsultasFORNECEDOR: TStringField;
     procedure btn_consultarClick(Sender: TObject);
   private
   Procedure Consultar;
@@ -55,14 +50,14 @@ begin
   FD_qryConsultas.Close;
   FD_qryConsultas.SQL.clear;
   FD_qryConsultas.SQL.Add('SELECT  P.codigo,');
-  FD_qryConsultas.SQL.Add('      P.descricao,');
-  FD_qryConsultas.SQL.Add('    P.unidade,  ');
-  FD_qryConsultas.SQL.Add('       P.peso_liqu,');
-  FD_qryConsultas.SQL.Add('      P.peso_bruto,');
-  FD_qryConsultas.SQL.Add('       P.qtd,     ');
-  FD_qryConsultas.SQL.Add('      P.custo,    ');
-  FD_qryConsultas.SQL.Add('       P.valor_unitario,');
-  FD_qryConsultas.SQL.Add('       F.fantasia FORNECEDOR, ');
+  FD_qryConsultas.SQL.Add('        P.descricao,');
+  FD_qryConsultas.SQL.Add('        P.unidade,  ');
+  FD_qryConsultas.SQL.Add('        P.peso_liquido,');
+  FD_qryConsultas.SQL.Add('        P.peso_bruto,');
+  FD_qryConsultas.SQL.Add('        P.qtd,     ');
+  FD_qryConsultas.SQL.Add('        P.custo,    ');
+  FD_qryConsultas.SQL.Add('        P.valor_unitario,');
+  FD_qryConsultas.SQL.Add('        F.fantasia FORNECEDOR');
   FD_qryConsultas.SQL.Add('FROM PRODUTOS P LEFT JOIN FORNECEDOR F ON F.controle_fornecedor = P.controle_fornecedor');
   FD_qryConsultas.SQL.Add( 'WHERE 1 = 1');
 

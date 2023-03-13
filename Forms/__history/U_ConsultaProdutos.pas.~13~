@@ -29,12 +29,8 @@ type
     btn_visualizar: TButton;
     procedure btn_consultarClick(Sender: TObject);
     procedure btn_incluirClick(Sender: TObject);
-    procedure btn_alterarClick(Sender: TObject);
-    procedure btn_visualizarClick(Sender: TObject);
-    procedure btn_sairClick(Sender: TObject);
   private
   Procedure Consultar;
-  procedure ValidaSql;
     { Private declarations }
   public
     { Public declarations }
@@ -49,20 +45,6 @@ implementation
 
 { Tfrm_ConsultaProdutos }
 
-procedure Tfrm_ConsultaProdutos.btn_alterarClick(Sender: TObject);
-begin
-  inherited;
-  ValidaSQL;
-   frm_CadastroProdutos := Tfrm_CadastroProdutos.Create(self);
-  try
-    frm_CadastroProdutos.modo := maEdicao;
-    frm_CadastroProdutos.fd_QueryCadastro.Locate('CODIGO', FD_qryConsultas.FieldByName('CODIGO').AsInteger, []);
-    frm_CadastroProdutos.Showmodal;
-  finally
-    FreeAndNil(frm_CadastroProdutos);
-  end;
-end;
-
 procedure Tfrm_ConsultaProdutos.btn_consultarClick(Sender: TObject);
 begin
   inherited;
@@ -76,26 +58,6 @@ begin
   try
     frm_CadastroProdutos.modo := maInclusao;
     frm_CadastroProdutos.ShowModal;
-  finally
-    FreeAndNil(frm_CadastroProdutos);
-  end;
-end;
-
-procedure Tfrm_ConsultaProdutos.btn_sairClick(Sender: TObject);
-begin
-  inherited;
-  self.Close;
-end;
-
-procedure Tfrm_ConsultaProdutos.btn_visualizarClick(Sender: TObject);
-begin
-  inherited;
-  ValidaSQL;
-   frm_CadastroProdutos := Tfrm_CadastroProdutos.Create(self);
-  try
-    frm_CadastroProdutos.modo := maConsulta;
-    frm_CadastroProdutos.fd_QueryCadastro.Locate('CODIGO', FD_qryConsultas.FieldByName('CODIGO').AsInteger, []);
-    frm_CadastroProdutos.Showmodal;
   finally
     FreeAndNil(frm_CadastroProdutos);
   end;
@@ -131,15 +93,6 @@ begin
 
   FD_qryConsultas.Open();
   FD_qryConsultas.FetchAll;
-end;
-
-procedure Tfrm_ConsultaProdutos.ValidaSql;
-begin
-  if FD_qryConsultas.IsEmpty then
-  begin
-    ShowMessage ('É necessário selecionar um Produto');
-    Abort;
-  end;
 end;
 
 end.

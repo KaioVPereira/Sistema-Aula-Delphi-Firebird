@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.Grids, Vcl.DBGrids;
+  Vcl.Grids, Vcl.DBGrids, U_CadastrosFornecedores, U_constantes;
 
 type
   Tfrm_ConsultaFornecedor = class(Tfrm_MainConsultas)
@@ -18,6 +18,11 @@ type
     btn_incluir: TButton;
     btn_alterar: TButton;
     btn_visualzar: TButton;
+    procedure btn_consultarClick(Sender: TObject);
+    procedure btn_incluirClick(Sender: TObject);
+    procedure btn_alterarClick(Sender: TObject);
+    procedure btn_visualzarClick(Sender: TObject);
+    procedure btn_sarClick(Sender: TObject);
   private
     procedure Consultar;
     procedure ValidaSQLConsultar;
@@ -36,6 +41,58 @@ implementation
 
 { Tfrm_ConsultaFornecedor }
 
+procedure Tfrm_ConsultaFornecedor.btn_alterarClick(Sender: TObject);
+begin
+  inherited;
+  ValidaSQLConsultar;
+  frm_CadastrosFornecedores := Tfrm_CadastrosFornecedores.Create(self);
+  try
+    frm_CadastrosFornecedores.modo := maEdicao;
+    frm_CadastrosFornecedores.fd_QueryCadastro.Locate('CONTROLE_FORNECEDOR', FD_qryConsultas.FieldByName('CONTROLE_FORNECEDOR').AsInteger, []);
+    frm_CadastrosFornecedores.Showmodal;
+  finally
+    FreeAndNil(frm_CadastrosFornecedores);
+  end;
+end;
+
+procedure Tfrm_ConsultaFornecedor.btn_consultarClick(Sender: TObject);
+begin
+  inherited;
+  Consultar;
+end;
+
+procedure Tfrm_ConsultaFornecedor.btn_incluirClick(Sender: TObject);
+begin
+  inherited;
+  frm_CadastrosFornecedores := Tfrm_CadastrosFornecedores.Create(self);
+  try
+    frm_CadastrosFornecedores.modo := maInclusao;
+    frm_CadastrosFornecedores.ShowModal;
+  finally
+    FreeAndNil(frm_CadastrosFornecedores);
+  end;
+end;
+
+procedure Tfrm_ConsultaFornecedor.btn_sarClick(Sender: TObject);
+begin
+  inherited;
+  self.Close;
+end;
+
+procedure Tfrm_ConsultaFornecedor.btn_visualzarClick(Sender: TObject);
+begin
+  inherited;
+    ValidaSQLConsultar;
+   frm_CadastrosFornecedores := Tfrm_CadastrosFornecedores.Create(self);
+  try
+    frm_CadastrosFornecedores.modo := maConsulta;
+    frm_CadastrosFornecedores.fd_QueryCadastro.Locate('CONTROLE_FORNECEDOR', FD_qryConsultas.FieldByName('CONTROLE_FORNECEDOR').AsInteger, []);
+    frm_CadastrosFornecedores.Showmodal;
+  finally
+    FreeAndNil(frm_CadastrosFornecedores);
+  end;
+end;
+
 procedure Tfrm_ConsultaFornecedor.Consultar;
 begin
   FD_qryConsultas.Close;
@@ -46,7 +103,7 @@ begin
 
   if (cboc_filtro.Text = 'CNPJ') and (txt_consultar.Text <> '') then
   begin
-    FD_qryConsultas.sql.add ( 'AND UPPER (TRIM(replace (REPLACE (REPLACE(CPF_CNPJ, ''.'',''''),''-'',''''),''/'','''')))LIKE '+ QuotedStr('%' + UpperCase(Trim(txt_consultar.Text))+'%'))
+    FD_qryConsultas.sql.add ( 'AND UPPER (TRIM(replace (REPLACE (REPLACE(CNPJ, ''.'',''''),''-'',''''),''/'','''')))LIKE '+ QuotedStr('%' + UpperCase(Trim(txt_consultar.Text))+'%'))
   end
 
   else IF cboc_filtro.Text = 'CONTROLE' THEN
@@ -87,7 +144,11 @@ end;
 
 procedure Tfrm_ConsultaFornecedor.ValidaSQLConsultar;
 begin
-
+  if FD_qryConsultas.IsEmpty then
+  begin
+    ShowMessage ('É necessário selecionar um Fornecedor');
+    Abort;
+  end;
 end;
 
 end.

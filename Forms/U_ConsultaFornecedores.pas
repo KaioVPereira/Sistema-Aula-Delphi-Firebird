@@ -82,7 +82,7 @@ end;
 procedure Tfrm_ConsultaFornecedor.btn_visualzarClick(Sender: TObject);
 begin
   inherited;
-    ValidaSQLConsultar;
+   ValidaSQLConsultar;
    frm_CadastrosFornecedores := Tfrm_CadastrosFornecedores.Create(self);
   try
     frm_CadastrosFornecedores.modo := maConsulta;

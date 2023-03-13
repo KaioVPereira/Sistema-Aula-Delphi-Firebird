@@ -2,9 +2,8 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   Caption = 'Cadastrar Produtos'
   ClientHeight = 454
   ClientWidth = 816
-  OnShow = FormShow
-  ExplicitWidth = 828
-  ExplicitHeight = 492
+  ExplicitWidth = 832
+  ExplicitHeight = 493
   TextHeight = 15
   object lb_codigo: TLabel [0]
     Left = 8
@@ -111,13 +110,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   end
   inherited pn_cabecalho: TPanel
     Width = 816
-    ExplicitWidth = 812
-    inherited btn_sair: TBitBtn
-      Left = 740
-      Top = 1
-      Height = 39
-      Align = alRight
-    end
+    ExplicitWidth = 618
   end
   object txt_pesobruto: TDBEdit [15]
     Left = 8
@@ -188,7 +181,6 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Width = 87
     Height = 23
     DataSource = ds_cadastros
-    Enabled = False
     ReadOnly = True
     TabOrder = 8
   end
@@ -197,7 +189,6 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Top = 176
     Width = 94
     Height = 23
-    Enabled = False
     TabOrder = 9
   end
   object cbox_Grupo: TDBLookupComboBox [24]
@@ -205,7 +196,6 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Top = 176
     Width = 87
     Height = 23
-    Enabled = False
     TabOrder = 10
   end
   object cbox_linha: TDBLookupComboBox [25]
@@ -213,7 +203,6 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Top = 176
     Width = 113
     Height = 23
-    Enabled = False
     TabOrder = 11
   end
   object cbox_marca: TDBLookupComboBox [26]
@@ -221,7 +210,6 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Top = 176
     Width = 97
     Height = 23
-    Enabled = False
     TabOrder = 12
   end
   object cbox_Unidade: TDBLookupComboBox [27]
@@ -229,7 +217,6 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Top = 176
     Width = 87
     Height = 23
-    Enabled = False
     TabOrder = 13
   end
   object cbox_Fornecedor: TDBLookupComboBox [28]
@@ -237,11 +224,6 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Top = 286
     Width = 229
     Height = 23
-    DataField = 'CONTROLE_FORNECEDOR'
-    DataSource = ds_cadastros
-    KeyField = 'CONTROLE_FORNECEDOR'
-    ListField = 'FANTASIA'
-    ListSource = LookUp.ds_fornec
     TabOrder = 14
   end
   inherited fd_QueryCadastro: TFDQuery
