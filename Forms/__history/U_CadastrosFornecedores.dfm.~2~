@@ -1,6 +1,0 @@
-inherited frm_CadastrosFornecedores: Tfrm_CadastrosFornecedores
-  Caption = 'Cadastros Clientes'
-  ExplicitWidth = 626
-  ExplicitHeight = 333
-  TextHeight = 15
-end

@@ -101,76 +101,60 @@ inherited frm_CadastrosFornecedores: Tfrm_CadastrosFornecedores
     ListSource = LookUp.ds_cidades
     TabOrder = 2
   end
-  object txt_controle: TDBEdit [13]
+  object DBEdit1: TDBEdit [13]
     Left = 8
     Top = 68
     Width = 140
     Height = 23
-    DataField = 'CONTROLE_FORNECEDOR'
-    DataSource = ds_cadastros
     TabOrder = 3
   end
-  object txt_Razao: TDBEdit [14]
+  object DBEdit2: TDBEdit [14]
     Left = 8
     Top = 120
     Width = 209
     Height = 23
-    DataField = 'RAZAO_SOCIAL'
-    DataSource = ds_cadastros
     TabOrder = 4
   end
-  object txt_Fantasia: TDBEdit [15]
+  object DBEdit3: TDBEdit [15]
     Left = 232
     Top = 120
     Width = 258
     Height = 23
-    DataField = 'FANTASIA'
-    DataSource = ds_cadastros
     TabOrder = 5
   end
-  object txt_CNPJ: TDBEdit [16]
+  object DBEdit4: TDBEdit [16]
     Left = 8
     Top = 170
     Width = 140
     Height = 23
-    DataField = 'CNPJ'
-    DataSource = ds_cadastros
     TabOrder = 6
   end
-  object txt_Endereco: TDBEdit [17]
+  object DBEdit5: TDBEdit [17]
     Left = 167
     Top = 170
     Width = 249
     Height = 23
-    DataField = 'ENDERECO'
-    DataSource = ds_cadastros
     TabOrder = 7
   end
-  object txt_Bairro: TDBEdit [18]
+  object DBEdit6: TDBEdit [18]
     Left = 422
     Top = 170
     Width = 84
     Height = 23
-    DataField = 'BAIRRO'
-    DataSource = ds_cadastros
     TabOrder = 8
   end
-  object txt_Numero: TDBEdit [19]
+  object DBEdit7: TDBEdit [19]
     Left = 520
     Top = 170
     Width = 84
     Height = 23
-    DataField = 'NUMERO'
-    DataSource = ds_cadastros
     TabOrder = 9
   end
-  object txt_Email: TDBEdit [20]
+  object DBEdit8: TDBEdit [20]
     Left = 8
     Top = 265
     Width = 345
     Height = 23
-    DataField = 'EMAIL'
-    DataSource = ds_cadastros
     TabOrder = 10
   end
   inherited fd_QueryCadastro: TFDQuery

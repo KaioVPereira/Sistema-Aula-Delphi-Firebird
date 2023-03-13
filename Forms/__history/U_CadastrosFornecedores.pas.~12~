@@ -36,14 +36,14 @@ type
     lb_email: TLabel;
     cbox_UF: TDBLookupComboBox;
     cbox_Cidade: TDBLookupComboBox;
-    txt_controle: TDBEdit;
-    txt_Razao: TDBEdit;
-    txt_Fantasia: TDBEdit;
-    txt_CNPJ: TDBEdit;
-    txt_Endereco: TDBEdit;
-    txt_Bairro: TDBEdit;
-    txt_Numero: TDBEdit;
-    txt_Email: TDBEdit;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
     procedure cbox_UFExit(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private

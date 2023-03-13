@@ -2,8 +2,8 @@ object frm_inicio: Tfrm_inicio
   Left = 250
   Top = 200
   Caption = 'Inicio'
-  ClientHeight = 452
-  ClientWidth = 738
+  ClientHeight = 450
+  ClientWidth = 730
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -28,7 +28,7 @@ object frm_inicio: Tfrm_inicio
   object AdvToolBarPager1: TAdvToolBarPager
     Left = 0
     Top = 0
-    Width = 738
+    Width = 730
     Height = 149
     ActivePage = AdvPage1
     Caption.Caption = 'Sistema ERP'
@@ -127,7 +127,7 @@ object frm_inicio: Tfrm_inicio
     object AdvPage1: TAdvPage
       Left = 4
       Top = 52
-      Width = 730
+      Width = 722
       Height = 92
       Caption = 'Cadastros'
       object AdvToolBar1: TAdvToolBar
@@ -407,7 +407,7 @@ object frm_inicio: Tfrm_inicio
     object AdvPage2: TAdvPage
       Left = 4
       Top = 52
-      Width = 730
+      Width = 722
       Height = 92
       Caption = 'Consultas'
       object AdvToolBar4: TAdvToolBar
@@ -483,7 +483,7 @@ object frm_inicio: Tfrm_inicio
     object AdvPage3: TAdvPage
       Left = 4
       Top = 52
-      Width = 730
+      Width = 722
       Height = 92
       Caption = 'Configura'#231#245'es'
       object AdvToolBar5: TAdvToolBar
@@ -552,8 +552,8 @@ object frm_inicio: Tfrm_inicio
   end
   object AdvOfficeStatusBar1: TAdvOfficeStatusBar
     Left = 0
-    Top = 433
-    Width = 738
+    Top = 431
+    Width = 730
     Height = 19
     AnchorHint = False
     Font.Charset = DEFAULT_CHARSET
