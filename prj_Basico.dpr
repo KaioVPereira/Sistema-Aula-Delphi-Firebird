@@ -16,7 +16,8 @@ uses
   U_CadastrosFornecedores in 'Forms\U_CadastrosFornecedores.pas' {frm_CadastrosFornecedores},
   U_ConsultaFornecedores in 'Forms\U_ConsultaFornecedores.pas' {frm_ConsultaFornecedor},
   U_ConsultaProdutos in 'Forms\U_ConsultaProdutos.pas' {frm_ConsultaProdutos},
-  U_CadastroProdutos in 'Forms\U_CadastroProdutos.pas' {frm_CadastroProdutos};
+  U_CadastroProdutos in 'Forms\U_CadastroProdutos.pas' {frm_CadastroProdutos},
+  U_PDV in 'Forms\U_PDV.pas' {frm_CadastroVendas};
 
 {$R *.res}
 begin
@@ -26,5 +27,6 @@ begin
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
   Application.CreateForm(Tdm_Dados, dm_Dados);
   Application.CreateForm(TLookUp, LookUp);
+  Application.CreateForm(Tfrm_CadastroVendas, frm_CadastroVendas);
   Application.Run;
 end.
