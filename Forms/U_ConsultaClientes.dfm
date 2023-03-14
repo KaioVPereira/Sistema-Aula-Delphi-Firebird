@@ -5,6 +5,7 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
   Visible = True
   WindowState = wsMaximized
   ExplicitWidth = 1094
+  ExplicitHeight = 456
   TextHeight = 15
   inherited Panel1: TPanel
     Width = 1082
@@ -92,7 +93,7 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
     Left = 0
     Top = 65
     Width = 1082
-    Height = 354
+    Height = 353
     Align = alClient
     DataSource = DS_Consultas
     ReadOnly = True

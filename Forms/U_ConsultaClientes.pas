@@ -87,7 +87,6 @@ begin
   try
     frm_CadClientes.modo := maInclusao;
     frm_CadClientes.Showmodal;
-    //frm_CadClientes.btn_novoClick(Sender);
   finally
     FreeAndNil(frm_CadClientes);
   end;

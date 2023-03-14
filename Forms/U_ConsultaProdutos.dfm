@@ -43,9 +43,7 @@ inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitLeft = 896
-      ExplicitTop = 0
-      ExplicitHeight = 65
+      ExplicitLeft = 891
       object btn_sair: TButton
         Left = 32
         Top = 13
@@ -91,6 +89,7 @@ inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
     Height = 354
     Align = alClient
     DataSource = DS_Consultas
+    ReadOnly = True
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText

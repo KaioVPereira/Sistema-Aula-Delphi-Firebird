@@ -46,10 +46,10 @@ type
     txt_Email: TDBEdit;
     procedure cbox_UFExit(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure btn_novoClick(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
     procedure ValidaModoAbertura;
     procedure FormShow(Sender: TObject);
+    procedure btn_novoClick(Sender: TObject);
   private
     { Private declarations }
     Fmodo : TModoAbertura;
@@ -98,16 +98,16 @@ end;
 procedure Tfrm_CadastrosFornecedores.btn_novoClick(Sender: TObject);
 begin
   inherited;
-  txt_Razao.Enabled    := true;
-  txt_Fantasia.Enabled := true;
-  txt_CNPJ.Enabled     := true;
-  txt_Endereco.Enabled := true;
-  txt_Bairro.Enabled   := true;
-  txt_Numero.Enabled   := true;
-  txt_Email.Enabled    := true;
-  cbox_UF.Enabled      := true;
-  cbox_Cidade.Enabled  := true;
-
+    txt_controle.Enabled := False;
+    txt_Razao.Enabled    := true;
+    txt_Fantasia.Enabled := true;
+    txt_CNPJ.Enabled     := true;
+    txt_Endereco.Enabled := true;
+    txt_Bairro.Enabled   := true;
+    txt_Numero.Enabled   := true;
+    txt_Email.Enabled    := true;
+    cbox_UF.Enabled      := true;
+    cbox_Cidade.Enabled  := true;
 end;
 
 procedure Tfrm_CadastrosFornecedores.cbox_UFExit(Sender: TObject);
@@ -125,29 +125,11 @@ procedure Tfrm_CadastrosFornecedores.FormCreate(Sender: TObject);
 begin
   inherited;
   modo := maInicial;
-
+  ValidaModoAbertura;
   LookUp.FD_qryEstados.Open();
   LookUp.FD_qryEstados.FetchAll;
 
-  txt_controle.Enabled := false;
-  txt_Razao.Enabled    := false;
-  txt_Fantasia.Enabled := false;
-  txt_CNPJ.Enabled     := false;
-  txt_Endereco.Enabled := false;
-  txt_Bairro.Enabled   := false;
-  txt_Numero.Enabled   := false;
-  txt_Email.Enabled    := false;
-  cbox_UF.Enabled      := false;
-  cbox_Cidade.Enabled  := false;
 
-  txt_controle.Clear;
-  txt_Razao.Clear;
-  txt_Fantasia.Clear;
-  txt_CNPJ.Clear;
-  txt_Endereco.Clear;
-  txt_Bairro.Clear;
-  txt_Numero.Clear;
-  txt_Email.Clear;
 
 end;
 
@@ -160,60 +142,63 @@ end;
 procedure Tfrm_CadastrosFornecedores.ValidaModoAbertura;
 begin
   if modo = maInicial then
-  begin
-  txt_controle.Enabled := false;
-  txt_Razao.Enabled    := false;
-  txt_Fantasia.Enabled := false;
-  txt_CNPJ.Enabled     := false;
-  txt_Endereco.Enabled := false;
-  txt_Bairro.Enabled   := false;
-  txt_Numero.Enabled   := false;
-  txt_Email.Enabled    := false;
-  cbox_UF.Enabled      := false;
-  cbox_Cidade.Enabled  := false;
+    begin
+      txt_controle.Enabled := false;
+      txt_Razao.Enabled    := false;
+      txt_Fantasia.Enabled := false;
+      txt_CNPJ.Enabled     := false;
+      txt_Endereco.Enabled := false;
+      txt_Bairro.Enabled   := false;
+      txt_Numero.Enabled   := false;
+      txt_Email.Enabled    := false;
+      cbox_UF.Enabled      := false;
+      cbox_Cidade.Enabled  := false;
 
-  txt_controle.Clear;
-  txt_Razao.Clear;
-  txt_Fantasia.Clear;
-  txt_CNPJ.Clear;
-  txt_Endereco.Clear;
-  txt_Bairro.Clear;
-  txt_Numero.Clear;
-  txt_Email.Clear;
-  end
+      txt_controle.Clear;
+      txt_Razao.Clear;
+      txt_Fantasia.Clear;
+      txt_CNPJ.Clear;
+      txt_Endereco.Clear;
+      txt_Bairro.Clear;
+      txt_Numero.Clear;
+      txt_Email.Clear;
+    end
 
   else if modo = maInclusao then
-  begin
-    btn_novoClick(Self);
-  end
+    begin
+      btn_novoClick(Self);
+    end
 
   else if modo = maEdicao then
-  begin
-    txt_controle.Enabled := False;
-    txt_Razao.Enabled    := true;
-    txt_Fantasia.Enabled := true;
-    txt_CNPJ.Enabled     := true;
-    txt_Endereco.Enabled := true;
-    txt_Bairro.Enabled   := true;
-    txt_Numero.Enabled   := true;
-    txt_Email.Enabled    := true;
-    cbox_UF.Enabled      := true;
-    cbox_Cidade.Enabled  := true;
-  end
+    begin
+      txt_controle.Enabled := False;
+      txt_Razao.Enabled    := true;
+      txt_Fantasia.Enabled := true;
+      txt_CNPJ.Enabled     := true;
+      txt_Endereco.Enabled := true;
+      txt_Bairro.Enabled   := true;
+      txt_Numero.Enabled   := true;
+      txt_Email.Enabled    := true;
+      cbox_UF.Enabled      := true;
+      cbox_Cidade.Enabled  := true;
+
+      fd_QueryCadastro.Edit;
+    end
 
   else if modo = maConsulta then
-  begin
-  txt_controle.Enabled := false;
-  txt_Razao.Enabled    := false;
-  txt_Fantasia.Enabled := false;
-  txt_CNPJ.Enabled     := false;
-  txt_Endereco.Enabled := false;
-  txt_Bairro.Enabled   := false;
-  txt_Numero.Enabled   := false;
-  txt_Email.Enabled    := false;
-  cbox_UF.Enabled      := false;
-  cbox_Cidade.Enabled  := false;
-  end;
+    begin
+      txt_controle.Enabled := false;
+      txt_Razao.Enabled    := false;
+      txt_Fantasia.Enabled := false;
+      txt_CNPJ.Enabled     := false;
+      txt_Endereco.Enabled := false;
+      txt_Bairro.Enabled   := false;
+      txt_Numero.Enabled   := false;
+      txt_Email.Enabled    := false;
+      cbox_UF.Enabled      := false;
+      cbox_Cidade.Enabled  := false;
+    end;
+  ;
 
 end;
 

@@ -149,6 +149,7 @@ inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
       end>
   end
   inherited FD_qryConsultas: TFDQuery
+    AutoCalcFields = False
     SQL.Strings = (
       'SELECT * FROM FORNECEDOR')
   end

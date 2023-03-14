@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls, U_constantes, U_LookUp;
+  Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls, U_constantes, U_LookUp, MoneyEdit,
+  dbmnyed;
 type
   Tfrm_CadastroProdutos = class(Tfrm_Principal)
     fd_QueryCadastroCODIGO: TIntegerField;
@@ -34,16 +35,11 @@ type
     lb_marca: TLabel;
     lb_unidade: TLabel;
     lb_pesobruto: TLabel;
-    txt_pesobruto: TDBEdit;
     lb_pesolquido: TLabel;
-    txt_pesoliqudo: TDBEdit;
     lb_fornecedor: TLabel;
     lb_quantidade: TLabel;
-    txt_quantidade: TDBEdit;
     lb_custo: TLabel;
-    txt_custo: TDBEdit;
     lb_valorunitario: TLabel;
-    txt_valorunitario: TDBEdit;
     txt_codigo: TDBEdit;
     txt_descricao: TDBEdit;
     cbox_Departamentto: TDBLookupComboBox;
@@ -53,6 +49,11 @@ type
     cbox_marca: TDBLookupComboBox;
     cbox_Unidade: TDBLookupComboBox;
     cbox_Fornecedor: TDBLookupComboBox;
+    dbmo_PesoBruto: TDBMoneyEdit;
+    dbmo_PesoLiquido: TDBMoneyEdit;
+    dbmo_qtd: TDBMoneyEdit;
+    dbmo_custo: TDBMoneyEdit;
+    dbmo_valorunitario: TDBMoneyEdit;
     procedure FormCreate(Sender: TObject);
     procedure btn_novoClick(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
@@ -85,14 +86,14 @@ end;
 procedure Tfrm_CadastroProdutos.btn_novoClick(Sender: TObject);
 begin
   inherited;
-    txt_pesobruto.Enabled     := true;
-    txt_pesoliqudo.Enabled    := true;
-    txt_quantidade.Enabled    := true;
-    txt_custo.Enabled         := true;
-    txt_valorunitario.Enabled := true;
-    txt_codigo.Enabled        := false;
-    txt_descricao.Enabled     := true;
-    cbox_Fornecedor.Enabled   := true;
+    dbmo_PesoBruto.Enabled      := true;
+    dbmo_PesoLiquido.Enabled    := true;
+    dbmo_qtd.Enabled            := true;
+    dbmo_custo.Enabled          := true;
+    dbmo_valorunitario.Enabled  := true;
+    txt_codigo.Enabled          := false;
+    txt_descricao.Enabled       := true;
+    cbox_Fornecedor.Enabled     := true;
     //ValidaAbertura;
 end;
 
@@ -116,20 +117,20 @@ procedure Tfrm_CadastroProdutos.ValidaAbertura;
 begin
   if modo = maInicial then
   begin
-    txt_pesobruto.Enabled     := false;
-    txt_pesoliqudo.Enabled    := false;
-    txt_quantidade.Enabled    := false;
-    txt_custo.Enabled         := false;
-    txt_valorunitario.Enabled := false;
-    txt_codigo.Enabled        := false;
-    txt_descricao.Enabled     := false;
-    cbox_Fornecedor.Enabled   := false;
+    dbmo_PesoBruto.Enabled      := false;
+    dbmo_PesoLiquido.Enabled    := false;
+    dbmo_qtd.Enabled            := false;
+    dbmo_custo.Enabled          := false;
+    dbmo_valorunitario.Enabled  := false;
+    txt_codigo.Enabled          := false;
+    txt_descricao.Enabled       := false;
+    cbox_Fornecedor.Enabled     := false;
 
-    txt_pesobruto.Clear;
-    txt_pesoliqudo.Clear;
-    txt_quantidade.Clear;
-    txt_custo.Clear;
-    txt_valorunitario.Clear;
+    dbmo_PesoBruto.Clear;
+    dbmo_PesoLiquido.Clear;
+    dbmo_qtd.Clear;
+    dbmo_custo.Clear;
+    dbmo_valorunitario.Clear;
     txt_codigo.Clear;
     txt_descricao.Clear;
   end;
@@ -141,26 +142,26 @@ begin
 
   if modo = maConsulta then
   begin
-    txt_pesobruto.Enabled     := false;
-    txt_pesoliqudo.Enabled    := false;
-    txt_quantidade.Enabled    := false;
-    txt_custo.Enabled         := false;
-    txt_valorunitario.Enabled := false;
-    txt_codigo.Enabled        := false;
-    txt_descricao.Enabled     := false;
-    cbox_Fornecedor.Enabled   := false;
+    dbmo_PesoBruto.Enabled      := false;
+    dbmo_PesoLiquido.Enabled    := false;
+    dbmo_qtd.Enabled            := false;
+    dbmo_custo.Enabled          := false;
+    dbmo_valorunitario.Enabled  := false;
+    txt_codigo.Enabled          := false;
+    txt_descricao.Enabled       := false;
+    cbox_Fornecedor.Enabled     := false;
   end;
 
   if modo = maEdicao then
   begin
-    txt_pesobruto.Enabled     := true;
-    txt_pesoliqudo.Enabled    := true;
-    txt_quantidade.Enabled    := true;
-    txt_custo.Enabled         := true;
-    txt_valorunitario.Enabled := true;
-    txt_codigo.Enabled        := false;
-    txt_descricao.Enabled     := true;
-    cbox_Fornecedor.Enabled   := true;
+    dbmo_PesoBruto.Enabled      := true;
+    dbmo_PesoLiquido.Enabled    := true;
+    dbmo_qtd.Enabled            := true;
+    dbmo_custo.Enabled          := true;
+    dbmo_valorunitario.Enabled  := true;
+    txt_codigo.Enabled          := false;
+    txt_descricao.Enabled       := true;
+    cbox_Fornecedor.Enabled     := true;
   end;
 
 end;
