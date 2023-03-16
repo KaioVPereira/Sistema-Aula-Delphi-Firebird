@@ -2,8 +2,8 @@ object frm_inicio: Tfrm_inicio
   Left = 250
   Top = 200
   Caption = 'Inicio'
-  ClientHeight = 449
-  ClientWidth = 726
+  ClientHeight = 445
+  ClientWidth = 710
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -28,7 +28,7 @@ object frm_inicio: Tfrm_inicio
   object AdvToolBarPager1: TAdvToolBarPager
     Left = 0
     Top = 0
-    Width = 726
+    Width = 710
     Height = 149
     ActivePage = AdvPage1
     Caption.Caption = 'Sistema ERP'
@@ -127,7 +127,7 @@ object frm_inicio: Tfrm_inicio
     object AdvPage1: TAdvPage
       Left = 4
       Top = 52
-      Width = 718
+      Width = 702
       Height = 92
       Caption = 'Cadastros'
       object AdvToolBar1: TAdvToolBar
@@ -452,11 +452,11 @@ object frm_inicio: Tfrm_inicio
     object AdvPage2: TAdvPage
       Left = 4
       Top = 52
-      Width = 718
+      Width = 702
       Height = 92
       Caption = 'Consultas'
       object AdvToolBar4: TAdvToolBar
-        Left = 243
+        Left = 240
         Top = 3
         Width = 237
         Height = 86
@@ -479,14 +479,21 @@ object frm_inicio: Tfrm_inicio
         ParentOptionPicture = True
         ToolBarIndex = 1
         object AdvToolBarSeparator1: TAdvToolBarSeparator
+          Left = 144
+          Top = 2
+          Width = 16
+          Height = 71
+          LineColor = clBtnShadow
+        end
+        object AdvToolBarSeparator7: TAdvToolBarSeparator
           Left = 65
           Top = 2
-          Width = 10
+          Width = 16
           Height = 71
           LineColor = clBtnShadow
         end
         object btn_ConsultaProdutos: TAdvGlowButton
-          Left = 75
+          Left = 81
           Top = 2
           Width = 63
           Height = 71
@@ -579,7 +586,7 @@ object frm_inicio: Tfrm_inicio
       object AdvToolBar6: TAdvToolBar
         Left = 3
         Top = 3
-        Width = 237
+        Width = 234
         Height = 86
         AllowFloating = True
         AutoSize = False
@@ -599,12 +606,26 @@ object frm_inicio: Tfrm_inicio
         ToolBarStyler = AdvToolBarOfficeStyler1
         ParentOptionPicture = True
         ToolBarIndex = 0
-        object AdvGlowButton1: TAdvGlowButton
-          Left = 2
+        object AdvToolBarSeparator5: TAdvToolBarSeparator
+          Left = 141
           Top = 2
-          Width = 59
+          Width = 21
           Height = 71
-          Caption = 'Clientes'
+          LineColor = clBtnShadow
+        end
+        object AdvToolBarSeparator6: TAdvToolBarSeparator
+          Left = 65
+          Top = 2
+          Width = 16
+          Height = 71
+          LineColor = clBtnShadow
+        end
+        object btn_cidades: TAdvGlowButton
+          Left = 162
+          Top = 2
+          Width = 63
+          Height = 71
+          Caption = 'Cidades'
           FocusType = ftHot
           NotesFont.Charset = DEFAULT_CHARSET
           NotesFont.Color = clWindowText
@@ -644,12 +665,102 @@ object frm_inicio: Tfrm_inicio
           Appearance.GradientMirrorDown = ggVertical
           Appearance.GradientChecked = ggVertical
         end
+        object AdvGlowButton2: TAdvGlowButton
+          Left = 2
+          Top = 2
+          Width = 63
+          Height = 71
+          Caption = 'Clientes'
+          FocusType = ftHot
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          Rounded = True
+          TabOrder = 1
+          OnClick = btn_ConsultaClienteClick
+          Appearance.BorderColor = 14727579
+          Appearance.BorderColorHot = 10079963
+          Appearance.BorderColorDown = 4548219
+          Appearance.BorderColorChecked = 4548219
+          Appearance.Color = 15653832
+          Appearance.ColorTo = 16178633
+          Appearance.ColorChecked = 11918331
+          Appearance.ColorCheckedTo = 7915518
+          Appearance.ColorDisabled = 15921906
+          Appearance.ColorDisabledTo = 15921906
+          Appearance.ColorDown = 7778289
+          Appearance.ColorDownTo = 4296947
+          Appearance.ColorHot = 15465983
+          Appearance.ColorHotTo = 11332863
+          Appearance.ColorMirror = 15586496
+          Appearance.ColorMirrorTo = 16245200
+          Appearance.ColorMirrorHot = 5888767
+          Appearance.ColorMirrorHotTo = 10807807
+          Appearance.ColorMirrorDown = 946929
+          Appearance.ColorMirrorDownTo = 5021693
+          Appearance.ColorMirrorChecked = 10480637
+          Appearance.ColorMirrorCheckedTo = 5682430
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
+          Appearance.GradientHot = ggVertical
+          Appearance.GradientMirrorHot = ggVertical
+          Appearance.GradientDown = ggVertical
+          Appearance.GradientMirrorDown = ggVertical
+          Appearance.GradientChecked = ggVertical
+        end
+        object Estados: TAdvGlowButton
+          Left = 81
+          Top = 2
+          Width = 60
+          Height = 71
+          Caption = 'Estados'
+          FocusType = ftHot
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          Rounded = True
+          TabOrder = 2
+          OnClick = btn_ConsultaClienteClick
+          Appearance.BorderColor = 14727579
+          Appearance.BorderColorHot = 10079963
+          Appearance.BorderColorDown = 4548219
+          Appearance.BorderColorChecked = 4548219
+          Appearance.Color = 15653832
+          Appearance.ColorTo = 16178633
+          Appearance.ColorChecked = 11918331
+          Appearance.ColorCheckedTo = 7915518
+          Appearance.ColorDisabled = 15921906
+          Appearance.ColorDisabledTo = 15921906
+          Appearance.ColorDown = 7778289
+          Appearance.ColorDownTo = 4296947
+          Appearance.ColorHot = 15465983
+          Appearance.ColorHotTo = 11332863
+          Appearance.ColorMirror = 15586496
+          Appearance.ColorMirrorTo = 16245200
+          Appearance.ColorMirrorHot = 5888767
+          Appearance.ColorMirrorHotTo = 10807807
+          Appearance.ColorMirrorDown = 946929
+          Appearance.ColorMirrorDownTo = 5021693
+          Appearance.ColorMirrorChecked = 10480637
+          Appearance.ColorMirrorCheckedTo = 5682430
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
+          Appearance.GradientHot = ggVertical
+          Appearance.GradientMirrorHot = ggVertical
+          Appearance.GradientDown = ggVertical
+          Appearance.GradientMirrorDown = ggVertical
+          Appearance.GradientChecked = ggVertical
+        end
       end
     end
     object AdvPage3: TAdvPage
       Left = 4
       Top = 52
-      Width = 718
+      Width = 702
       Height = 92
       Caption = 'Configura'#231#245'es'
       object AdvToolBar5: TAdvToolBar
@@ -718,8 +829,8 @@ object frm_inicio: Tfrm_inicio
   end
   object AdvOfficeStatusBar1: TAdvOfficeStatusBar
     Left = 0
-    Top = 430
-    Width = 726
+    Top = 426
+    Width = 710
     Height = 19
     AnchorHint = False
     Font.Charset = DEFAULT_CHARSET
