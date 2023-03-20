@@ -7,7 +7,7 @@ uses
   AdvPreviewMenuStylers, AdvShapeButton, AdvOfficeStatusBar,
   AdvOfficeStatusBarStylers, Unit2, AdvGlowButton, U_CadastroCidades,
   U_CadastroClientes, U_CadastroEstados, U_ConsultaClientes,
-  U_ConsultaFornecedores, U_ConsultaProdutos, U_CadastroProdutos;
+  U_ConsultaFornecedores, U_ConsultaProdutos, U_CadastroProdutos, U_PDV;
 
 type
   Tfrm_inicio = class(TAdvToolBarForm)
@@ -43,6 +43,13 @@ type
     AdvToolBarSeparator6: TAdvToolBarSeparator;
     Estados: TAdvGlowButton;
     AdvToolBarSeparator7: TAdvToolBarSeparator;
+    Manutenção: TAdvPage;
+    AdvToolBar7: TAdvToolBar;
+    AdvToolBarSeparator8: TAdvToolBarSeparator;
+    AdvToolBarSeparator9: TAdvToolBarSeparator;
+    AdvGlowButton1: TAdvGlowButton;
+    btn_Vendas: TAdvGlowButton;
+    AdvGlowButton4: TAdvGlowButton;
     procedure btn_CadastroClienteClick(Sender: TObject);
     procedure btn_CadastroCidadesClick(Sender: TObject);
     procedure btn_CadastroEstadosClick(Sender: TObject);
@@ -51,6 +58,7 @@ type
     procedure btn_ConsultaProdutosClick(Sender: TObject);
     procedure btn_ConsultaFornecedorClick(Sender: TObject);
     procedure ProdutosClick(Sender: TObject);
+    procedure btn_VendasClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -87,6 +95,16 @@ begin
     frm_ConsultaFornecedor.show
   finally
 
+  end;
+end;
+
+procedure Tfrm_inicio.btn_VendasClick(Sender: TObject);
+begin
+  frm_CadastroVendas := Tfrm_CadastroVendas.Create(self);
+  try
+    frm_CadastroVendas.Showmodal;
+  finally
+    FreeAndNil(frm_CadastroVendas);
   end;
 end;
 

@@ -55,6 +55,13 @@ type
     fdqry_VendasItemDescricaoProduto: TStringField;
     fdqry_VendasItemSubTotal: TFloatField;
     fdqry_VendasItemTotal: TFloatField;
+    FDT_Itens: TFDTransaction;
+    Label5: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    txt_totalSubTotal: TAdvMoneyEdit;
+    txt_TotalDesconto: TAdvMoneyEdit;
+    txt_TotalVenda: TAdvMoneyEdit;
     procedure fd_QueryCadastroBeforePost(DataSet: TDataSet);
     procedure fd_QueryCadastroAfterInsert(DataSet: TDataSet);
     procedure fdqry_VendasItemAfterInsert(DataSet: TDataSet);
@@ -62,10 +69,17 @@ type
     procedure fd_QueryCadastroAfterOpen(DataSet: TDataSet);
     procedure fd_QueryCadastroAfterScroll(DataSet: TDataSet);
     procedure fdqry_VendasItemCalcFields(DataSet: TDataSet);
+    procedure fdqry_VendasItemAfterPost(DataSet: TDataSet);
+    procedure fdqry_VendasItemAfterDelete(DataSet: TDataSet);
+    procedure fdqry_VendasItemAfterCancel(DataSet: TDataSet);
+    procedure cbox_ProdutosClick(Sender: TObject);
+    procedure btn_InserirItemClick(Sender: TObject);
   private
     { Private declarations }
     procedure SetItens (pControle_Venda: integer);
     procedure GravarItem;
+    procedure SetDadosProdutos(pCodigo: integer);
+    procedure Totaliza;
   public
     { Public declarations }
   end;
@@ -79,10 +93,42 @@ implementation
 
 uses U_Dados;
 
+procedure Tfrm_CadastroVendas.btn_InserirItemClick(Sender: TObject);
+begin
+  inherited;
+  GravarItem;
+end;
+
+procedure Tfrm_CadastroVendas.cbox_ProdutosClick(Sender: TObject);
+begin
+  inherited;
+  SetDadosProdutos(cbox_Produtos.KeyValue);
+end;
+
+procedure Tfrm_CadastroVendas.fdqry_VendasItemAfterCancel(DataSet: TDataSet);
+begin
+  inherited;
+  FDT_Itens.RollBackRetaining;
+end;
+
+procedure Tfrm_CadastroVendas.fdqry_VendasItemAfterDelete(DataSet: TDataSet);
+begin
+  inherited;
+  FDT_Itens.commitRetaining;
+  Totaliza;
+end;
+
 procedure Tfrm_CadastroVendas.fdqry_VendasItemAfterInsert(DataSet: TDataSet);
 begin
   inherited;
   fdqry_VendasItemControle_Venda.AsInteger := fd_QueryCadastroControle_Venda.AsInteger;
+end;
+
+procedure Tfrm_CadastroVendas.fdqry_VendasItemAfterPost(DataSet: TDataSet);
+begin
+  inherited;
+  FDT_Itens.commitRetaining;
+  Totaliza;
 end;
 
 procedure Tfrm_CadastroVendas.fdqry_VendasItemCalcFields(DataSet: TDataSet);
@@ -130,12 +176,49 @@ end;
 procedure Tfrm_CadastroVendas.GravarItem;
 begin
   fdqry_VendasItem.Append;
+  fdqry_VendasItemCodigo.AsInteger          := integer(cbox_Produtos.KeyValue);
+  fdqry_VendasItemQTD.AsFloat               := txt_QTD.Value;
+  fdqry_VendasItemVALOR_UNITARIO.AsFloat    := txt_ValorUnit.Value;
+  fdqry_VendasItemDESCONTO.AsFloat          := txt_Desconto.Value;
+  fdqry_VendasItem.Post;
+end;
+
+procedure Tfrm_CadastroVendas.SetDadosProdutos(pCodigo: integer);
+begin
+  txt_QTD.Value := 1;
+  txt_ValorUnit.Value := LookUp.FD_qryProdutosVALOR_UNITARIO.AsFloat;
 end;
 
 procedure Tfrm_CadastroVendas.SetItens(pControle_Venda: integer);
 begin
   fdqry_VendasItem.Close;
-  fdqry_VendasItem.ParamByName ('CONTROLE_VENDA').AsInteger := pControle_Venda
+  fdqry_VendasItem.ParamByName ('CONTROLE_VENDA').AsInteger := pControle_Venda;
+  AtualizaFDQuery(fdqry_VendasItem, '');
+  Totaliza;
 end;
+
+procedure Tfrm_CadastroVendas.Totaliza;
+var
+vQryTotais: TFDQuery;
+vSQL: string;
+begin
+  vQryTotais := TFDQuery.Create(nil);
+  vQryTotais.Transaction  := FDT_Itens;
+  vQryTotais.Connection   := dm_Dados.fd_Connection;
+  TRY
+    vSQL := 'SELECT SUM (QTD * VALOR_UNITARIO) SUBTOTAL, SUM (COALESCE (DESCONTO, 0)) DESCONTO, SUM ((QTD * VALOR_UNITARIO) - COALESCE(DESCONTO,0)) TOTAL' +#13+
+              'FROM VENDAS_ITENS'+ #13+
+              'WHERE CONTROLE_VENDA ='+ fd_QueryCadastroCONTROLE_VENDA.AsAnsiString;
+
+              AtualizaFDQuery(vQryTotais, vSQL);
+
+    txt_totalSubTotal.Value  := vQryTotais.FieldByName ('SUBTOTAL').asFloat;
+    txt_TotalDesconto.Value  := vQryTotais.FieldByName ('DESCONTO').AsFloat;
+    txt_TotalVenda.Value     := vQryTotais.FieldByName ('TOTAL').AsFloat;
+  FINALLY
+    vQryTotais.Close;
+    freeAndNil (vQryTotais);
+  END;
+  end;
 
 end.

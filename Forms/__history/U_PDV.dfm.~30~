@@ -109,22 +109,145 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
   end
   object Panel2: TPanel [2]
     Left = 0
-    Top = 532
+    Top = 520
     Width = 1054
-    Height = 47
+    Height = 59
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 448
-    ExplicitWidth = 869
+    object Label5: TLabel
+      Left = 321
+      Top = 6
+      Width = 48
+      Height = 15
+      Caption = 'SubTotal:'
+    end
+    object Label12: TLabel
+      Left = 468
+      Top = 6
+      Width = 50
+      Height = 15
+      Caption = 'Desconto'
+    end
+    object Label13: TLabel
+      Left = 605
+      Top = 6
+      Width = 28
+      Height = 15
+      Caption = 'Total:'
+    end
+    object txt_totalSubTotal: TAdvMoneyEdit
+      Left = 322
+      Top = 27
+      Width = 103
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 0
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.0'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
+    object txt_TotalDesconto: TAdvMoneyEdit
+      Left = 468
+      Top = 27
+      Width = 93
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 1
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.0'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
+    object txt_TotalVenda: TAdvMoneyEdit
+      Left = 605
+      Top = 27
+      Width = 92
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 2
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.0'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
   end
   object Panel3: TPanel [3]
     Left = 0
     Top = 113
     Width = 1054
-    Height = 419
+    Height = 407
     Align = alClient
     TabOrder = 3
-    ExplicitTop = 107
+    ExplicitLeft = -1
+    ExplicitTop = 119
+    ExplicitHeight = 419
     object Label6: TLabel
       Left = 11
       Top = 6
@@ -177,6 +300,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       ListField = 'DESCRICAO'
       ListSource = LookUp.ds_produtos
       TabOrder = 0
+      OnClick = cbox_ProdutosClick
     end
     object txt_QTD: TAdvMoneyEdit
       Left = 178
@@ -204,6 +328,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       TabOrder = 1
       Text = '0,00'
       Visible = True
+      OnChange = txt_QTDChange
       Version = '1.1.4.0'
       CalculatorLook.Font.Charset = DEFAULT_CHARSET
       CalculatorLook.Font.Color = clWindowText
@@ -237,6 +362,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       TabOrder = 2
       Text = '0,00'
       Visible = True
+      OnChange = txt_ValorUnitChange
       Version = '1.1.4.0'
       CalculatorLook.Font.Charset = DEFAULT_CHARSET
       CalculatorLook.Font.Color = clWindowText
@@ -270,6 +396,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       TabOrder = 3
       Text = '0,00'
       Visible = True
+      OnChange = txt_DescontoChange
       Version = '1.1.4.0'
       CalculatorLook.Font.Charset = DEFAULT_CHARSET
       CalculatorLook.Font.Color = clWindowText
@@ -300,6 +427,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Lookup.Font.Style = []
       Lookup.Separator = ';'
       Color = clWindow
+      ReadOnly = True
       TabOrder = 4
       Text = '0,00'
       Visible = True
@@ -312,7 +440,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     end
     object DBGrid1: TDBGrid
       Left = 1
-      Top = 64
+      Top = 52
       Width = 1052
       Height = 354
       Align = alBottom
@@ -389,6 +517,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Lookup.Font.Style = []
       Lookup.Separator = ';'
       Color = clWindow
+      ReadOnly = True
       TabOrder = 6
       Text = '0,00'
       Visible = True
@@ -406,6 +535,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Height = 25
       Caption = 'Inserir Item'
       TabOrder = 7
+      OnClick = btn_InserirItemClick
     end
   end
   inherited fd_QueryCadastro: TFDQuery
@@ -416,7 +546,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_VENDAS_HEADER_CONTROLE'
-    UpdateOptions.AutoIncFields = 'VENDAS_HEADER_CONTROLE'
+    UpdateOptions.AutoIncFields = 'CONTROLE_VENDA'
     SQL.Strings = (
       'SELECT * FROM VENDAS_HEADER')
     Left = 720
@@ -459,6 +589,9 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
   end
   object fdqry_VendasItem: TFDQuery
     AfterInsert = fdqry_VendasItemAfterInsert
+    AfterPost = fdqry_VendasItemAfterPost
+    AfterCancel = fdqry_VendasItemAfterCancel
+    AfterDelete = fdqry_VendasItemAfterDelete
     OnCalcFields = fdqry_VendasItemCalcFields
     Connection = dm_Dados.fd_Connection
     Transaction = FDT_Itens
