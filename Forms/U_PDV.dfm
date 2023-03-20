@@ -1,27 +1,31 @@
 inherited frm_CadastroVendas: Tfrm_CadastroVendas
   Caption = 'PDV'
-  ClientHeight = 481
-  ClientWidth = 849
-  ExplicitWidth = 861
-  ExplicitHeight = 519
+  ClientHeight = 579
+  ClientWidth = 1054
+  ExplicitWidth = 1066
+  ExplicitHeight = 617
   TextHeight = 15
   inherited pn_cabecalho: TPanel
-    Width = 849
+    Width = 1054
     ExplicitWidth = 845
     inherited btn_sair: TBitBtn
-      Left = 773
+      Left = 978
       Top = 1
       Height = 39
       Align = alRight
+      ExplicitLeft = 769
+      ExplicitTop = 1
+      ExplicitHeight = 39
     end
   end
   object Panel1: TPanel [1]
     Left = 0
     Top = 41
-    Width = 849
-    Height = 160
+    Width = 1054
+    Height = 72
     Align = alTop
     TabOrder = 1
+    ExplicitLeft = -1
     object Label1: TLabel
       Left = 8
       Top = 6
@@ -30,111 +34,518 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Caption = 'CONTROLE_VENDA'
     end
     object Label2: TLabel
-      Left = 184
+      Left = 128
       Top = 6
       Width = 109
       Height = 15
       Caption = 'CONTROLE_CLIENTE'
     end
     object Label3: TLabel
-      Left = 352
+      Left = 296
       Top = 6
       Width = 60
       Height = 15
       Caption = 'DATA_MOV'
     end
     object Label4: TLabel
-      Left = 543
+      Left = 415
       Top = 6
       Width = 82
       Height = 15
       Caption = 'DATA_EMISSAO'
     end
-    object Label5: TLabel
-      Left = 8
-      Top = 60
-      Width = 62
-      Height = 15
-      Caption = 'PRODUTOS:'
-    end
     object DBCheckBox1: TDBCheckBox
-      Left = 680
-      Top = 24
+      Left = 536
+      Top = 21
       Width = 97
       Height = 17
       Caption = 'Faturado'
       DataField = 'SITUACAO'
       DataSource = ds_cadastros
-      TabOrder = 0
+      TabOrder = 3
+      ValueChecked = 'S'
+      ValueUnchecked = 'N'
     end
     object txt_venda: TDBEdit
       Left = 8
-      Top = 24
+      Top = 21
       Width = 103
       Height = 23
       DataField = 'CONTROLE_VENDA'
       DataSource = ds_cadastros
       Enabled = False
-      TabOrder = 1
-    end
-    object DBEdit2: TDBEdit
-      Left = 184
-      Top = 24
-      Width = 121
-      Height = 23
-      DataField = 'CONTROLE_CLIENTE'
-      DataSource = ds_cadastros
-      TabOrder = 2
+      TabOrder = 4
     end
     object DBEdit3: TDBEdit
-      Left = 352
-      Top = 24
+      Left = 296
+      Top = 21
       Width = 97
       Height = 23
       DataField = 'DATA_MOV'
       DataSource = ds_cadastros
-      TabOrder = 3
+      TabOrder = 1
     end
     object DBEdit4: TDBEdit
-      Left = 543
-      Top = 24
+      Left = 415
+      Top = 21
       Width = 89
       Height = 23
       DataField = 'DATA_EMISSAO'
       DataSource = ds_cadastros
-      TabOrder = 4
+      TabOrder = 2
     end
-    object txt_Produto: TDBEdit
-      Left = 8
-      Top = 81
+    object cbox_Cliente: TDBLookupComboBox
+      Left = 128
+      Top = 21
+      Width = 145
+      Height = 23
+      DataField = 'CONTROLE_CLIENTE'
+      DataSource = ds_cadastros
+      KeyField = 'CONTROLE_CLIENTES'
+      ListField = 'NOMECLIENTES'
+      ListSource = LookUp.ds_Clientes
+      TabOrder = 0
+    end
+  end
+  object Panel2: TPanel [2]
+    Left = 0
+    Top = 520
+    Width = 1054
+    Height = 59
+    Align = alBottom
+    TabOrder = 2
+    object Label5: TLabel
+      Left = 321
+      Top = 6
+      Width = 48
+      Height = 15
+      Caption = 'SubTotal:'
+    end
+    object Label12: TLabel
+      Left = 468
+      Top = 6
+      Width = 50
+      Height = 15
+      Caption = 'Desconto'
+    end
+    object Label13: TLabel
+      Left = 605
+      Top = 6
+      Width = 28
+      Height = 15
+      Caption = 'Total:'
+    end
+    object txt_totalSubTotal: TAdvMoneyEdit
+      Left = 322
+      Top = 27
       Width = 103
       Height = 23
-      TabOrder = 5
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 0
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.0'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
+    object txt_TotalDesconto: TAdvMoneyEdit
+      Left = 468
+      Top = 27
+      Width = 93
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 1
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.0'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
+    object txt_TotalVenda: TAdvMoneyEdit
+      Left = 605
+      Top = 27
+      Width = 92
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 2
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.0'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
     end
   end
-  object dbgr_itens: TDBGrid [2]
+  object Panel3: TPanel [3]
     Left = 0
-    Top = 201
-    Width = 849
-    Height = 280
+    Top = 113
+    Width = 1054
+    Height = 407
     Align = alClient
-    DataSource = ds_vendasItem
-    TabOrder = 2
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -12
-    TitleFont.Name = 'Segoe UI'
-    TitleFont.Style = []
+    TabOrder = 3
+    ExplicitLeft = -1
+    ExplicitTop = 119
+    ExplicitHeight = 419
+    object Label6: TLabel
+      Left = 11
+      Top = 6
+      Width = 42
+      Height = 15
+      Caption = 'C'#243'digo:'
+    end
+    object Label7: TLabel
+      Left = 178
+      Top = 6
+      Width = 65
+      Height = 15
+      Caption = 'Quantidade:'
+    end
+    object Label8: TLabel
+      Left = 322
+      Top = 6
+      Width = 74
+      Height = 15
+      Caption = 'Valor Unit'#225'rio:'
+    end
+    object Label9: TLabel
+      Left = 463
+      Top = 6
+      Width = 53
+      Height = 15
+      Caption = 'Desconto:'
+    end
+    object Label10: TLabel
+      Left = 599
+      Top = 6
+      Width = 48
+      Height = 15
+      Caption = 'SubTotal:'
+    end
+    object Label11: TLabel
+      Left = 760
+      Top = 6
+      Width = 28
+      Height = 15
+      Caption = 'Total:'
+    end
+    object cbox_Produtos: TDBLookupComboBox
+      Left = 11
+      Top = 27
+      Width = 145
+      Height = 23
+      DataField = 'CODIGO'
+      KeyField = 'CODIGO'
+      ListField = 'DESCRICAO'
+      ListSource = LookUp.ds_produtos
+      TabOrder = 0
+      OnClick = cbox_ProdutosClick
+    end
+    object txt_QTD: TAdvMoneyEdit
+      Left = 178
+      Top = 27
+      Width = 121
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      TabOrder = 1
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.0'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
+    object txt_ValorUnit: TAdvMoneyEdit
+      Left = 321
+      Top = 27
+      Width = 121
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      TabOrder = 2
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.0'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
+    object txt_Desconto: TAdvMoneyEdit
+      Left = 463
+      Top = 27
+      Width = 121
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      TabOrder = 3
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.0'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
+    object txt_SubTotal: TAdvMoneyEdit
+      Left = 599
+      Top = 27
+      Width = 121
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      TabOrder = 4
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.0'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
+    object DBGrid1: TDBGrid
+      Left = 1
+      Top = 52
+      Width = 1052
+      Height = 354
+      Align = alBottom
+      TabOrder = 5
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -12
+      TitleFont.Name = 'Segoe UI'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'CODIGO'
+          Title.Caption = 'C'#243'digo:'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DescricaoProduto'
+          Title.Caption = 'Descri'#231#227'o do Produto:'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'QTD'
+          Title.Caption = 'Quantidade:'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'VALOR_UNITARIO'
+          Title.Caption = 'Valor Unit'#225'rio:'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCONTO'
+          Title.Caption = 'Desconto:'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'SubTotal'
+          Title.Caption = 'SubTotal:'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Total'
+          Title.Caption = 'Total:'
+          Visible = True
+        end>
+    end
+    object txt_Total: TAdvMoneyEdit
+      Left = 760
+      Top = 27
+      Width = 121
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      TabOrder = 6
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.0'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
+    object btn_InserirItem: TButton
+      Left = 912
+      Top = 26
+      Width = 75
+      Height = 25
+      Caption = 'Inserir Item'
+      TabOrder = 7
+      OnClick = btn_InserirItemClick
+    end
   end
   inherited fd_QueryCadastro: TFDQuery
+    AfterOpen = fd_QueryCadastroAfterOpen
+    AfterInsert = fd_QueryCadastroAfterInsert
+    BeforePost = fd_QueryCadastroBeforePost
+    AfterScroll = fd_QueryCadastroAfterScroll
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_VENDAS_HEADER_CONTROLE'
     UpdateOptions.AutoIncFields = 'VENDAS_HEADER_CONTROLE'
     SQL.Strings = (
       'SELECT * FROM VENDAS_HEADER')
-    Left = 728
-    Top = 448
+    Left = 720
+    Top = 216
     object fd_QueryCadastroCONTROLE_VENDA: TIntegerField
       FieldName = 'CONTROLE_VENDA'
       Origin = 'CONTROLE_VENDA'
@@ -172,17 +583,85 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Top = 336
   end
   object fdqry_VendasItem: TFDQuery
-    Active = True
+    AfterInsert = fdqry_VendasItemAfterInsert
+    AfterPost = fdqry_VendasItemAfterPost
+    AfterCancel = fdqry_VendasItemAfterCancel
+    AfterDelete = fdqry_VendasItemAfterDelete
+    OnCalcFields = fdqry_VendasItemCalcFields
     Connection = dm_Dados.fd_Connection
-    Transaction = fd_transaction
+    Transaction = FDT_Itens
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_VENDAS_ITENS_CONTROLE'
+    UpdateOptions.AutoIncFields = 'CONTROLE_VENDA_ITEM'
     SQL.Strings = (
-      'SELECT * FROM VENDAS_ITENS')
-    Left = 720
-    Top = 208
+      'SELECT * FROM VENDAS_ITENS'
+      'where'
+      'CONTROLE_VENDA = :CONTROLE_VENDA')
+    Left = 536
+    Top = 392
+    ParamData = <
+      item
+        Name = 'CONTROLE_VENDA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object fdqry_VendasItemCONTROLE_VENDA_ITEM: TIntegerField
+      FieldName = 'CONTROLE_VENDA_ITEM'
+      Origin = 'CONTROLE_VENDA_ITEM'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object fdqry_VendasItemCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+    end
+    object fdqry_VendasItemDescricaoProduto: TStringField
+      FieldKind = fkLookup
+      FieldName = 'DescricaoProduto'
+      LookupDataSet = LookUp.FD_qryProdutos
+      LookupKeyFields = 'CODIGO'
+      LookupResultField = 'DESCRICAO'
+      KeyFields = 'CODIGO'
+      Size = 80
+      Lookup = True
+    end
+    object fdqry_VendasItemQTD: TSingleField
+      FieldName = 'QTD'
+      Origin = 'QTD'
+    end
+    object fdqry_VendasItemVALOR_UNITARIO: TSingleField
+      FieldName = 'VALOR_UNITARIO'
+      Origin = 'VALOR_UNITARIO'
+    end
+    object fdqry_VendasItemDESCONTO: TSingleField
+      FieldName = 'DESCONTO'
+      Origin = 'DESCONTO'
+    end
+    object fdqry_VendasItemCONTROLE_VENDA: TIntegerField
+      FieldName = 'CONTROLE_VENDA'
+      Origin = 'CONTROLE_VENDA'
+    end
+    object fdqry_VendasItemSubTotal: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'SubTotal'
+      Calculated = True
+    end
+    object fdqry_VendasItemTotal: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'Total'
+      Calculated = True
+    end
   end
   object ds_vendasItem: TDataSource
     DataSet = fdqry_VendasItem
-    Left = 632
-    Top = 208
+    Left = 536
+    Top = 448
+  end
+  object FDT_Itens: TFDTransaction
+    Connection = dm_Dados.fd_Connection
+    Left = 536
+    Top = 321
   end
 end

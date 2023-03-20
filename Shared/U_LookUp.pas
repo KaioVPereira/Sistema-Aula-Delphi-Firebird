@@ -17,6 +17,13 @@ type
     ds_cidades: TDataSource;
     ds_fornec: TDataSource;
     FD_qryFornec: TFDQuery;
+    FD_qryClientes: TFDQuery;
+    ds_Clientes: TDataSource;
+    FD_qryProdutos: TFDQuery;
+    ds_produtos: TDataSource;
+    FD_qryProdutosCODIGO: TIntegerField;
+    FD_qryProdutosDESCRICAO: TStringField;
+    FD_qryProdutosVALOR_UNITARIO: TSingleField;
   private
     { Private declarations }
   public

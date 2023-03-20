@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls, U_constantes, U_LookUp, MoneyEdit,
-  dbmnyed;
+  dbmnyed, U_Biblioteca;
 type
   Tfrm_CadastroProdutos = class(Tfrm_Principal)
     fd_QueryCadastroCODIGO: TIntegerField;
@@ -108,8 +108,8 @@ procedure Tfrm_CadastroProdutos.FormShow(Sender: TObject);
 begin
   inherited;
   ValidaAbertura;
-  LookUp.FD_qryFornec.open();
-  LookUp.FD_qryFornec.fetchall;
+  AtualizaFDQuery(LookUp.FD_qryFornec, '');
+
 
 end;
 
