@@ -82,6 +82,7 @@ type
     procedure txt_ValorUnitExit(Sender: TObject);
     procedure txt_DescontoExit(Sender: TObject);
     procedure btn_ExcluirItemClick(Sender: TObject);
+    procedure btn_cancelarClick(Sender: TObject);
   private
     { Private declarations }
     procedure SetItens (pControle_Venda: integer);
@@ -102,6 +103,14 @@ implementation
 {$R *.dfm}
 
 uses U_Dados;
+
+procedure Tfrm_CadastroVendas.btn_cancelarClick(Sender: TObject);
+begin
+  inherited;
+  FDT_Itens.Rollback;
+  fdqry_VendasItem.Cancel;
+
+end;
 
 procedure Tfrm_CadastroVendas.btn_ExcluirItemClick(Sender: TObject);
 begin
@@ -200,6 +209,10 @@ end;
 
 procedure Tfrm_CadastroVendas.GravarItem;
 begin
+  if not (fdqry_VendasItem.State in [dsEdit, dsInsert]) then
+  begin
+    fdqry_VendasItem.Insert;
+  end;
   fdqry_VendasItem.Append;
   fdqry_VendasItemCodigo.AsInteger          := integer(cbox_Produtos.KeyValue);
   fdqry_VendasItemQTD.AsFloat               := txt_QTD.Value;

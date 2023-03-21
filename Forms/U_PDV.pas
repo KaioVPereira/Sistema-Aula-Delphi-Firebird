@@ -209,10 +209,6 @@ end;
 
 procedure Tfrm_CadastroVendas.GravarItem;
 begin
-  if not (fdqry_VendasItem.State in [dsEdit, dsInsert]) then
-  begin
-    fdqry_VendasItem.Insert;
-  end;
   fdqry_VendasItem.Append;
   fdqry_VendasItemCodigo.AsInteger          := integer(cbox_Produtos.KeyValue);
   fdqry_VendasItemQTD.AsFloat               := txt_QTD.Value;
