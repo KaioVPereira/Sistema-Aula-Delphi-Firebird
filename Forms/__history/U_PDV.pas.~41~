@@ -62,6 +62,7 @@ type
     txt_totalSubTotal: TAdvMoneyEdit;
     txt_TotalDesconto: TAdvMoneyEdit;
     txt_TotalVenda: TAdvMoneyEdit;
+    btn_ExcluirItem: TButton;
     procedure fd_QueryCadastroBeforePost(DataSet: TDataSet);
     procedure fd_QueryCadastroAfterInsert(DataSet: TDataSet);
     procedure fdqry_VendasItemAfterInsert(DataSet: TDataSet);
@@ -80,6 +81,7 @@ type
     procedure txt_QTDExit(Sender: TObject);
     procedure txt_ValorUnitExit(Sender: TObject);
     procedure txt_DescontoExit(Sender: TObject);
+    procedure btn_ExcluirItemClick(Sender: TObject);
   private
     { Private declarations }
     procedure SetItens (pControle_Venda: integer);
@@ -101,10 +103,17 @@ implementation
 
 uses U_Dados;
 
+procedure Tfrm_CadastroVendas.btn_ExcluirItemClick(Sender: TObject);
+begin
+  inherited;
+  fdqry_VendasItem.delete;
+end;
+
 procedure Tfrm_CadastroVendas.btn_InserirItemClick(Sender: TObject);
 begin
   inherited;
   GravarItem;
+  LimparCampos;
 end;
 
 procedure Tfrm_CadastroVendas.CalculaTotais;
@@ -129,7 +138,7 @@ procedure Tfrm_CadastroVendas.fdqry_VendasItemAfterDelete(DataSet: TDataSet);
 begin
   FDT_itens.StartTransaction;
   inherited;
-  FDT_Itens.commitRetaining;
+  //FDT_Itens.commitRetaining;
   Totaliza;
 end;
 
@@ -143,7 +152,7 @@ procedure Tfrm_CadastroVendas.fdqry_VendasItemAfterPost(DataSet: TDataSet);
 begin
   FDT_itens.StartTransaction;
   inherited;
-  FDT_Itens.commitRetaining;
+  //FDT_Itens.commitRetaining;
   Totaliza;
 end;
 

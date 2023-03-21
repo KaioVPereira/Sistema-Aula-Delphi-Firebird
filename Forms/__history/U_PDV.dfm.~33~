@@ -328,6 +328,8 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       TabOrder = 1
       Text = '0,00'
       Visible = True
+      OnChange = txt_QTDChange
+      OnExit = txt_QTDExit
       Version = '1.1.4.0'
       CalculatorLook.Font.Charset = DEFAULT_CHARSET
       CalculatorLook.Font.Color = clWindowText
@@ -361,6 +363,8 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       TabOrder = 2
       Text = '0,00'
       Visible = True
+      OnChange = txt_ValorUnitChange
+      OnExit = txt_ValorUnitExit
       Version = '1.1.4.0'
       CalculatorLook.Font.Charset = DEFAULT_CHARSET
       CalculatorLook.Font.Color = clWindowText
@@ -394,6 +398,8 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       TabOrder = 3
       Text = '0,00'
       Visible = True
+      OnChange = txt_DescontoChange
+      OnExit = txt_DescontoExit
       Version = '1.1.4.0'
       CalculatorLook.Font.Charset = DEFAULT_CHARSET
       CalculatorLook.Font.Color = clWindowText
@@ -424,6 +430,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Lookup.Font.Style = []
       Lookup.Separator = ';'
       Color = clWindow
+      ReadOnly = True
       TabOrder = 4
       Text = '0,00'
       Visible = True
@@ -440,6 +447,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Width = 1052
       Height = 354
       Align = alBottom
+      DataSource = ds_vendasItem
       TabOrder = 5
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -513,6 +521,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Lookup.Font.Style = []
       Lookup.Separator = ';'
       Color = clWindow
+      ReadOnly = True
       TabOrder = 6
       Text = '0,00'
       Visible = True
@@ -524,13 +533,22 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       CalculatorLook.Font.Style = []
     end
     object btn_InserirItem: TButton
-      Left = 912
+      Left = 887
       Top = 26
       Width = 75
       Height = 25
       Caption = 'Inserir Item'
       TabOrder = 7
       OnClick = btn_InserirItemClick
+    end
+    object btn_ExcluirItem: TButton
+      Left = 977
+      Top = 26
+      Width = 75
+      Height = 25
+      Caption = 'Excluir Item'
+      TabOrder = 8
+      OnClick = btn_ExcluirItemClick
     end
   end
   inherited fd_QueryCadastro: TFDQuery

@@ -7,13 +7,13 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
   TextHeight = 15
   inherited pn_cabecalho: TPanel
     Width = 1054
-    ExplicitWidth = 845
+    ExplicitWidth = 1050
     inherited btn_sair: TBitBtn
       Left = 978
       Top = 1
       Height = 39
       Align = alRight
-      ExplicitLeft = 769
+      ExplicitLeft = 974
       ExplicitTop = 1
       ExplicitHeight = 39
     end
@@ -25,7 +25,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Height = 72
     Align = alTop
     TabOrder = 1
-    ExplicitLeft = -1
+    ExplicitWidth = 1050
     object Label1: TLabel
       Left = 8
       Top = 6
@@ -114,6 +114,8 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Height = 59
     Align = alBottom
     TabOrder = 2
+    ExplicitTop = 519
+    ExplicitWidth = 1050
     object Label5: TLabel
       Left = 321
       Top = 6
@@ -245,9 +247,8 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Height = 407
     Align = alClient
     TabOrder = 3
-    ExplicitLeft = -1
-    ExplicitTop = 119
-    ExplicitHeight = 419
+    ExplicitWidth = 1050
+    ExplicitHeight = 406
     object Label6: TLabel
       Left = 11
       Top = 6

@@ -86,7 +86,7 @@ procedure Tfrm_Principal.btn_cancelarClick(Sender: TObject);
     if fd_QueryCadastro.State in [dsEdit, dsInsert] then
       begin
         fd_QueryCadastro.Cancel;
-        //fd_transaction.RollbackRetaining;
+        fd_transaction.RollbackRetaining;
       end;
   end;
 

@@ -209,6 +209,8 @@ object frm_Principal: Tfrm_Principal
     F42C79EFD4235913590BC95BACB435AE3DE4DD619F783EE2A1F89FED49F87B55
     F1FFEFC4F8BF3530FE6F3FCCEA12FF99B820C371FE1F7481BF36D60D6E510000
     000049454E44AE426082}
+  OnClose = FormClose
+  OnCreate = FormCreate
   TextHeight = 15
   object pn_cabecalho: TPanel
     Left = 0
@@ -261,24 +263,29 @@ object frm_Principal: Tfrm_Principal
       Height = 41
       Caption = 'Sair'
       TabOrder = 4
-      OnClick = bnt_sairClick
+      OnClick = btn_sairClick
     end
   end
   object fd_QueryCadastro: TFDQuery
     Connection = dm_Dados.fd_Connection
     Transaction = fd_transaction
     UpdateObject = fd_UpdCadastros
-    Left = 552
-    Top = 232
+    Left = 568
+    Top = 208
   end
   object fd_UpdCadastros: TFDUpdateSQL
     Connection = dm_Dados.fd_Connection
-    Left = 552
-    Top = 200
+    Left = 568
+    Top = 152
   end
   object fd_transaction: TFDTransaction
     Connection = dm_Dados.fd_Connection
-    Left = 552
-    Top = 176
+    Left = 568
+    Top = 96
+  end
+  object ds_cadastros: TDataSource
+    DataSet = fd_QueryCadastro
+    Left = 568
+    Top = 40
   end
 end

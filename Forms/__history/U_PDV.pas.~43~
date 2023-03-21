@@ -62,6 +62,7 @@ type
     txt_totalSubTotal: TAdvMoneyEdit;
     txt_TotalDesconto: TAdvMoneyEdit;
     txt_TotalVenda: TAdvMoneyEdit;
+    btn_ExcluirItem: TButton;
     procedure fd_QueryCadastroBeforePost(DataSet: TDataSet);
     procedure fd_QueryCadastroAfterInsert(DataSet: TDataSet);
     procedure fdqry_VendasItemAfterInsert(DataSet: TDataSet);
@@ -80,6 +81,8 @@ type
     procedure txt_QTDExit(Sender: TObject);
     procedure txt_ValorUnitExit(Sender: TObject);
     procedure txt_DescontoExit(Sender: TObject);
+    procedure btn_ExcluirItemClick(Sender: TObject);
+    procedure btn_cancelarClick(Sender: TObject);
   private
     { Private declarations }
     procedure SetItens (pControle_Venda: integer);
@@ -87,6 +90,7 @@ type
     procedure SetDadosProdutos(pCodigo: integer);
     procedure Totaliza;
     procedure CalculaTotais;
+    procedure LimparCampos;
   public
     { Public declarations }
   end;
@@ -100,10 +104,27 @@ implementation
 
 uses U_Dados;
 
+procedure Tfrm_CadastroVendas.btn_cancelarClick(Sender: TObject);
+begin
+  inherited;
+  if fdqry_VendasItem.State in [dsEdit, dsInsert] then
+      begin
+        fdqry_VendasItem.Cancel;
+        FDT_Itens.RollbackRetaining;
+      end;
+end;
+
+procedure Tfrm_CadastroVendas.btn_ExcluirItemClick(Sender: TObject);
+begin
+  inherited;
+  fdqry_VendasItem.delete;
+end;
+
 procedure Tfrm_CadastroVendas.btn_InserirItemClick(Sender: TObject);
 begin
   inherited;
   GravarItem;
+  LimparCampos;
 end;
 
 procedure Tfrm_CadastroVendas.CalculaTotais;
@@ -126,8 +147,9 @@ end;
 
 procedure Tfrm_CadastroVendas.fdqry_VendasItemAfterDelete(DataSet: TDataSet);
 begin
+  FDT_itens.StartTransaction;
   inherited;
-  FDT_Itens.commitRetaining;
+  //FDT_Itens.commitRetaining;
   Totaliza;
 end;
 
@@ -139,8 +161,9 @@ end;
 
 procedure Tfrm_CadastroVendas.fdqry_VendasItemAfterPost(DataSet: TDataSet);
 begin
+  FDT_itens.StartTransaction;
   inherited;
-  FDT_Itens.commitRetaining;
+  //FDT_Itens.commitRetaining;
   Totaliza;
 end;
 
@@ -194,6 +217,17 @@ begin
   fdqry_VendasItemVALOR_UNITARIO.AsFloat    := txt_ValorUnit.Value;
   fdqry_VendasItemDESCONTO.AsFloat          := txt_Desconto.Value;
   fdqry_VendasItem.Post;
+end;
+
+procedure Tfrm_CadastroVendas.LimparCampos;
+begin
+  cbox_Produtos.KeyValue  := 0;
+  txt_QTD.Value           := 0;
+  txt_ValorUnit.Value     := 0;
+  txt_Desconto.Value      := 0;
+  txt_Total.Value         := 0;
+  txt_SubTotal.Value      := 0;
+  cbox_Produtos.SetFocus;
 end;
 
 procedure Tfrm_CadastroVendas.SetDadosProdutos(pCodigo: integer);
