@@ -4,10 +4,11 @@ interface
   uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client,
   System.Classes;
 
-  procedure ArqIni(pLocal, pSessao, pSubsessao: String; pValor:String);
-  function GetArqIni (pLocal, Psessao, pSubsessao: String): string;
-  procedure AtualizaFDQuery(const pFDQuery : TFDQuery; pSQL : String);
+  procedure ArqIni            (pLocal, pSessao, pSubsessao: String; pValor:String);
+  function GetArqIni          (pLocal, Psessao, pSubsessao: String): string;
+  procedure AtualizaFDQuery   (const pFDQuery : TFDQuery; pSQL : String);
   procedure AbreFormShowModal (pClass: TComponentClass; pForm :TForm);
+  procedure AbreForm          (pClass: TComponentClass; pForm :TForm);
 
 implementation
 
@@ -50,6 +51,16 @@ uses U_FormMain;
         pForm.ShowModal;
       finally
         FreeAndNil(pForm);
+      end;
+    end;
+
+    procedure AbreForm (pClass: TComponentClass; pForm :TForm);
+    begin
+      try
+        Application.CreateForm(pClass, pForm);
+        pForm.Show;
+      finally
+
       end;
     end;
 end.
