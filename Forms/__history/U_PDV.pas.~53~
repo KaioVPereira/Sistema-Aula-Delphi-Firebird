@@ -107,11 +107,9 @@ uses U_Dados;
 procedure Tfrm_CadastroVendas.btn_cancelarClick(Sender: TObject);
 begin
   inherited;
-  if fdqry_VendasItem.State in [dsEdit, dsInsert] then
-      begin
-        fdqry_VendasItem.Cancel;
-        FDT_Itens.RollbackRetaining;
-      end;
+  FDT_Itens.Rollback;
+  fdqry_VendasItem.Cancel;
+
 end;
 
 procedure Tfrm_CadastroVendas.btn_ExcluirItemClick(Sender: TObject);
@@ -211,7 +209,7 @@ end;
 
 procedure Tfrm_CadastroVendas.GravarItem;
 begin
-  //fdqry_VendasItem.Append;
+  fdqry_VendasItem.Append;
   fdqry_VendasItemCodigo.AsInteger          := integer(cbox_Produtos.KeyValue);
   fdqry_VendasItemQTD.AsFloat               := txt_QTD.Value;
   fdqry_VendasItemVALOR_UNITARIO.AsFloat    := txt_ValorUnit.Value;

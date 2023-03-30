@@ -683,4 +683,138 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Left = 536
     Top = 321
   end
+  object frx_RelatVendas: TfrxReport
+    Version = '2023.1.3'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 45015.714048055550000000
+    ReportOptions.LastChange = 45015.733345543980000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 424
+    Top = 248
+    Datasets = <
+      item
+        DataSet = frx_HeaderVenda
+        DataSetName = 'frx_HeaderVenda'
+      end
+      item
+        DataSet = frx_ItensVenda
+        DataSetName = 'frx_ItensVenda'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
+      object PageHeader1: TfrxPageHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 94.488250000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          AllowVectorExport = True
+          Top = 18.897650000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frx_HeaderVenda."CONTROLE_VENDA"]')
+        end
+        object Memo2: TfrxMemoView
+          AllowVectorExport = True
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Controle')
+        end
+        object Memo3: TfrxMemoView
+          AllowVectorExport = True
+          Left = 124.724490000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Cliente')
+        end
+        object Memo4: TfrxMemoView
+          AllowVectorExport = True
+          Left = 124.724490000000000000
+          Top = 18.897650000000000000
+          Width = 328.819110000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frx_HeaderVenda."CONTROLE_CLIENTE"] - [Cliente]')
+        end
+      end
+      object PageFooter1: TfrxPageFooter
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 257.008040000000000000
+        Width = 718.110700000000000000
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 173.858380000000000000
+        Width = 718.110700000000000000
+        DataSet = frx_HeaderVenda
+        DataSetName = 'frx_HeaderVenda'
+        RowCount = 0
+      end
+    end
+  end
+  object frx_ItensVenda: TfrxDBDataset
+    UserName = 'frx_ItensVenda'
+    CloseDataSource = False
+    DataSet = fdqry_VendasItem
+    BCDToCurrency = False
+    DataSetOptions = []
+    Left = 312
+    Top = 369
+  end
+  object frx_HeaderVenda: TfrxDBDataset
+    UserName = 'frx_HeaderVenda'
+    CloseDataSource = False
+    DataSet = fd_QueryCadastro
+    BCDToCurrency = False
+    DataSetOptions = []
+    Left = 240
+    Top = 280
+  end
 end

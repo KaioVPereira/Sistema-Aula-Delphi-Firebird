@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls,Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.Mask, U_LookUp, AdvEdit,
-  AdvMoneyEdit, DBAdvMoneyEdit, U_Biblioteca;
+  AdvMoneyEdit, DBAdvMoneyEdit, U_Biblioteca, frxClass, frxDBSet;
 
 type
   Tfrm_CadastroVendas = class(Tfrm_Principal)
@@ -63,6 +63,9 @@ type
     txt_TotalDesconto: TAdvMoneyEdit;
     txt_TotalVenda: TAdvMoneyEdit;
     btn_ExcluirItem: TButton;
+    frxReport1: TfrxReport;
+    frx_DadosVenda: TfrxDBDataset;
+    frx_ItensVendas: TfrxDBDataset;
     procedure fd_QueryCadastroBeforePost(DataSet: TDataSet);
     procedure fd_QueryCadastroAfterInsert(DataSet: TDataSet);
     procedure fdqry_VendasItemAfterInsert(DataSet: TDataSet);
@@ -107,11 +110,9 @@ uses U_Dados;
 procedure Tfrm_CadastroVendas.btn_cancelarClick(Sender: TObject);
 begin
   inherited;
-  if fdqry_VendasItem.State in [dsEdit, dsInsert] then
-      begin
-        fdqry_VendasItem.Cancel;
-        FDT_Itens.RollbackRetaining;
-      end;
+  FDT_Itens.Rollback;
+  fdqry_VendasItem.Cancel;
+
 end;
 
 procedure Tfrm_CadastroVendas.btn_ExcluirItemClick(Sender: TObject);
