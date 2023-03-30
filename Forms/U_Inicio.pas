@@ -80,23 +80,12 @@ uses U_CadastrosFornecedores;
 
 procedure Tfrm_inicio.btn_ConsultaProdutosClick(Sender: TObject);
 begin
-  try
-    frm_ConsultaProdutos := Tfrm_ConsultaProdutos.Create(self);
-    frm_ConsultaProdutos.show;
-  finally
-
-  end;
-
+  AbreForm(Tfrm_ConsultaProdutos, frm_ConsultaProdutos);
 end;
 
 procedure Tfrm_inicio.btn_ConsultaFornecedorClick(Sender: TObject);
 begin
-  try
-    frm_ConsultaFornecedor := Tfrm_ConsultaFornecedor.Create(self);
-    frm_ConsultaFornecedor.show
-  finally
-
-  end;
+  AbreForm(Tfrm_ConsultaFornecedor, frm_ConsultaFornecedor);
 end;
 
 procedure Tfrm_inicio.btn_VendasClick(Sender: TObject);
@@ -125,12 +114,7 @@ end;
 
 procedure Tfrm_inicio.btn_ConsultaClienteClick(Sender: TObject);
 begin
-  try
-    frm_ConsultaClientes := Tfrm_ConsultaClientes.Create(self);
-    frm_ConsultaClientes.show;
-  finally
-
-  end;
+  AbreForm(Tfrm_ConsultaClientes, frm_ConsultaClientes);
 end;
 
 
