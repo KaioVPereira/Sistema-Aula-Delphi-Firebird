@@ -1,11 +1,13 @@
 unit U_Biblioteca;
 
 interface
-  uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client;
+  uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client,
+  System.Classes;
 
   procedure ArqIni(pLocal, pSessao, pSubsessao: String; pValor:String);
   function GetArqIni (pLocal, Psessao, pSubsessao: String): string;
   procedure AtualizaFDQuery(const pFDQuery : TFDQuery; pSQL : String);
+  procedure AbreFormShowModal (pClass: TComponentClass; pForm :TForm);
 
 implementation
 
@@ -41,4 +43,13 @@ uses U_FormMain;
       pFdQuery.FetchAll;
     end;
 
+   procedure AbreFormShowModal (pClass: TComponentClass; pForm :TForm);
+    begin
+      try
+        Application.CreateForm(pClass, pForm);
+        pForm.ShowModal;
+      finally
+        FreeAndNil(pForm);
+      end;
+    end;
 end.

@@ -7,7 +7,8 @@ uses
   AdvPreviewMenuStylers, AdvShapeButton, AdvOfficeStatusBar,
   AdvOfficeStatusBarStylers, Unit2, AdvGlowButton, U_CadastroCidades,
   U_CadastroClientes, U_CadastroEstados, U_ConsultaClientes,
-  U_ConsultaFornecedores, U_ConsultaProdutos, U_CadastroProdutos, U_PDV;
+  U_ConsultaFornecedores, U_ConsultaProdutos, U_CadastroProdutos, U_PDV,
+  U_Biblioteca;
 
 type
   Tfrm_inicio = class(TAdvToolBarForm)
@@ -100,44 +101,27 @@ end;
 
 procedure Tfrm_inicio.btn_VendasClick(Sender: TObject);
 begin
-  frm_CadastroVendas := Tfrm_CadastroVendas.Create(self);
-  try
-    frm_CadastroVendas.Showmodal;
-  finally
-    FreeAndNil(frm_CadastroVendas);
-  end;
+  AbreFormShowModal(Tfrm_CadastroVendas, frm_CadastroVendas);
 end;
+
 
 procedure Tfrm_inicio.btn_CadastroCidadesClick(Sender: TObject);
 begin
-  frm_CadatroCidade := Tfrm_CadatroCidade.Create(self);
-  try
-    frm_CadatroCidade.Showmodal;
-  finally
-    FreeAndNil(frm_CadatroCidade);
-  end;
+  AbreFormShowModal(Tfrm_CadatroCidade, frm_CadatroCidade);
 end;
+
 
 procedure Tfrm_inicio.btn_CadastroClienteClick(Sender: TObject);
 begin
-  frm_CadClientes := Tfrm_CadClientes.Create(self);
-  try
-    frm_CadClientes.Showmodal;
-  finally
-    FreeAndNil(frm_CadClientes);
-  end;
-
+  AbreFormShowModal(Tfrm_CadClientes, frm_CadClientes);
 end;
+
 
 procedure Tfrm_inicio.btn_CadastroEstadosClick(Sender: TObject);
 begin
-   frm_CadastrosEstados := Tfrm_CadastrosEstados.Create(self);
-  try
-    frm_CadastrosEstados.Showmodal;
-  finally
-    FreeAndNil(frm_CadastrosEstados);
-  end;
+   AbreFormShowModal(Tfrm_CadastrosEstados, frm_CadastrosEstados);
 end;
+
 
 procedure Tfrm_inicio.btn_ConsultaClienteClick(Sender: TObject);
 begin
@@ -149,24 +133,16 @@ begin
   end;
 end;
 
+
 procedure Tfrm_inicio.btn_fornecedorClick(Sender: TObject);
 begin
-  frm_CadastrosFornecedores := Tfrm_CadastrosFornecedores.Create(self);
-  try
-    frm_CadastrosFornecedores.Showmodal;
-  finally
-    FreeAndNil(frm_CadastrosFornecedores);
-  end;
+  AbreFormShowModal(Tfrm_CadastrosFornecedores, frm_CadastrosFornecedores);
 end;
+
 
 procedure Tfrm_inicio.ProdutosClick(Sender: TObject);
 begin
-  frm_CadastroProdutos := Tfrm_CadastroProdutos.Create(self);
-  try
-    frm_CadastroProdutos.Showmodal;
-  finally
-    FreeAndNil(frm_CadastroProdutos);
-  end;
+  AbreFormShowModal(Tfrm_CadastroProdutos, frm_CadastroProdutos);
 end;
 
 end.

@@ -214,7 +214,7 @@ begin
   fdqry_VendasItemQTD.AsFloat               := txt_QTD.Value;
   fdqry_VendasItemVALOR_UNITARIO.AsFloat    := txt_ValorUnit.Value;
   fdqry_VendasItemDESCONTO.AsFloat          := txt_Desconto.Value;
-  fdqry_VendasItem.Post;
+  //fdqry_VendasItem.Post;
 end;
 
 procedure Tfrm_CadastroVendas.LimparCampos;
