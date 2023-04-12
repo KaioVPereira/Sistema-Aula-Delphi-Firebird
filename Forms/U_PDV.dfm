@@ -2,18 +2,19 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
   Caption = 'PDV'
   ClientHeight = 579
   ClientWidth = 1054
-  ExplicitWidth = 1066
-  ExplicitHeight = 617
+  ExplicitWidth = 1060
+  ExplicitHeight = 608
+  PixelsPerInch = 96
   TextHeight = 15
   inherited pn_cabecalho: TPanel
     Width = 1054
-    ExplicitWidth = 1050
+    ExplicitWidth = 1054
     inherited btn_sair: TBitBtn
       Left = 978
       Top = 1
       Height = 39
       Align = alRight
-      ExplicitLeft = 974
+      ExplicitLeft = 978
       ExplicitTop = 1
       ExplicitHeight = 39
     end
@@ -25,7 +26,6 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Height = 72
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1050
     object Label1: TLabel
       Left = 8
       Top = 6
@@ -114,8 +114,6 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Height = 59
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 519
-    ExplicitWidth = 1050
     object Label5: TLabel
       Left = 321
       Top = 6
@@ -247,8 +245,6 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Height = 407
     Align = alClient
     TabOrder = 3
-    ExplicitWidth = 1050
-    ExplicitHeight = 406
     object Label6: TLabel
       Left = 11
       Top = 6
@@ -679,6 +675,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Top = 448
   end
   object FDT_Itens: TFDTransaction
+    Options.AutoStop = False
     Connection = dm_Dados.fd_Connection
     Left = 536
     Top = 321

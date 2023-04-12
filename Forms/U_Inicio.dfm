@@ -22,15 +22,17 @@
     000000000000CCCCCCCCCCCCCCCC00000000000000000000000000000000FFFF
     0000FFFF0000FFFF000000000000FFFF0000FFFF0000DDD10000DDDE0000DD51
     0000DC97000005D80000FFFF0000FFFF000000000000FFFF0000FFFF0000}
+  OldCreateOrder = True
   Position = poScreenCenter
   WindowState = wsMaximized
+  PixelsPerInch = 96
   TextHeight = 13
   object AdvToolBarPager1: TAdvToolBarPager
     Left = 0
     Top = 0
     Width = 682
     Height = 149
-    ActivePage = AdvPage2
+    ActivePage = Manutenção
     Caption.Caption = 'Sistema ERP'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]

@@ -86,6 +86,7 @@ type
     procedure txt_DescontoExit(Sender: TObject);
     procedure btn_ExcluirItemClick(Sender: TObject);
     procedure btn_cancelarClick(Sender: TObject);
+    procedure btn_gravarClick(Sender: TObject);
   private
     { Private declarations }
     procedure SetItens (pControle_Venda: integer);
@@ -110,8 +111,25 @@ uses U_Dados;
 procedure Tfrm_CadastroVendas.btn_cancelarClick(Sender: TObject);
 begin
   inherited;
-  FDT_Itens.Rollback;
-  fdqry_VendasItem.Cancel;
+  var
+  i: Integer;
+  begin
+    try
+      FDT_Itens.Rollback;
+      ds_vendasItem.DataSet.First;
+      for i := 0 to ds_vendasItem.DataSet.recordCount - 1 do
+      begin
+        ds_vendasItem.DataSet.Delete;
+        ds_vendasItem.DataSet.Next;
+      end;
+    ds_vendasItem.DataSet.Cancel;
+    except
+      on E: Exception do
+        ShowMessage('Erro ao cancelar: ' + E.Message);
+    end;
+  end;
+  //FDT_Itens.Rollback;
+  //fdqry_VendasItem.Cancel;
 
 end;
 
@@ -119,6 +137,12 @@ procedure Tfrm_CadastroVendas.btn_ExcluirItemClick(Sender: TObject);
 begin
   inherited;
   fdqry_VendasItem.delete;
+end;
+
+procedure Tfrm_CadastroVendas.btn_gravarClick(Sender: TObject);
+begin
+  inherited;
+  FDT_Itens.Commit;
 end;
 
 procedure Tfrm_CadastroVendas.btn_InserirItemClick(Sender: TObject);

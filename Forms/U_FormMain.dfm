@@ -209,8 +209,10 @@ object frm_Principal: Tfrm_Principal
     F42C79EFD4235913590BC95BACB435AE3DE4DD619F783EE2A1F89FED49F87B55
     F1FFEFC4F8BF3530FE6F3FCCEA12FF99B820C371FE1F7481BF36D60D6E510000
     000049454E44AE426082}
+  OldCreateOrder = True
   OnClose = FormClose
   OnCreate = FormCreate
+  PixelsPerInch = 96
   TextHeight = 15
   object pn_cabecalho: TPanel
     Left = 0
@@ -219,7 +221,6 @@ object frm_Principal: Tfrm_Principal
     Height = 41
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 614
     object btn_novo: TBitBtn
       Left = 0
       Top = 0
