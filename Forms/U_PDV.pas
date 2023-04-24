@@ -66,6 +66,7 @@ type
     frx_RelatVendas: TfrxReport;
     frx_ItensVenda: TfrxDBDataset;
     frx_HeaderVenda: TfrxDBDataset;
+    btn_imprimir: TBitBtn;
     procedure fd_QueryCadastroBeforePost(DataSet: TDataSet);
     procedure fd_QueryCadastroAfterInsert(DataSet: TDataSet);
     procedure fdqry_VendasItemAfterInsert(DataSet: TDataSet);
@@ -87,6 +88,7 @@ type
     procedure btn_ExcluirItemClick(Sender: TObject);
     procedure btn_cancelarClick(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
+    procedure btn_imprimirClick(Sender: TObject);
   private
     { Private declarations }
     procedure SetItens (pControle_Venda: integer);
@@ -143,6 +145,13 @@ procedure Tfrm_CadastroVendas.btn_gravarClick(Sender: TObject);
 begin
   inherited;
   FDT_Itens.Commit;
+end;
+
+procedure Tfrm_CadastroVendas.btn_imprimirClick(Sender: TObject);
+begin
+  inherited;
+  frx_RelatVendas.Variables.Variables['Cliente'] := QuotedStr(cbox_Cliente.Text)  ;
+  CarregaRelat(frx_RelatVendas);
 end;
 
 procedure Tfrm_CadastroVendas.btn_InserirItemClick(Sender: TObject);
