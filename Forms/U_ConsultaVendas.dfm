@@ -3,7 +3,7 @@ inherited frm_ConsultaVendas: Tfrm_ConsultaVendas
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
-  ExplicitLeft = -34
+  ExplicitLeft = -118
   PixelsPerInch = 96
   TextHeight = 15
   inherited Panel1: TPanel
@@ -136,6 +136,8 @@ inherited frm_ConsultaVendas: Tfrm_ConsultaVendas
   end
   object fr_vendas: TfrxReport
     Version = '2023.1.3'
+    DataSet = frDB_Vendas
+    DataSetName = 'frDB_Vendas'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
@@ -149,18 +151,24 @@ inherited frm_ConsultaVendas: Tfrm_ConsultaVendas
       'begin'
       ''
       'end.')
-    Left = 592
-    Top = 168
+    Left = 624
+    Top = 160
     Datasets = <>
     Variables = <>
     Style = <>
   end
   object frDB_Vendas: TfrxDBDataset
-    UserName = 'frxDBDataset1'
+    UserName = 'frDB_Vendas'
     CloseDataSource = False
+    DataSet = FDQry_Relatorio
     BCDToCurrency = False
     DataSetOptions = []
-    Left = 504
-    Top = 216
+    Left = 624
+    Top = 208
+  end
+  object FDQry_Relatorio: TFDQuery
+    Connection = dm_Dados.fd_Connection
+    Left = 616
+    Top = 264
   end
 end

@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.Grids, Vcl.DBGrids, Vcl.ComCtrls, frxClass, frxDBSet;
+  Vcl.Grids, Vcl.DBGrids, Vcl.ComCtrls, frxClass, frxDBSet, U_Dados;
 
 type
   Tfrm_ConsultaVendas = class(Tfrm_MainConsultas)
@@ -24,6 +24,7 @@ type
     Button1: TButton;
     fr_vendas: TfrxReport;
     frDB_Vendas: TfrxDBDataset;
+    FDQry_Relatorio: TFDQuery;
     procedure btn_consultarClick(Sender: TObject);
     procedure btn_sairClick(Sender: TObject);
   private
@@ -95,5 +96,21 @@ begin
   FD_qryConsultas.Open();
   FD_qryConsultas.FetchAll;
 end;
+
+//SELECT V.controle_venda,
+       //V.controle_cliente,
+       //decode (C.tipo_fj, 'F', c.nome, c.razao_social) clientes,
+       //V.data_mov,
+       //P.descricao PRODUTO,
+       //I.qtd,
+       //I.valor_unitario,
+       //I.valor_unitario * I.qtd SUBTOTAL,
+       //COALESCE (I.desconto,0) DESCONTO,
+       //(I.qtd * I.valor_unitario) - (COALESCE(I.desconto,0))
+//FROM VENDAS_HEADER V INNER join CLIENTES C ON C.controle_clientes = V.controle_cliente
+                     //INNER join VENDAS_ITENS I ON V.controle_venda = I.controle_venda
+                     //INNER JOIN PRODUTOS P ON P.codigo = I.codigo
+//ORDER BY decode (C.tipo_fj, 'F', c.nome, c.razao_social),
+         //P.descricao
 
 end.
