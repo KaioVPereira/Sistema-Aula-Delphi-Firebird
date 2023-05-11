@@ -17,7 +17,8 @@ uses
   U_ConsultaFornecedores in 'Forms\U_ConsultaFornecedores.pas' {frm_ConsultaFornecedor},
   U_ConsultaProdutos in 'Forms\U_ConsultaProdutos.pas' {frm_ConsultaProdutos},
   U_CadastroProdutos in 'Forms\U_CadastroProdutos.pas' {frm_CadastroProdutos},
-  U_PDV in 'Forms\U_PDV.pas' {frm_CadastroVendas};
+  U_PDV in 'Forms\U_PDV.pas' {frm_CadastroVendas},
+  U_ConsultaVendas in 'Forms\U_ConsultaVendas.pas' {frm_ConsultaVendas};
 
 {$R *.res}
 begin

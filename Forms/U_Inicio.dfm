@@ -32,7 +32,7 @@
     Top = 0
     Width = 682
     Height = 149
-    ActivePage = Manutenção
+    ActivePage = AdvPage2
     Caption.Caption = 'Sistema ERP'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]
@@ -494,12 +494,12 @@
           Height = 71
           LineColor = clBtnShadow
         end
-        object btn_ConsultaProdutos: TAdvGlowButton
-          Left = 81
+        object btn_ConsultaVendas: TAdvGlowButton
+          Left = 160
           Top = 2
           Width = 63
           Height = 71
-          Caption = 'Produtos'
+          Caption = 'Vendas'
           FocusType = ftHot
           NotesFont.Charset = DEFAULT_CHARSET
           NotesFont.Color = clWindowText
@@ -508,7 +508,7 @@
           NotesFont.Style = []
           Rounded = True
           TabOrder = 0
-          OnClick = btn_ConsultaProdutosClick
+          OnClick = btn_ConsultaVendasClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219
@@ -554,6 +554,51 @@
           Rounded = True
           TabOrder = 1
           OnClick = btn_ConsultaFornecedorClick
+          Appearance.BorderColor = 14727579
+          Appearance.BorderColorHot = 10079963
+          Appearance.BorderColorDown = 4548219
+          Appearance.BorderColorChecked = 4548219
+          Appearance.Color = 15653832
+          Appearance.ColorTo = 16178633
+          Appearance.ColorChecked = 11918331
+          Appearance.ColorCheckedTo = 7915518
+          Appearance.ColorDisabled = 15921906
+          Appearance.ColorDisabledTo = 15921906
+          Appearance.ColorDown = 7778289
+          Appearance.ColorDownTo = 4296947
+          Appearance.ColorHot = 15465983
+          Appearance.ColorHotTo = 11332863
+          Appearance.ColorMirror = 15586496
+          Appearance.ColorMirrorTo = 16245200
+          Appearance.ColorMirrorHot = 5888767
+          Appearance.ColorMirrorHotTo = 10807807
+          Appearance.ColorMirrorDown = 946929
+          Appearance.ColorMirrorDownTo = 5021693
+          Appearance.ColorMirrorChecked = 10480637
+          Appearance.ColorMirrorCheckedTo = 5682430
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
+          Appearance.GradientHot = ggVertical
+          Appearance.GradientMirrorHot = ggVertical
+          Appearance.GradientDown = ggVertical
+          Appearance.GradientMirrorDown = ggVertical
+          Appearance.GradientChecked = ggVertical
+        end
+        object AdvGlowButton3: TAdvGlowButton
+          Left = 81
+          Top = 2
+          Width = 63
+          Height = 71
+          Caption = 'Produtos'
+          FocusType = ftHot
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          Rounded = True
+          TabOrder = 2
+          OnClick = btn_ConsultaVendasClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219
