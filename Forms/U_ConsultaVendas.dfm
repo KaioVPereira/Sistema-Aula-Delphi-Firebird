@@ -3,20 +3,66 @@ inherited frm_ConsultaVendas: Tfrm_ConsultaVendas
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
-  ExplicitTop = -56
+  ExplicitLeft = -34
   PixelsPerInch = 96
   TextHeight = 15
   inherited Panel1: TPanel
+    ExplicitLeft = 8
+    object Label1: TLabel [0]
+      Left = 328
+      Top = 28
+      Width = 104
+      Height = 15
+      Caption = 'Selecione o per'#237'odo'
+    end
     inherited btn_consultar: TButton
+      Left = 512
       OnClick = btn_consultarClick
+      ExplicitLeft = 512
     end
     inherited cboc_filtro: TComboBox
       Width = 121
+      Text = ''
       Items.Strings = (
         'Codigo do Cliente'
         'Controle Venda'
         'Nome Cliente')
       ExplicitWidth = 121
+    end
+    object DT_INC: TDateTimePicker
+      Left = 264
+      Top = 49
+      Width = 97
+      Height = 23
+      Date = 36526.000000000000000000
+      Time = 0.530796979168371800
+      TabOrder = 3
+    end
+    object DT_FIN: TDateTimePicker
+      Left = 400
+      Top = 49
+      Width = 97
+      Height = 23
+      Date = 72716.000000000000000000
+      Time = 0.530796979175647700
+      TabOrder = 4
+    end
+    object btn_sair: TButton
+      Left = 896
+      Top = 37
+      Width = 75
+      Height = 25
+      Caption = 'Sair'
+      TabOrder = 5
+      OnClick = btn_sairClick
+    end
+    object Button1: TButton
+      Left = 608
+      Top = 0
+      Width = 17
+      Height = 17
+      Caption = 'P'
+      TabOrder = 6
     end
   end
   object DB_Grid: TDBGrid [1]
@@ -87,5 +133,34 @@ inherited frm_ConsultaVendas: Tfrm_ConsultaVendas
       FieldName = 'DATA_MOV'
       Origin = 'DATA_MOV'
     end
+  end
+  object fr_vendas: TfrxReport
+    Version = '2023.1.3'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 45057.596746689810000000
+    ReportOptions.LastChange = 45057.596746689810000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 592
+    Top = 168
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+  object frDB_Vendas: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    BCDToCurrency = False
+    DataSetOptions = []
+    Left = 504
+    Top = 216
   end
 end

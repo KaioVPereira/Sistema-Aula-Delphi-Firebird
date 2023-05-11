@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.Grids, Vcl.DBGrids;
+  Vcl.Grids, Vcl.DBGrids, Vcl.ComCtrls, frxClass, frxDBSet;
 
 type
   Tfrm_ConsultaVendas = class(Tfrm_MainConsultas)
@@ -17,7 +17,15 @@ type
     FD_qryConsultasCONTROLE_CLIENTE: TIntegerField;
     FD_qryConsultasCLIENTES: TStringField;
     FD_qryConsultasDATA_MOV: TDateField;
+    DT_INC: TDateTimePicker;
+    DT_FIN: TDateTimePicker;
+    Label1: TLabel;
+    btn_sair: TButton;
+    Button1: TButton;
+    fr_vendas: TfrxReport;
+    frDB_Vendas: TfrxDBDataset;
     procedure btn_consultarClick(Sender: TObject);
+    procedure btn_sairClick(Sender: TObject);
   private
     { Private declarations }
     procedure Consultar;
@@ -40,6 +48,12 @@ begin
   Consultar;
 end;
 
+procedure Tfrm_ConsultaVendas.btn_sairClick(Sender: TObject);
+begin
+  inherited;
+  self.Close;
+end;
+
 procedure Tfrm_ConsultaVendas.Consultar;
 begin
   FD_qryConsultas.Close;
@@ -55,19 +69,28 @@ begin
   begin
     if StrToIntDef(txt_consultar.Text , 0) >0 then
       FD_qryConsultas.sql.add ('AND CONTROLE_VENDA = ' + txt_consultar.Text)
-  end
+  end;
 
-  else if (cboc_filtro.Text = 'Nome Cliente') and (txt_consultar.Text <> '') then
+  if (cboc_filtro.Text = 'Nome Cliente') and (txt_consultar.Text <> '') then
   begin
     FD_qryConsultas.sql.add ('AND UPPER (TRIM (C.NOME)) LIKE ' + QuotedStr('%'+ UpperCase(Trim(txt_consultar.text))+'%'))
-  end
+  end;
 
-  ELSE IF cboc_filtro.Text = 'Codigo do Cliente' THEN
+   IF cboc_filtro.Text = 'Codigo do Cliente' THEN
   begin
     if StrToIntDef(txt_consultar.Text , 0) >0 then
       FD_qryConsultas.sql.add ('AND V.CONTROLE_CLIENTE = ' + txt_consultar.Text)
-  end
-  ;
+  end;
+
+  if DT_INC.Date > 0 then
+  BEGIN
+    FD_qryConsultas.SQL.Add('AND V.DATA_MOV >=' + QuotedStr(FormatDateTime('dd.mm.yyyy',DT_INC.Date)))
+  END;
+
+  if DT_FIN.Date > 0 then
+  BEGIN
+    FD_qryConsultas.SQL.Add('AND V.DATA_MOV <=' + QuotedStr(FormatDateTime('dd.mm.yyyy',DT_FIN.Date)))
+  END;
 
   FD_qryConsultas.Open();
   FD_qryConsultas.FetchAll;
