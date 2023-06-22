@@ -3,11 +3,9 @@ inherited frm_ConsultaVendas: Tfrm_ConsultaVendas
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
-  ExplicitLeft = -118
   PixelsPerInch = 96
   TextHeight = 15
   inherited Panel1: TPanel
-    ExplicitLeft = 8
     object Label1: TLabel [0]
       Left = 328
       Top = 28

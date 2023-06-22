@@ -32,7 +32,7 @@
     Top = 0
     Width = 682
     Height = 149
-    ActivePage = AdvPage2
+    ActivePage = AdvPage1
     Caption.Caption = 'Sistema ERP'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]

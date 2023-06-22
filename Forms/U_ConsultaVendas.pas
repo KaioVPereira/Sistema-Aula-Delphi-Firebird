@@ -30,6 +30,7 @@ type
   private
     { Private declarations }
     procedure Consultar;
+    procedure SetFiltro(const pQuery: TFDQuery);
   public
     { Public declarations }
   end;
@@ -95,6 +96,11 @@ begin
 
   FD_qryConsultas.Open();
   FD_qryConsultas.FetchAll;
+end;
+
+procedure Tfrm_ConsultaVendas.SetFiltro(const pQuery: TFDQuery);
+begin
+
 end;
 
 //SELECT V.controle_venda,

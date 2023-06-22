@@ -89,6 +89,7 @@ type
     procedure btn_cancelarClick(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
     procedure btn_imprimirClick(Sender: TObject);
+    procedure btn_novoClick(Sender: TObject);
   private
     { Private declarations }
     procedure SetItens (pControle_Venda: integer);
@@ -113,25 +114,10 @@ uses U_Dados;
 procedure Tfrm_CadastroVendas.btn_cancelarClick(Sender: TObject);
 begin
   inherited;
-  var
-  i: Integer;
-  begin
-    try
-      FDT_Itens.Rollback;
-      ds_vendasItem.DataSet.First;
-      for i := 0 to ds_vendasItem.DataSet.recordCount - 1 do
-      begin
-        ds_vendasItem.DataSet.Delete;
-        ds_vendasItem.DataSet.Next;
-      end;
-    ds_vendasItem.DataSet.Cancel;
-    except
-      on E: Exception do
-        ShowMessage('Erro ao cancelar: ' + E.Message);
-    end;
-  end;
-  //FDT_Itens.Rollback;
-  //fdqry_VendasItem.Cancel;
+  FDT_Itens.Rollback;
+  fdqry_VendasItem.Cancel;
+  fd_QueryCadastro.Close;
+  fdqry_VendasItem.Close;
 
 end;
 
@@ -145,6 +131,7 @@ procedure Tfrm_CadastroVendas.btn_gravarClick(Sender: TObject);
 begin
   inherited;
   FDT_Itens.Commit;
+  fdqry_VendasItem.Close;
 end;
 
 procedure Tfrm_CadastroVendas.btn_imprimirClick(Sender: TObject);
@@ -159,6 +146,17 @@ begin
   inherited;
   GravarItem;
   LimparCampos;
+end;
+
+procedure Tfrm_CadastroVendas.btn_novoClick(Sender: TObject);
+begin
+  inherited;
+  fdqry_VendasItem.Open();
+  if not (fdqry_VendasItem.State in [dsEdit, dsInsert]) then
+  begin
+    fdqry_VendasItem.Insert;
+  end;
+  fd_transaction.StartTransaction;
 end;
 
 procedure Tfrm_CadastroVendas.CalculaTotais;
