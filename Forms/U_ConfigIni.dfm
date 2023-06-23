@@ -4,18 +4,20 @@ object frm_ConfigIni: Tfrm_ConfigIni
   BorderStyle = bsDialog
   Caption = 'Config Ini'
   ClientHeight = 172
-  ClientWidth = 427
+  ClientWidth = 493
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poDefault
   OnClose = FormClose
   DesignSize = (
-    427
+    493
     172)
+  PixelsPerInch = 96
   TextHeight = 15
   object img_bd: TImage
     Left = 0

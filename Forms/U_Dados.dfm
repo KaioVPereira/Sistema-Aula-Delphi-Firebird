@@ -1,16 +1,15 @@
 object dm_Dados: Tdm_Dados
+  OldCreateOrder = True
   OnCreate = DataModuleCreate
   Height = 270
   Width = 503
   object fd_Connection: TFDConnection
     Params.Strings = (
-      'Database=C:\SCL\Sistema-Aula-Delphi-Firebird\BANCOAULA.IB'
-      'User_Name=SYSDBA'
       'Protocol=TCPIP'
       'Server=127.0.0.1'
-      'Port=3051'
-      'Password=masterkey'
-      'DriverID=FB')
+      'DriverID=FB'
+      'User_Name=sysdba'
+      'Password=masterkey')
     Left = 40
     Top = 8
   end

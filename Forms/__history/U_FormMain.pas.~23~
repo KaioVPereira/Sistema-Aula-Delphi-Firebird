@@ -28,6 +28,7 @@ type
     procedure btn_excluirClick(Sender: TObject);
     procedure btn_sairClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -45,6 +46,7 @@ uses U_Dados;
 
 procedure Tfrm_Principal.btn_novoClick(Sender: TObject);
 begin
+  fd_QueryCadastro.Open();
   if not (fd_QueryCadastro.State in [dsEdit, dsInsert]) then
   begin
     fd_QueryCadastro.Insert;
@@ -59,12 +61,19 @@ begin
     fd_transaction.StartTransaction;
     fd_QueryCadastro.Post;
     fd_transaction.CommitRetaining;
+    fd_QueryCadastro.Close;
   end;
 end;
 
 procedure Tfrm_Principal.btn_sairClick(Sender: TObject);
 begin
+    fd_QueryCadastro.Close;
     Self.Close;
+end;
+
+procedure Tfrm_Principal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  fd_QueryCadastro.Close;
 end;
 
 procedure Tfrm_Principal.FormCreate(Sender: TObject);

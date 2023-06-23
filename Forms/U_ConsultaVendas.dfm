@@ -6,6 +6,7 @@ inherited frm_ConsultaVendas: Tfrm_ConsultaVendas
   PixelsPerInch = 96
   TextHeight = 15
   inherited Panel1: TPanel
+    ExplicitTop = -6
     object Label1: TLabel [0]
       Left = 328
       Top = 28

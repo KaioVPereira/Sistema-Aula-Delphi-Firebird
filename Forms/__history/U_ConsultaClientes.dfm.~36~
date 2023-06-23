@@ -1,16 +1,16 @@
 inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
   Caption = 'Consulta Clientes'
-  ClientHeight = 419
-  ClientWidth = 800
+  ClientWidth = 1082
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
-  ExplicitWidth = 812
+  ExplicitWidth = 1094
+  ExplicitHeight = 456
   TextHeight = 15
   inherited Panel1: TPanel
-    Width = 800
+    Width = 1082
     Height = 65
-    ExplicitWidth = 796
+    ExplicitWidth = 1078
     ExplicitHeight = 65
     inherited txt_consultar: TEdit
       Left = 120
@@ -60,7 +60,7 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
       OnClick = btn_visualizarClick
     end
     object Panel2: TPanel
-      Left = 680
+      Left = 962
       Top = 1
       Width = 119
       Height = 63
@@ -68,7 +68,7 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
       BevelOuter = bvNone
       Caption = 'Panel2'
       TabOrder = 5
-      ExplicitLeft = 676
+      ExplicitLeft = 958
       object btn_sair: TButton
         Left = 24
         Top = 16
@@ -79,12 +79,21 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
         OnClick = btn_sairClick
       end
     end
+    object btn_alterar: TButton
+      Left = 666
+      Top = 17
+      Width = 75
+      Height = 25
+      Caption = 'Alterar'
+      TabOrder = 6
+      OnClick = btn_alterarClick
+    end
   end
   object DBGrid1: TDBGrid [1]
     Left = 0
     Top = 65
-    Width = 800
-    Height = 354
+    Width = 1082
+    Height = 353
     Align = alClient
     DataSource = DS_Consultas
     ReadOnly = True
@@ -105,14 +114,12 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
         Expanded = False
         FieldName = 'NOME'
         Title.Caption = 'Nome'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CPF_CNPJ'
         Title.Caption = 'CPF/CNPJ'
-        Width = 64
         Visible = True
       end
       item
@@ -125,48 +132,41 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
         Expanded = False
         FieldName = 'EMAIL'
         Title.Caption = 'E-mail'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'BAIRRO'
         Title.Caption = 'Bairro'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'ENDERECO'
         Title.Caption = 'Endere'#231'o'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'NUMERO'
         Title.Caption = 'N'#250'mero'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'NOME_CIDADE'
         Title.Caption = 'Cidade'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'UF'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'IE_RG'
         Title.Caption = 'RG/IE'
-        Width = 64
         Visible = True
       end>
   end

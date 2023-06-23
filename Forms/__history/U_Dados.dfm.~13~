@@ -4,12 +4,12 @@ object dm_Dados: Tdm_Dados
   Width = 503
   object fd_Connection: TFDConnection
     Params.Strings = (
-      'Database=C:\SCL\Dados\BancoAula\BANCOAULA.IB'
+      'Database=C:\SCL\Sistema-Aula-Delphi-Firebird\BANCOAULA.IB'
       'User_Name=SYSDBA'
-      'Password=masterkey'
       'Protocol=TCPIP'
       'Server=127.0.0.1'
       'Port=3051'
+      'Password=masterkey'
       'DriverID=FB')
     Left = 40
     Top = 8

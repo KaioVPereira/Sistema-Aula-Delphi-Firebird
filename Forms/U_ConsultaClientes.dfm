@@ -4,13 +4,13 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
-  ExplicitWidth = 1094
-  ExplicitHeight = 456
+  ExplicitWidth = 1098
+  PixelsPerInch = 96
   TextHeight = 15
   inherited Panel1: TPanel
     Width = 1082
     Height = 65
-    ExplicitWidth = 1078
+    ExplicitWidth = 1082
     ExplicitHeight = 65
     inherited txt_consultar: TEdit
       Left = 120
@@ -68,7 +68,6 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
       BevelOuter = bvNone
       Caption = 'Panel2'
       TabOrder = 5
-      ExplicitLeft = 958
       object btn_sair: TButton
         Left = 24
         Top = 16
@@ -93,7 +92,7 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
     Left = 0
     Top = 65
     Width = 1082
-    Height = 353
+    Height = 354
     Align = alClient
     DataSource = DS_Consultas
     ReadOnly = True

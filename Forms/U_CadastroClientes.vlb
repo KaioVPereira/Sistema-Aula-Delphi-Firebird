@@ -28,9 +28,6 @@ Coordinates=970,1,191,36
 [Label13]
 Coordinates=73,474,60,58
 
-[btn_excluir]
-Coordinates=143,474,77,58
-
 [fd_QueryCadastroCONTROLE_ESTADO]
 Coordinates=970,56,249,36
 
@@ -39,9 +36,6 @@ Coordinates=162,10,151,58
 
 [txt_controle]
 Coordinates=88,588,81,36
-
-[btn_cancelar]
-Coordinates=943,10,88,58
 
 [Label6]
 Coordinates=880,10,53,58
@@ -66,9 +60,6 @@ Coordinates=835,542,57,36
 
 [Label5]
 Coordinates=10,474,53,58
-
-[btn_sair]
-Coordinates=796,474,60,58
 
 [fd_QueryCadastroRAZAO_SOCIAL]
 Coordinates=970,111,217,36
@@ -127,9 +118,6 @@ Coordinates=368,542,89,36
 [fd_QueryCadastroTIPO_FJ]
 Coordinates=970,276,171,36
 
-[btn_novo]
-Coordinates=560,10,67,58
-
 [fd_QueryCadastroCONTROLE_CIDADE]
 Coordinates=970,331,245,36
 
@@ -138,9 +126,6 @@ Coordinates=230,474,53,58
 
 [fd_QueryCadastroCONTROLE_CLIENTES]
 Coordinates=970,386,260,36
-
-[pn_cabecalho]
-Coordinates=323,10,94,58
 
 [fd_UpdCadastros]
 Coordinates=482,762,114,36
@@ -154,9 +139,6 @@ Coordinates=191,542,66,36
 
 [Label4]
 Coordinates=582,474,53,58
-
-[btn_gravar]
-Coordinates=293,474,76,58
 
 [fd_QueryCadastroCOMPLEMENTO]
 Coordinates=970,441,219,36
@@ -186,5 +168,5 @@ Coordinates=530,155,128,36
 Coordinates=970,496,158,36
 
 []
-Coordinates=47,762,91,36
+Coordinates=323,10,94,58
 

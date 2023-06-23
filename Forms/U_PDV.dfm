@@ -14,12 +14,12 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Top = 1
       Height = 39
       Align = alRight
-      ExplicitLeft = 978
+      ExplicitLeft = 906
       ExplicitTop = 1
       ExplicitHeight = 39
     end
     object btn_imprimir: TBitBtn
-      Left = 360
+      Left = 878
       Top = 1
       Width = 75
       Height = 40

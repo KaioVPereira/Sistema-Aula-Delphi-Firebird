@@ -28,6 +28,5 @@ begin
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
   Application.CreateForm(Tdm_Dados, dm_Dados);
   Application.CreateForm(TLookUp, LookUp);
-  Application.CreateForm(Tfrm_CadastroVendas, frm_CadastroVendas);
   Application.Run;
 end.

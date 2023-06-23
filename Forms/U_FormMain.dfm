@@ -4,7 +4,7 @@ object frm_Principal: Tfrm_Principal
   BorderStyle = bsSingle
   Caption = 'Principal'
   ClientHeight = 296
-  ClientWidth = 618
+  ClientWidth = 840
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -217,10 +217,38 @@ object frm_Principal: Tfrm_Principal
   object pn_cabecalho: TPanel
     Left = 0
     Top = 0
-    Width = 618
+    Width = 840
     Height = 41
     Align = alTop
     TabOrder = 0
+    object SpeedButton2: TSpeedButton
+      Left = 437
+      Top = 8
+      Width = 23
+      Height = 22
+      Caption = '<'
+    end
+    object SpeedButton3: TSpeedButton
+      Left = 466
+      Top = 8
+      Width = 23
+      Height = 22
+      Caption = '>'
+    end
+    object SpeedButton4: TSpeedButton
+      Left = 495
+      Top = 8
+      Width = 23
+      Height = 22
+      Caption = '>>'
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 408
+      Top = 8
+      Width = 23
+      Height = 22
+      Caption = '<<'
+    end
     object btn_novo: TBitBtn
       Left = 0
       Top = 0
@@ -258,7 +286,7 @@ object frm_Principal: Tfrm_Principal
       OnClick = btn_excluirClick
     end
     object btn_sair: TBitBtn
-      Left = 543
+      Left = 751
       Top = 0
       Width = 75
       Height = 41
@@ -270,7 +298,6 @@ object frm_Principal: Tfrm_Principal
   object fd_QueryCadastro: TFDQuery
     Connection = dm_Dados.fd_Connection
     Transaction = fd_transaction
-    UpdateObject = fd_UpdCadastros
     Left = 568
     Top = 208
   end

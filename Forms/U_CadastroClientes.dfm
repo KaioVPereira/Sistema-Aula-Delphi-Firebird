@@ -2,7 +2,8 @@ inherited frm_CadClientes: Tfrm_CadClientes
   Caption = 'Cadastro de Clientes'
   ClientWidth = 791
   OnShow = FormShow
-  ExplicitWidth = 803
+  ExplicitWidth = 797
+  PixelsPerInch = 96
   TextHeight = 15
   object lb_controle: TLabel [0]
     Left = 8
@@ -121,53 +122,43 @@ inherited frm_CadClientes: Tfrm_CadClientes
     Height = 15
     Caption = 'CIDADE:'
   end
-  inherited pn_cabecalho: TPanel
-    Width = 791
-    ExplicitWidth = 787
-    inherited btn_sair: TBitBtn
-      Left = 716
-      Top = 1
-      ExplicitLeft = 716
-      ExplicitTop = 1
-    end
-  end
-  object txt_controle: TDBEdit [16]
+  object txt_controle: TDBEdit [15]
     Left = 8
     Top = 68
     Width = 103
     Height = 23
     DataField = 'CONTROLE_CLIENTES'
     DataSource = ds_cadastros
-    TabOrder = 1
+    TabOrder = 0
   end
-  object txt_razao: TDBEdit [17]
+  object txt_razao: TDBEdit [16]
     Left = 144
     Top = 68
     Width = 200
     Height = 23
     DataField = 'RAZAO_SOCIAL'
     DataSource = ds_cadastros
-    TabOrder = 2
+    TabOrder = 1
   end
-  object txt_fantasia: TDBEdit [18]
+  object txt_fantasia: TDBEdit [17]
     Left = 371
     Top = 68
     Width = 200
     Height = 23
     DataField = 'FANTASIA'
     DataSource = ds_cadastros
-    TabOrder = 3
+    TabOrder = 2
   end
-  object txt_CNPJCPF: TDBEdit [19]
+  object txt_CNPJCPF: TDBEdit [18]
     Left = 631
     Top = 68
     Width = 150
     Height = 23
     DataField = 'CPF_CNPJ'
     DataSource = ds_cadastros
-    TabOrder = 5
+    TabOrder = 4
   end
-  object cbbox_tipopessoa: TDBComboBox [20]
+  object cbbox_tipopessoa: TDBComboBox [19]
     Left = 577
     Top = 68
     Width = 41
@@ -177,81 +168,81 @@ inherited frm_CadClientes: Tfrm_CadClientes
     Items.Strings = (
       'F'
       'J')
-    TabOrder = 4
+    TabOrder = 3
   end
-  object txt_nome: TDBEdit [21]
+  object txt_nome: TDBEdit [20]
     Left = 8
     Top = 118
     Width = 200
     Height = 23
     DataField = 'NOME'
     DataSource = ds_cadastros
-    TabOrder = 6
+    TabOrder = 5
   end
-  object txt_email: TDBEdit [22]
+  object txt_email: TDBEdit [21]
     Left = 224
     Top = 118
     Width = 300
     Height = 23
     DataField = 'EMAIL'
     DataSource = ds_cadastros
-    TabOrder = 7
+    TabOrder = 6
   end
-  object txt_site: TDBEdit [23]
+  object txt_site: TDBEdit [22]
     Left = 547
     Top = 118
     Width = 236
     Height = 23
     DataField = 'SITE'
     DataSource = ds_cadastros
-    TabOrder = 8
+    TabOrder = 7
   end
-  object txt_endereco: TDBEdit [24]
+  object txt_endereco: TDBEdit [23]
     Left = 8
     Top = 168
     Width = 300
     Height = 23
     DataField = 'ENDERECO'
     DataSource = ds_cadastros
-    TabOrder = 9
+    TabOrder = 8
   end
-  object txt_bairro: TDBEdit [25]
+  object txt_bairro: TDBEdit [24]
     Left = 320
     Top = 168
     Width = 200
     Height = 23
     DataField = 'BAIRRO'
     DataSource = ds_cadastros
-    TabOrder = 10
+    TabOrder = 9
   end
-  object txt_complemento: TDBEdit [26]
+  object txt_complemento: TDBEdit [25]
     Left = 539
     Top = 168
     Width = 174
     Height = 23
     DataField = 'COMPLEMENTO'
     DataSource = ds_cadastros
-    TabOrder = 11
+    TabOrder = 10
   end
-  object txt_numero: TDBEdit [27]
+  object txt_numero: TDBEdit [26]
     Left = 719
     Top = 168
     Width = 50
     Height = 23
     DataField = 'NUMERO'
     DataSource = ds_cadastros
-    TabOrder = 12
+    TabOrder = 11
   end
-  object txt_ierg: TDBEdit [28]
+  object txt_ierg: TDBEdit [27]
     Left = 8
     Top = 218
     Width = 156
     Height = 23
     DataField = 'IE_RG'
     DataSource = ds_cadastros
-    TabOrder = 13
+    TabOrder = 12
   end
-  object Cbox_Estado: TDBLookupComboBox [29]
+  object Cbox_Estado: TDBLookupComboBox [28]
     Left = 319
     Top = 218
     Width = 44
@@ -261,10 +252,10 @@ inherited frm_CadClientes: Tfrm_CadClientes
     KeyField = 'CONTROLE_ESTADO'
     ListField = 'UF'
     ListSource = LookUp.ds_estados
-    TabOrder = 14
+    TabOrder = 13
     OnExit = Cbox_EstadoExit
   end
-  object cbox_cidades: TDBLookupComboBox [30]
+  object cbox_cidades: TDBLookupComboBox [29]
     Left = 388
     Top = 218
     Width = 145
@@ -274,6 +265,10 @@ inherited frm_CadClientes: Tfrm_CadClientes
     KeyField = 'CONTROLE_CIDADE'
     ListField = 'NOME'
     ListSource = LookUp.ds_cidades
+    TabOrder = 14
+  end
+  inherited pn_cabecalho: TPanel
+    Width = 791
     TabOrder = 15
   end
   inherited fd_QueryCadastro: TFDQuery
