@@ -114,24 +114,13 @@ end;
 
 procedure Tfrm_Principal.SetNewSql(pCodigo: Integer);
   var vNewSql: String;
-  var vID :String;
 begin
-
-  if GetNameTable(vSQLOriginal) = 'VENDAS_HEADER' then
-  BEGIN
-    Vid := 'CONTROLE_VENDA'
-  END
-  ELSE
-  BEGIN
-    Vid := 'CONTROLE_' + GetNameTable(vSQLOriginal);
-  END;
-
   fd_QueryCadastro.Close;
   fd_QueryCadastro.SQL.Clear;
 
-  vNewSql := 'SELECT * FROM '+ GetNameTable(vSQLOriginal) +' WHERE '+ vID +' = :'+vID;
+  vNewSql := 'SELECT * FROM ('+ vSQLOriginal +') WHERE CONTROLE_' + GetNameTable(vSQLOriginal) + ' = :CONTROLE_' + GetNameTable(vSQLOriginal);
   fd_QueryCadastro.SQL.Text := vNewSql;
-  fd_QueryCadastro.ParamByName(vID).AsInteger := pCodigo;
+  fd_QueryCadastro.ParamByName('CONTROLE_' + GetNameTable(vSQLOriginal)).AsInteger := pCodigo;
   fd_QueryCadastro.Open();
 end;
 
@@ -140,17 +129,7 @@ procedure Tfrm_Principal.SetRecord(pCodigo: Integer; pTipo: TNAV);
 var Vid :string;
     vCodigo: integer;
 begin
-
-  if GetNameTable(vSQLOriginal) = 'VENDAS_HEADER' then
-  BEGIN
-    Vid := 'CONTROLE_VENDA'
-  END
-  ELSE
-  BEGIN
-    Vid := 'CONTROLE_' + GetNameTable(vSQLOriginal);
-  END;
-
-
+  Vid := 'CONTROLE_' + GetNameTable(vSQLOriginal);
   if pCodigo > 0 then
     begin
       SetNewSql(pCodigo);
@@ -188,7 +167,7 @@ begin
       vCodigo:= fd_QueryCadastro.FieldByName(Vid).AsInteger;
       FD_codigo.Close;
       FD_codigo.SQL.Clear;
-      FD_codigo.sql.Add('SELECT MAX('+Vid+')ID FROM '+ GetNameTable(vSQLOriginal)+ ' WHERE ' +Vid+ '<'+ IntToStr(vCodigo));
+      FD_codigo.sql.Add('SELECT MAX('+Vid+')ID FROM '+ GetNameTable(vSQLOriginal)+ 'WHERE' +Vid+ '<'+ IntToStr(vCodigo));
       FD_codigo.Open();
 
       vCodigo := FD_codigo.FieldByName('ID').AsInteger;

@@ -35,10 +35,6 @@ type
     procedure btn_sairClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure SpeedButton1Click(Sender: TObject);
-    procedure SpeedButton4Click(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
-    procedure SpeedButton3Click(Sender: TObject);
   private
     function GetNameTable (pSQL: String ): string;
     procedure SetNewSql(pCodigo: integer);
@@ -93,6 +89,7 @@ end;
 procedure Tfrm_Principal.FormCreate(Sender: TObject);
 begin
   vSqlOriginal := fd_QueryCadastro.Sql.Text;
+  SetNewSql;
 end;
 
 function Tfrm_Principal.GetNameTable(pSQL: String): string;
@@ -114,24 +111,13 @@ end;
 
 procedure Tfrm_Principal.SetNewSql(pCodigo: Integer);
   var vNewSql: String;
-  var vID :String;
 begin
-
-  if GetNameTable(vSQLOriginal) = 'VENDAS_HEADER' then
-  BEGIN
-    Vid := 'CONTROLE_VENDA'
-  END
-  ELSE
-  BEGIN
-    Vid := 'CONTROLE_' + GetNameTable(vSQLOriginal);
-  END;
-
   fd_QueryCadastro.Close;
   fd_QueryCadastro.SQL.Clear;
 
-  vNewSql := 'SELECT * FROM '+ GetNameTable(vSQLOriginal) +' WHERE '+ vID +' = :'+vID;
+  vNewSql := 'SELECT * FROM ('+ vSQLOriginal +') WHERE CONTROLE_' + GetNameTable(vSQLOriginal) + ' = :CONTROLE_' + GetNameTable(vSQLOriginal);
   fd_QueryCadastro.SQL.Text := vNewSql;
-  fd_QueryCadastro.ParamByName(vID).AsInteger := pCodigo;
+  fd_QueryCadastro.ParamByName('CONTROLE_' + GetNameTable(vSQLOriginal)).AsInteger := pCodigo;
   fd_QueryCadastro.Open();
 end;
 
@@ -140,17 +126,7 @@ procedure Tfrm_Principal.SetRecord(pCodigo: Integer; pTipo: TNAV);
 var Vid :string;
     vCodigo: integer;
 begin
-
-  if GetNameTable(vSQLOriginal) = 'VENDAS_HEADER' then
-  BEGIN
-    Vid := 'CONTROLE_VENDA'
-  END
-  ELSE
-  BEGIN
-    Vid := 'CONTROLE_' + GetNameTable(vSQLOriginal);
-  END;
-
-
+  Vid := 'CONTROLE_' + GetNameTable(vSQLOriginal);
   if pCodigo > 0 then
     begin
       SetNewSql(pCodigo);
@@ -188,7 +164,7 @@ begin
       vCodigo:= fd_QueryCadastro.FieldByName(Vid).AsInteger;
       FD_codigo.Close;
       FD_codigo.SQL.Clear;
-      FD_codigo.sql.Add('SELECT MAX('+Vid+')ID FROM '+ GetNameTable(vSQLOriginal)+ ' WHERE ' +Vid+ '<'+ IntToStr(vCodigo));
+      FD_codigo.sql.Add('SELECT MAX('+Vid+')ID FROM '+ GetNameTable(vSQLOriginal))+ 'WHERE' '<'+ IntToStr(vCodigo));
       FD_codigo.Open();
 
       vCodigo := FD_codigo.FieldByName('ID').AsInteger;
@@ -196,40 +172,8 @@ begin
       SetNewSql(vCodigo);
     END
     ELSE
-    if pTipo = tNext then
-    begin
-      vCodigo:= fd_QueryCadastro.FieldByName(Vid).AsInteger;
-      FD_codigo.Close;
-      FD_codigo.SQL.Clear;
-      FD_codigo.sql.Add('SELECT MIN('+Vid+')ID FROM '+ GetNameTable(vSQLOriginal)+ ' WHERE ' +Vid+ '>'+ IntToStr(vCodigo));
-      FD_codigo.Open();
+    if pTipo =  then
 
-      vCodigo := FD_codigo.FieldByName('ID').AsInteger;
-
-      SetNewSql(vCodigo);
-    end;
-
-
-end;
-
-procedure Tfrm_Principal.SpeedButton1Click(Sender: TObject);
-begin
-  SetRecord(0,tFirst);
-end;
-
-procedure Tfrm_Principal.SpeedButton2Click(Sender: TObject);
-begin
-  SetRecord(0, tPrior);
-end;
-
-procedure Tfrm_Principal.SpeedButton3Click(Sender: TObject);
-begin
-  SetRecord(0, tNext);
-end;
-
-procedure Tfrm_Principal.SpeedButton4Click(Sender: TObject);
-begin
-  SetRecord(0, tLast);
 end;
 
 procedure Tfrm_Principal.btn_cancelarClick(Sender: TObject);

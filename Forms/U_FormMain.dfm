@@ -227,6 +227,7 @@ object frm_Principal: Tfrm_Principal
       Width = 23
       Height = 22
       Caption = '<'
+      OnClick = SpeedButton2Click
     end
     object SpeedButton3: TSpeedButton
       Left = 466
@@ -234,6 +235,7 @@ object frm_Principal: Tfrm_Principal
       Width = 23
       Height = 22
       Caption = '>'
+      OnClick = SpeedButton3Click
     end
     object SpeedButton4: TSpeedButton
       Left = 495
@@ -241,6 +243,7 @@ object frm_Principal: Tfrm_Principal
       Width = 23
       Height = 22
       Caption = '>>'
+      OnClick = SpeedButton4Click
     end
     object SpeedButton1: TSpeedButton
       Left = 408
@@ -248,6 +251,7 @@ object frm_Principal: Tfrm_Principal
       Width = 23
       Height = 22
       Caption = '<<'
+      OnClick = SpeedButton1Click
     end
     object btn_novo: TBitBtn
       Left = 0
@@ -315,5 +319,10 @@ object frm_Principal: Tfrm_Principal
     DataSet = fd_QueryCadastro
     Left = 568
     Top = 40
+  end
+  object FD_codigo: TFDQuery
+    Connection = dm_Dados.fd_Connection
+    Left = 456
+    Top = 208
   end
 end
