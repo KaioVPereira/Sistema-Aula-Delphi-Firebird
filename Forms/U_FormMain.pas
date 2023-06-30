@@ -207,7 +207,12 @@ begin
       vCodigo := FD_codigo.FieldByName('ID').AsInteger;
 
       SetNewSql(vCodigo);
-    end;
+    end
+    ELSE
+    if pTipo = tNil then
+    BEGIN
+      SetNewSql(0);
+    END;
 
 
 end;
@@ -236,6 +241,7 @@ procedure Tfrm_Principal.btn_cancelarClick(Sender: TObject);
   begin
     if fd_QueryCadastro.State in [dsEdit, dsInsert] then
       begin
+        fd_transaction.StartTransaction;
         fd_QueryCadastro.Cancel;
         fd_transaction.RollbackRetaining;
       end;

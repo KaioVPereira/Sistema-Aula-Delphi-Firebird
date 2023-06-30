@@ -32,7 +32,7 @@
     Top = 0
     Width = 682
     Height = 149
-    ActivePage = AdvPage1
+    ActivePage = AdvPage2
     Caption.Caption = 'Sistema ERP'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]
@@ -460,7 +460,7 @@
       object AdvToolBar4: TAdvToolBar
         Left = 240
         Top = 3
-        Width = 237
+        Width = 345
         Height = 86
         AllowFloating = True
         AutoSize = False
@@ -481,7 +481,7 @@
         ParentOptionPicture = True
         ToolBarIndex = 1
         object AdvToolBarSeparator1: TAdvToolBarSeparator
-          Left = 144
+          Left = 223
           Top = 2
           Width = 16
           Height = 71
@@ -494,12 +494,19 @@
           Height = 71
           LineColor = clBtnShadow
         end
-        object btn_ConsultaVendas: TAdvGlowButton
-          Left = 160
+        object AdvToolBarSeparator10: TAdvToolBarSeparator
+          Left = 144
+          Top = 2
+          Width = 16
+          Height = 71
+          LineColor = clBtnShadow
+        end
+        object btn_ConsultaUsuario: TAdvGlowButton
+          Left = 239
           Top = 2
           Width = 63
           Height = 71
-          Caption = 'Vendas'
+          Caption = 'Usu'#225'rios'
           FocusType = ftHot
           NotesFont.Charset = DEFAULT_CHARSET
           NotesFont.Color = clWindowText
@@ -508,7 +515,7 @@
           NotesFont.Style = []
           Rounded = True
           TabOrder = 0
-          OnClick = btn_ConsultaVendasClick
+          OnClick = btn_ConsultaUsuarioClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219
@@ -598,7 +605,52 @@
           NotesFont.Style = []
           Rounded = True
           TabOrder = 2
-          OnClick = btn_ConsultaVendasClick
+          OnClick = btn_ConsultaUsuarioClick
+          Appearance.BorderColor = 14727579
+          Appearance.BorderColorHot = 10079963
+          Appearance.BorderColorDown = 4548219
+          Appearance.BorderColorChecked = 4548219
+          Appearance.Color = 15653832
+          Appearance.ColorTo = 16178633
+          Appearance.ColorChecked = 11918331
+          Appearance.ColorCheckedTo = 7915518
+          Appearance.ColorDisabled = 15921906
+          Appearance.ColorDisabledTo = 15921906
+          Appearance.ColorDown = 7778289
+          Appearance.ColorDownTo = 4296947
+          Appearance.ColorHot = 15465983
+          Appearance.ColorHotTo = 11332863
+          Appearance.ColorMirror = 15586496
+          Appearance.ColorMirrorTo = 16245200
+          Appearance.ColorMirrorHot = 5888767
+          Appearance.ColorMirrorHotTo = 10807807
+          Appearance.ColorMirrorDown = 946929
+          Appearance.ColorMirrorDownTo = 5021693
+          Appearance.ColorMirrorChecked = 10480637
+          Appearance.ColorMirrorCheckedTo = 5682430
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
+          Appearance.GradientHot = ggVertical
+          Appearance.GradientMirrorHot = ggVertical
+          Appearance.GradientDown = ggVertical
+          Appearance.GradientMirrorDown = ggVertical
+          Appearance.GradientChecked = ggVertical
+        end
+        object AdvGlowButton5: TAdvGlowButton
+          Left = 160
+          Top = 2
+          Width = 63
+          Height = 71
+          Caption = 'Vendas'
+          FocusType = ftHot
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          Rounded = True
+          TabOrder = 3
+          OnClick = btn_ConsultaUsuarioClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219

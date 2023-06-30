@@ -18,7 +18,8 @@ uses
   U_ConsultaProdutos in 'Forms\U_ConsultaProdutos.pas' {frm_ConsultaProdutos},
   U_CadastroProdutos in 'Forms\U_CadastroProdutos.pas' {frm_CadastroProdutos},
   U_PDV in 'Forms\U_PDV.pas' {frm_CadastroVendas},
-  U_ConsultaVendas in 'Forms\U_ConsultaVendas.pas' {frm_ConsultaVendas};
+  U_ConsultaVendas in 'Forms\U_ConsultaVendas.pas' {frm_ConsultaVendas},
+  U_ConsultaUsuario in 'Forms\U_ConsultaUsuario.pas' {frm_ConsultaUsuario};
 
 {$R *.res}
 begin
@@ -28,5 +29,6 @@ begin
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
   Application.CreateForm(Tdm_Dados, dm_Dados);
   Application.CreateForm(TLookUp, LookUp);
+  Application.CreateForm(Tfrm_ConsultaUsuario, frm_ConsultaUsuario);
   Application.Run;
 end.
