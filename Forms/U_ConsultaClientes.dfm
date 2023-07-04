@@ -1,4 +1,5 @@
 inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
+  BorderStyle = bsNone
   Caption = 'Consulta Clientes'
   ClientWidth = 1082
   FormStyle = fsMDIChild

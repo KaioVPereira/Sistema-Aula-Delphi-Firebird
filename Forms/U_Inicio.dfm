@@ -32,7 +32,7 @@
     Top = 0
     Width = 682
     Height = 149
-    ActivePage = AdvPage2
+    ActivePage = AdvPage1
     Caption.Caption = 'Sistema ERP'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]
@@ -308,7 +308,7 @@
       object AdvToolBar2: TAdvToolBar
         Left = 252
         Top = 3
-        Width = 219
+        Width = 253
         Height = 86
         AllowFloating = True
         AutoSize = False
@@ -329,6 +329,13 @@
         ParentOptionPicture = True
         ToolBarIndex = 1
         object AdvToolBarSeparator4: TAdvToolBarSeparator
+          Left = 154
+          Top = 2
+          Width = 22
+          Height = 71
+          LineColor = clBtnShadow
+        end
+        object AdvToolBarSeparator11: TAdvToolBarSeparator
           Left = 67
           Top = 2
           Width = 22
@@ -336,7 +343,7 @@
           LineColor = clBtnShadow
         end
         object btn_fornecedor: TAdvGlowButton
-          Left = 89
+          Left = 176
           Top = 2
           Width = 65
           Height = 71
@@ -425,9 +432,54 @@
           Appearance.GradientMirrorDown = ggVertical
           Appearance.GradientChecked = ggVertical
         end
+        object btn_CadUsuario: TAdvGlowButton
+          Left = 89
+          Top = 2
+          Width = 65
+          Height = 71
+          Caption = 'Usu'#225'rios'
+          FocusType = ftHot
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          Rounded = True
+          TabOrder = 2
+          OnClick = btn_CadUsuarioClick
+          Appearance.BorderColor = 14727579
+          Appearance.BorderColorHot = 10079963
+          Appearance.BorderColorDown = 4548219
+          Appearance.BorderColorChecked = 4548219
+          Appearance.Color = 15653832
+          Appearance.ColorTo = 16178633
+          Appearance.ColorChecked = 11918331
+          Appearance.ColorCheckedTo = 7915518
+          Appearance.ColorDisabled = 15921906
+          Appearance.ColorDisabledTo = 15921906
+          Appearance.ColorDown = 7778289
+          Appearance.ColorDownTo = 4296947
+          Appearance.ColorHot = 15465983
+          Appearance.ColorHotTo = 11332863
+          Appearance.ColorMirror = 15586496
+          Appearance.ColorMirrorTo = 16245200
+          Appearance.ColorMirrorHot = 5888767
+          Appearance.ColorMirrorHotTo = 10807807
+          Appearance.ColorMirrorDown = 946929
+          Appearance.ColorMirrorDownTo = 5021693
+          Appearance.ColorMirrorChecked = 10480637
+          Appearance.ColorMirrorCheckedTo = 5682430
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
+          Appearance.GradientHot = ggVertical
+          Appearance.GradientMirrorHot = ggVertical
+          Appearance.GradientDown = ggVertical
+          Appearance.GradientMirrorDown = ggVertical
+          Appearance.GradientChecked = ggVertical
+        end
       end
       object AdvToolBar3: TAdvToolBar
-        Left = 474
+        Left = 508
         Top = 3
         Width = 206
         Height = 86
@@ -591,7 +643,7 @@
           Appearance.GradientMirrorDown = ggVertical
           Appearance.GradientChecked = ggVertical
         end
-        object AdvGlowButton3: TAdvGlowButton
+        object btn_ConsultaProdutos: TAdvGlowButton
           Left = 81
           Top = 2
           Width = 63
@@ -605,7 +657,7 @@
           NotesFont.Style = []
           Rounded = True
           TabOrder = 2
-          OnClick = btn_ConsultaUsuarioClick
+          OnClick = btn_ConsultaProdutosClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219

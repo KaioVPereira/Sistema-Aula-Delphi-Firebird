@@ -41,7 +41,7 @@ end;
 
 procedure Tfrm_ConsultaUsuario.consultar;
 begin
-   FD_qryConsultas.Close;
+  FD_qryConsultas.Close;
   FD_qryConsultas.sql.clear;
   FD_qryConsultas.sql.Add('SELECT U.NOME, U.LOGIN, U.CONTROLE_USUARIO FROM USUARIO U');
   FD_qryConsultas.sql.Add('WHERE 1 = 1');
@@ -59,7 +59,7 @@ begin
   if cboc_filtro.Text = 'CONTROLE_USUARIO' then
   BEGIN
     if StrToIntDef(txt_consultar.Text , 0) >0 then
-      FD_qryConsultas.sql.add ('AND CONTROLE_USUARIO = ' + txt_consultar.Text)
+       FD_qryConsultas.sql.add ('AND CONTROLE_USUARIO = ' + txt_consultar.Text)
   END;
 
 

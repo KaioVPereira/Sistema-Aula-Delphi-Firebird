@@ -1,13 +1,13 @@
 inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
+  BorderStyle = bsNone
   Caption = 'Consultar Produtos'
-  ClientHeight = 419
-  ClientWidth = 1026
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
+  ExplicitLeft = -350
+  PixelsPerInch = 96
   TextHeight = 15
   inherited Panel1: TPanel
-    Width = 1026
     Height = 65
     ExplicitHeight = 65
     inherited txt_consultar: TEdit
@@ -43,7 +43,6 @@ inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitLeft = 891
       object btn_sair: TButton
         Left = 32
         Top = 13
