@@ -20,7 +20,9 @@ uses
   U_PDV in 'Forms\U_PDV.pas' {frm_CadastroVendas},
   U_ConsultaVendas in 'Forms\U_ConsultaVendas.pas' {frm_ConsultaVendas},
   U_ConsultaUsuario in 'Forms\U_ConsultaUsuario.pas' {frm_ConsultaUsuario},
-  U_CadastrosUsuarios in 'Forms\U_CadastrosUsuarios.pas' {frm_CadastrosUsuarios};
+  U_CadastrosUsuarios in 'Forms\U_CadastrosUsuarios.pas' {frm_CadastrosUsuarios},
+  uCrpt in 'Classes\uCrpt.pas',
+  U_login in 'Forms\U_login.pas' {Frm_login};
 
 {$R *.res}
 begin
@@ -30,5 +32,6 @@ begin
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
   Application.CreateForm(Tdm_Dados, dm_Dados);
   Application.CreateForm(TLookUp, LookUp);
+  Application.CreateForm(TFrm_login, Frm_login);
   Application.Run;
 end.

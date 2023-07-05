@@ -118,19 +118,20 @@ procedure Tfrm_Principal.SetNewSql(pCodigo: Integer);
 begin
 
   if GetNameTable(vSQLOriginal) = 'VENDAS_HEADER' then
-  BEGIN
-    Vid := 'CONTROLE_VENDA'
-  END
+    BEGIN
+      Vid := 'CONTROLE_VENDA'
+    END
   ELSE
-  BEGIN
-    Vid := 'CONTROLE_' + GetNameTable(vSQLOriginal);
-  END;
+    BEGIN
+      Vid := 'CONTROLE_' + GetNameTable(vSQLOriginal);
+    END;
 
   fd_QueryCadastro.Close;
   fd_QueryCadastro.SQL.Clear;
 
   vNewSql := 'SELECT * FROM '+ GetNameTable(vSQLOriginal) +' WHERE '+ vID +' = :'+vID;
   fd_QueryCadastro.SQL.Text := vNewSql;
+  fd_QueryCadastro.SQL.Add('AND DT_EXCLUIDO IS NULL');
   fd_QueryCadastro.ParamByName(vID).AsInteger := pCodigo;
   fd_QueryCadastro.Open();
 end;

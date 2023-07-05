@@ -178,6 +178,11 @@
             <Form>frm_CadastrosUsuarios</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Classes\uCrpt.pas"/>
+        <DCCReference Include="Forms\U_login.pas">
+            <Form>Frm_login</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

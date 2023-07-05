@@ -2,10 +2,12 @@ inherited frm_ConsultaUsuario: Tfrm_ConsultaUsuario
   Align = alClient
   BorderStyle = bsNone
   Caption = 'frm_ConsultaUsuario'
-  FormStyle = fsMDIForm
+  FormStyle = fsMDIChild
   ParentBiDiMode = False
   Visible = True
   WindowState = wsMaximized
+  ExplicitWidth = 1026
+  ExplicitHeight = 419
   PixelsPerInch = 96
   TextHeight = 15
   inherited Panel1: TPanel
