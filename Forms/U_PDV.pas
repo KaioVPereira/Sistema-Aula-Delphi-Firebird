@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls,Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.Mask, U_LookUp, AdvEdit,
-  AdvMoneyEdit, DBAdvMoneyEdit, U_Biblioteca, frxClass, frxDBSet;
+  AdvMoneyEdit, DBAdvMoneyEdit, U_Biblioteca; //frxClass, frxDBSet;
 
 type
   Tfrm_CadastroVendas = class(Tfrm_Principal)
@@ -63,9 +63,9 @@ type
     txt_TotalDesconto: TAdvMoneyEdit;
     txt_TotalVenda: TAdvMoneyEdit;
     btn_ExcluirItem: TButton;
-    frx_RelatVendas: TfrxReport;
-    frx_ItensVenda: TfrxDBDataset;
-    frx_HeaderVenda: TfrxDBDataset;
+    //frx_RelatVendas: TfrxReport;
+    //frx_ItensVenda: TfrxDBDataset;
+    //frx_HeaderVenda: TfrxDBDataset;
     btn_imprimir: TBitBtn;
     procedure fd_QueryCadastroBeforePost(DataSet: TDataSet);
     procedure fd_QueryCadastroAfterInsert(DataSet: TDataSet);
@@ -137,8 +137,8 @@ end;
 procedure Tfrm_CadastroVendas.btn_imprimirClick(Sender: TObject);
 begin
   inherited;
-  frx_RelatVendas.Variables.Variables['Cliente'] := QuotedStr(cbox_Cliente.Text)  ;
-  CarregaRelat(frx_RelatVendas);
+  //frx_RelatVendas.Variables.Variables['Cliente'] := QuotedStr(cbox_Cliente.Text)  ;
+  //CarregaRelat(frx_RelatVendas);
 end;
 
 procedure Tfrm_CadastroVendas.btn_InserirItemClick(Sender: TObject);

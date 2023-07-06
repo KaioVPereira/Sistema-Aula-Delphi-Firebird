@@ -2,14 +2,14 @@ unit U_Biblioteca;
 
 interface
   uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client,
-  System.Classes, frxClass;
+  System.Classes; //frxClass;
 
   procedure ArqIni            (pLocal, pSessao, pSubsessao: String; pValor:String);
   function  GetArqIni         (pLocal, Psessao, pSubsessao: String): string;
   procedure AtualizaFDQuery   (const pFDQuery : TFDQuery; pSQL : String);
   procedure AbreFormShowModal (pClass: TComponentClass; pForm :TForm);
   procedure AbreForm          (pClass: TComponentClass; pForm :TForm);
-  procedure CarregaRelat      (const pReport: TFrxReport);
+  //procedure CarregaRelat      (const pReport: TFrxReport);
 
 implementation
 
@@ -64,9 +64,9 @@ uses U_FormMain;
 
       end;
     end;
-    procedure CarregaRelat(const pReport: TFrxReport);
+   // procedure CarregaRelat(const pReport: TFrxReport);
     begin
-      pReport.PrepareReport;
-      pReport.ShowPreparedReport;
-    end;
+     // pReport.PrepareReport;
+      //pReport.ShowPreparedReport;
+    //end;
 end.

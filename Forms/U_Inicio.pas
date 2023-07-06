@@ -67,6 +67,8 @@ type
     procedure btn_VendasClick(Sender: TObject);
     procedure btn_CadUsuarioClick(Sender: TObject);
     procedure btn_ConsultaProdutosClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure AdvShapeButton1Click(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -82,7 +84,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_CadastrosFornecedores;
+uses U_CadastrosFornecedores, U_login;
 
 
 procedure Tfrm_inicio.btn_ConsultaUsuarioClick(Sender: TObject);
@@ -105,6 +107,16 @@ begin
   AbreFormShowModal(Tfrm_CadastroVendas, frm_CadastroVendas);
 end;
 
+
+procedure Tfrm_inicio.FormCreate(Sender: TObject);
+begin
+  AbreFormShowModal(TFrm_login, Frm_login);
+end;
+
+procedure Tfrm_inicio.AdvShapeButton1Click(Sender: TObject);
+begin
+  AbreFormShowModal(TFrm_login, Frm_login);
+end;
 
 procedure Tfrm_inicio.btn_CadastroCidadesClick(Sender: TObject);
 begin

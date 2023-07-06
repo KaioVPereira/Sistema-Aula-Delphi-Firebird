@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.Grids, Vcl.DBGrids, Vcl.ComCtrls, frxClass, frxDBSet, U_Dados;
+  Vcl.Grids, Vcl.DBGrids, Vcl.ComCtrls, U_Dados; //frxClass, frxDBSet,
 
 type
   Tfrm_ConsultaVendas = class(Tfrm_MainConsultas)
@@ -22,8 +22,8 @@ type
     Label1: TLabel;
     btn_sair: TButton;
     Button1: TButton;
-    fr_vendas: TfrxReport;
-    frDB_Vendas: TfrxDBDataset;
+    //fr_vendas: TfrxReport;
+    //frDB_Vendas: TfrxDBDataset;
     FDQry_Relatorio: TFDQuery;
     procedure btn_consultarClick(Sender: TObject);
     procedure btn_sairClick(Sender: TObject);

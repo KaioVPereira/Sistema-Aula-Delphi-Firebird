@@ -2,8 +2,8 @@
   Left = 250
   Top = 200
   Caption = 'Inicio'
-  ClientHeight = 438
-  ClientWidth = 682
+  ClientHeight = 436
+  ClientWidth = 674
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,15 +22,14 @@
     000000000000CCCCCCCCCCCCCCCC00000000000000000000000000000000FFFF
     0000FFFF0000FFFF000000000000FFFF0000FFFF0000DDD10000DDDE0000DD51
     0000DC97000005D80000FFFF0000FFFF000000000000FFFF0000FFFF0000}
-  OldCreateOrder = True
   Position = poScreenCenter
   WindowState = wsMaximized
-  PixelsPerInch = 96
+  OnCreate = FormCreate
   TextHeight = 13
   object AdvToolBarPager1: TAdvToolBarPager
     Left = 0
     Top = 0
-    Width = 682
+    Width = 674
     Height = 149
     ActivePage = AdvPage1
     Caption.Caption = 'Sistema ERP'
@@ -126,10 +125,11 @@
       FFFFFFFFFFFDFD000000FD070707070707FDFD000000FDFDFDFDFDFDFDFDFD00
       0000}
     TabOrder = 0
+    ExplicitWidth = 670
     object AdvPage1: TAdvPage
       Left = 4
       Top = 52
-      Width = 674
+      Width = 666
       Height = 92
       Caption = 'Cadastros'
       object AdvToolBar1: TAdvToolBar
@@ -506,7 +506,7 @@
     object AdvPage2: TAdvPage
       Left = 4
       Top = 52
-      Width = 674
+      Width = 666
       Height = 92
       Caption = 'Consultas'
       object AdvToolBar4: TAdvToolBar
@@ -911,7 +911,7 @@
     object AdvPage3: TAdvPage
       Left = 4
       Top = 52
-      Width = 674
+      Width = 666
       Height = 92
       Caption = 'Configura'#231#245'es'
       object AdvToolBar5: TAdvToolBar
@@ -942,7 +942,7 @@
     object Manutenção: TAdvPage
       Left = 4
       Top = 52
-      Width = 674
+      Width = 666
       Height = 92
       Caption = 'Vendas'
       object AdvToolBar7: TAdvToolBar
@@ -1152,12 +1152,13 @@
       ParentFont = False
       TabOrder = 7
       Version = '6.2.1.8'
+      OnClick = AdvShapeButton1Click
     end
   end
   object AdvOfficeStatusBar1: TAdvOfficeStatusBar
     Left = 0
-    Top = 419
-    Width = 682
+    Top = 417
+    Width = 674
     Height = 19
     AnchorHint = False
     Font.Charset = DEFAULT_CHARSET
@@ -1266,7 +1267,9 @@
     SimplePanel = False
     Styler = AdvOfficeStatusBarOfficeStyler1
     UseSystemFont = False
-    Version = '1.7.3.4'
+    Version = '1.7.3.5'
+    ExplicitTop = 416
+    ExplicitWidth = 670
   end
   object AdvToolBarOfficeStyler1: TAdvToolBarOfficeStyler
     AppColor.AppButtonColor = 14851584
