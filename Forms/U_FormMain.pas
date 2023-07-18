@@ -56,7 +56,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_Dados;
+uses U_Dados, U_Biblioteca;
 
 procedure Tfrm_Principal.btn_novoClick(Sender: TObject);
 begin
@@ -72,10 +72,13 @@ procedure Tfrm_Principal.btn_gravarClick(Sender: TObject);
 begin
   if fd_QueryCadastro.State in [dsEdit, dsInsert] then
   begin
-    fd_transaction.StartTransaction;
-    fd_QueryCadastro.Post;
-    fd_transaction.CommitRetaining;
-    fd_QueryCadastro.Close;
+    if MsgPerguntar('Tem certeza?') then
+    begin
+      fd_transaction.StartTransaction;
+      fd_QueryCadastro.Post;
+      fd_transaction.CommitRetaining;
+      fd_QueryCadastro.Close;
+    end;
   end;
 end;
 
@@ -250,10 +253,18 @@ procedure Tfrm_Principal.btn_cancelarClick(Sender: TObject);
 
 procedure Tfrm_Principal.btn_excluirClick(Sender: TObject);
   begin
-    fd_QueryCadastro.Edit;
-    fd_QueryCadastro.FieldByName('DT_EXCLUIDO').AsDateTime := Date;
-    fd_transaction.StartTransaction;
-    fd_QueryCadastro.Post;
-    fd_transaction.CommitRetaining;
+     if fd_QueryCadastro.RecordCount > 0 then
+     begin
+      if MsgPerguntar('Tem certeza que deseja excluir', False) then
+      begin
+        fd_QueryCadastro.Edit;
+        fd_QueryCadastro.FieldByName('DT_EXCLUIDO').AsDateTime := Date;
+        fd_transaction.StartTransaction;
+        fd_QueryCadastro.Post;
+        fd_transaction.CommitRetaining;
+        ShowMessage('Registro marcado como Excluído');
+        SetRecord(fd_QueryCadastro.FieldByName('CONTROLE_'+ GetNameTable(vSQLOriginal)).AsInteger, tNil);
+      end;
+     end;
   end;
 end.

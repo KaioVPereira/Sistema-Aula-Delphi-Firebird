@@ -1,9 +1,0 @@
-inherited frm_CadastrosEstados: Tfrm_CadastrosEstados
-  Caption = 'Cadastro de Estado'
-  ExplicitWidth = 626
-  ExplicitHeight = 333
-  TextHeight = 15
-  inherited pn_cabecalho: TPanel
-    ExplicitWidth = 610
-  end
-end

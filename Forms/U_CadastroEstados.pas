@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls;
+  Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls, U_constantes, U_Biblioteca;
 
 type
   Tfrm_CadastrosEstados = class(Tfrm_Principal)
@@ -23,10 +23,16 @@ type
     txt_UF: TDBEdit;
     procedure btn_gravarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure ValidaModoAbertura;
     procedure btn_novoClick(Sender: TObject);
+    procedure btn_cancelarClick(Sender: TObject);
   private
+
+    Fmodo: TModoAbertura;
+
     { Private declarations }
   public
+    property modo: TModoAbertura read Fmodo write Fmodo;
     { Public declarations }
   end;
 
@@ -37,29 +43,31 @@ implementation
 
 {$R *.dfm}
 
+procedure Tfrm_CadastrosEstados.btn_cancelarClick(Sender: TObject);
+begin
+  inherited;
+  Fmodo := maInicial;
+  ValidaModoAbertura;
+end;
+
 procedure Tfrm_CadastrosEstados.btn_gravarClick(Sender: TObject);
 begin
 
   if txt_UF.Text = '' then
   begin
-    showmessage ('O Valor da UF não foi informado');
+     MsgAtencao('O Valor da UF não foi informado');
   end
 
   else if txt_nome.Text = '' then
   begin
-    showmessage ('O nome do estado não foi informado');
+    MsgAtencao('O nome do estado não foi informado');
   end
 
   else
   begin
    inherited;
-    txt_controle.Enabled      := false;
-    txt_UF.Enabled            := false;
-    txt_nome.Enabled          := false;
-
-    txt_controle.Clear;
-    txt_nome.Clear;
-    txt_UF.Clear;
+    Fmodo := maInicial;
+    ValidaModoAbertura;
   end;
 
 
@@ -68,21 +76,60 @@ end;
 procedure Tfrm_CadastrosEstados.btn_novoClick(Sender: TObject);
 begin
   inherited;
-  //txt_controle.Enabled      := true;
-  txt_UF.Enabled            := true;
-  txt_nome.Enabled          := true;
+  Fmodo := maInclusao;
+  ValidaModoAbertura;
 end;
 
 procedure Tfrm_CadastrosEstados.FormShow(Sender: TObject);
 begin
   inherited;
-  txt_controle.Enabled      := false;
-  txt_UF.Enabled            := false;
-  txt_nome.Enabled          := false;
-
-  txt_controle.Clear;
-  txt_nome.Clear;
-  txt_UF.Clear;
+  Fmodo := maInicial;
+  ValidaModoAbertura;
 end;
+
+
+procedure Tfrm_CadastrosEstados.ValidaModoAbertura;
+begin
+  if Fmodo = maInicial then
+    begin
+      txt_controle.Enabled := False;
+      txt_nome.Enabled := false;
+      txt_UF.Enabled := false;
+
+      btn_gravar.Enabled   := false;
+      btn_novo.Enabled     := True;
+      btn_cancelar.Enabled := false;
+    end;
+  if Fmodo = maInclusao then
+    begin
+      txt_controle.Enabled := True;
+      txt_nome.Enabled := True;
+      txt_UF.Enabled := True;
+
+      btn_gravar.Enabled   := True;
+      btn_novo.Enabled     := false;
+      btn_cancelar.Enabled := True;
+  end;
+    if Fmodo = maEdicao then
+    begin
+      txt_controle.Enabled := True;
+      txt_nome.Enabled := True;
+      txt_UF.Enabled := True;
+
+      btn_gravar.Enabled   := false;
+      btn_novo.Enabled     := True;
+      btn_cancelar.Enabled := false;
+  end;
+  if Fmodo = maConsulta then
+    begin
+      txt_controle.Enabled := False;
+      txt_nome.Enabled := false;
+      txt_UF.Enabled := false;
+
+      btn_gravar.Enabled   := false;
+      btn_novo.Enabled     := True;
+      btn_cancelar.Enabled := false;
+  end;
+  end;
 
 end.

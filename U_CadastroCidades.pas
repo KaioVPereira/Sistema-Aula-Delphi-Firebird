@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls;
+  Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls, U_constantes, U_Biblioteca;
 
 type
   Tfrm_CadatroCidade = class(Tfrm_Principal)
@@ -24,9 +24,13 @@ type
     procedure FormShow(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
     procedure btn_novoClick(Sender: TObject);
+    procedure ValidaModoAbertura;
+    procedure btn_cancelarClick(Sender: TObject);
   private
+     Fmodo: TModoAbertura;
     { Private declarations }
   public
+      property modo: TModoAbertura read Fmodo write Fmodo;
     { Public declarations }
   end;
 
@@ -39,16 +43,24 @@ implementation
 
 uses U_LookUp;
 
+procedure Tfrm_CadatroCidade.btn_cancelarClick(Sender: TObject);
+begin
+  inherited;
+  Fmodo := maInicial;
+  ValidaModoAbertura;
+
+end;
+
 procedure Tfrm_CadatroCidade.btn_gravarClick(Sender: TObject);
 begin
   if Cbox_uf.Text = '' then
   begin
-    showmessage ('O Valor da UF não foi informado');
+    MsgAtencao ('O Valor da UF não foi informado');
   end
 
   else if txt_nomecidade.Text = '' then
   begin
-    showmessage ('O nome do estado não foi informado');
+    MsgAtencao ('O nome do estado não foi informado');
   end
   else
   begin
@@ -56,12 +68,9 @@ begin
 
     inherited;
 
-    txt_controle.Enabled      := False;
-    txt_nomecidade.Enabled    := False;
-    Cbox_uf.Enabled           := False;
+    Fmodo := maInicial;
+    ValidaModoAbertura;
 
-    txt_controle.Clear;
-    txt_nomecidade.Clear;
   end;
 
 
@@ -70,9 +79,9 @@ end;
 procedure Tfrm_CadatroCidade.btn_novoClick(Sender: TObject);
 begin
   inherited;
-  //txt_controle.Enabled      := True;
-  txt_nomecidade.Enabled    := True;
-  Cbox_uf.Enabled           := True;
+  Fmodo := maInclusao;
+  ValidaModoAbertura;
+
 
 end;
 
@@ -83,12 +92,59 @@ begin
   LookUp.FD_qryEstados.Open();
   LookUp.FD_qryEstados.FetchAll;
 
-  txt_controle.Enabled      := False;
-  txt_nomecidade.Enabled    := False;
-  Cbox_uf.Enabled           := False;
+  Fmodo := maInicial;
+  ValidaModoAbertura;
 
-  txt_controle.Clear;
-  txt_nomecidade.Clear;
+
+
+end;
+
+procedure Tfrm_CadatroCidade.ValidaModoAbertura;
+begin
+  if Fmodo = maInicial then
+  begin
+    txt_controle.Enabled      := False;
+    txt_nomecidade.Enabled    := False;
+    Cbox_uf.Enabled           := False;
+
+    txt_controle.Clear;
+    txt_nomecidade.Clear;
+
+    btn_novo.Enabled          := True;
+    btn_gravar.Enabled        := False;
+    btn_cancelar.Enabled      := False;
+  end;
+
+  if Fmodo = maInclusao then
+  begin
+    txt_nomecidade.Enabled   := True;
+    Cbox_uf.Enabled           := True;
+
+    btn_novo.Enabled          := False;
+    btn_gravar.Enabled        := True;
+    btn_cancelar.Enabled      := True;
+  end;
+
+  if Fmodo = maEdicao then
+    begin
+      txt_nomecidade.Enabled   := True;
+      Cbox_uf.Enabled           := True;
+
+      btn_novo.Enabled          := False;
+      btn_gravar.Enabled        := True;
+      btn_cancelar.Enabled      := True;
+    end;
+
+  if Fmodo = maConsulta then
+  begin
+    txt_controle.Enabled      := False;
+    txt_nomecidade.Enabled    := False;
+    Cbox_uf.Enabled           := False;
+
+    btn_novo.Enabled          := True;
+    btn_gravar.Enabled        := False;
+    btn_cancelar.Enabled      := False;
+  end;
 
 end;
 

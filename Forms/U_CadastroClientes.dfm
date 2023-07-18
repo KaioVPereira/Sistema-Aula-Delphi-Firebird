@@ -2,8 +2,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
   Caption = 'Cadastro de Clientes'
   ClientWidth = 791
   OnShow = FormShow
-  ExplicitWidth = 797
-  PixelsPerInch = 96
+  ExplicitWidth = 803
   TextHeight = 15
   object lb_controle: TLabel [0]
     Left = 8
@@ -270,13 +269,13 @@ inherited frm_CadClientes: Tfrm_CadClientes
   inherited pn_cabecalho: TPanel
     Width = 791
     TabOrder = 15
+    ExplicitWidth = 787
   end
   inherited fd_QueryCadastro: TFDQuery
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_CLIENTES_CONTROLE'
     UpdateOptions.AutoIncFields = 'CONTROLE_CLIENTES'
-    UpdateObject = nil
     SQL.Strings = (
       'SELECT * FROM CLIENTES')
     Left = 368

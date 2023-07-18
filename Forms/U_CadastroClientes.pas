@@ -65,6 +65,7 @@ type
     procedure Cbox_EstadoExit(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btn_novoClick(Sender: TObject);
+    procedure btn_cancelarClick(Sender: TObject);
   private
     Fmodo: TModoAbertura;
     procedure ValidaModoAbertura;
@@ -83,6 +84,13 @@ implementation
 {$R *.dfm}
 
 uses U_LookUp;
+
+procedure Tfrm_CadClientes.btn_cancelarClick(Sender: TObject);
+begin
+  inherited;
+  modo := maInicial;
+  ValidaModoAbertura;
+end;
 
 procedure Tfrm_CadClientes.btn_gravarClick(Sender: TObject);
 begin
@@ -162,6 +170,8 @@ begin
     btn_novo.Enabled         := False;
 
     btn_gravar.Enabled       := true;
+    btn_cancelar.Enabled     := True;
+
     txt_razao.SetFocus;
 
   end;
@@ -182,9 +192,10 @@ begin
       cbbox_tipopessoa.Enabled := true;
       Cbox_Estado.Enabled      := true;
       cbox_cidades.Enabled     := true;
-      btn_novo.Enabled         := False;
 
+      btn_novo.Enabled         := False;
       btn_gravar.Enabled       := True;
+      btn_cancelar.Enabled     := true;
 
       txt_razao.SetFocus;
 
@@ -214,7 +225,10 @@ begin
       Cbox_Estado.Enabled      := false;
       cbox_cidades.Enabled     := false;
 
-      btn_gravar.Enabled := False;
+      btn_gravar.Enabled       := False;
+      btn_cancelar.Enabled     := False;
+      btn_novo.Enabled         := True;
+      //btn_excluir.Enabled      := False;
 
       txt_controle.Clear;
       txt_controle.Clear;
