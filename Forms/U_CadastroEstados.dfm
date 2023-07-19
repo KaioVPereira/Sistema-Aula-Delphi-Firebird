@@ -32,6 +32,7 @@ inherited frm_CadastrosEstados: Tfrm_CadastrosEstados
   end
   inherited pn_cabecalho: TPanel
     Width = 473
+    TabOrder = 1
     ExplicitWidth = 469
     inherited btn_sair: TBitBtn
       Left = 391
@@ -45,7 +46,8 @@ inherited frm_CadastrosEstados: Tfrm_CadastrosEstados
     Height = 23
     DataField = 'CONTROLE_ESTADO'
     DataSource = ds_cadastros
-    TabOrder = 1
+    Enabled = False
+    TabOrder = 0
   end
   object txt_nome: TDBEdit [5]
     Left = 8

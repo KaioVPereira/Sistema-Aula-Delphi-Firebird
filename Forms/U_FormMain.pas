@@ -65,6 +65,7 @@ begin
   begin
     fd_QueryCadastro.Insert;
   end;
+  EnableEdit(Self, True)
 
 end;
 
@@ -79,6 +80,7 @@ begin
       fd_transaction.CommitRetaining;
       fd_QueryCadastro.Close;
     end;
+    EnableEdit(Self, False);
   end;
 end;
 
@@ -96,6 +98,7 @@ end;
 procedure Tfrm_Principal.FormCreate(Sender: TObject);
 begin
   vSqlOriginal := fd_QueryCadastro.Sql.Text;
+  EnableEdit(Self, False);
 end;
 
 function Tfrm_Principal.GetNameTable(pSQL: String): string;
@@ -249,6 +252,7 @@ procedure Tfrm_Principal.btn_cancelarClick(Sender: TObject);
         fd_QueryCadastro.Cancel;
         fd_transaction.RollbackRetaining;
       end;
+      EnableEdit(Self, False);
   end;
 
 procedure Tfrm_Principal.btn_excluirClick(Sender: TObject);

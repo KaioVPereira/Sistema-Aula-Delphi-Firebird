@@ -106,6 +106,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   end
   inherited pn_cabecalho: TPanel
     Width = 816
+    TabOrder = 1
     ExplicitWidth = 812
     inherited btn_sair: TBitBtn
       Left = 740
@@ -119,12 +120,13 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   end
   object txt_codigo: TDBEdit [15]
     Left = 8
-    Top = 64
+    Top = 72
     Width = 121
     Height = 23
     DataField = 'CODIGO'
     DataSource = ds_cadastros
-    TabOrder = 1
+    Enabled = False
+    TabOrder = 0
   end
   object txt_descricao: TDBEdit [16]
     Left = 8

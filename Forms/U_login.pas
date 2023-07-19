@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ExtCtrls;
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ExtCtrls, U_Biblioteca;
 
 type
   TFrm_login = class(TForm)
@@ -49,7 +49,7 @@ procedure TFrm_login.btn_logarClick(Sender: TObject);
 begin
   if Login(txt_login.Text,txt_senha.text) = false then
   begin
-    ShowMessage('Usuário e/ou senha estão incorretos');
+    MsgAtencao('Usuário e/ou senha estão incorretos');
     abort;
   end
   else

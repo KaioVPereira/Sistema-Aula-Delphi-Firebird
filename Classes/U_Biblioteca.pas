@@ -14,11 +14,12 @@ interface
   procedure MsgInformacao (pMsg : String);
   function MsgPerguntar (pMsg: String; pFocoBtnSim : Boolean = true): Boolean;
   procedure MsgErro (pMsg: String);
+  procedure EnableEdit(Form : TForm ; Valor : Boolean);
   //procedure CarregaRelat      (const pReport: TFrxReport);
 
 implementation
 
-uses U_FormMain;
+uses U_FormMain, Vcl.DBCtrls;
 
   //Procedure que gera o arquivo ini
   procedure ArqIni(pLocal, pSessao, pSubsessao: String; pValor:String);
@@ -100,4 +101,33 @@ uses U_FormMain;
     begin
       Application.MessageBox(pChar(pMsg), 'ERRO', MB_ICONERROR + MB_OK);
     end;
+
+    procedure EnableEdit(Form : TForm ; Valor : Boolean);
+    var i : Integer;
+    begin
+    for i := 0 to Form.ComponentCount -1 do
+      begin
+        if Form.Components[i] is TDBEdit then
+          begin
+            if TDBEdit(Form.Components[i]).TabOrder <> 0 then
+              begin
+                TDBEdit(Form.Components[i]).Enabled := Valor;
+              end;
+          end;
+
+          if form.Components[i] is TDBEdit then
+          begin
+            if TDBEdit(Form.Components[i]).TabOrder <> 0 then
+              begin
+                TDBEdit(Form.Components[i]).Clear;
+              end;
+
+            if Form.Components[i] is TDBLookUpComboBox  then
+              begin
+                TDBLookUpComboBox(Form.Components[i]).Enabled := Valor;
+              end;
+          end;
+        end;
+      end;
+
 end.

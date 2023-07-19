@@ -63,12 +63,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
     procedure Cbox_EstadoExit(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure btn_novoClick(Sender: TObject);
-    procedure btn_cancelarClick(Sender: TObject);
   private
     Fmodo: TModoAbertura;
-    procedure ValidaModoAbertura;
     { Private declarations }
   public
 
@@ -85,29 +81,11 @@ implementation
 
 uses U_LookUp;
 
-procedure Tfrm_CadClientes.btn_cancelarClick(Sender: TObject);
-begin
-  inherited;
-  modo := maInicial;
-  ValidaModoAbertura;
-end;
-
 procedure Tfrm_CadClientes.btn_gravarClick(Sender: TObject);
 begin
   fd_QueryCadastro.FieldByName('UF').AsString := Cbox_Estado.Text;
   fd_QueryCadastro.FieldByName('NOME_CIDADE').AsString := cbox_cidades.Text;
   inherited;
-  modo := maConsulta;
-  ValidaModoAbertura;
-  btn_novo.enabled := true;
-end;
-
-procedure Tfrm_CadClientes.btn_novoClick(Sender: TObject);
-begin
-  inherited;
-  modo := maInclusao;
-  ValidaModoAbertura;
-
 end;
 
 procedure Tfrm_CadClientes.Cbox_EstadoExit(Sender: TObject);
@@ -127,144 +105,9 @@ end;
 procedure Tfrm_CadClientes.FormCreate(Sender: TObject);
 begin
   inherited;
-  Fmodo := maInicial;
-  ValidaModoAbertura;
   LookUp.FD_qryEstados.Open();
   LookUp.FD_qryEstados.FetchAll;
 
-
-end;
-
-procedure Tfrm_CadClientes.FormShow(Sender: TObject);
-begin
-  inherited;
-  ValidaModoAbertura;
-end;
-
-procedure Tfrm_CadClientes.ValidaModoAbertura;
-begin
-  if modo = maInclusao then
-  begin
-    fd_QueryCadastro.Open();
-    if not (fd_QueryCadastro.State in [dsEdit, dsInsert]) then
-    begin
-      fd_QueryCadastro.Insert;
-    end;
-    LookUp.FD_qryEstados.Open();
-    LookUp.FD_qryEstados.FetchAll;
-
-    txt_razao.Enabled        := true;
-    txt_fantasia.Enabled     := true;
-    txt_CNPJCPF.Enabled      := true;
-    txt_nome.Enabled         := true;
-    txt_email.Enabled        := true;
-    txt_site.Enabled         := true;
-    txt_endereco.Enabled     := true;
-    txt_bairro.Enabled       := true;
-    txt_complemento.Enabled  := true;
-    txt_numero.Enabled       := true;
-    txt_ierg.Enabled         := true;
-    cbbox_tipopessoa.Enabled := true;
-    Cbox_Estado.Enabled      := true;
-    cbox_cidades.Enabled     := true;
-    btn_novo.Enabled         := False;
-
-    btn_gravar.Enabled       := true;
-    btn_cancelar.Enabled     := True;
-
-    txt_razao.SetFocus;
-
-  end;
-
-  if modo = maEdicao then
-  begin
-      txt_razao.Enabled        := true;
-      txt_fantasia.Enabled     := true;
-      txt_CNPJCPF.Enabled      := true;
-      txt_nome.Enabled         := true;
-      txt_email.Enabled        := true;
-      txt_site.Enabled         := true;
-      txt_endereco.Enabled     := true;
-      txt_bairro.Enabled       := true;
-      txt_complemento.Enabled  := true;
-      txt_numero.Enabled       := true;
-      txt_ierg.Enabled         := true;
-      cbbox_tipopessoa.Enabled := true;
-      Cbox_Estado.Enabled      := true;
-      cbox_cidades.Enabled     := true;
-
-      btn_novo.Enabled         := False;
-      btn_gravar.Enabled       := True;
-      btn_cancelar.Enabled     := true;
-
-      txt_razao.SetFocus;
-
-      LookUp.FD_qryCidades.Close;
-      LookUp.FD_qryCidades.SQL.clear;
-      LookUp.FD_qryCidades.SQL.Add('SELECT * FROM CIDADE WHERE UF ='+ QuotedStr(Cbox_Estado.Text));
-
-      LookUp.FD_qryCidades.Open();
-      LookUp.FD_qryCidades.FetchAll;
-  end;
-
-  if modo = maInicial then
-  begin
-      txt_controle.Enabled     := false;
-      txt_razao.Enabled        := false;
-      txt_fantasia.Enabled     := false;
-      txt_CNPJCPF.Enabled      := false;
-      txt_nome.Enabled         := false;
-      txt_email.Enabled        := false;
-      txt_site.Enabled         := false;
-      txt_endereco.Enabled     := false;
-      txt_bairro.Enabled       := false;
-      txt_complemento.Enabled  := false;
-      txt_numero.Enabled       := false;
-      txt_ierg.Enabled         := false;
-      cbbox_tipopessoa.Enabled := false;
-      Cbox_Estado.Enabled      := false;
-      cbox_cidades.Enabled     := false;
-
-      btn_gravar.Enabled       := False;
-      btn_cancelar.Enabled     := False;
-      btn_novo.Enabled         := True;
-      //btn_excluir.Enabled      := False;
-
-      txt_controle.Clear;
-      txt_controle.Clear;
-      txt_razao.Clear;
-      txt_fantasia.Clear;
-      txt_CNPJCPF.Clear;
-      txt_nome.Clear;
-      txt_email.Clear;
-      txt_site.Clear;
-      txt_endereco.Clear;
-      txt_bairro.Clear;
-      txt_complemento.Clear;
-      txt_numero.Clear;
-      txt_ierg.Clear;
-  end;
-
-  if modo = maConsulta then
-  begin
-      txt_controle.Enabled     := false;
-      txt_razao.Enabled        := false;
-      txt_fantasia.Enabled     := false;
-      txt_CNPJCPF.Enabled      := false;
-      txt_nome.Enabled         := false;
-      txt_email.Enabled        := false;
-      txt_site.Enabled         := false;
-      txt_endereco.Enabled     := false;
-      txt_bairro.Enabled       := false;
-      txt_complemento.Enabled  := false;
-      txt_numero.Enabled       := false;
-      txt_ierg.Enabled         := false;
-      cbbox_tipopessoa.Enabled := false;
-      Cbox_Estado.Enabled      := false;
-      cbox_cidades.Enabled     := false;
-
-      btn_gravar.Enabled := False;
-  end;
 
 end;
 

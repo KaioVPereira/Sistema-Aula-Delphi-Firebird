@@ -2,8 +2,8 @@
   Left = 250
   Top = 200
   Caption = 'Inicio'
-  ClientHeight = 434
-  ClientWidth = 666
+  ClientHeight = 432
+  ClientWidth = 658
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -29,7 +29,7 @@
   object AdvToolBarPager1: TAdvToolBarPager
     Left = 0
     Top = 0
-    Width = 666
+    Width = 658
     Height = 149
     ActivePage = AdvPage1
     Caption.Caption = 'Sistema ERP'
@@ -124,11 +124,11 @@
       0707FF000000FD07FFFD07FFFD07FD000000FD07FFFDFDFDFDFDFD000000FD07
       FFFFFFFFFFFDFD000000FD070707070707FDFD000000FDFDFDFDFDFDFDFDFD00
       0000}
-    TabOrder = 0
+    TabOrder = 3
     object AdvPage1: TAdvPage
       Left = 4
       Top = 52
-      Width = 658
+      Width = 650
       Height = 92
       Caption = 'Cadastros'
       object AdvToolBar1: TAdvToolBar
@@ -505,7 +505,7 @@
     object AdvPage2: TAdvPage
       Left = 4
       Top = 52
-      Width = 658
+      Width = 650
       Height = 92
       Caption = 'Consultas'
       object AdvToolBar4: TAdvToolBar
@@ -910,7 +910,7 @@
     object AdvPage3: TAdvPage
       Left = 4
       Top = 52
-      Width = 658
+      Width = 650
       Height = 92
       Caption = 'Configura'#231#245'es'
       object AdvToolBar5: TAdvToolBar
@@ -941,7 +941,7 @@
     object Manutenção: TAdvPage
       Left = 4
       Top = 52
-      Width = 658
+      Width = 650
       Height = 92
       Caption = 'Vendas'
       object AdvToolBar7: TAdvToolBar
@@ -1156,8 +1156,8 @@
   end
   object AdvOfficeStatusBar1: TAdvOfficeStatusBar
     Left = 0
-    Top = 415
-    Width = 666
+    Top = 413
+    Width = 658
     Height = 19
     AnchorHint = False
     Font.Charset = DEFAULT_CHARSET

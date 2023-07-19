@@ -72,6 +72,9 @@ inherited frm_CadastrosFornecedores: Tfrm_CadastrosFornecedores
     Height = 15
     Caption = 'EMAIL:'
   end
+  inherited pn_cabecalho: TPanel
+    TabOrder = 1
+  end
   object cbox_UF: TDBLookupComboBox [11]
     Left = 8
     Top = 221
@@ -82,7 +85,7 @@ inherited frm_CadastrosFornecedores: Tfrm_CadastrosFornecedores
     KeyField = 'CONTROLE_ESTADO'
     ListField = 'UF'
     ListSource = LookUp.ds_estados
-    TabOrder = 1
+    TabOrder = 2
     OnExit = cbox_UFExit
   end
   object cbox_Cidade: TDBLookupComboBox [12]
@@ -95,7 +98,7 @@ inherited frm_CadastrosFornecedores: Tfrm_CadastrosFornecedores
     KeyField = 'CONTROLE_CIDADE'
     ListField = 'NOME'
     ListSource = LookUp.ds_cidades
-    TabOrder = 2
+    TabOrder = 3
   end
   object txt_controle: TDBEdit [13]
     Left = 8
@@ -104,7 +107,8 @@ inherited frm_CadastrosFornecedores: Tfrm_CadastrosFornecedores
     Height = 23
     DataField = 'CONTROLE_FORNECEDOR'
     DataSource = ds_cadastros
-    TabOrder = 3
+    Enabled = False
+    TabOrder = 0
   end
   object txt_Razao: TDBEdit [14]
     Left = 8
