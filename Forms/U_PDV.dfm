@@ -71,7 +71,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Caption = 'Faturado'
       DataField = 'SITUACAO'
       DataSource = ds_cadastros
-      TabOrder = 3
+      TabOrder = 4
       ValueChecked = 'S'
       ValueUnchecked = 'N'
     end
@@ -83,7 +83,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       DataField = 'CONTROLE_VENDA'
       DataSource = ds_cadastros
       Enabled = False
-      TabOrder = 4
+      TabOrder = 0
     end
     object DBEdit3: TDBEdit
       Left = 296
@@ -92,7 +92,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Height = 23
       DataField = 'DATA_MOV'
       DataSource = ds_cadastros
-      TabOrder = 1
+      TabOrder = 2
     end
     object DBEdit4: TDBEdit
       Left = 415
@@ -101,7 +101,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Height = 23
       DataField = 'DATA_EMISSAO'
       DataSource = ds_cadastros
-      TabOrder = 2
+      TabOrder = 3
     end
     object cbox_Cliente: TDBLookupComboBox
       Left = 128
@@ -113,7 +113,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       KeyField = 'CONTROLE_CLIENTES'
       ListField = 'NOMECLIENTES'
       ListSource = LookUp.ds_Clientes
-      TabOrder = 0
+      TabOrder = 1
     end
   end
   object Panel2: TPanel [2]

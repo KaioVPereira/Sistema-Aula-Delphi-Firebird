@@ -125,7 +125,6 @@ uses U_FormMain, Vcl.DBCtrls;
             if Form.Components[i] is TDBLookUpComboBox  then
               begin
                 TDBLookUpComboBox(Form.Components[i]).Enabled := Valor;
-                TDBLookUpComboBox(Form.Components[i]).ReadOnly := True;
               end;
           end;
         end;

@@ -270,6 +270,15 @@ inherited frm_CadClientes: Tfrm_CadClientes
     Width = 791
     TabOrder = 15
     ExplicitWidth = 787
+    inherited Panel4: TPanel
+      Left = 634
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 0
+      Visible = True
+      ExplicitLeft = 634
+    end
   end
   inherited fd_QueryCadastro: TFDQuery
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]

@@ -54,3 +54,27 @@ KAIO (Client)	Fri Feb 24 17:53:55 2023
 KAIO (Client)	Fri Feb 24 17:53:57 2023
 	INET/INET_connect: getservbyname failed, error code = 11004
 
+
+SUPORTE3 (Client)	Tue Jul 25 14:08:04 2023
+	INET/INET_connect: gethostbyname (SYSDBA) failed, error code = 11001
+
+
+SUPORTE3 (Client)	Tue Jul 25 14:08:08 2023
+	INET/INET_connect: gethostbyname (SYSDBA) failed, error code = 11001
+
+
+SUPORTE3 (Client)	Tue Jul 25 14:17:02 2023
+	INET/INET_connect: gethostbyname (SYSDBA) failed, error code = 11001
+
+
+SUPORTE3 (Client)	Tue Jul 25 14:17:06 2023
+	INET/INET_connect: gethostbyname (SYSDBA) failed, error code = 11001
+
+
+SUPORTE3 (Client)	Tue Jul 25 16:36:06 2023
+	INET/INET_connect: gethostbyname (SYSDBA) failed, error code = 11001
+
+
+SUPORTE3 (Client)	Tue Jul 25 16:36:11 2023
+	INET/INET_connect: gethostbyname (SYSDBA) failed, error code = 11001
+

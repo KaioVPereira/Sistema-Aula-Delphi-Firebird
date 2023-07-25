@@ -1,9 +1,8 @@
 inherited frm_CadastrosEstados: Tfrm_CadastrosEstados
   Caption = 'Cadastro de Estado'
   ClientHeight = 190
-  ClientWidth = 473
-  OnShow = FormShow
-  ExplicitWidth = 485
+  ClientWidth = 683
+  ExplicitWidth = 695
   ExplicitHeight = 228
   TextHeight = 15
   object Label1: TLabel [0]
@@ -31,12 +30,12 @@ inherited frm_CadastrosEstados: Tfrm_CadastrosEstados
     FocusControl = txt_UF
   end
   inherited pn_cabecalho: TPanel
-    Width = 473
+    Width = 683
     TabOrder = 1
     ExplicitWidth = 469
-    inherited btn_sair: TBitBtn
-      Left = 391
-      ExplicitLeft = 391
+    inherited Panel4: TPanel
+      Left = 526
+      ExplicitLeft = 316
     end
   end
   object txt_controle: TDBEdit [4]

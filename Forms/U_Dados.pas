@@ -41,12 +41,14 @@ begin
   try
     fd_Connection.Params.Values['Database'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','LOCAL_DB');
     fd_Connection.Params.Values['UserName'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','USER');
-    fd_Connection.Params.Values['Port']:= GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PORTA');
+    fd_Connection.Params.Values['Port']     := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PORTA');
     fd_Connection.Params.Values['Password'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PASSWORD');
+    fd_Connection.Params.Values['Server']   := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','SERVIDOR');
+    fd_Connection.Params.Add('Protocol=TCPIP');
     fd_Connection.Connected := True;
   except
     showmessage('Caminho de conexão com banco inválido');
-    frm_ConfigIni.showModal;
+    AbreFormShowModal(Tfrm_Configini, frm_ConfigIni);
   end;
 end;
 

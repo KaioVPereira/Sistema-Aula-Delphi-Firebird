@@ -28,6 +28,7 @@ type
     btn_sair: TBitBtn;
     SpeedButton1: TSpeedButton;
     FD_codigo: TFDQuery;
+    Panel4: TPanel;
     procedure btn_novoClick(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
     procedure btn_cancelarClick(Sender: TObject);
@@ -65,7 +66,10 @@ begin
   begin
     fd_QueryCadastro.Insert;
   end;
-  EnableEdit(Self, True)
+  EnableEdit(Self, True);
+  btn_novo.Enabled := False;
+  btn_gravar.Enabled := True;
+  btn_cancelar.Enabled := True;
 
 end;
 
@@ -81,6 +85,9 @@ begin
       fd_QueryCadastro.Close;
     end;
     EnableEdit(Self, False);
+    btn_novo.Enabled := True;
+    btn_gravar.Enabled := false;
+    btn_cancelar.Enabled := false;
   end;
 end;
 
@@ -99,6 +106,9 @@ procedure Tfrm_Principal.FormCreate(Sender: TObject);
 begin
   vSqlOriginal := fd_QueryCadastro.Sql.Text;
   EnableEdit(Self, False);
+  btn_novo.Enabled := True;
+  btn_gravar.Enabled := false;
+  btn_cancelar.Enabled := false;
 end;
 
 function Tfrm_Principal.GetNameTable(pSQL: String): string;
@@ -253,6 +263,9 @@ procedure Tfrm_Principal.btn_cancelarClick(Sender: TObject);
         fd_transaction.RollbackRetaining;
       end;
       EnableEdit(Self, False);
+      btn_novo.Enabled := True;
+      btn_gravar.Enabled := false;
+      btn_cancelar.Enabled := false;
   end;
 
 procedure Tfrm_Principal.btn_excluirClick(Sender: TObject);

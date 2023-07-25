@@ -29,8 +29,8 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(Tdm_Dados, dm_Dados);
+  Application.CreateForm(TLookUp, LookUp);
   Application.CreateForm(Tfrm_inicio, frm_inicio);
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
-  Application.CreateForm(TLookUp, LookUp);
   Application.Run;
 end.

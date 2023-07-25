@@ -1,9 +1,9 @@
 inherited frm_CadatroCidade: Tfrm_CadatroCidade
   Caption = 'Cadastro de Cidades'
   ClientHeight = 184
-  ClientWidth = 439
+  ClientWidth = 670
   OnShow = FormShow
-  ExplicitWidth = 451
+  ExplicitWidth = 682
   ExplicitHeight = 222
   TextHeight = 15
   object Label1: TLabel [0]
@@ -23,11 +23,12 @@ inherited frm_CadatroCidade: Tfrm_CadatroCidade
     FocusControl = txt_nomecidade
   end
   inherited pn_cabecalho: TPanel
-    Width = 439
+    Width = 670
+    TabOrder = 1
     ExplicitWidth = 435
-    inherited btn_sair: TBitBtn
-      Left = 364
-      ExplicitLeft = 364
+    inherited Panel4: TPanel
+      Left = 513
+      ExplicitLeft = 282
     end
   end
   object txt_controle: TDBEdit [3]
@@ -37,7 +38,8 @@ inherited frm_CadatroCidade: Tfrm_CadatroCidade
     Height = 23
     DataField = 'CONTROLE_CIDADE'
     DataSource = ds_cadastros
-    TabOrder = 1
+    Enabled = False
+    TabOrder = 0
   end
   object txt_nomecidade: TDBEdit [4]
     Left = 8

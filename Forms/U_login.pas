@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ExtCtrls, U_Biblioteca;
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ExtCtrls, U_Biblioteca,
+  Vcl.Buttons, U_ConfigIni;
 
 type
   TFrm_login = class(TForm)
@@ -19,10 +20,12 @@ type
     btn_logar: TButton;
     btn_cancelar: TButton;
     Panel1: TPanel;
+    SpeedButton1: TSpeedButton;
     procedure btn_cancelarClick(Sender: TObject);
     procedure btn_logarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
 
     function Login (pLogin, pSenha: string):Boolean;
@@ -93,6 +96,11 @@ begin
       fd_QueryLogin.Next;
   end;
 
+end;
+
+procedure TFrm_login.SpeedButton1Click(Sender: TObject);
+begin
+  AbreFormShowModal(Tfrm_ConfigIni, frm_ConfigIni);
 end;
 
 end.

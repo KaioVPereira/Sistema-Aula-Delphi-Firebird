@@ -4,7 +4,7 @@ object frm_Principal: Tfrm_Principal
   BorderStyle = bsSingle
   Caption = 'Principal'
   ClientHeight = 296
-  ClientWidth = 840
+  ClientWidth = 933
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -215,7 +215,7 @@ object frm_Principal: Tfrm_Principal
   object pn_cabecalho: TPanel
     Left = 0
     Top = 0
-    Width = 840
+    Width = 933
     Height = 41
     Align = alTop
     TabOrder = 0
@@ -288,14 +288,26 @@ object frm_Principal: Tfrm_Principal
       TabOrder = 3
       OnClick = btn_excluirClick
     end
-    object btn_sair: TBitBtn
-      Left = 751
-      Top = 0
-      Width = 75
-      Height = 41
-      Caption = 'Sair'
+    object Panel4: TPanel
+      Left = 776
+      Top = 1
+      Width = 156
+      Height = 39
+      Align = alRight
+      Caption = 'Panel4'
       TabOrder = 4
-      OnClick = btn_sairClick
+      Visible = False
+      ExplicitLeft = 777
+      ExplicitTop = 0
+      object btn_sair: TBitBtn
+        Left = 46
+        Top = 1
+        Width = 75
+        Height = 41
+        Caption = 'Sair'
+        TabOrder = 0
+        OnClick = btn_sairClick
+      end
     end
   end
   object fd_QueryCadastro: TFDQuery

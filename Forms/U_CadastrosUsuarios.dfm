@@ -1,6 +1,7 @@
 inherited frm_CadastrosUsuarios: Tfrm_CadastrosUsuarios
   Caption = 'frm_CadastrosUsuarios'
   ClientHeight = 246
+  ExplicitWidth = 848
   ExplicitHeight = 284
   TextHeight = 15
   object Label1: TLabel [0]
@@ -35,6 +36,10 @@ inherited frm_CadastrosUsuarios: Tfrm_CadastrosUsuarios
     Caption = 'CONTROLE_USUARIO'
     FocusControl = DB_controle
   end
+  inherited pn_cabecalho: TPanel
+    TabOrder = 1
+    ExplicitWidth = 832
+  end
   object DB_nome: TDBEdit [5]
     Left = 8
     Top = 129
@@ -42,7 +47,7 @@ inherited frm_CadastrosUsuarios: Tfrm_CadastrosUsuarios
     Height = 23
     DataField = 'NOME'
     DataSource = ds_cadastros
-    TabOrder = 1
+    TabOrder = 2
   end
   object DB_login: TDBEdit [6]
     Left = 199
@@ -52,7 +57,7 @@ inherited frm_CadastrosUsuarios: Tfrm_CadastrosUsuarios
     CharCase = ecUpperCase
     DataField = 'LOGIN'
     DataSource = ds_cadastros
-    TabOrder = 2
+    TabOrder = 3
   end
   object DB_senha: TDBEdit [7]
     Left = 8
@@ -62,7 +67,7 @@ inherited frm_CadastrosUsuarios: Tfrm_CadastrosUsuarios
     DataField = 'SENHA'
     DataSource = ds_cadastros
     PasswordChar = '*'
-    TabOrder = 3
+    TabOrder = 4
   end
   object DB_controle: TDBEdit [8]
     Left = 8
@@ -72,7 +77,7 @@ inherited frm_CadastrosUsuarios: Tfrm_CadastrosUsuarios
     DataField = 'CONTROLE_USUARIO'
     DataSource = ds_cadastros
     Enabled = False
-    TabOrder = 4
+    TabOrder = 0
   end
   inherited fd_QueryCadastro: TFDQuery
     BeforePost = fd_QueryCadastroBeforePost

@@ -22,17 +22,11 @@ type
     Label3: TLabel;
     txt_UF: TDBEdit;
     procedure btn_gravarClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure ValidaModoAbertura;
-    procedure btn_novoClick(Sender: TObject);
-    procedure btn_cancelarClick(Sender: TObject);
   private
 
-    Fmodo: TModoAbertura;
 
     { Private declarations }
   public
-    property modo: TModoAbertura read Fmodo write Fmodo;
     { Public declarations }
   end;
 
@@ -42,13 +36,6 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure Tfrm_CadastrosEstados.btn_cancelarClick(Sender: TObject);
-begin
-  inherited;
-  Fmodo := maInicial;
-  ValidaModoAbertura;
-end;
 
 procedure Tfrm_CadastrosEstados.btn_gravarClick(Sender: TObject);
 begin
@@ -66,70 +53,9 @@ begin
   else
   begin
    inherited;
-    Fmodo := maInicial;
-    ValidaModoAbertura;
   end;
 
 
 end;
-
-procedure Tfrm_CadastrosEstados.btn_novoClick(Sender: TObject);
-begin
-  inherited;
-  Fmodo := maInclusao;
-  ValidaModoAbertura;
-end;
-
-procedure Tfrm_CadastrosEstados.FormShow(Sender: TObject);
-begin
-  inherited;
-  Fmodo := maInicial;
-  ValidaModoAbertura;
-end;
-
-
-procedure Tfrm_CadastrosEstados.ValidaModoAbertura;
-begin
-  if Fmodo = maInicial then
-    begin
-      txt_controle.Enabled := False;
-      txt_nome.Enabled := false;
-      txt_UF.Enabled := false;
-
-      btn_gravar.Enabled   := false;
-      btn_novo.Enabled     := True;
-      btn_cancelar.Enabled := false;
-    end;
-  if Fmodo = maInclusao then
-    begin
-      txt_controle.Enabled := True;
-      txt_nome.Enabled := True;
-      txt_UF.Enabled := True;
-
-      btn_gravar.Enabled   := True;
-      btn_novo.Enabled     := false;
-      btn_cancelar.Enabled := True;
-  end;
-    if Fmodo = maEdicao then
-    begin
-      txt_controle.Enabled := True;
-      txt_nome.Enabled := True;
-      txt_UF.Enabled := True;
-
-      btn_gravar.Enabled   := false;
-      btn_novo.Enabled     := True;
-      btn_cancelar.Enabled := false;
-  end;
-  if Fmodo = maConsulta then
-    begin
-      txt_controle.Enabled := False;
-      txt_nome.Enabled := false;
-      txt_UF.Enabled := false;
-
-      btn_gravar.Enabled   := false;
-      btn_novo.Enabled     := True;
-      btn_cancelar.Enabled := false;
-  end;
-  end;
 
 end.

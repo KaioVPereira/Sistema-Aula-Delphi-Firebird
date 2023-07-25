@@ -5,14 +5,13 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
-  Vcl.Imaging.pngimage, U_Biblioteca, U_Dados,U_FormMain;
+  Vcl.Imaging.pngimage, U_Biblioteca, U_Dados,U_FormMain, Vcl.Buttons, U_Inicio;
 
 type
   Tfrm_ConfigIni = class(TForm)
     img_bd: TImage;
     txt_localBD: TEdit;
     lb_localBD: TLabel;
-    Button1: TButton;
     opn_pastas: TOpenDialog;
     btn_salvar: TButton;
     txt_porta: TEdit;
@@ -23,15 +22,22 @@ type
     lb_port: TLabel;
     lb_servidor: TLabel;
     lb_pass: TLabel;
+    SpeedButton1: TSpeedButton;
+    btn_validar: TButton;
+    Panel1: TPanel;
     procedure Button1Click(Sender: TObject);
     procedure btn_salvarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure lb_servidorClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure btn_validarClick(Sender: TObject);
   private
     { Private declarations }
 
      procedure Configurar;
      procedure SalvaValidaConexao;
-
+     procedure ValidaConexao;
   public
     { Public declarations }
   end;
@@ -47,9 +53,19 @@ implementation
 
 
 
+procedure Tfrm_ConfigIni.BitBtn1Click(Sender: TObject);
+begin
+  Configurar;
+end;
+
 procedure Tfrm_ConfigIni.btn_salvarClick(Sender: TObject);
 begin
   SalvaValidaConexao;
+end;
+
+procedure Tfrm_ConfigIni.btn_validarClick(Sender: TObject);
+begin
+  ValidaConexao;
 end;
 
 procedure Tfrm_ConfigIni.Button1Click(Sender: TObject);
@@ -82,7 +98,16 @@ end;
 
 procedure Tfrm_ConfigIni.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Application.Terminate;
+  //Application.Terminate;
+  if dm_Dados.fd_Connection.Connected = False then
+  begin
+    Application.Terminate;
+  end;
+end;
+
+procedure Tfrm_ConfigIni.lb_servidorClick(Sender: TObject);
+begin
+
 end;
 
 //Procedure para usar no botãos salvar
@@ -94,21 +119,60 @@ begin
   ArqIni (vFileName,'CONFIGURACAO', 'PORTA', txt_porta.Text);
   ArqIni (vFileName,'CONFIGURACAO', 'USER', txt_usarname.Text);
   ArqIni (vFileName,'CONFIGURACAO', 'PASSWORD', txt_pass.Text);
+  ArqIni (vFileName,'CONFIGURACAO', 'LOCAL_DB', txt_localBD.Text );
 
   try
     dm_Dados.fd_Connection.Params.Values['DataBase'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','LOCAL_DB');
     dm_Dados.fd_Connection.Params.Values['UserName'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','USER');
     dm_Dados.fd_Connection.Params.Values['Port']     := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PORTA');
     dm_Dados.fd_Connection.Params.Values['Password'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PASSWORD');
+    dm_Dados.fd_Connection.Params.Values['Server']   := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','SERVIDOR');
     dm_Dados.fd_Connection.Connected := True;
     showMessage('Conexão feita com sucesso');
-    Self.Close;
+    self.Close;
+    //AbreForm(Tfrm_inicio, frm_inicio);
     //frm_Principal.Create(self);
     //frm_Principal.showmodal
     //
   except
     showmessage('Configuração de banco incorreta, valide as informações e tente novamente');
   end;
+end;
+
+procedure Tfrm_ConfigIni.SpeedButton1Click(Sender: TObject);
+begin
+  Configurar;
+end;
+
+procedure Tfrm_ConfigIni.ValidaConexao;
+begin
+  var vFileName : String;
+begin
+  vFileName        := ExtractFilePath(application.ExeName) + 'config.ini';
+  ArqIni (vFileName,'CONFIGURACAO', 'SERVIDOR',txt_server.Text);
+  ArqIni (vFileName,'CONFIGURACAO', 'PORTA', txt_porta.Text);
+  ArqIni (vFileName,'CONFIGURACAO', 'USER', txt_usarname.Text);
+  ArqIni (vFileName,'CONFIGURACAO', 'PASSWORD', txt_pass.Text);
+  ArqIni (vFileName,'CONFIGURACAO', 'LOCAL_DB', txt_localBD.Text );
+
+  try
+    dm_Dados.fd_Connection.Params.Values['DataBase'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','LOCAL_DB');
+    dm_Dados.fd_Connection.Params.Values['UserName'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','USER');
+    dm_Dados.fd_Connection.Params.Values['Port']     := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PORTA');
+    dm_Dados.fd_Connection.Params.Values['Password'] := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','PASSWORD');
+    dm_Dados.fd_Connection.Params.Values['Server']   := GetArqIni(ExtractFilePath(Application.ExeName)+ 'config.ini', 'CONFIGURACAO','SERVIDOR');
+    dm_Dados.fd_Connection.Connected := True;
+    showMessage('Conexão feita com sucesso');
+    //self.Close;
+    //AbreForm(Tfrm_inicio, frm_inicio);
+    //frm_Principal.Create(self);
+    //frm_Principal.showmodal
+    //
+  except
+    showmessage('Configuração de banco incorreta, valide as informações e tente novamente');
+  end;
+end;
+
 end;
 
 end.
