@@ -1,0 +1,30 @@
+object dm_Dados: Tdm_Dados
+  OnCreate = DataModuleCreate
+  Height = 617
+  Width = 918
+  object fd_Connection: TFDConnection
+    Params.Strings = (
+      'Protocol=TCPIP'
+      'Server=127.0.0.1'
+      'Port=3051'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'Database=C:\SCL\Sistema-Aula-Delphi-Firebird\BANCOAULA.IB'
+      'DriverID=FB')
+    Connected = True
+    Left = 40
+    Top = 8
+  end
+  object FDT_VendasHeader: TFDTable
+    Connection = fd_Connection
+    Left = 40
+    Top = 96
+  end
+  object FDQry_VendasQuery: TFDQuery
+    Connection = fd_Connection
+    SQL.Strings = (
+      'SELECT * FROM VENDAS_HEADER')
+    Left = 160
+    Top = 96
+  end
+end

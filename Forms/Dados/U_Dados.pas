@@ -7,11 +7,39 @@ uses
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
   Data.DB, FireDAC.Comp.Client, FireDAC.Phys.FB, FireDAC.Phys.FBDef,
-  U_Biblioteca, U_FormMain, Vcl.Forms;
+  U_Biblioteca, U_FormMain, Vcl.Forms, FireDAC.Stan.Param, FireDAC.DatS,
+  FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet;
 type
 
   Tdm_Dados = class(TDataModule)
     fd_Connection: TFDConnection;
+    FTB_VendasHeader: TFDTable;
+    FDQry_VendasQuery: TFDQuery;
+    FDQry_VendasQueryCONTROLE_VENDA: TIntegerField;
+    FDQry_VendasQueryCONTROLE_CLIENTE: TIntegerField;
+    FDQry_VendasQueryDATA_MOV: TDateField;
+    FDQry_VendasQuerySITUACAO: TStringField;
+    FDQry_VendasQueryDATA_EMISSAO: TDateField;
+    FDQry_VendasQueryDT_EXCLUIDO: TDateField;
+    FDQry_VendasQueryCONTROLE_FUNC: TIntegerField;
+    FDQry_VendasQueryNOME_FUNC: TStringField;
+    FDQry_VendasQuerySUBTOTAL: TSingleField;
+    FDQry_VendasQueryTOTAL: TSingleField;
+    FDQry_VendasQueryTERMINAL: TIntegerField;
+    DS_Vendas: TDataSource;
+    FTB_VendasItens: TFDTable;
+    FDQry_VendasItens: TFDQuery;
+    FDQry_VendasItensCONTROLE_VENDA_ITEM: TIntegerField;
+    FDQry_VendasItensCODIGO: TIntegerField;
+    FDQry_VendasItensQTD: TSingleField;
+    FDQry_VendasItensVALOR_UNITARIO: TSingleField;
+    FDQry_VendasItensDESCONTO: TSingleField;
+    FDQry_VendasItensCONTROLE_VENDA: TIntegerField;
+    FDQry_VendasItensDT_EXCLUIDO: TDateField;
+    FDQry_VendasItensVALORTOTAL: TSingleField;
+    FDQry_VendasItensREFERENCIA: TIntegerField;
+    FDQry_VendasItensTERMINAL: TIntegerField;
+    DS_VendasItens: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
 
   private

@@ -16,6 +16,8 @@ object LookUp: TLookUp
   end
   object FD_TransactionLookup: TFDTransaction
     Connection = dm_Dados.fd_Connection
+    Left = 72
+    Top = 8
   end
   object FD_qryCidades: TFDQuery
     Connection = dm_Dados.fd_Connection
