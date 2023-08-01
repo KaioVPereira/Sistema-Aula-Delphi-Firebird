@@ -105,6 +105,8 @@ object Frm_PDV2: TFrm_PDV2
       Top = 354
       Width = 209
       Height = 170
+      AutoSize = True
+      Center = True
     end
     object Panel2: TPanel
       Left = 1

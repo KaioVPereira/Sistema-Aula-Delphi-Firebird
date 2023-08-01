@@ -58,13 +58,13 @@ implementation
 uses U_Dados;
 
 procedure TFrm_PDV2.Buscar;
-var dirIMG : string;
 begin
-  ExtractFileDir(GetCurrentDir)
+
 end;
 
 procedure TFrm_PDV2.FormShow(Sender: TObject);
 begin
+  LimparImagem;
   dm_Dados.FTB_VendasHeader.Active := True;
   dm_Dados.FTB_VendasItens.Active := True;
 end;
@@ -75,7 +75,10 @@ begin
 end;
 
 procedure TFrm_PDV2.LimparImagem;
+var dirIMG : string;
 begin
+  dirIMG :=(GetCurrentDir)+ '\download.jpg';
+  Image1.Picture.LoadFromFile(dirIMG);
 
 end;
 
