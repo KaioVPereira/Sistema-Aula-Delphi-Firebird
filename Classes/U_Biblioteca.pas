@@ -9,12 +9,13 @@ interface
   procedure AtualizaFDQuery   (const pFDQuery : TFDQuery; pSQL : String);
   procedure AbreFormShowModal (pClass: TComponentClass; pForm :TForm);
   procedure AbreForm          (pClass: TComponentClass; pForm :TForm);
-
   procedure MsgAtencao (pMsg: String);
   procedure MsgInformacao (pMsg : String);
   function MsgPerguntar (pMsg: String; pFocoBtnSim : Boolean = true): Boolean;
   procedure MsgErro (pMsg: String);
   procedure EnableEdit(Form : TForm ; Valor : Boolean);
+  Function  ValidaCPF(CPF : String): Boolean;
+  Var GravaUsuario : String;
   //procedure CarregaRelat      (const pReport: TFrxReport);
 
 implementation
@@ -129,5 +130,60 @@ uses U_FormMain, Vcl.DBCtrls;
           end;
         end;
       end;
+
+Function  ValidaCPF(CPF : String): Boolean;
+  var
+  I, Soma, Digito: Integer;
+  Digs: array [0..1] of Integer;
+begin
+  Result := False;
+
+  // Remover caracteres não numéricos do CPF
+  // para evitar problemas com máscaras
+  var CleanCPF := StringReplace(CPF, '.', '', [rfReplaceAll]);
+  CleanCPF := StringReplace(CleanCPF, '-', '', [rfReplaceAll]);
+
+  // Verificar se o CPF tem 11 dígitos
+  if Length(CleanCPF) <> 11 then
+    Exit;
+
+  // Verificar se todos os dígitos são iguais
+  var TodosIguais := True;
+  for I := 1 to 10 do
+    if CleanCPF[I] <> CleanCPF[I + 1] then
+    begin
+      TodosIguais := False;
+      Break;
+    end;
+
+  if TodosIguais then
+    Exit;
+
+  // Calcular o primeiro dígito verificador
+  Soma := 0;
+  for I := 1 to 9 do
+    Soma := Soma + StrToInt(CleanCPF[I]) * (11 - I);
+
+  Digito := 11 - (Soma mod 11);
+  if Digito >= 10 then
+    Digito := 0;
+
+  Digs[0] := Digito;
+
+  // Calcular o segundo dígito verificador
+  Soma := 0;
+  for I := 1 to 9 do
+    Soma := Soma + StrToInt(CleanCPF[I]) * (12 - I);
+
+  Soma := Soma + Digs[0] * 2;
+  Digito := 11 - (Soma mod 11);
+  if Digito >= 10 then
+    Digito := 0;
+
+  Digs[1] := Digito;
+
+  // Verificar se os dígitos calculados são iguais aos dígitos informados no CPF
+  Result := (CleanCPF[10] = Char(48 + Digs[0])) and (CleanCPF[11] = Char(48 + Digs[1]));
+end;
 
 end.

@@ -8,7 +8,8 @@ uses
   AdvOfficeStatusBarStylers, Unit2, AdvGlowButton, U_CadastroCidades,
   U_CadastroClientes, U_CadastroEstados, U_ConsultaClientes,
   U_ConsultaFornecedores, U_ConsultaProdutos, U_CadastroProdutos, U_PDV,
-  U_Biblioteca, U_ConsultaVendas, U_ConsultaUsuario, U_CadastrosUsuarios;
+  U_Biblioteca, U_ConsultaVendas, U_ConsultaUsuario, U_CadastrosUsuarios,
+  Vcl.ExtCtrls, Vcl.StdCtrls, U_Dados, U_VENDAS;
 
 type
   Tfrm_inicio = class(TAdvToolBarForm)
@@ -56,6 +57,8 @@ type
     AdvToolBarSeparator10: TAdvToolBarSeparator;
     btn_CadUsuario: TAdvGlowButton;
     AdvToolBarSeparator11: TAdvToolBarSeparator;
+    lb_CamBanco: TLabel;
+    lb_Usuario: TLabel;
     procedure btn_CadastroClienteClick(Sender: TObject);
     procedure btn_CadastroCidadesClick(Sender: TObject);
     procedure btn_CadastroEstadosClick(Sender: TObject);
@@ -69,6 +72,7 @@ type
     procedure btn_ConsultaProdutosClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure AdvShapeButton1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -104,13 +108,19 @@ end;
 
 procedure Tfrm_inicio.btn_VendasClick(Sender: TObject);
 begin
-  AbreFormShowModal(Tfrm_CadastroVendas, frm_CadastroVendas);
+  AbreFormShowModal(TFrm_PDV2,Frm_PDV2);
 end;
 
 
 procedure Tfrm_inicio.FormCreate(Sender: TObject);
 begin
   AbreFormShowModal(TFrm_login, Frm_login);
+end;
+
+procedure Tfrm_inicio.FormShow(Sender: TObject);
+begin
+  lb_Usuario.Caption := 'USUÁRIO: ' + GravaUsuario;
+  lb_CamBanco.Caption := 'SERVIDOR: ' + dm_Dados.fd_Connection.Params.Values['Server'] + #13#10 + 'BANCO: '+ dm_Dados.fd_Connection.Params.Values['Database'];
 end;
 
 procedure Tfrm_inicio.AdvShapeButton1Click(Sender: TObject);

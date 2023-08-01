@@ -105,31 +105,25 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Forms\U_FormMain.pas">
+        <DCCReference Include="Forms\MainCadastro\U_FormMain.pas">
             <Form>frm_Principal</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_Dados.pas">
+        <DCCReference Include="Forms\Dados\U_Dados.pas">
             <Form>dm_Dados</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="Classes\U_Biblioteca.pas"/>
-        <DCCReference Include="Forms\U_ConfigIni.pas">
+        <DCCReference Include="Forms\Configini\U_ConfigIni.pas">
             <Form>frm_ConfigIni</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_CadastroClientes.pas">
+        <DCCReference Include="Forms\CadastrosGerais\U_CadastroClientes.pas">
             <Form>frm_CadClientes</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_CadastroEstados.pas">
+        <DCCReference Include="Forms\CadastrosGerais\U_CadastroEstados.pas">
             <Form>frm_CadastrosEstados</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="U_CadastroCidades.pas">
+        <DCCReference Include="Forms\CadastrosGerais\U_CadastroCidades.pas">
             <Form>frm_CadatroCidade</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Shared\U_LookUp.pas">
             <Form>LookUp</Form>
@@ -140,50 +134,43 @@
             <Form>frm_inicio</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_FormMainConsultas.pas">
+        <DCCReference Include="Forms\MainConsulta\U_FormMainConsultas.pas">
             <Form>frm_MainConsultas</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_ConsultaClientes.pas">
+        <DCCReference Include="Forms\ConsultasGerais\U_ConsultaClientes.pas">
             <Form>frm_ConsultaClientes</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\U_constantes.pas"/>
-        <DCCReference Include="Forms\U_CadastrosFornecedores.pas">
+        <DCCReference Include="Forms\CadastrosGerais\U_CadastrosFornecedores.pas">
             <Form>frm_CadastrosFornecedores</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_ConsultaFornecedores.pas">
+        <DCCReference Include="Forms\ConsultasGerais\U_ConsultaFornecedores.pas">
             <Form>frm_ConsultaFornecedor</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_ConsultaProdutos.pas">
+        <DCCReference Include="Forms\ConsultasGerais\U_ConsultaProdutos.pas">
             <Form>frm_ConsultaProdutos</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_CadastroProdutos.pas">
+        <DCCReference Include="Forms\CadastrosGerais\U_CadastroProdutos.pas">
             <Form>frm_CadastroProdutos</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_PDV.pas">
+        <DCCReference Include="Forms\vendas\U_PDV.pas">
             <Form>frm_CadastroVendas</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_ConsultaVendas.pas">
+        <DCCReference Include="Forms\ConsultasGerais\U_ConsultaVendas.pas">
             <Form>frm_ConsultaVendas</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_ConsultaUsuario.pas">
+        <DCCReference Include="Forms\ConsultasGerais\U_ConsultaUsuario.pas">
             <Form>frm_ConsultaUsuario</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\U_CadastrosUsuarios.pas">
+        <DCCReference Include="Forms\CadastrosGerais\U_CadastrosUsuarios.pas">
             <Form>frm_CadastrosUsuarios</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\uCrpt.pas"/>
-        <DCCReference Include="Forms\U_login.pas">
+        <DCCReference Include="Forms\login\U_login.pas">
             <Form>Frm_login</Form>
+        </DCCReference>
+        <DCCReference Include="Forms\Vendas\U_VENDAS.pas">
+            <Form>Frm_PDV2</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
@@ -213,6 +200,12 @@
             </Delphi.Personality>
             <Deployment Version="4">
                 <DeployFile LocalName="Exe\prj_Basico.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Exe\prj_Basico.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>prj_Basico.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
