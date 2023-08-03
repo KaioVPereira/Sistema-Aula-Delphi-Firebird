@@ -19,9 +19,9 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    Edit2: TEdit;
-    Edit3: TEdit;
-    DBLUEdit1: TDBLUEdit;
+    txt_DescProd: TEdit;
+    txt_Qtd: TEdit;
+    txt_Referencia: TDBLUEdit;
     Edit1: TEdit;
     Label4: TLabel;
     Edit4: TEdit;
@@ -36,6 +36,10 @@ type
     txt_ValorTroco: TDBLUEdit;
     Image1: TImage;
     procedure FormShow(Sender: TObject);
+    procedure txt_ReferenciaChange(Sender: TObject);
+    procedure txt_ReferenciaEnter(Sender: TObject);
+    procedure txt_ReferenciaExit(Sender: TObject);
+    procedure txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     Procedure Limpar;
@@ -55,18 +59,29 @@ implementation
 
 {$R *.dfm}
 
-uses U_Dados;
+uses U_Dados, U_Biblioteca;
 
 procedure TFrm_PDV2.Buscar;
 begin
+  dm_Dados.FDQry_Produtos.Close;
+  dm_Dados.FDQry_Produtos.SQL.Clear;
+  dm_Dados.FDQry_Produtos.SQL.Add('SELECT * FROM PRODUTOS WHERE REFERENCIA = ' + txt_Referencia.Text);
+  //dm_Dados.FDQry_Produtos.ParamByName('REFERENCIA').Value := txt_Referencia.Text;
+  dm_Dados.FDQry_Produtos.Open;
 
+  if not dm_Dados.FDQry_Produtos.isempty then
+  begin
+    txt_DescProd.Text := dm_Dados.FDQry_Produtos['DESCRICAO'];
+  end
+  else
+    txt_DescProd.Text := '';
 end;
 
 procedure TFrm_PDV2.FormShow(Sender: TObject);
 begin
   LimparImagem;
-  dm_Dados.FTB_VendasHeader.Active := True;
-  dm_Dados.FTB_VendasItens.Active := True;
+  //dm_Dados.FTB_VendasHeader.Active := True;
+  //dm_Dados.FTB_VendasItens.Active := True;
 end;
 
 procedure TFrm_PDV2.Limpar;
@@ -90,6 +105,38 @@ end;
 procedure TFrm_PDV2.SalvarVendas;
 begin
 
+end;
+
+
+procedure TFrm_PDV2.txt_ReferenciaChange(Sender: TObject);
+begin
+  if txt_Referencia.Text <> '' then
+    Buscar;
+end;
+
+procedure TFrm_PDV2.txt_ReferenciaEnter(Sender: TObject);
+begin
+  //txt_Qtd.SetFocus;
+end;
+
+procedure TFrm_PDV2.txt_ReferenciaExit(Sender: TObject);
+begin
+  if txt_Referencia.Text <> '' then
+  begin
+  Buscar;
+  if dm_Dados.FDQry_Produtos.IsEmpty then
+      begin
+        MsgAtencao('Produto Não encontrado');
+      end;
+  end;
+end;
+
+procedure TFrm_PDV2.txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    txt_Qtd.SetFocus;
+  end;
 end;
 
 end.

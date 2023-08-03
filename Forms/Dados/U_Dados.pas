@@ -40,6 +40,24 @@ type
     FDQry_VendasItensREFERENCIA: TIntegerField;
     FDQry_VendasItensTERMINAL: TIntegerField;
     DS_VendasItens: TDataSource;
+    FDQry_Produtos: TFDQuery;
+    DS_Produtos: TDataSource;
+    FDQry_ProdutosCODIGO: TIntegerField;
+    FDQry_ProdutosDESCRICAO: TStringField;
+    FDQry_ProdutosDEPARTAMENTO: TIntegerField;
+    FDQry_ProdutosCOLECAO: TIntegerField;
+    FDQry_ProdutosGRUPO: TIntegerField;
+    FDQry_ProdutosLINHA: TIntegerField;
+    FDQry_ProdutosMARCA: TIntegerField;
+    FDQry_ProdutosUNIDADE: TIntegerField;
+    FDQry_ProdutosPESO_LIQUIDO: TSingleField;
+    FDQry_ProdutosPESO_BRUTO: TSingleField;
+    FDQry_ProdutosCONTROLE_FORNECEDOR: TIntegerField;
+    FDQry_ProdutosQTD: TSingleField;
+    FDQry_ProdutosCUSTO: TSingleField;
+    FDQry_ProdutosVALOR_UNITARIO: TSingleField;
+    FDQry_ProdutosDT_EXCLUIDO: TDateField;
+    FDQry_ProdutosREFERENCIA: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
 
   private

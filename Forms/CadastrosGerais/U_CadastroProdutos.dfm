@@ -104,6 +104,14 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Height = 15
     Caption = 'VALOR UNIT'#193'RIO:'
   end
+  object Label1: TLabel [14]
+    Left = 304
+    Top = 51
+    Width = 66
+    Height = 15
+    Caption = 'REFERENCIA'
+    FocusControl = DBEdit1
+  end
   inherited pn_cabecalho: TPanel
     Width = 816
     TabOrder = 1
@@ -111,17 +119,17 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     inherited Panel4: TPanel
       Left = 728
       Width = 87
-      ExplicitLeft = 728
+      ExplicitLeft = 724
       ExplicitWidth = 87
       inherited btn_sair: TBitBtn
         Width = 85
-        ExplicitLeft = 56
-        ExplicitWidth = 99
+        ExplicitLeft = 1
+        ExplicitWidth = 85
         ExplicitHeight = 37
       end
     end
   end
-  object txt_codigo: TDBEdit [15]
+  object txt_codigo: TDBEdit [16]
     Left = 8
     Top = 72
     Width = 121
@@ -131,7 +139,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 0
   end
-  object txt_descricao: TDBEdit [16]
+  object txt_descricao: TDBEdit [17]
     Left = 8
     Top = 125
     Width = 505
@@ -140,7 +148,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataSource = ds_cadastros
     TabOrder = 2
   end
-  object cbox_Departamentto: TDBLookupComboBox [17]
+  object cbox_Departamentto: TDBLookupComboBox [18]
     Left = 8
     Top = 176
     Width = 87
@@ -150,7 +158,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     ReadOnly = True
     TabOrder = 3
   end
-  object cbox_Colecao: TDBLookupComboBox [18]
+  object cbox_Colecao: TDBLookupComboBox [19]
     Left = 127
     Top = 176
     Width = 94
@@ -158,7 +166,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 4
   end
-  object cbox_Grupo: TDBLookupComboBox [19]
+  object cbox_Grupo: TDBLookupComboBox [20]
     Left = 243
     Top = 176
     Width = 87
@@ -166,7 +174,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 5
   end
-  object cbox_linha: TDBLookupComboBox [20]
+  object cbox_linha: TDBLookupComboBox [21]
     Left = 352
     Top = 176
     Width = 113
@@ -174,7 +182,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 6
   end
-  object cbox_marca: TDBLookupComboBox [21]
+  object cbox_marca: TDBLookupComboBox [22]
     Left = 488
     Top = 176
     Width = 97
@@ -182,7 +190,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 7
   end
-  object cbox_Unidade: TDBLookupComboBox [22]
+  object cbox_Unidade: TDBLookupComboBox [23]
     Left = 616
     Top = 176
     Width = 87
@@ -190,7 +198,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 8
   end
-  object cbox_Fornecedor: TDBLookupComboBox [23]
+  object cbox_Fornecedor: TDBLookupComboBox [24]
     Left = 8
     Top = 286
     Width = 229
@@ -202,7 +210,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     ListSource = LookUp.ds_fornec
     TabOrder = 9
   end
-  object dbmo_PesoBruto: TDBMoneyEdit [24]
+  object dbmo_PesoBruto: TDBMoneyEdit [25]
     Left = 8
     Top = 240
     Width = 70
@@ -222,7 +230,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataField = 'PESO_BRUTO'
     DataSource = ds_cadastros
   end
-  object dbmo_PesoLiquido: TDBMoneyEdit [25]
+  object dbmo_PesoLiquido: TDBMoneyEdit [26]
     Left = 192
     Top = 240
     Width = 70
@@ -242,7 +250,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataField = 'PESO_LIQUIDO'
     DataSource = ds_cadastros
   end
-  object dbmo_qtd: TDBMoneyEdit [26]
+  object dbmo_qtd: TDBMoneyEdit [27]
     Left = 8
     Top = 336
     Width = 70
@@ -262,7 +270,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataField = 'QTD'
     DataSource = ds_cadastros
   end
-  object dbmo_custo: TDBMoneyEdit [27]
+  object dbmo_custo: TDBMoneyEdit [28]
     Left = 8
     Top = 400
     Width = 70
@@ -282,7 +290,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataField = 'CUSTO'
     DataSource = ds_cadastros
   end
-  object dbmo_valorunitario: TDBMoneyEdit [28]
+  object dbmo_valorunitario: TDBMoneyEdit [29]
     Left = 200
     Top = 400
     Width = 70
@@ -301,6 +309,15 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Version = '1.1.2.2'
     DataField = 'VALOR_UNITARIO'
     DataSource = ds_cadastros
+  end
+  object DBEdit1: TDBEdit [30]
+    Left = 304
+    Top = 72
+    Width = 156
+    Height = 23
+    DataField = 'REFERENCIA'
+    DataSource = ds_cadastros
+    TabOrder = 15
   end
   inherited fd_QueryCadastro: TFDQuery
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
@@ -369,6 +386,15 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     object fd_QueryCadastroVALOR_UNITARIO: TSingleField
       FieldName = 'VALOR_UNITARIO'
       Origin = 'VALOR_UNITARIO'
+    end
+    object fd_QueryCadastroDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
+    object fd_QueryCadastroREFERENCIA: TIntegerField
+      FieldName = 'REFERENCIA'
+      Origin = 'REFERENCIA'
+      Required = True
     end
   end
   inherited fd_UpdCadastros: TFDUpdateSQL

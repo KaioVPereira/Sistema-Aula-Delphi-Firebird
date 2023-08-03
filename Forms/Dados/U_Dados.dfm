@@ -149,4 +149,91 @@ object dm_Dados: Tdm_Dados
     Left = 280
     Top = 168
   end
+  object FDQry_Produtos: TFDQuery
+    Connection = fd_Connection
+    SQL.Strings = (
+      'SELECT * FROM PRODUTOS WHERE REFERENCIA = :REFERENCIA')
+    Left = 160
+    Top = 240
+    ParamData = <
+      item
+        Name = 'REFERENCIA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object FDQry_ProdutosCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object FDQry_ProdutosDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Size = 80
+    end
+    object FDQry_ProdutosDEPARTAMENTO: TIntegerField
+      FieldName = 'DEPARTAMENTO'
+      Origin = 'DEPARTAMENTO'
+    end
+    object FDQry_ProdutosCOLECAO: TIntegerField
+      FieldName = 'COLECAO'
+      Origin = 'COLECAO'
+    end
+    object FDQry_ProdutosGRUPO: TIntegerField
+      FieldName = 'GRUPO'
+      Origin = 'GRUPO'
+    end
+    object FDQry_ProdutosLINHA: TIntegerField
+      FieldName = 'LINHA'
+      Origin = 'LINHA'
+    end
+    object FDQry_ProdutosMARCA: TIntegerField
+      FieldName = 'MARCA'
+      Origin = 'MARCA'
+    end
+    object FDQry_ProdutosUNIDADE: TIntegerField
+      FieldName = 'UNIDADE'
+      Origin = 'UNIDADE'
+    end
+    object FDQry_ProdutosPESO_LIQUIDO: TSingleField
+      FieldName = 'PESO_LIQUIDO'
+      Origin = 'PESO_LIQUIDO'
+    end
+    object FDQry_ProdutosPESO_BRUTO: TSingleField
+      FieldName = 'PESO_BRUTO'
+      Origin = 'PESO_BRUTO'
+    end
+    object FDQry_ProdutosCONTROLE_FORNECEDOR: TIntegerField
+      FieldName = 'CONTROLE_FORNECEDOR'
+      Origin = 'CONTROLE_FORNECEDOR'
+    end
+    object FDQry_ProdutosQTD: TSingleField
+      FieldName = 'QTD'
+      Origin = 'QTD'
+    end
+    object FDQry_ProdutosCUSTO: TSingleField
+      FieldName = 'CUSTO'
+      Origin = 'CUSTO'
+    end
+    object FDQry_ProdutosVALOR_UNITARIO: TSingleField
+      FieldName = 'VALOR_UNITARIO'
+      Origin = 'VALOR_UNITARIO'
+    end
+    object FDQry_ProdutosDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
+    object FDQry_ProdutosREFERENCIA: TIntegerField
+      FieldName = 'REFERENCIA'
+      Origin = 'REFERENCIA'
+      Required = True
+    end
+  end
+  object DS_Produtos: TDataSource
+    DataSet = FDQry_Produtos
+    Left = 280
+    Top = 240
+  end
 end

@@ -54,6 +54,10 @@ type
     dbmo_qtd: TDBMoneyEdit;
     dbmo_custo: TDBMoneyEdit;
     dbmo_valorunitario: TDBMoneyEdit;
+    fd_QueryCadastroDT_EXCLUIDO: TDateField;
+    fd_QueryCadastroREFERENCIA: TIntegerField;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure btn_novoClick(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);

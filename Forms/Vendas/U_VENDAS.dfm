@@ -119,7 +119,7 @@ object Frm_PDV2: TFrm_PDV2
       ParentBackground = False
       TabOrder = 0
     end
-    object Edit2: TEdit
+    object txt_DescProd: TEdit
       Left = 5
       Top = 195
       Width = 588
@@ -132,7 +132,7 @@ object Frm_PDV2: TFrm_PDV2
       ParentFont = False
       TabOrder = 1
     end
-    object Edit3: TEdit
+    object txt_Qtd: TEdit
       Left = 5
       Top = 267
       Width = 589
@@ -145,7 +145,7 @@ object Frm_PDV2: TFrm_PDV2
       ParentFont = False
       TabOrder = 2
     end
-    object DBLUEdit1: TDBLUEdit
+    object txt_Referencia: TDBLUEdit
       Left = 6
       Top = 85
       Width = 588
@@ -158,6 +158,9 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 3
+      OnChange = txt_ReferenciaChange
+      OnExit = txt_ReferenciaExit
+      OnKeyPress = txt_ReferenciaKeyPress
       AutoHistory = False
       AutoHistoryLimit = 0
       AutoHistoryDirection = ahdFirst
