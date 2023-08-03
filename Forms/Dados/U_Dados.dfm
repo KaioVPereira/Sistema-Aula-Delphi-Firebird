@@ -17,6 +17,7 @@ object dm_Dados: Tdm_Dados
   end
   object FTB_VendasHeader: TFDTable
     Connection = fd_Connection
+    TableName = 'VENDAS_HEADER'
     Left = 40
     Top = 96
   end
@@ -90,7 +91,9 @@ object dm_Dados: Tdm_Dados
     Top = 96
   end
   object FTB_VendasItens: TFDTable
+    MasterSource = DS_VendasItens
     Connection = fd_Connection
+    TableName = 'VENDAS_ITENS'
     Left = 32
     Top = 168
   end

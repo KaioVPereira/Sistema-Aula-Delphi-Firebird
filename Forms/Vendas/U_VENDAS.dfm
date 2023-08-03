@@ -2,7 +2,7 @@ object Frm_PDV2: TFrm_PDV2
   Left = 0
   Top = 0
   Caption = 'Vendas'
-  ClientHeight = 668
+  ClientHeight = 811
   ClientWidth = 2023
   Color = clActiveCaption
   Font.Charset = DEFAULT_CHARSET
@@ -15,20 +15,22 @@ object Frm_PDV2: TFrm_PDV2
   TextHeight = 15
   object pn_GridItens: TPanel
     Left = 0
-    Top = 0
+    Top = 137
     Width = 985
-    Height = 668
+    Height = 674
     Align = alClient
     Caption = 'pn_GridItens'
     TabOrder = 0
+    ExplicitTop = 0
     ExplicitWidth = 981
     ExplicitHeight = 667
     object DBG_VendasItens: TDBGrid
       Left = 1
       Top = 42
       Width = 983
-      Height = 625
+      Height = 631
       Align = alClient
+      DataSource = dm_Dados.DS_VendasItens
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -49,21 +51,20 @@ object Frm_PDV2: TFrm_PDV2
   end
   object pn_Meio: TPanel
     Left = 985
-    Top = 0
+    Top = 137
     Width = 600
-    Height = 668
+    Height = 674
     Align = alRight
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 981
-    ExplicitHeight = 667
+    ExplicitTop = 143
     object Label1: TLabel
       Left = 6
       Top = 64
-      Width = 124
+      Width = 145
       Height = 15
-      Caption = 'CODIGO DO PRODUTO:'
+      Caption = 'REFERENCIA DO PRODUTO:'
     end
     object Label2: TLabel
       Left = 5
@@ -75,9 +76,9 @@ object Frm_PDV2: TFrm_PDV2
     object Label3: TLabel
       Left = 6
       Top = 246
-      Width = 76
+      Width = 121
       Height = 15
-      Caption = 'QUANTIDADE:'
+      Caption = 'CODIGO DO PRODUTO'
     end
     object Label4: TLabel
       Left = 6
@@ -87,26 +88,33 @@ object Frm_PDV2: TFrm_PDV2
       Caption = 'ESTOQUE:'
     end
     object Label5: TLabel
-      Left = 6
-      Top = 396
-      Width = 95
-      Height = 15
-      Caption = 'PRE'#199'O UNIT'#193'RIO:'
-    end
-    object Label6: TLabel
       Left = 5
       Top = 467
-      Width = 95
+      Width = 94
       Height = 15
-      Caption = 'PRE'#199'O UNIT'#193'RIO:'
+      Caption = 'VALOR UNIT'#193'RIO:'
+    end
+    object Label6: TLabel
+      Left = 6
+      Top = 539
+      Width = 74
+      Height = 15
+      Caption = 'VALOR TOTAL:'
     end
     object Image1: TImage
-      Left = 336
+      Left = 304
       Top = 354
-      Width = 209
-      Height = 170
+      Width = 265
+      Height = 239
       AutoSize = True
       Center = True
+    end
+    object TLabel
+      Left = 8
+      Top = 400
+      Width = 76
+      Height = 15
+      Caption = 'QUANTIDADE:'
     end
     object Panel2: TPanel
       Left = 1
@@ -124,6 +132,7 @@ object Frm_PDV2: TFrm_PDV2
       Top = 195
       Width = 588
       Height = 40
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -24
@@ -132,11 +141,12 @@ object Frm_PDV2: TFrm_PDV2
       ParentFont = False
       TabOrder = 1
     end
-    object txt_Qtd: TEdit
+    object txt_Codigo: TEdit
       Left = 5
       Top = 267
       Width = 589
       Height = 36
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -20
@@ -177,11 +187,12 @@ object Frm_PDV2: TFrm_PDV2
       Version = '2.3.1.6'
       DataLookup = False
     end
-    object Edit1: TEdit
-      Left = 5
+    object txt_Estoque: TEdit
+      Left = 6
       Top = 354
       Width = 260
       Height = 36
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -20
@@ -190,11 +201,12 @@ object Frm_PDV2: TFrm_PDV2
       ParentFont = False
       TabOrder = 4
     end
-    object Edit4: TEdit
-      Left = 5
-      Top = 417
+    object txt_ValorUnitario: TEdit
+      Left = 6
+      Top = 488
       Width = 260
       Height = 36
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -20
@@ -203,11 +215,12 @@ object Frm_PDV2: TFrm_PDV2
       ParentFont = False
       TabOrder = 5
     end
-    object Edit5: TEdit
-      Left = 5
-      Top = 488
+    object txt_ItemTotal: TEdit
+      Left = 6
+      Top = 560
       Width = 260
       Height = 36
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -20
@@ -216,17 +229,45 @@ object Frm_PDV2: TFrm_PDV2
       ParentFont = False
       TabOrder = 6
     end
+    object SpinEdit1: TSpinEdit
+      Left = 6
+      Top = 421
+      Width = 68
+      Height = 38
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      MaxValue = 0
+      MinValue = 0
+      ParentFont = False
+      TabOrder = 7
+      Value = 1
+      OnChange = SpinEdit1Change
+    end
+    object ckb_ColetaQTD: TCheckBox
+      Left = 112
+      Top = 421
+      Width = 169
+      Height = 38
+      Caption = 'COLETAR QUANTIDADE'
+      TabOrder = 8
+      OnClick = ckb_ColetaQTDClick
+    end
   end
   object pn_Direita: TPanel
     Left = 1585
-    Top = 0
+    Top = 137
     Width = 438
-    Height = 668
+    Height = 674
     Align = alRight
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 2
     ExplicitLeft = 1581
+    ExplicitTop = 0
     ExplicitHeight = 667
     object Panel3: TPanel
       Left = 1
@@ -410,6 +451,58 @@ object Frm_PDV2: TFrm_PDV2
       ShowModified = False
       Version = '2.3.1.6'
       DataLookup = False
+    end
+  end
+  object pn_Header: TPanel
+    Left = 0
+    Top = 0
+    Width = 2023
+    Height = 137
+    Align = alTop
+    TabOrder = 3
+    ExplicitLeft = 1
+    ExplicitTop = -5
+    object Label7: TLabel
+      Left = 168
+      Top = 11
+      Width = 37
+      Height = 15
+      Caption = 'CAIXA:'
+    end
+    object Label8: TLabel
+      Left = 168
+      Top = 67
+      Width = 63
+      Height = 15
+      Caption = 'VENDEDOR:'
+    end
+    object Label9: TLabel
+      Left = 544
+      Top = 11
+      Width = 51
+      Height = 15
+      Caption = 'GERENTE:'
+    end
+    object DBComboBox1: TDBComboBox
+      Left = 168
+      Top = 32
+      Width = 145
+      Height = 23
+      TabOrder = 0
+    end
+    object DBComboBox2: TDBComboBox
+      Left = 544
+      Top = 32
+      Width = 145
+      Height = 23
+      TabOrder = 1
+    end
+    object DBComboBox3: TDBComboBox
+      Left = 168
+      Top = 88
+      Width = 145
+      Height = 23
+      TabOrder = 2
     end
   end
 end

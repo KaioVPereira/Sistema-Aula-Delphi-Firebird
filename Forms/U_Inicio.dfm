@@ -1,7 +1,7 @@
 ﻿object frm_inicio: Tfrm_inicio
   Left = 250
   Top = 200
-  Caption = 'Inicio'
+  Caption = ' '
   ClientHeight = 418
   ClientWidth = 971
   Color = clBtnFace
@@ -126,6 +126,7 @@
       FFFFFFFFFFFDFD000000FD070707070707FDFD000000FDFDFDFDFDFDFDFDFD00
       0000}
     TabOrder = 3
+    ExplicitWidth = 967
     object AdvPage1: TAdvPage
       Left = 4
       Top = 52
@@ -1347,6 +1348,8 @@
     Styler = AdvOfficeStatusBarOfficeStyler1
     UseSystemFont = False
     Version = '1.7.3.5'
+    ExplicitTop = 372
+    ExplicitWidth = 967
     object lb_CamBanco: TLabel
       Left = 645
       Top = 3
