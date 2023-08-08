@@ -1,7 +1,6 @@
 inherited frm_CadastrosUsuarios: Tfrm_CadastrosUsuarios
   Caption = 'frm_CadastrosUsuarios'
   ClientHeight = 246
-  ExplicitWidth = 848
   ExplicitHeight = 284
   TextHeight = 15
   object Label1: TLabel [0]
@@ -38,7 +37,6 @@ inherited frm_CadastrosUsuarios: Tfrm_CadastrosUsuarios
   end
   inherited pn_cabecalho: TPanel
     TabOrder = 1
-    ExplicitWidth = 832
   end
   object DB_nome: TDBEdit [5]
     Left = 8

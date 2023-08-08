@@ -23,6 +23,10 @@ object dm_Dados: Tdm_Dados
   end
   object FDQry_VendasQuery: TFDQuery
     Connection = fd_Connection
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_VENDAS_HEADER_CONTROLE'
+    UpdateOptions.AutoIncFields = 'CONTROLE_VENDA'
     SQL.Strings = (
       'SELECT * FROM VENDAS_HEADER')
     Left = 160
@@ -99,6 +103,10 @@ object dm_Dados: Tdm_Dados
   end
   object FDQry_VendasItens: TFDQuery
     Connection = fd_Connection
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_VENDAS_ITENS_CONTROLE'
+    UpdateOptions.AutoIncFields = 'CONTROLE_VENDA_ITEM'
     SQL.Strings = (
       '       SELECT * FROM VENDAS_ITENS')
     Left = 160
@@ -133,10 +141,6 @@ object dm_Dados: Tdm_Dados
       FieldName = 'DT_EXCLUIDO'
       Origin = 'DT_EXCLUIDO'
     end
-    object FDQry_VendasItensVALORTOTAL: TSingleField
-      FieldName = 'VALOR TOTAL'
-      Origin = '"VALOR TOTAL"'
-    end
     object FDQry_VendasItensREFERENCIA: TIntegerField
       FieldName = 'REFERENCIA'
       Origin = 'REFERENCIA'
@@ -145,6 +149,10 @@ object dm_Dados: Tdm_Dados
     object FDQry_VendasItensTERMINAL: TIntegerField
       FieldName = 'TERMINAL'
       Origin = 'TERMINAL'
+    end
+    object FDQry_VendasItensVALOR_TOTAL: TSingleField
+      FieldName = 'VALOR_TOTAL'
+      Origin = 'VALOR_TOTAL'
     end
   end
   object DS_VendasItens: TDataSource

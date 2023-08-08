@@ -11,7 +11,7 @@ interface
   procedure AbreForm          (pClass: TComponentClass; pForm :TForm);
   procedure MsgAtencao (pMsg: String);
   procedure MsgInformacao (pMsg : String);
-  function MsgPerguntar (pMsg: String; pFocoBtnSim : Boolean = true): Boolean;
+  function  MsgPerguntar (pMsg: String; pFocoBtnSim : Boolean = true): Boolean;
   procedure MsgErro (pMsg: String);
   procedure EnableEdit(Form : TForm ; Valor : Boolean);
   Function  ValidaCPF(CPF : String): Boolean;
