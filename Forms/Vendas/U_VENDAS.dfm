@@ -110,7 +110,7 @@ object Frm_PDV2: TFrm_PDV2
       Center = True
     end
     object TLabel
-      Left = 8
+      Left = 5
       Top = 400
       Width = 76
       Height = 15
@@ -231,7 +231,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object SpinEdit1: TSpinEdit
       Left = 6
-      Top = 421
+      Top = 621
       Width = 68
       Height = 38
       Enabled = False
@@ -246,8 +246,6 @@ object Frm_PDV2: TFrm_PDV2
       TabOrder = 7
       Value = 1
       OnChange = SpinEdit1Change
-      OnExit = SpinEdit1Exit
-      OnKeyPress = SpinEdit1KeyPress
     end
     object ckb_ColetaQTD: TCheckBox
       Left = 112
@@ -257,6 +255,24 @@ object Frm_PDV2: TFrm_PDV2
       Caption = 'COLETAR QUANTIDADE'
       TabOrder = 8
       OnClick = ckb_ColetaQTDClick
+    end
+    object txt_Qtd: TEdit
+      Left = 6
+      Top = 421
+      Width = 51
+      Height = 36
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 9
+      Text = '1'
+      OnChange = txt_QtdChange
+      OnExit = txt_QtdExit
+      OnKeyPress = txt_QtdKeyPress
     end
   end
   object pn_Direita: TPanel

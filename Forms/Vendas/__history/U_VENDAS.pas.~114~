@@ -46,6 +46,7 @@ type
     SpinEdit1: TSpinEdit;
     ckb_ColetaQTD: TCheckBox;
     txt_ControleVenda: TDBEdit;
+    txt_Qtd: TEdit;
     procedure FormShow(Sender: TObject);
     procedure txt_ReferenciaChange(Sender: TObject);
     procedure txt_ReferenciaExit(Sender: TObject);
@@ -223,8 +224,7 @@ end;
 
 procedure TFrm_PDV2.SpinEdit1Exit(Sender: TObject);
 begin
-  if SpinEdit1.Enabled = false then
-  begin
+
     if dm_Dados.FDQry_Produtos.IsEmpty then
       begin
         MsgAtencao('Produto Não encontrado');
@@ -234,26 +234,17 @@ begin
       Buscar;
       CalculaTotalItem;
       MostraItensVenda;
+      txt_Referencia.SetFocus;
     end;
-  end;
+
 end;
 
 procedure TFrm_PDV2.SpinEdit1KeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
-  begin
     begin
-      if dm_Dados.FDQry_Produtos.IsEmpty then
-        begin
-          MsgAtencao('Produto Não encontrado');
-        end
-    Else
-      begin
-        txt_Referencia.SetFocus;
-     end;
+      txt_Referencia.SetFocus;
     end;
-  end;
-
 end;
 
 procedure TFrm_PDV2.txt_ReferenciaChange(Sender: TObject);
@@ -268,7 +259,7 @@ procedure TFrm_PDV2.txt_ReferenciaExit(Sender: TObject);
 //Se encontrar o item, coloca os textos dele, calcula o total do item,
 //e mostra item na grid
 begin
-  if SpinEdit1.Enabled = false then
+  if (SpinEdit1.Enabled = false) and (txt_Referencia.Text <> '') then
   begin
     if dm_Dados.FDQry_Produtos.IsEmpty then
       begin

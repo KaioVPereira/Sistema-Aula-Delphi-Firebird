@@ -46,14 +46,15 @@ type
     SpinEdit1: TSpinEdit;
     ckb_ColetaQTD: TCheckBox;
     txt_ControleVenda: TDBEdit;
+    txt_Qtd: TEdit;
     procedure FormShow(Sender: TObject);
     procedure txt_ReferenciaChange(Sender: TObject);
     procedure txt_ReferenciaExit(Sender: TObject);
     procedure txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
-    procedure SpinEdit1Change(Sender: TObject);
     procedure ckb_ColetaQTDClick(Sender: TObject);
-    procedure SpinEdit1Exit(Sender: TObject);
-    procedure SpinEdit1KeyPress(Sender: TObject; var Key: Char);
+    procedure txt_QtdChange(Sender: TObject);
+    procedure txt_QtdExit(Sender: TObject);
+    procedure txt_QtdKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     Procedure Limpar;
@@ -117,7 +118,7 @@ end;
 procedure TFrm_PDV2.CalculaTotalItem;
 begin
   //Insere o valor total do item, com base na quantidade digitada.
-  TotalItem := StrToFloat(txt_ValorUnitario.Text) * StrToFloat(SpinEdit1.Text);
+  TotalItem := StrToFloat(txt_ValorUnitario.Text) * StrToFloat(txt_Qtd.Text);
   txt_ItemTotal.Text := FloatToStr(TotalItem);
 end;
 
@@ -126,10 +127,10 @@ begin
   //Deixando o campo de coletar quantidade ativo ou não.
   if ckb_ColetaQTD.Checked = true then
   begin
-     SpinEdit1.Enabled := true;
+     txt_Qtd.Enabled := true;
   end
   else
-    SpinEdit1.Enabled := false;
+    txt_Qtd.Enabled := false;
 
 end;
 
@@ -196,7 +197,7 @@ begin
   dm_Dados.FDQry_VendasItens.FieldByName('CONTROLE_VENDA').Value := txt_ControleVenda.Text;
   dm_Dados.FDQry_VendasItens.FieldByName('REFERENCIA').Value := txt_Referencia.Text;
   dm_Dados.FDQry_VendasItens.FieldByName('VALOR_UNITARIO').Value := txt_ValorUnitario.Text;
-  dm_Dados.FDQry_VendasItens.FieldByName('QTD').Value := SpinEdit1.Text;
+  dm_Dados.FDQry_VendasItens.FieldByName('QTD').Value := txt_Qtd.Text;
   dm_Dados.FDQry_VendasItens.FieldByName('VALOR_TOTAL').Value := TotalItem;
   dm_Dados.FDQry_VendasItens.FieldByName('CODIGO').Value := txt_Codigo.Text;
   dm_Dados.FDQry_VendasItens.FieldByName('TERMINAL').Value := '1'
@@ -214,14 +215,14 @@ begin
 end;
 
 
-procedure TFrm_PDV2.SpinEdit1Change(Sender: TObject);
+procedure TFrm_PDV2.txt_QtdChange(Sender: TObject);
 //Chama a procedure de calcular o total do item toda vez que a quantidade tiver alteração
 begin
-  if SpinEdit1.Text <> '' then
+  if txt_Qtd.Text <> '' then
   CalculaTotalItem;
 end;
 
-procedure TFrm_PDV2.SpinEdit1Exit(Sender: TObject);
+procedure TFrm_PDV2.txt_QtdExit(Sender: TObject);
 begin
 
     if dm_Dados.FDQry_Produtos.IsEmpty then
@@ -238,7 +239,7 @@ begin
 
 end;
 
-procedure TFrm_PDV2.SpinEdit1KeyPress(Sender: TObject; var Key: Char);
+procedure TFrm_PDV2.txt_QtdKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
     begin

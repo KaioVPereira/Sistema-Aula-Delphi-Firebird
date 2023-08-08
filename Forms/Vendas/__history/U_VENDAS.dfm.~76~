@@ -21,9 +21,8 @@ object Frm_PDV2: TFrm_PDV2
     Align = alClient
     Caption = 'pn_GridItens'
     TabOrder = 0
-    ExplicitTop = 0
     ExplicitWidth = 981
-    ExplicitHeight = 667
+    ExplicitHeight = 673
     object DBG_VendasItens: TDBGrid
       Left = 1
       Top = 42
@@ -58,7 +57,8 @@ object Frm_PDV2: TFrm_PDV2
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 143
+    ExplicitLeft = 981
+    ExplicitHeight = 673
     object Label1: TLabel
       Left = 6
       Top = 64
@@ -246,6 +246,8 @@ object Frm_PDV2: TFrm_PDV2
       TabOrder = 7
       Value = 1
       OnChange = SpinEdit1Change
+      OnExit = SpinEdit1Exit
+      OnKeyPress = SpinEdit1KeyPress
     end
     object ckb_ColetaQTD: TCheckBox
       Left = 112
@@ -267,8 +269,7 @@ object Frm_PDV2: TFrm_PDV2
     ParentBackground = False
     TabOrder = 2
     ExplicitLeft = 1581
-    ExplicitTop = 0
-    ExplicitHeight = 667
+    ExplicitHeight = 673
     object Panel3: TPanel
       Left = 1
       Top = 1
@@ -460,8 +461,7 @@ object Frm_PDV2: TFrm_PDV2
     Height = 137
     Align = alTop
     TabOrder = 3
-    ExplicitLeft = 1
-    ExplicitTop = -5
+    ExplicitWidth = 2019
     object Label7: TLabel
       Left = 168
       Top = 11
@@ -503,6 +503,15 @@ object Frm_PDV2: TFrm_PDV2
       Width = 145
       Height = 23
       TabOrder = 2
+    end
+    object txt_ControleVenda: TDBEdit
+      Left = 1080
+      Top = 48
+      Width = 121
+      Height = 23
+      DataField = 'CONTROLE_VENDA'
+      DataSource = dm_Dados.DS_Vendas
+      TabOrder = 3
     end
   end
 end

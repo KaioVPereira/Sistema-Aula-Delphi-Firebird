@@ -46,12 +46,15 @@ type
     SpinEdit1: TSpinEdit;
     ckb_ColetaQTD: TCheckBox;
     txt_ControleVenda: TDBEdit;
+    Edit1: TEdit;
     procedure FormShow(Sender: TObject);
     procedure txt_ReferenciaChange(Sender: TObject);
     procedure txt_ReferenciaExit(Sender: TObject);
     procedure txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
     procedure SpinEdit1Change(Sender: TObject);
     procedure ckb_ColetaQTDClick(Sender: TObject);
+    procedure SpinEdit1Exit(Sender: TObject);
+    procedure SpinEdit1KeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     Procedure Limpar;
@@ -219,6 +222,31 @@ begin
   CalculaTotalItem;
 end;
 
+procedure TFrm_PDV2.SpinEdit1Exit(Sender: TObject);
+begin
+
+    if dm_Dados.FDQry_Produtos.IsEmpty then
+      begin
+        MsgAtencao('Produto Não encontrado');
+      end
+  Else
+    begin
+      Buscar;
+      CalculaTotalItem;
+      MostraItensVenda;
+      txt_Referencia.SetFocus;
+    end;
+
+end;
+
+procedure TFrm_PDV2.SpinEdit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+    begin
+      txt_Referencia.SetFocus;
+    end;
+end;
+
 procedure TFrm_PDV2.txt_ReferenciaChange(Sender: TObject);
 //Busca item a cada alteração no campo de referencia com a procedure "Buscar"
 begin
@@ -231,7 +259,9 @@ procedure TFrm_PDV2.txt_ReferenciaExit(Sender: TObject);
 //Se encontrar o item, coloca os textos dele, calcula o total do item,
 //e mostra item na grid
 begin
-  if dm_Dados.FDQry_Produtos.IsEmpty then
+  if (SpinEdit1.Enabled = false) and (txt_Referencia.Text <> '') then
+  begin
+    if dm_Dados.FDQry_Produtos.IsEmpty then
       begin
         MsgAtencao('Produto Não encontrado');
       end
@@ -240,7 +270,9 @@ begin
       Buscar;
       CalculaTotalItem;
       MostraItensVenda;
+      txt_Referencia.SetFocus;
     end;
+  end;
 end;
 
 procedure TFrm_PDV2.txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
