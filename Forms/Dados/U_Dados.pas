@@ -36,7 +36,6 @@ type
     FDQry_VendasItensDESCONTO: TSingleField;
     FDQry_VendasItensCONTROLE_VENDA: TIntegerField;
     FDQry_VendasItensDT_EXCLUIDO: TDateField;
-    FDQry_VendasItensREFERENCIA: TIntegerField;
     FDQry_VendasItensTERMINAL: TIntegerField;
     DS_VendasItens: TDataSource;
     FDQry_Produtos: TFDQuery;
@@ -56,8 +55,10 @@ type
     FDQry_ProdutosCUSTO: TSingleField;
     FDQry_ProdutosVALOR_UNITARIO: TSingleField;
     FDQry_ProdutosDT_EXCLUIDO: TDateField;
-    FDQry_ProdutosREFERENCIA: TIntegerField;
     FDQry_VendasItensVALOR_TOTAL: TSingleField;
+    FDQry_ProdutosREFERENCIA: TStringField;
+    FDQry_ProdutosIMAGEM: TBlobField;
+    FDQry_VendasItensREFERENCIA: TStringField;
     procedure DataModuleCreate(Sender: TObject);
 
   private

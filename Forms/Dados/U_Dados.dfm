@@ -141,11 +141,6 @@ object dm_Dados: Tdm_Dados
       FieldName = 'DT_EXCLUIDO'
       Origin = 'DT_EXCLUIDO'
     end
-    object FDQry_VendasItensREFERENCIA: TIntegerField
-      FieldName = 'REFERENCIA'
-      Origin = 'REFERENCIA'
-      Required = True
-    end
     object FDQry_VendasItensTERMINAL: TIntegerField
       FieldName = 'TERMINAL'
       Origin = 'TERMINAL'
@@ -153,6 +148,11 @@ object dm_Dados: Tdm_Dados
     object FDQry_VendasItensVALOR_TOTAL: TSingleField
       FieldName = 'VALOR_TOTAL'
       Origin = 'VALOR_TOTAL'
+    end
+    object FDQry_VendasItensREFERENCIA: TStringField
+      FieldName = 'REFERENCIA'
+      Origin = 'REFERENCIA'
+      Size = 50
     end
   end
   object DS_VendasItens: TDataSource
@@ -236,10 +236,15 @@ object dm_Dados: Tdm_Dados
       FieldName = 'DT_EXCLUIDO'
       Origin = 'DT_EXCLUIDO'
     end
-    object FDQry_ProdutosREFERENCIA: TIntegerField
+    object FDQry_ProdutosREFERENCIA: TStringField
       FieldName = 'REFERENCIA'
       Origin = 'REFERENCIA'
       Required = True
+      Size = 50
+    end
+    object FDQry_ProdutosIMAGEM: TBlobField
+      FieldName = 'IMAGEM'
+      Origin = 'IMAGEM'
     end
   end
   object DS_Produtos: TDataSource

@@ -105,12 +105,19 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Caption = 'VALOR UNIT'#193'RIO:'
   end
   object Label1: TLabel [14]
-    Left = 304
+    Left = 288
     Top = 51
     Width = 66
     Height = 15
     Caption = 'REFERENCIA'
     FocusControl = DBEdit1
+  end
+  object Image1: TImage [15]
+    Left = 300
+    Top = 258
+    Width = 149
+    Height = 136
+    Stretch = True
   end
   inherited pn_cabecalho: TPanel
     Width = 816
@@ -123,13 +130,11 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
       ExplicitWidth = 87
       inherited btn_sair: TBitBtn
         Width = 85
-        ExplicitLeft = 1
         ExplicitWidth = 85
-        ExplicitHeight = 37
       end
     end
   end
-  object txt_codigo: TDBEdit [16]
+  object txt_codigo: TDBEdit [17]
     Left = 8
     Top = 72
     Width = 121
@@ -139,7 +144,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 0
   end
-  object txt_descricao: TDBEdit [17]
+  object txt_descricao: TDBEdit [18]
     Left = 8
     Top = 125
     Width = 505
@@ -148,7 +153,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataSource = ds_cadastros
     TabOrder = 2
   end
-  object cbox_Departamentto: TDBLookupComboBox [18]
+  object cbox_Departamentto: TDBLookupComboBox [19]
     Left = 8
     Top = 176
     Width = 87
@@ -158,7 +163,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     ReadOnly = True
     TabOrder = 3
   end
-  object cbox_Colecao: TDBLookupComboBox [19]
+  object cbox_Colecao: TDBLookupComboBox [20]
     Left = 127
     Top = 176
     Width = 94
@@ -166,7 +171,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 4
   end
-  object cbox_Grupo: TDBLookupComboBox [20]
+  object cbox_Grupo: TDBLookupComboBox [21]
     Left = 243
     Top = 176
     Width = 87
@@ -174,7 +179,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 5
   end
-  object cbox_linha: TDBLookupComboBox [21]
+  object cbox_linha: TDBLookupComboBox [22]
     Left = 352
     Top = 176
     Width = 113
@@ -182,7 +187,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 6
   end
-  object cbox_marca: TDBLookupComboBox [22]
+  object cbox_marca: TDBLookupComboBox [23]
     Left = 488
     Top = 176
     Width = 97
@@ -190,7 +195,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 7
   end
-  object cbox_Unidade: TDBLookupComboBox [23]
+  object cbox_Unidade: TDBLookupComboBox [24]
     Left = 616
     Top = 176
     Width = 87
@@ -198,7 +203,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Enabled = False
     TabOrder = 8
   end
-  object cbox_Fornecedor: TDBLookupComboBox [24]
+  object cbox_Fornecedor: TDBLookupComboBox [25]
     Left = 8
     Top = 286
     Width = 229
@@ -210,7 +215,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     ListSource = LookUp.ds_fornec
     TabOrder = 9
   end
-  object dbmo_PesoBruto: TDBMoneyEdit [25]
+  object dbmo_PesoBruto: TDBMoneyEdit [26]
     Left = 8
     Top = 240
     Width = 70
@@ -230,7 +235,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataField = 'PESO_BRUTO'
     DataSource = ds_cadastros
   end
-  object dbmo_PesoLiquido: TDBMoneyEdit [26]
+  object dbmo_PesoLiquido: TDBMoneyEdit [27]
     Left = 192
     Top = 240
     Width = 70
@@ -250,7 +255,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataField = 'PESO_LIQUIDO'
     DataSource = ds_cadastros
   end
-  object dbmo_qtd: TDBMoneyEdit [27]
+  object dbmo_qtd: TDBMoneyEdit [28]
     Left = 8
     Top = 336
     Width = 70
@@ -270,7 +275,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataField = 'QTD'
     DataSource = ds_cadastros
   end
-  object dbmo_custo: TDBMoneyEdit [28]
+  object dbmo_custo: TDBMoneyEdit [29]
     Left = 8
     Top = 400
     Width = 70
@@ -290,8 +295,8 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataField = 'CUSTO'
     DataSource = ds_cadastros
   end
-  object dbmo_valorunitario: TDBMoneyEdit [29]
-    Left = 200
+  object dbmo_valorunitario: TDBMoneyEdit [30]
+    Left = 202
     Top = 400
     Width = 70
     Height = 23
@@ -310,14 +315,33 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataField = 'VALOR_UNITARIO'
     DataSource = ds_cadastros
   end
-  object DBEdit1: TDBEdit [30]
-    Left = 304
+  object DBEdit1: TDBEdit [31]
+    Left = 288
     Top = 72
-    Width = 156
+    Width = 177
     Height = 23
     DataField = 'REFERENCIA'
     DataSource = ds_cadastros
     TabOrder = 15
+  end
+  object DBImage1: TDBImage [32]
+    Left = 616
+    Top = 258
+    Width = 179
+    Height = 154
+    DataField = 'IMAGEM'
+    DataSource = ds_cadastros
+    Stretch = True
+    TabOrder = 16
+  end
+  object btn_BuscaImagem: TBitBtn [33]
+    Left = 488
+    Top = 311
+    Width = 75
+    Height = 25
+    Caption = 'Imagem'
+    TabOrder = 17
+    OnClick = btn_BuscaImagemClick
   end
   inherited fd_QueryCadastro: TFDQuery
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
@@ -391,10 +415,15 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
       FieldName = 'DT_EXCLUIDO'
       Origin = 'DT_EXCLUIDO'
     end
-    object fd_QueryCadastroREFERENCIA: TIntegerField
+    object fd_QueryCadastroREFERENCIA: TStringField
       FieldName = 'REFERENCIA'
       Origin = 'REFERENCIA'
       Required = True
+      Size = 50
+    end
+    object fd_QueryCadastroIMAGEM: TBlobField
+      FieldName = 'IMAGEM'
+      Origin = 'IMAGEM'
     end
   end
   inherited fd_UpdCadastros: TFDUpdateSQL
@@ -408,5 +437,16 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   inherited ds_cadastros: TDataSource
     Left = 728
     Top = 64
+  end
+  inherited FD_codigo: TFDQuery
+    Left = 592
+    Top = 24
+  end
+  object OpenPictureDialog1: TOpenPictureDialog
+    Filter = 
+      'Imagem JPEG ou JPG|*.jpg;*.jpeg;*.png;|JPEG Image File (*.jpg)|*' +
+      '.jpg|JPEG Image File (*.jpeg)|*.jpeg||*.png'
+    Left = 592
+    Top = 72
   end
 end

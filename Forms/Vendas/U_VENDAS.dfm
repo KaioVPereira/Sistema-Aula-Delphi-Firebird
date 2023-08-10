@@ -102,12 +102,12 @@ object Frm_PDV2: TFrm_PDV2
       Caption = 'VALOR TOTAL:'
     end
     object Image1: TImage
-      Left = 304
+      Left = 312
       Top = 354
-      Width = 265
-      Height = 239
-      AutoSize = True
+      Width = 257
+      Height = 247
       Center = True
+      Stretch = True
     end
     object TLabel
       Left = 5
@@ -169,7 +169,6 @@ object Frm_PDV2: TFrm_PDV2
       ParentFont = False
       TabOrder = 3
       OnChange = txt_ReferenciaChange
-      OnExit = txt_ReferenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
       AutoHistory = False
       AutoHistoryLimit = 0
@@ -245,7 +244,6 @@ object Frm_PDV2: TFrm_PDV2
       ParentFont = False
       TabOrder = 7
       Value = 1
-      OnChange = SpinEdit1Change
     end
     object ckb_ColetaQTD: TCheckBox
       Left = 112
@@ -267,11 +265,11 @@ object Frm_PDV2: TFrm_PDV2
       Font.Height = -20
       Font.Name = 'Segoe UI'
       Font.Style = []
+      NumbersOnly = True
       ParentFont = False
       TabOrder = 9
       Text = '1'
       OnChange = txt_QtdChange
-      OnExit = txt_QtdExit
       OnKeyPress = txt_QtdKeyPress
     end
   end
@@ -299,7 +297,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_Total: TDBLUEdit
       Left = 6
-      Top = 78
+      Top = 195
       Width = 427
       Height = 62
       Enabled = False
@@ -328,7 +326,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_SubTotal: TDBLUEdit
       Left = 6
-      Top = 195
+      Top = 93
       Width = 426
       Height = 62
       Enabled = False
@@ -528,6 +526,17 @@ object Frm_PDV2: TFrm_PDV2
       DataField = 'CONTROLE_VENDA'
       DataSource = dm_Dados.DS_Vendas
       TabOrder = 3
+    end
+    object SpinEdit2: TSpinEdit
+      Left = 952
+      Top = 56
+      Width = 121
+      Height = 24
+      MaxValue = 0
+      MinValue = 0
+      TabOrder = 4
+      Value = 0
+      Visible = False
     end
   end
 end

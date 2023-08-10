@@ -5,8 +5,11 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.ExtCtrls, Vcl.StdCtrls, Lucombo, dblucomb, Vcl.DBCtrls, Vcl.NumberBox,
-  Vcl.Samples.Spin, Vcl.Mask;
+  Vcl.ExtCtrls, Vcl.StdCtrls, Lucombo, dblucomb, Vcl.DBCtrls, Vcl.NumberBox, Vcl.Mask,
+  Vcl.Samples.Spin, JPEG;
+
+ const
+  OffsetMemoryStream : Int64 = 0;
 
 type
   TFrm_PDV2 = class(TForm)
@@ -43,31 +46,36 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
-    SpinEdit1: TSpinEdit;
     ckb_ColetaQTD: TCheckBox;
     txt_ControleVenda: TDBEdit;
     txt_Qtd: TEdit;
+    SpinEdit2: TSpinEdit;
     procedure FormShow(Sender: TObject);
     procedure txt_ReferenciaChange(Sender: TObject);
-    procedure txt_ReferenciaExit(Sender: TObject);
     procedure txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
     procedure ckb_ColetaQTDClick(Sender: TObject);
     procedure txt_QtdChange(Sender: TObject);
-    procedure txt_QtdExit(Sender: TObject);
     procedure txt_QtdKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     Procedure Limpar;
+    Procedure LimparItem;
     Procedure Buscar;
     Procedure SalvarItens;
     Procedure SalvarVendas;
     Procedure LimparImagem;
     Procedure CalculaTotalItem;
+    Procedure CalcularSubTotal;
     procedure PreencherGridIntens;
     procedure MostraItensVenda;
+    Procedure CarregarImagem(DataSet : TDataSet; BlobFieldName : String; ImageExibicao : TImage);
 
     var TotalItem :double;
-    var TotalVenda :double;
+    var SubTotalVenda :double;
+
+    var MemoryStream : TMemoryStream;
+     Jpg : TJpegImage;
+     Bitmap : TBitmap;
 
   public
     { Public declarations }
@@ -87,7 +95,7 @@ begin
   //Buscando item com base no que foi escrito no txt_referencia
   dm_Dados.FDQry_Produtos.Close;
   dm_Dados.FDQry_Produtos.SQL.Clear;
-  dm_Dados.FDQry_Produtos.SQL.Add('SELECT * FROM PRODUTOS WHERE REFERENCIA = ' + txt_Referencia.Text);
+  dm_Dados.FDQry_Produtos.SQL.Add('SELECT * FROM PRODUTOS WHERE REFERENCIA = ' +QuotedStr( UpperCase( txt_Referencia.Text)));
   dm_Dados.FDQry_Produtos.Open;
 
 
@@ -99,20 +107,25 @@ begin
     txt_Codigo.Text   := dm_Dados.FDQry_Produtos['CODIGO'];
     txt_Estoque.Text  := dm_Dados.FDQry_Produtos['QTD'];
     txt_ValorUnitario.Text := dm_Dados.FDQry_Produtos['VALOR_UNITARIO'];
+    CarregarImagem(dm_Dados.FDQry_Produtos, 'IMAGEM', Image1);
+
+    ckb_ColetaQTD.Enabled := false;
+    CalculaTotalItem;
 
   end
   else if dm_Dados.FDQry_Produtos.isempty = true then
   begin
     //Se não achar o item, deixa os campos em branco.
-    txt_DescProd.Text       := '';
-    txt_Codigo.Text         := '';
-    txt_Estoque.Text        := '';
-    txt_ValorUnitario.Text  := '';
-    txt_ItemTotal.Text      := '';
-    SpinEdit1.Text          := '1';
+    //LimparItem;
   end;
 
 
+end;
+
+procedure TFrm_PDV2.CalcularSubTotal;
+begin
+  SubTotalVenda := SubtotalVenda + StrToFloat(txt_ItemTotal.Text);
+  txt_SubTotal.Text := FloatToStr(SubTotalVenda);  
 end;
 
 procedure TFrm_PDV2.CalculaTotalItem;
@@ -121,6 +134,28 @@ begin
   TotalItem := StrToFloat(txt_ValorUnitario.Text) * StrToFloat(txt_Qtd.Text);
   txt_ItemTotal.Text := FloatToStr(TotalItem);
 end;
+
+procedure TFrm_PDV2.CarregarImagem(DataSet : TDataSet; BlobFieldName : String; ImageExibicao : TImage);
+begin
+if not(DataSet.IsEmpty) and
+  not((DataSet.FieldByName(BlobFieldName) as TBlobField).IsNull) then
+    try
+      MemoryStream := TMemoryStream.Create;
+      Jpg := TJpegImage.Create;
+      (DataSet.FieldByName(BlobFieldName) as TBlobField).SaveToStream(MemoryStream);
+      MemoryStream.Position := OffsetMemoryStream;
+      Jpg.LoadFromStream(MemoryStream);
+      ImageExibicao.Picture.Assign(Jpg);
+    finally
+      Jpg.Free;
+      MemoryStream.Free;
+    end
+  else
+  // o Else faz com que, caso o campo esteja Null, o TImage seja limpado
+    ImageExibicao.Picture := Nil;
+end;
+
+
 
 procedure TFrm_PDV2.ckb_ColetaQTDClick(Sender: TObject);
 begin
@@ -167,6 +202,8 @@ begin
   //Após colocar imagem padrão Abre a Query de vendas Header e da um post
   //(Precisa ser melhorado)
   LimparImagem;
+  TotalItem := 0;
+  SubTotalVenda := 0;
   dm_Dados.FDQry_VendasQuery.Close;
   dm_Dados.FDQry_VendasQuery.Open();
   if not (dm_Dados.FDQry_VendasQuerY.State in [dsEdit, dsInsert]) then
@@ -189,6 +226,17 @@ begin
   dirIMG :=(GetCurrentDir)+ '\download.jpg';
   Image1.Picture.LoadFromFile(dirIMG);
 
+end;
+
+procedure TFrm_PDV2.LimparItem;
+begin
+    txt_DescProd.Text       := '';
+    txt_Codigo.Text         := '';
+    txt_Estoque.Text        := '';
+    txt_ValorUnitario.Text  := '0';
+    txt_ItemTotal.Text      := '0';
+    txt_Qtd.Text            := '1';
+    ckb_ColetaQTD.Enabled := True;  
 end;
 
 procedure TFrm_PDV2.PreencherGridIntens;
@@ -218,11 +266,12 @@ end;
 procedure TFrm_PDV2.txt_QtdChange(Sender: TObject);
 //Chama a procedure de calcular o total do item toda vez que a quantidade tiver alteração
 begin
+
   if txt_Qtd.Text <> '' then
   CalculaTotalItem;
 end;
 
-procedure TFrm_PDV2.txt_QtdExit(Sender: TObject);
+{procedure TFrm_PDV2.txt_QtdExit(Sender: TObject);
 begin
 
     if dm_Dados.FDQry_Produtos.IsEmpty then
@@ -237,29 +286,49 @@ begin
       txt_Referencia.SetFocus;
     end;
 
-end;
+end;}
 
 procedure TFrm_PDV2.txt_QtdKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
     begin
-      txt_Referencia.SetFocus;
+      if dm_Dados.FDQry_Produtos.IsEmpty then
+        begin
+          MsgAtencao('Produto Não encontrado');
+        end
+    Else
+      begin
+        Buscar;
+        CalculaTotalItem;
+        MostraItensVenda;
+        CalcularSubTotal;
+        txt_Referencia.SetFocus;
+        LimparItem;
+        txt_Referencia.Text := '';
+      end;
     end;
 end;
 
 procedure TFrm_PDV2.txt_ReferenciaChange(Sender: TObject);
 //Busca item a cada alteração no campo de referencia com a procedure "Buscar"
 begin
+  if txt_Referencia.Text = '' then
+  begin
+    //LimparItem;
+  end;
   if txt_Referencia.Text <> '' then
+  begin
     Buscar;
+  end;
+    
 end;
 
 
-procedure TFrm_PDV2.txt_ReferenciaExit(Sender: TObject);
+{procedure TFrm_PDV2.txt_ReferenciaExit(Sender: TObject);
 //Se encontrar o item, coloca os textos dele, calcula o total do item,
 //e mostra item na grid
 begin
-  if (SpinEdit1.Enabled = false) and (txt_Referencia.Text <> '') then
+  if (txt_Qtd.Enabled = false) and (txt_Referencia.Text <> '') then
   begin
     if dm_Dados.FDQry_Produtos.IsEmpty then
       begin
@@ -273,15 +342,15 @@ begin
       txt_Referencia.SetFocus;
     end;
   end;
-end;
+end;}
 
 procedure TFrm_PDV2.txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
-    if SpinEdit1.Enabled then
+    if txt_Qtd.Enabled then
     begin
-      SpinEdit1.SetFocus;
+      txt_Qtd.SetFocus;
     end
     else
     begin
@@ -294,6 +363,9 @@ begin
       Buscar;
       CalculaTotalItem;
       MostraItensVenda;
+      CalcularSubTotal;
+      LimparItem;
+      txt_Referencia.Text := '';
     end;
     end;
   end;

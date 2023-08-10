@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.Client, Data.DB,
-  FireDAC.Comp.DataSet;
+  FireDAC.Comp.DataSet, JPEG;
 
 type
     TNav =(tFirst, tPrior, tNext, tLast, tNil);
@@ -128,6 +128,7 @@ begin
     end;
 end;
 
+
 procedure Tfrm_Principal.SetNewSql(pCodigo: Integer);
   var vNewSql: String;
   var vID :String;
@@ -137,6 +138,11 @@ begin
     BEGIN
       Vid := 'CONTROLE_VENDA'
     END
+  ELSE if GetNameTable(vSQLOriginal) = 'PRODUTOS' then
+    begin
+      Vid := 'CODIGO'
+    end
+
   ELSE
     BEGIN
       Vid := 'CONTROLE_' + GetNameTable(vSQLOriginal);
@@ -162,6 +168,10 @@ begin
   BEGIN
     Vid := 'CONTROLE_VENDA'
   END
+  ELSE if GetNameTable(vSQLOriginal) = 'PRODUTOS' then
+    begin
+      Vid := 'CODIGO'
+    end
   ELSE
   BEGIN
     Vid := 'CONTROLE_' + GetNameTable(vSQLOriginal);

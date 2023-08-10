@@ -1,0 +1,27 @@
+//LISTA DO QUE TENHO A FAZER//
+
+1 - Imagem no produto
+	1.1 Criar campo de imagem.
+	1.2 Criar cadastro de imagem na tela do cadastro do produto.
+	1.3 Puxar imagem no PDV.
+
+2 - Cadastro de Funcionários.
+	2.1 Criar tabela de funcionários no banco.
+	2.2 Criar campos na tabela de Header de Venda.
+	2.3 Criar Query da melhor forma possível para buscar Caixa Gerente e vendedor
+	3.1 Definir corretamente no Post do Header da venda, o momento certo e inserir os campos de gerente caixa vendedor.
+	
+3 - Continuar com PDV.
+	3.1 Criar campo e calculo de desconto.
+	3.2 Calcular total da venda com base no desconto feito.
+	3.3 Check box, um ao lado do outro, para o desconto ser por valor total, ou por percentual, digitado no campo de desconto.
+	
+4 - Finalizar commits na tela.
+	4.1 Validar se é possível que ao não dar commite o registro não é salvo.
+	4.2 Criar commits de Header de venda e de itens das vendas.
+	
+5 - Cancelar venda que está inserindo.
+	Cancelar Itens da venda, (Pode utilizar DB_Navigator para isso.)
+	Cancelar a Venda inteira.
+	Validar Se ao cancelar os registros não são inseridos.
+	

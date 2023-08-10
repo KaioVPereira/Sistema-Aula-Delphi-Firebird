@@ -298,6 +298,7 @@ object frm_Principal: Tfrm_Principal
       Align = alRight
       Caption = 'Panel4'
       TabOrder = 4
+      ExplicitLeft = 844
       object btn_sair: TBitBtn
         Left = 1
         Top = 1
@@ -307,9 +308,6 @@ object frm_Principal: Tfrm_Principal
         Caption = 'Sair'
         TabOrder = 0
         OnClick = btn_sairClick
-        ExplicitLeft = 46
-        ExplicitWidth = 75
-        ExplicitHeight = 41
       end
     end
   end
