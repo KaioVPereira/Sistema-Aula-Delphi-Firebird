@@ -211,6 +211,7 @@ object Frm_PDV2: TFrm_PDV2
       Font.Height = -20
       Font.Name = 'Segoe UI'
       Font.Style = []
+      NumbersOnly = True
       ParentFont = False
       TabOrder = 5
     end

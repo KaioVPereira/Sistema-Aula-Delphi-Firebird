@@ -6,7 +6,10 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
   Vcl.ExtCtrls, Vcl.StdCtrls, Lucombo, dblucomb, Vcl.DBCtrls, Vcl.NumberBox, Vcl.Mask,
-  Vcl.Samples.Spin;
+  Vcl.Samples.Spin, JPEG;
+
+ const
+  OffsetMemoryStream : Int64 = 0;
 
 type
   TFrm_PDV2 = class(TForm)
@@ -65,9 +68,14 @@ type
     Procedure CalcularSubTotal;
     procedure PreencherGridIntens;
     procedure MostraItensVenda;
+    Procedure CarregarImagem(DataSet : TDataSet; BlobFieldName : String; ImageExibicao : TImage);
 
     var TotalItem :double;
     var SubTotalVenda :double;
+
+    var MemoryStream : TMemoryStream;
+     Jpg : TJpegImage;
+     Bitmap : TBitmap;
 
   public
     { Public declarations }
@@ -87,7 +95,7 @@ begin
   //Buscando item com base no que foi escrito no txt_referencia
   dm_Dados.FDQry_Produtos.Close;
   dm_Dados.FDQry_Produtos.SQL.Clear;
-  dm_Dados.FDQry_Produtos.SQL.Add('SELECT * FROM PRODUTOS WHERE REFERENCIA = ' + txt_Referencia.Text);
+  dm_Dados.FDQry_Produtos.SQL.Add('SELECT * FROM PRODUTOS WHERE REFERENCIA = ' +QuotedStr( UpperCase( txt_Referencia.Text)));
   dm_Dados.FDQry_Produtos.Open;
 
 
@@ -99,7 +107,8 @@ begin
     txt_Codigo.Text   := dm_Dados.FDQry_Produtos['CODIGO'];
     txt_Estoque.Text  := dm_Dados.FDQry_Produtos['QTD'];
     txt_ValorUnitario.Text := dm_Dados.FDQry_Produtos['VALOR_UNITARIO'];
-    Image1.Picture.LoadFromFile(dm_Dados.FDQry_Produtos['IMAGEM']);
+    CarregarImagem(dm_Dados.FDQry_Produtos, 'IMAGEM', Image1);
+
     ckb_ColetaQTD.Enabled := false;
     CalculaTotalItem;
 
@@ -125,6 +134,28 @@ begin
   TotalItem := StrToFloat(txt_ValorUnitario.Text) * StrToFloat(txt_Qtd.Text);
   txt_ItemTotal.Text := FloatToStr(TotalItem);
 end;
+
+procedure TFrm_PDV2.CarregarImagem(DataSet : TDataSet; BlobFieldName : String; ImageExibicao : TImage);
+begin
+if not(DataSet.IsEmpty) and
+  not((DataSet.FieldByName(BlobFieldName) as TBlobField).IsNull) then
+    try
+      MemoryStream := TMemoryStream.Create;
+      Jpg := TJpegImage.Create;
+      (DataSet.FieldByName(BlobFieldName) as TBlobField).SaveToStream(MemoryStream);
+      MemoryStream.Position := OffsetMemoryStream;
+      Jpg.LoadFromStream(MemoryStream);
+      ImageExibicao.Picture.Assign(Jpg);
+    finally
+      Jpg.Free;
+      MemoryStream.Free;
+    end
+  else
+  // o Else faz com que, caso o campo esteja Null, o TImage seja limpado
+    ImageExibicao.Picture := Nil;
+end;
+
+
 
 procedure TFrm_PDV2.ckb_ColetaQTDClick(Sender: TObject);
 begin

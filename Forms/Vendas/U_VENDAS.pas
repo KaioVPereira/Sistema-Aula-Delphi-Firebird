@@ -106,7 +106,7 @@ begin
     txt_DescProd.Text := dm_Dados.FDQry_Produtos['DESCRICAO'];
     txt_Codigo.Text   := dm_Dados.FDQry_Produtos['CODIGO'];
     txt_Estoque.Text  := dm_Dados.FDQry_Produtos['QTD'];
-    txt_ValorUnitario.Text := dm_Dados.FDQry_Produtos['VALOR_UNITARIO'];
+    txt_ValorUnitario.Text := FormatFloat('0.00', dm_Dados.FDQry_Produtos['VALOR_UNITARIO']);
     CarregarImagem(dm_Dados.FDQry_Produtos, 'IMAGEM', Image1);
 
     ckb_ColetaQTD.Enabled := false;
@@ -116,7 +116,8 @@ begin
   else if dm_Dados.FDQry_Produtos.isempty = true then
   begin
     //Se não achar o item, deixa os campos em branco.
-    //LimparItem;
+    LimparItem;
+    LimparImagem;
   end;
 
 
