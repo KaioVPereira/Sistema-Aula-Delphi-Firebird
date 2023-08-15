@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
   Vcl.ExtCtrls, Vcl.StdCtrls, Lucombo, dblucomb, Vcl.DBCtrls, Vcl.NumberBox, Vcl.Mask,
-  Vcl.Samples.Spin;
+  Vcl.Samples.Spin, JPEG;
+
 
 type
   TFrm_PDV2 = class(TForm)
@@ -69,6 +70,10 @@ type
     var TotalItem :double;
     var SubTotalVenda :double;
 
+    var MemoryStream : TMemoryStream;
+     Jpg : TJpegImage;
+     Bitmap : TBitmap;
+
   public
     { Public declarations }
   end;
@@ -98,8 +103,9 @@ begin
     txt_DescProd.Text := dm_Dados.FDQry_Produtos['DESCRICAO'];
     txt_Codigo.Text   := dm_Dados.FDQry_Produtos['CODIGO'];
     txt_Estoque.Text  := dm_Dados.FDQry_Produtos['QTD'];
-    txt_ValorUnitario.Text := dm_Dados.FDQry_Produtos['VALOR_UNITARIO'];
-    Image1.Picture.LoadFromFile(dm_Dados.FDQry_Produtos['IMAGEM']);
+    txt_ValorUnitario.Text := FormatFloat('0.00', dm_Dados.FDQry_Produtos['VALOR_UNITARIO']);
+    CarregarImagem(dm_Dados.FDQry_Produtos, 'IMAGEM', Image1);
+
     ckb_ColetaQTD.Enabled := false;
     CalculaTotalItem;
 
@@ -107,7 +113,8 @@ begin
   else if dm_Dados.FDQry_Produtos.isempty = true then
   begin
     //Se não achar o item, deixa os campos em branco.
-    //LimparItem;
+    LimparItem;
+    LimparImagem;
   end;
 
 
@@ -125,6 +132,8 @@ begin
   TotalItem := StrToFloat(txt_ValorUnitario.Text) * StrToFloat(txt_Qtd.Text);
   txt_ItemTotal.Text := FloatToStr(TotalItem);
 end;
+
+
 
 procedure TFrm_PDV2.ckb_ColetaQTDClick(Sender: TObject);
 begin
@@ -334,6 +343,7 @@ begin
       MostraItensVenda;
       CalcularSubTotal;
       LimparItem;
+      LimparImagem;
       txt_Referencia.Text := '';
     end;
     end;

@@ -8,8 +8,6 @@ uses
   Vcl.ExtCtrls, Vcl.StdCtrls, Lucombo, dblucomb, Vcl.DBCtrls, Vcl.NumberBox, Vcl.Mask,
   Vcl.Samples.Spin, JPEG;
 
- const
-  OffsetMemoryStream : Int64 = 0;
 
 type
   TFrm_PDV2 = class(TForm)
@@ -68,7 +66,6 @@ type
     Procedure CalcularSubTotal;
     procedure PreencherGridIntens;
     procedure MostraItensVenda;
-    Procedure CarregarImagem(DataSet : TDataSet; BlobFieldName : String; ImageExibicao : TImage);
 
     var TotalItem :double;
     var SubTotalVenda :double;
@@ -134,26 +131,6 @@ begin
   //Insere o valor total do item, com base na quantidade digitada.
   TotalItem := StrToFloat(txt_ValorUnitario.Text) * StrToFloat(txt_Qtd.Text);
   txt_ItemTotal.Text := FloatToStr(TotalItem);
-end;
-
-procedure TFrm_PDV2.CarregarImagem(DataSet : TDataSet; BlobFieldName : String; ImageExibicao : TImage);
-begin
-if not(DataSet.IsEmpty) and
-  not((DataSet.FieldByName(BlobFieldName) as TBlobField).IsNull) then
-    try
-      MemoryStream := TMemoryStream.Create;
-      Jpg := TJpegImage.Create;
-      (DataSet.FieldByName(BlobFieldName) as TBlobField).SaveToStream(MemoryStream);
-      MemoryStream.Position := OffsetMemoryStream;
-      Jpg.LoadFromStream(MemoryStream);
-      ImageExibicao.Picture.Assign(Jpg);
-    finally
-      Jpg.Free;
-      MemoryStream.Free;
-    end
-  else
-  // o Else faz com que, caso o campo esteja Null, o TImage seja limpado
-    ImageExibicao.Picture := Nil;
 end;
 
 
@@ -305,6 +282,7 @@ begin
         CalcularSubTotal;
         txt_Referencia.SetFocus;
         LimparItem;
+        LimparImagem;
         txt_Referencia.Text := '';
       end;
     end;
@@ -366,6 +344,7 @@ begin
       MostraItensVenda;
       CalcularSubTotal;
       LimparItem;
+      LimparImagem;
       txt_Referencia.Text := '';
     end;
     end;

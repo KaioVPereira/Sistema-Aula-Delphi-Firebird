@@ -2,7 +2,9 @@ unit U_Biblioteca;
 
 interface
   uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client,
-  System.Classes, Winapi.Windows; //frxClass;
+  System.Classes, Winapi.Windows, Data.DB, Vcl.ExtCtrls, Vcl.Imaging.jpeg; //frxClass;
+
+  const OffsetMemoryStream : Int64 = 0;
 
   procedure ArqIni            (pLocal, pSessao, pSubsessao: String; pValor:String);
   function  GetArqIni         (pLocal, Psessao, pSubsessao: String): string;
@@ -11,11 +13,16 @@ interface
   procedure AbreForm          (pClass: TComponentClass; pForm :TForm);
   procedure MsgAtencao (pMsg: String);
   procedure MsgInformacao (pMsg : String);
+  Procedure CarregarImagem(DataSet : TDataSet; BlobFieldName : String; ImageExibicao : TImage);
   function  MsgPerguntar (pMsg: String; pFocoBtnSim : Boolean = true): Boolean;
   procedure MsgErro (pMsg: String);
   procedure EnableEdit(Form : TForm ; Valor : Boolean);
   Function  ValidaCPF(CPF : String): Boolean;
   Var GravaUsuario : String;
+
+  var MemoryStream : TMemoryStream;
+     Jpg : TJpegImage;
+     Bitmap : TBitmap;
   //procedure CarregaRelat      (const pReport: TFrxReport);
 
 implementation
@@ -130,6 +137,28 @@ uses U_FormMain, Vcl.DBCtrls;
           end;
         end;
       end;
+
+
+
+Procedure CarregarImagem(DataSet : TDataSet; BlobFieldName : String; ImageExibicao : TImage);
+begin
+  if not(DataSet.IsEmpty) and
+  not((DataSet.FieldByName(BlobFieldName) as TBlobField).IsNull) then
+    try
+      MemoryStream := TMemoryStream.Create;
+      Jpg := TJpegImage.Create;
+      (DataSet.FieldByName(BlobFieldName) as TBlobField).SaveToStream(MemoryStream);
+      MemoryStream.Position := OffsetMemoryStream;
+      Jpg.LoadFromStream(MemoryStream);
+      ImageExibicao.Picture.Assign(Jpg);
+    finally
+      Jpg.Free;
+      MemoryStream.Free;
+    end
+  else
+  // o Else faz com que, caso o campo esteja Null, o TImage seja limpado
+    ImageExibicao.Picture := Nil;
+end;
 
 Function  ValidaCPF(CPF : String): Boolean;
   var
