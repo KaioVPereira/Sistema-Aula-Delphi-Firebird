@@ -59,7 +59,6 @@ type
     fd_QueryCadastroIMAGEM: TBlobField;
     Label1: TLabel;
     DBEdit1: TDBEdit;
-    Label2: TLabel;
     DBImage1: TDBImage;
     Image1: TImage;
     btn_BuscaImagem: TBitBtn;
@@ -73,6 +72,7 @@ type
     Fmodo : TModoAbertura;
     procedure ValidaAbertura;
     Procedure SalvarImagem;
+    Var CaminhoImagem : string;
     { Private declarations }
   public
     property modo: TModoAbertura read Fmodo write Fmodo;
@@ -94,12 +94,15 @@ begin
   if OpenPictureDialog1.Execute = True then
   begin
     Image1.Picture.LoadFromFile(OpenPictureDialog1.FileName);
+    CaminhoImagem := OpenPictureDialog1.FileName;
 
   end;
 end;
 
 procedure Tfrm_CadastroProdutos.btn_gravarClick(Sender: TObject);
 begin
+  //SalvarImagem;
+  TBlobField(fd_QueryCadastro.FieldByName('IMAGEM')).LoadFromFile(OpenPictureDialog1.FileName);
   inherited;
   modo := maConsulta;
   ValidaAbertura;
@@ -145,15 +148,15 @@ begin
     // Salvar a imagem do TImage no stream
     Image1.Picture.Bitmap.SaveToStream(Stream);
 
-    // Se você quiser salvar como JPEG
+    {// Se você quiser salvar como JPEG
     JpegImage := TJPEGImage.Create;
-    JpegImage.Assign(Image1.Picture.Bitmap);
+    JpegImage.Assign(Image1.Picture);
     JpegImage.SaveToStream(Stream);
-    JpegImage.Free;
+    JpegImage.Free;}
 
     Stream.Position := 0; // Voltar ao início do stream
 
-    TBlobField(fd_QueryCadastro.FieldByName('Imagem')).LoadFromStream(Stream);
+    TBlobField(fd_QueryCadastro.FieldByName('IMAGEM')).LoadFromStream(Stream);
 
   finally
     Stream.Free;

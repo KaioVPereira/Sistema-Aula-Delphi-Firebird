@@ -59,7 +59,6 @@ type
     fd_QueryCadastroIMAGEM: TBlobField;
     Label1: TLabel;
     DBEdit1: TDBEdit;
-    DBImage1: TDBImage;
     Image1: TImage;
     btn_BuscaImagem: TBitBtn;
     OpenPictureDialog1: TOpenPictureDialog;
@@ -68,6 +67,7 @@ type
     procedure btn_gravarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btn_BuscaImagemClick(Sender: TObject);
+    procedure ds_cadastrosDataChange(Sender: TObject; Field: TField);
   private
     Fmodo : TModoAbertura;
     procedure ValidaAbertura;
@@ -120,6 +120,13 @@ begin
     txt_descricao.Enabled       := true;
     cbox_Fornecedor.Enabled     := true;
     //ValidaAbertura;
+end;
+
+procedure Tfrm_CadastroProdutos.ds_cadastrosDataChange(Sender: TObject;
+  Field: TField);
+begin
+  inherited;
+  CarregarImagem(fd_QueryCadastro,'IMAGEM',Image1);
 end;
 
 procedure Tfrm_CadastroProdutos.FormCreate(Sender: TObject);

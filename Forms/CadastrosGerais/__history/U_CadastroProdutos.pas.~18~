@@ -59,8 +59,6 @@ type
     fd_QueryCadastroIMAGEM: TBlobField;
     Label1: TLabel;
     DBEdit1: TDBEdit;
-    Label2: TLabel;
-    DBImage1: TDBImage;
     Image1: TImage;
     btn_BuscaImagem: TBitBtn;
     OpenPictureDialog1: TOpenPictureDialog;
@@ -69,10 +67,12 @@ type
     procedure btn_gravarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btn_BuscaImagemClick(Sender: TObject);
+    procedure fd_QueryCadastroAfterRefresh(DataSet: TDataSet);
   private
     Fmodo : TModoAbertura;
     procedure ValidaAbertura;
     Procedure SalvarImagem;
+    Var CaminhoImagem : string;
     { Private declarations }
   public
     property modo: TModoAbertura read Fmodo write Fmodo;
@@ -94,13 +94,15 @@ begin
   if OpenPictureDialog1.Execute = True then
   begin
     Image1.Picture.LoadFromFile(OpenPictureDialog1.FileName);
+    CaminhoImagem := OpenPictureDialog1.FileName;
 
   end;
 end;
 
 procedure Tfrm_CadastroProdutos.btn_gravarClick(Sender: TObject);
 begin
-  SalvarImagem;
+  //SalvarImagem;
+  TBlobField(fd_QueryCadastro.FieldByName('IMAGEM')).LoadFromFile(OpenPictureDialog1.FileName);
   inherited;
   modo := maConsulta;
   ValidaAbertura;
@@ -118,6 +120,13 @@ begin
     txt_descricao.Enabled       := true;
     cbox_Fornecedor.Enabled     := true;
     //ValidaAbertura;
+end;
+
+procedure Tfrm_CadastroProdutos.fd_QueryCadastroAfterRefresh(DataSet: TDataSet);
+begin
+  inherited;
+  CarregarImagem(fd_QueryCadastro,'IMAGEM',Image1);
+
 end;
 
 procedure Tfrm_CadastroProdutos.FormCreate(Sender: TObject);
@@ -144,13 +153,13 @@ begin
   Stream := TMemoryStream.Create;
   try
     // Salvar a imagem do TImage no stream
-    Image1.Picture.SaveToStream(Stream);
+    Image1.Picture.Bitmap.SaveToStream(Stream);
 
-    // Se você quiser salvar como JPEG
+    {// Se você quiser salvar como JPEG
     JpegImage := TJPEGImage.Create;
     JpegImage.Assign(Image1.Picture);
     JpegImage.SaveToStream(Stream);
-    JpegImage.Free;
+    JpegImage.Free;}
 
     Stream.Position := 0; // Voltar ao início do stream
 

@@ -113,10 +113,10 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     FocusControl = DBEdit1
   end
   object Image1: TImage [15]
-    Left = 300
-    Top = 258
-    Width = 149
-    Height = 136
+    Left = 436
+    Top = 219
+    Width = 253
+    Height = 227
     Stretch = True
   end
   inherited pn_cabecalho: TPanel
@@ -324,23 +324,13 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     DataSource = ds_cadastros
     TabOrder = 15
   end
-  object DBImage1: TDBImage [32]
-    Left = 616
-    Top = 258
-    Width = 179
-    Height = 154
-    DataField = 'IMAGEM'
-    DataSource = ds_cadastros
-    Stretch = True
-    TabOrder = 16
-  end
-  object btn_BuscaImagem: TBitBtn [33]
-    Left = 488
+  object btn_BuscaImagem: TBitBtn [32]
+    Left = 328
     Top = 311
     Width = 75
     Height = 25
     Caption = 'Imagem'
-    TabOrder = 17
+    TabOrder = 16
     OnClick = btn_BuscaImagemClick
   end
   inherited fd_QueryCadastro: TFDQuery
@@ -435,6 +425,7 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     Top = 120
   end
   inherited ds_cadastros: TDataSource
+    OnDataChange = ds_cadastrosDataChange
     Left = 728
     Top = 64
   end
