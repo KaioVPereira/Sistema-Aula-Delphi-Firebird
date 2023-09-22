@@ -476,48 +476,27 @@ object Frm_PDV2: TFrm_PDV2
     Height = 137
     Align = alTop
     TabOrder = 3
-    ExplicitWidth = 2019
+    ExplicitTop = 8
     object Label7: TLabel
-      Left = 168
+      Left = 16
       Top = 11
       Width = 37
       Height = 15
       Caption = 'CAIXA:'
     end
     object Label8: TLabel
-      Left = 168
-      Top = 67
+      Left = 16
+      Top = 87
       Width = 63
       Height = 15
       Caption = 'VENDEDOR:'
     end
     object Label9: TLabel
-      Left = 544
-      Top = 11
+      Left = 296
+      Top = 88
       Width = 51
       Height = 15
       Caption = 'GERENTE:'
-    end
-    object DBComboBox1: TDBComboBox
-      Left = 168
-      Top = 32
-      Width = 145
-      Height = 23
-      TabOrder = 0
-    end
-    object DBComboBox2: TDBComboBox
-      Left = 544
-      Top = 32
-      Width = 145
-      Height = 23
-      TabOrder = 1
-    end
-    object DBComboBox3: TDBComboBox
-      Left = 168
-      Top = 88
-      Width = 145
-      Height = 23
-      TabOrder = 2
     end
     object txt_ControleVenda: TDBEdit
       Left = 1080
@@ -526,18 +505,82 @@ object Frm_PDV2: TFrm_PDV2
       Height = 23
       DataField = 'CONTROLE_VENDA'
       DataSource = dm_Dados.DS_Vendas
-      TabOrder = 3
+      TabOrder = 0
     end
     object SpinEdit2: TSpinEdit
-      Left = 952
-      Top = 56
+      Left = 963
+      Top = 58
       Width = 121
       Height = 24
       MaxValue = 0
       MinValue = 0
-      TabOrder = 4
+      TabOrder = 1
       Value = 0
       Visible = False
     end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 16
+      Top = 32
+      Width = 145
+      Height = 23
+      DataField = 'CONTROLE_FUNC'
+      DataSource = dm_Dados.DS_Vendas
+      KeyField = 'CONTROLE_USUARIO'
+      ListField = 'NOME'
+      ListSource = DS_Func
+      TabOrder = 2
+      OnEnter = DBLookupComboBox1Enter
+    end
+    object DBLookupComboBox2: TDBLookupComboBox
+      Left = 16
+      Top = 108
+      Width = 145
+      Height = 23
+      TabOrder = 3
+    end
+    object DBLookupComboBox3: TDBLookupComboBox
+      Left = 296
+      Top = 109
+      Width = 145
+      Height = 23
+      TabOrder = 4
+    end
+  end
+  object Fdqry_Func: TFDQuery
+    Active = True
+    Connection = dm_Dados.fd_Connection
+    SQL.Strings = (
+      'SELECT * FROM USUARIO')
+    Left = 280
+    Top = 209
+    object Fdqry_FuncNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 40
+    end
+    object Fdqry_FuncLOGIN: TStringField
+      FieldName = 'LOGIN'
+      Origin = 'LOGIN'
+    end
+    object Fdqry_FuncSENHA: TStringField
+      FieldName = 'SENHA'
+      Origin = 'SENHA'
+      Size = 255
+    end
+    object Fdqry_FuncCONTROLE_USUARIO: TIntegerField
+      FieldName = 'CONTROLE_USUARIO'
+      Origin = 'CONTROLE_USUARIO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Fdqry_FuncDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
+  end
+  object DS_Func: TDataSource
+    DataSet = Fdqry_Func
+    Left = 1000
+    Top = 408
   end
 end

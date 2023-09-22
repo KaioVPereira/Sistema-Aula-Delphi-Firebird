@@ -2,6 +2,7 @@ inherited frm_CadClientes: Tfrm_CadClientes
   Caption = 'Cadastro de Clientes'
   ClientHeight = 296
   ClientWidth = 791
+  ExplicitLeft = -20
   ExplicitWidth = 803
   TextHeight = 15
   object lb_controle: TLabel [0]
@@ -273,14 +274,12 @@ inherited frm_CadClientes: Tfrm_CadClientes
     TabOrder = 15
     ExplicitWidth = 787
     inherited Panel4: TPanel
-      Left = 634
+      Left = 706
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
       Margins.Bottom = 0
-      Visible = True
-      ExplicitLeft = 630
-      ExplicitTop = 1
+      ExplicitLeft = 702
     end
   end
   inherited fd_QueryCadastro: TFDQuery

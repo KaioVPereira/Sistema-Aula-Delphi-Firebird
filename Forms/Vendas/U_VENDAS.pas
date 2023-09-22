@@ -6,7 +6,10 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
   Vcl.ExtCtrls, Vcl.StdCtrls, Lucombo, dblucomb, Vcl.DBCtrls, Vcl.NumberBox, Vcl.Mask,
-  Vcl.Samples.Spin, JPEG;
+  Vcl.Samples.Spin, JPEG, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
 
 
 type
@@ -38,9 +41,6 @@ type
     txt_ValorTroco: TDBLUEdit;
     Image1: TImage;
     pn_Header: TPanel;
-    DBComboBox1: TDBComboBox;
-    DBComboBox2: TDBComboBox;
-    DBComboBox3: TDBComboBox;
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
@@ -48,12 +48,23 @@ type
     txt_ControleVenda: TDBEdit;
     txt_Qtd: TEdit;
     SpinEdit2: TSpinEdit;
+    Fdqry_Func: TFDQuery;
+    Fdqry_FuncNOME: TStringField;
+    Fdqry_FuncLOGIN: TStringField;
+    Fdqry_FuncSENHA: TStringField;
+    Fdqry_FuncCONTROLE_USUARIO: TIntegerField;
+    Fdqry_FuncDT_EXCLUIDO: TDateField;
+    DS_Func: TDataSource;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
     procedure FormShow(Sender: TObject);
     procedure txt_ReferenciaChange(Sender: TObject);
     procedure txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
     procedure ckb_ColetaQTDClick(Sender: TObject);
     procedure txt_QtdChange(Sender: TObject);
     procedure txt_QtdKeyPress(Sender: TObject; var Key: Char);
+    procedure DBLookupComboBox1Enter(Sender: TObject);
   private
     { Private declarations }
     Procedure Limpar;
@@ -147,6 +158,14 @@ begin
 
 end;
 
+procedure TFrm_PDV2.DBLookupComboBox1Enter(Sender: TObject);
+begin
+  Fdqry_Func.Close;
+  Fdqry_Func.SQL.Clear;
+  Fdqry_Func.SQL.Add('SELECT * FROM USUARIO') ;
+  Fdqry_Func.Open;
+end;
+
 procedure TFrm_PDV2.MostraItensVenda;
 begin
   //Valida se tem algo digitado no campo de referência, se tiver algo,
@@ -188,7 +207,7 @@ begin
   begin
     dm_Dados.FDQry_VendasQuery.Insert;
   end;
-  dm_Dados.FDQry_VendasQuery.Post;
+    dm_Dados.FDQry_VendasQuery.Post;
 
 end;
 
@@ -346,6 +365,9 @@ begin
       LimparItem;
       LimparImagem;
       txt_Referencia.Text := '';
+      dm_Dados.FDQry_VendasQuery.Edit;
+      //dm_Dados.FDQry_VendasQuery.FieldByName('SUBTOTAL').Value := StrToFloat(txt_SubTotal.Text);
+      dm_Dados.FDQry_VendasQuery.Post;
     end;
     end;
   end;
