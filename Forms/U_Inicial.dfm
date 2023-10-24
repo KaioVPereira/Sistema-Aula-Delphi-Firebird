@@ -25,7 +25,7 @@ object Frm_NewInicial: TFrm_NewInicial
     BevelOuter = bvNone
     TabOrder = 0
     OnClick = Pn_FundoClick
-    ExplicitHeight = 552
+    ExplicitLeft = 8
     object Pn_Topo: TPanel
       Left = 0
       Top = 0
@@ -166,7 +166,6 @@ object Frm_NewInicial: TFrm_NewInicial
       ParentBackground = False
       TabOrder = 2
       Visible = False
-      ExplicitHeight = 470
       object SpeedButton5: TSpeedButton
         Left = 1
         Top = 321
@@ -191,8 +190,8 @@ object Frm_NewInicial: TFrm_NewInicial
         ParentBiDiMode = False
         Transparent = False
         StyleElements = [seFont, seClient]
-        ExplicitTop = 1
-        ExplicitWidth = 247
+        OnMouseEnter = SpeedButton6MouseEnter
+        ExplicitLeft = 2
       end
       object SpeedButton6: TSpeedButton
         Left = 1
@@ -220,6 +219,7 @@ object Frm_NewInicial: TFrm_NewInicial
         StyleElements = [seFont, seClient]
         OnClick = SpeedButton6Click
         OnMouseEnter = SpeedButton6MouseEnter
+        OnMouseLeave = SpeedButton6MouseLeave
         ExplicitLeft = 2
         ExplicitWidth = 247
       end
@@ -247,6 +247,7 @@ object Frm_NewInicial: TFrm_NewInicial
         ParentBiDiMode = False
         Transparent = False
         StyleElements = [seFont, seClient]
+        OnMouseLeave = SpeedButton6MouseLeave
         ExplicitLeft = 0
         ExplicitWidth = 247
       end
@@ -274,6 +275,7 @@ object Frm_NewInicial: TFrm_NewInicial
         ParentBiDiMode = False
         Transparent = False
         StyleElements = [seFont, seClient]
+        OnMouseLeave = SpeedButton6MouseLeave
         ExplicitTop = 1
         ExplicitWidth = 247
       end
@@ -301,6 +303,7 @@ object Frm_NewInicial: TFrm_NewInicial
         ParentBiDiMode = False
         Transparent = False
         StyleElements = [seFont, seClient]
+        OnMouseLeave = SpeedButton6MouseLeave
         ExplicitLeft = 2
         ExplicitWidth = 247
       end
@@ -328,6 +331,7 @@ object Frm_NewInicial: TFrm_NewInicial
         ParentBiDiMode = False
         Transparent = False
         StyleElements = [seFont, seClient]
+        OnMouseLeave = SpeedButton6MouseLeave
         ExplicitTop = 1
         ExplicitWidth = 247
       end

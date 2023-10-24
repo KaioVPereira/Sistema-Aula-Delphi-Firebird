@@ -27,6 +27,7 @@ type
     procedure Pn_FundoClick(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton6Click(Sender: TObject);
+    procedure SpeedButton6MouseLeave(Sender: TObject);
     procedure SpeedButton6MouseEnter(Sender: TObject);
   private
     { Private declarations }
@@ -59,11 +60,17 @@ end;
 procedure TFrm_NewInicial.SpeedButton6Click(Sender: TObject);
 begin
   AbreFormShowModal(Tfrm_CadastrosUsuarios, frm_CadastrosUsuarios);
+
 end;
 
 procedure TFrm_NewInicial.SpeedButton6MouseEnter(Sender: TObject);
 begin
-  SpeedButton6.Font.Color := clSkyBlue;
+  SpeedButton6.Font.Color := clWindowText;
+end;
+
+procedure TFrm_NewInicial.SpeedButton6MouseLeave(Sender: TObject);
+begin
+   SpeedButton6.Font.Color := clTeal;
 end;
 
 end.

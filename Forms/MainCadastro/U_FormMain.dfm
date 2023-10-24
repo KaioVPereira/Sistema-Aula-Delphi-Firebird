@@ -11,9 +11,10 @@ object frm_Principal: Tfrm_Principal
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  
+  OldCreateOrder = True
   OnClose = FormClose
   OnCreate = FormCreate
+  PixelsPerInch = 96
   TextHeight = 15
   object pn_cabecalho: TPanel
     Left = 0
@@ -21,10 +22,9 @@ object frm_Principal: Tfrm_Principal
     Width = 933
     Height = 41
     Align = alTop
-    Color = clActiveCaption
+    Color = clTeal
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 929
     object SpeedButton2: TSpeedButton
       Left = 437
       Top = 8
@@ -101,7 +101,6 @@ object frm_Principal: Tfrm_Principal
       Align = alRight
       Caption = 'Panel4'
       TabOrder = 4
-      ExplicitLeft = 844
       object btn_sair: TBitBtn
         Left = 1
         Top = 1
