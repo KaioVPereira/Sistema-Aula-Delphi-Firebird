@@ -10,8 +10,10 @@ object Frm_PDV2: TFrm_PDV2
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   WindowState = wsMaximized
   OnShow = FormShow
+  PixelsPerInch = 96
   TextHeight = 15
   object pn_GridItens: TPanel
     Left = 0
@@ -155,37 +157,6 @@ object Frm_PDV2: TFrm_PDV2
       ParentFont = False
       TabOrder = 2
     end
-    object txt_Referencia: TDBLUEdit
-      Left = 6
-      Top = 85
-      Width = 588
-      Height = 83
-      AutoSize = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -33
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 3
-      OnChange = txt_ReferenciaChange
-      OnKeyPress = txt_ReferenciaKeyPress
-      AutoHistory = False
-      AutoHistoryLimit = 0
-      AutoHistoryDirection = ahdFirst
-      AutoSynchronize = False
-      ReturnIsTab = False
-      FileLookup = False
-      Persist.Enable = False
-      Persist.Storage = stInifile
-      Persist.Count = 0
-      Persist.MaxCount = False
-      MatchCase = False
-      ModifiedColor = clHighlight
-      ShowModified = False
-      Version = '2.3.1.6'
-      DataLookup = False
-    end
     object txt_Estoque: TEdit
       Left = 6
       Top = 354
@@ -198,7 +169,7 @@ object Frm_PDV2: TFrm_PDV2
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      TabOrder = 4
+      TabOrder = 3
     end
     object txt_ValorUnitario: TEdit
       Left = 6
@@ -213,7 +184,7 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       NumbersOnly = True
       ParentFont = False
-      TabOrder = 5
+      TabOrder = 4
     end
     object txt_ItemTotal: TEdit
       Left = 6
@@ -227,7 +198,7 @@ object Frm_PDV2: TFrm_PDV2
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 5
     end
     object SpinEdit1: TSpinEdit
       Left = 6
@@ -243,7 +214,7 @@ object Frm_PDV2: TFrm_PDV2
       MaxValue = 0
       MinValue = 0
       ParentFont = False
-      TabOrder = 7
+      TabOrder = 6
       Value = 1
     end
     object ckb_ColetaQTD: TCheckBox
@@ -268,7 +239,7 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       NumbersOnly = True
       ParentFont = False
-      TabOrder = 9
+      TabOrder = 7
       Text = '1'
       OnChange = txt_QtdChange
       OnKeyPress = txt_QtdKeyPress
@@ -296,178 +267,6 @@ object Frm_PDV2: TFrm_PDV2
       ParentBackground = False
       TabOrder = 0
     end
-    object txt_Total: TDBLUEdit
-      Left = 6
-      Top = 195
-      Width = 427
-      Height = 62
-      Enabled = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -40
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 1
-      AutoHistory = False
-      AutoHistoryLimit = 0
-      AutoHistoryDirection = ahdFirst
-      AutoSynchronize = False
-      ReturnIsTab = False
-      FileLookup = False
-      Persist.Enable = False
-      Persist.Storage = stInifile
-      Persist.Count = 0
-      Persist.MaxCount = False
-      MatchCase = False
-      ModifiedColor = clHighlight
-      ShowModified = False
-      Version = '2.3.1.6'
-      DataLookup = False
-    end
-    object txt_SubTotal: TDBLUEdit
-      Left = 6
-      Top = 93
-      Width = 426
-      Height = 62
-      Enabled = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -40
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 2
-      AutoHistory = False
-      AutoHistoryLimit = 0
-      AutoHistoryDirection = ahdFirst
-      AutoSynchronize = False
-      ReturnIsTab = False
-      FileLookup = False
-      Persist.Enable = False
-      Persist.Storage = stInifile
-      Persist.Count = 0
-      Persist.MaxCount = False
-      MatchCase = False
-      ModifiedColor = clHighlight
-      ShowModified = False
-      Version = '2.3.1.6'
-      DataLookup = False
-    end
-    object txt_Desconto: TDBLUEdit
-      Left = 6
-      Top = 294
-      Width = 427
-      Height = 62
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -40
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 3
-      AutoHistory = False
-      AutoHistoryLimit = 0
-      AutoHistoryDirection = ahdFirst
-      AutoSynchronize = False
-      ReturnIsTab = False
-      FileLookup = False
-      Persist.Enable = False
-      Persist.Storage = stInifile
-      Persist.Count = 0
-      Persist.MaxCount = False
-      MatchCase = False
-      ModifiedColor = clHighlight
-      ShowModified = False
-      Version = '2.3.1.6'
-      DataLookup = False
-    end
-    object txt_TotalCompra: TDBLUEdit
-      Left = 6
-      Top = 393
-      Width = 427
-      Height = 62
-      Enabled = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -40
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 4
-      AutoHistory = False
-      AutoHistoryLimit = 0
-      AutoHistoryDirection = ahdFirst
-      AutoSynchronize = False
-      ReturnIsTab = False
-      FileLookup = False
-      Persist.Enable = False
-      Persist.Storage = stInifile
-      Persist.Count = 0
-      Persist.MaxCount = False
-      MatchCase = False
-      ModifiedColor = clHighlight
-      ShowModified = False
-      Version = '2.3.1.6'
-      DataLookup = False
-    end
-    object txt_ValorRecebido: TDBLUEdit
-      Left = 6
-      Top = 496
-      Width = 427
-      Height = 62
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -40
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 5
-      AutoHistory = False
-      AutoHistoryLimit = 0
-      AutoHistoryDirection = ahdFirst
-      AutoSynchronize = False
-      ReturnIsTab = False
-      FileLookup = False
-      Persist.Enable = False
-      Persist.Storage = stInifile
-      Persist.Count = 0
-      Persist.MaxCount = False
-      MatchCase = False
-      ModifiedColor = clHighlight
-      ShowModified = False
-      Version = '2.3.1.6'
-      DataLookup = False
-    end
-    object txt_ValorTroco: TDBLUEdit
-      Left = 6
-      Top = 592
-      Width = 424
-      Height = 62
-      Enabled = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -40
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 6
-      AutoHistory = False
-      AutoHistoryLimit = 0
-      AutoHistoryDirection = ahdFirst
-      AutoSynchronize = False
-      ReturnIsTab = False
-      FileLookup = False
-      Persist.Enable = False
-      Persist.Storage = stInifile
-      Persist.Count = 0
-      Persist.MaxCount = False
-      MatchCase = False
-      ModifiedColor = clHighlight
-      ShowModified = False
-      Version = '2.3.1.6'
-      DataLookup = False
-    end
   end
   object pn_Header: TPanel
     Left = 0
@@ -476,7 +275,7 @@ object Frm_PDV2: TFrm_PDV2
     Height = 137
     Align = alTop
     TabOrder = 3
-    ExplicitTop = 8
+    ExplicitWidth = 2019
     object Label7: TLabel
       Left = 16
       Top = 11
@@ -508,8 +307,8 @@ object Frm_PDV2: TFrm_PDV2
       TabOrder = 0
     end
     object SpinEdit2: TSpinEdit
-      Left = 963
-      Top = 58
+      Left = 1027
+      Top = 84
       Width = 121
       Height = 24
       MaxValue = 0
@@ -547,7 +346,6 @@ object Frm_PDV2: TFrm_PDV2
     end
   end
   object Fdqry_Func: TFDQuery
-    Active = True
     Connection = dm_Dados.fd_Connection
     SQL.Strings = (
       'SELECT * FROM USUARIO')

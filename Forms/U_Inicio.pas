@@ -3,62 +3,14 @@ unit U_Inicio;
 interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
-  Dialogs, AdvToolBar, AdvToolBarStylers, AdvPreviewMenu,
-  AdvPreviewMenuStylers, AdvShapeButton, AdvOfficeStatusBar,
-  AdvOfficeStatusBarStylers, Unit2, AdvGlowButton, U_CadastroCidades,
+  Dialogs,Unit2, U_CadastroCidades,
   U_CadastroClientes, U_CadastroEstados, U_ConsultaClientes,
   U_ConsultaFornecedores, U_ConsultaProdutos, U_CadastroProdutos, U_PDV,
   U_Biblioteca, U_ConsultaVendas, U_ConsultaUsuario, U_CadastrosUsuarios,
   Vcl.ExtCtrls, Vcl.StdCtrls, U_Dados, U_VENDAS;
 
 type
-  Tfrm_inicio = class(TAdvToolBarForm)
-    AdvToolBarPager1: TAdvToolBarPager;
-    AdvPage1: TAdvPage;
-    AdvToolBarOfficeStyler1: TAdvToolBarOfficeStyler;
-    AdvToolBar1: TAdvToolBar;
-    AdvOfficeStatusBar1: TAdvOfficeStatusBar;
-    AdvOfficeStatusBarOfficeStyler1: TAdvOfficeStatusBarOfficeStyler;
-    AdvQuickAccessToolBar1: TAdvQuickAccessToolBar;
-    AdvShapeButton1: TAdvShapeButton;
-    AdvPage2: TAdvPage;
-    AdvPage3: TAdvPage;
-    AdvToolBar2: TAdvToolBar;
-    AdvToolBar3: TAdvToolBar;
-    AdvToolBar4: TAdvToolBar;
-    AdvToolBar5: TAdvToolBar;
-    btn_CadastroEstados: TAdvGlowButton;
-    btn_CadastroCliente: TAdvGlowButton;
-    btn_CadastroCidades: TAdvGlowButton;
-    AdvToolBarSeparator2: TAdvToolBarSeparator;
-    AdvToolBarSeparator3: TAdvToolBarSeparator;
-    btn_fornecedor: TAdvGlowButton;
-    AdvToolBar6: TAdvToolBar;
-    btn_cidades: TAdvGlowButton;
-    btn_ConsultaUsuario: TAdvGlowButton;
-    btn_ConsultaFornecedor: TAdvGlowButton;
-    AdvToolBarSeparator1: TAdvToolBarSeparator;
-    Produtos: TAdvGlowButton;
-    AdvToolBarSeparator4: TAdvToolBarSeparator;
-    AdvGlowButton2: TAdvGlowButton;
-    AdvToolBarSeparator5: TAdvToolBarSeparator;
-    AdvToolBarSeparator6: TAdvToolBarSeparator;
-    Estados: TAdvGlowButton;
-    AdvToolBarSeparator7: TAdvToolBarSeparator;
-    Manutenção: TAdvPage;
-    AdvToolBar7: TAdvToolBar;
-    AdvToolBarSeparator8: TAdvToolBarSeparator;
-    AdvToolBarSeparator9: TAdvToolBarSeparator;
-    AdvGlowButton1: TAdvGlowButton;
-    btn_Vendas: TAdvGlowButton;
-    AdvGlowButton4: TAdvGlowButton;
-    btn_ConsultaProdutos: TAdvGlowButton;
-    AdvGlowButton5: TAdvGlowButton;
-    AdvToolBarSeparator10: TAdvToolBarSeparator;
-    btn_CadUsuario: TAdvGlowButton;
-    AdvToolBarSeparator11: TAdvToolBarSeparator;
-    lb_CamBanco: TLabel;
-    lb_Usuario: TLabel;
+  Tfrm_inicio = class(TForm)
     procedure btn_CadastroClienteClick(Sender: TObject);
     procedure btn_CadastroCidadesClick(Sender: TObject);
     procedure btn_CadastroEstadosClick(Sender: TObject);
@@ -72,7 +24,7 @@ type
     procedure btn_ConsultaProdutosClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure AdvShapeButton1Click(Sender: TObject);
-    procedure FormShow(Sender: TObject);
+    //procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -115,12 +67,6 @@ end;
 procedure Tfrm_inicio.FormCreate(Sender: TObject);
 begin
   AbreFormShowModal(TFrm_login, Frm_login);
-end;
-
-procedure Tfrm_inicio.FormShow(Sender: TObject);
-begin
-  lb_Usuario.Caption := 'USUÁRIO: ' + GravaUsuario;
-  lb_CamBanco.Caption := 'SERVIDOR: ' + dm_Dados.fd_Connection.Params.Values['Server'] + #13#10 + 'BANCO: '+ dm_Dados.fd_Connection.Params.Values['Database'];
 end;
 
 procedure Tfrm_inicio.AdvShapeButton1Click(Sender: TObject);

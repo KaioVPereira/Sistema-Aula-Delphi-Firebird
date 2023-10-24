@@ -8,8 +8,8 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls,Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.Mask, U_LookUp, AdvEdit,
-  AdvMoneyEdit, DBAdvMoneyEdit, U_Biblioteca; //frxClass, frxDBSet;
+  Vcl.ExtCtrls,Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.Mask, U_LookUp,
+   U_Biblioteca; //frxClass, frxDBSet;
 
 type
   Tfrm_CadastroVendas = class(Tfrm_Principal)
@@ -39,10 +39,6 @@ type
     fdqry_VendasItemDESCONTO: TSingleField;
     fdqry_VendasItemCONTROLE_VENDA: TIntegerField;
     cbox_Produtos: TDBLookupComboBox;
-    txt_QTD: TAdvMoneyEdit;
-    txt_ValorUnit: TAdvMoneyEdit;
-    txt_Desconto: TAdvMoneyEdit;
-    txt_SubTotal: TAdvMoneyEdit;
     DBGrid1: TDBGrid;
     Label6: TLabel;
     Label7: TLabel;
@@ -50,7 +46,6 @@ type
     Label9: TLabel;
     Label10: TLabel;
     Label11: TLabel;
-    txt_Total: TAdvMoneyEdit;
     btn_InserirItem: TButton;
     fdqry_VendasItemDescricaoProduto: TStringField;
     fdqry_VendasItemSubTotal: TFloatField;
@@ -59,9 +54,6 @@ type
     Label5: TLabel;
     Label12: TLabel;
     Label13: TLabel;
-    txt_totalSubTotal: TAdvMoneyEdit;
-    txt_TotalDesconto: TAdvMoneyEdit;
-    txt_TotalVenda: TAdvMoneyEdit;
     btn_ExcluirItem: TButton;
     //frx_RelatVendas: TfrxReport;
     //frx_ItensVenda: TfrxDBDataset;
@@ -161,8 +153,6 @@ end;
 
 procedure Tfrm_CadastroVendas.CalculaTotais;
 begin
-  txt_SubTotal.Value := txt_QTD.Value * txt_ValorUnit.Value;
-  txt_Total.Value    := (txt_QTD.Value * txt_ValorUnit.Value)- txt_Desconto.Value;
 end;
 
 procedure Tfrm_CadastroVendas.cbox_ProdutosClick(Sender: TObject);
@@ -245,27 +235,27 @@ procedure Tfrm_CadastroVendas.GravarItem;
 begin
   fdqry_VendasItem.Append;
   fdqry_VendasItemCodigo.AsInteger          := integer(cbox_Produtos.KeyValue);
-  fdqry_VendasItemQTD.AsFloat               := txt_QTD.Value;
-  fdqry_VendasItemVALOR_UNITARIO.AsFloat    := txt_ValorUnit.Value;
-  fdqry_VendasItemDESCONTO.AsFloat          := txt_Desconto.Value;
+  //fdqry_VendasItemQTD.AsFloat               := txt_QTD.Value;
+  //fdqry_VendasItemVALOR_UNITARIO.AsFloat    := txt_ValorUnit.Value;
+  //fdqry_VendasItemDESCONTO.AsFloat          := txt_Desconto.Value;
   //fdqry_VendasItem.Post;
 end;
 
 procedure Tfrm_CadastroVendas.LimparCampos;
 begin
   cbox_Produtos.KeyValue  := 0;
-  txt_QTD.Value           := 0;
-  txt_ValorUnit.Value     := 0;
-  txt_Desconto.Value      := 0;
-  txt_Total.Value         := 0;
-  txt_SubTotal.Value      := 0;
-  cbox_Produtos.SetFocus;
+  //txt_QTD.Value           := 0;
+  //txt_ValorUnit.Value     := 0;
+  //txt_Desconto.Value      := 0;
+  //txt_Total.Value         := 0;
+  //txt_SubTotal.Value      := 0;
+  //cbox_Produtos.SetFocus;
 end;
 
 procedure Tfrm_CadastroVendas.SetDadosProdutos(pCodigo: integer);
 begin
-  txt_QTD.Value := 1;
-  txt_ValorUnit.Value := LookUp.FD_qryProdutosVALOR_UNITARIO.AsFloat;
+  //txt_QTD.Value := 1;
+  //txt_ValorUnit.Value := LookUp.FD_qryProdutosVALOR_UNITARIO.AsFloat;
 end;
 
 procedure Tfrm_CadastroVendas.SetItens(pControle_Venda: integer);
@@ -291,9 +281,9 @@ begin
 
               AtualizaFDQuery(vQryTotais, vSQL);
 
-    txt_totalSubTotal.Value  := vQryTotais.FieldByName ('SUBTOTAL').asFloat;
-    txt_TotalDesconto.Value  := vQryTotais.FieldByName ('DESCONTO').AsFloat;
-    txt_TotalVenda.Value     := vQryTotais.FieldByName ('TOTAL').AsFloat;
+    //txt_totalSubTotal.Value  := vQryTotais.FieldByName ('SUBTOTAL').asFloat;
+    //txt_TotalDesconto.Value  := vQryTotais.FieldByName ('DESCONTO').AsFloat;
+    //txt_TotalVenda.Value     := vQryTotais.FieldByName ('TOTAL').AsFloat;
   FINALLY
     vQryTotais.Close;
     freeAndNil (vQryTotais);

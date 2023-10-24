@@ -11,11 +11,13 @@ object frm_ConfigIni: Tfrm_ConfigIni
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poDefault
   OnClose = FormClose
   DesignSize = (
     493
     210)
+  PixelsPerInch = 96
   TextHeight = 15
   object img_bd: TImage
     Left = 0

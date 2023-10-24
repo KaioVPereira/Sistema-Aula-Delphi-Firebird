@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.ExtCtrls, Vcl.StdCtrls, Lucombo, dblucomb, Vcl.DBCtrls, Vcl.NumberBox, Vcl.Mask,
+  Vcl.ExtCtrls, Vcl.StdCtrls, {Lucombo, dblucomb,} Vcl.DBCtrls, {Vcl.NumberBox,} Vcl.Mask,
   Vcl.Samples.Spin, JPEG, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
@@ -26,19 +26,19 @@ type
     Label3: TLabel;
     txt_DescProd: TEdit;
     txt_Codigo: TEdit;
-    txt_Referencia: TDBLUEdit;
+    //txt_Referencia: TDBLUEdit;
     txt_Estoque: TEdit;
     Label4: TLabel;
     txt_ValorUnitario: TEdit;
     Label5: TLabel;
     txt_ItemTotal: TEdit;
     Label6: TLabel;
-    txt_Total: TDBLUEdit;
-    txt_SubTotal: TDBLUEdit;
-    txt_Desconto: TDBLUEdit;
-    txt_TotalCompra: TDBLUEdit;
-    txt_ValorRecebido: TDBLUEdit;
-    txt_ValorTroco: TDBLUEdit;
+    //txt_Total: TDBLUEdit;
+    //txt_SubTotal: TDBLUEdit;
+    //txt_Desconto: TDBLUEdit;
+    //txt_TotalCompra: TDBLUEdit;
+    //txt_ValorRecebido: TDBLUEdit;
+    //txt_ValorTroco: TDBLUEdit;
     Image1: TImage;
     pn_Header: TPanel;
     Label7: TLabel;
@@ -59,7 +59,7 @@ type
     DBLookupComboBox2: TDBLookupComboBox;
     DBLookupComboBox3: TDBLookupComboBox;
     procedure FormShow(Sender: TObject);
-    procedure txt_ReferenciaChange(Sender: TObject);
+    //procedure txt_ReferenciaChange(Sender: TObject);
     procedure txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
     procedure ckb_ColetaQTDClick(Sender: TObject);
     procedure txt_QtdChange(Sender: TObject);
@@ -103,7 +103,7 @@ begin
   //Buscando item com base no que foi escrito no txt_referencia
   dm_Dados.FDQry_Produtos.Close;
   dm_Dados.FDQry_Produtos.SQL.Clear;
-  dm_Dados.FDQry_Produtos.SQL.Add('SELECT * FROM PRODUTOS WHERE REFERENCIA = ' +QuotedStr( UpperCase( txt_Referencia.Text)));
+  //dm_Dados.FDQry_Produtos.SQL.Add('SELECT * FROM PRODUTOS WHERE REFERENCIA = ' +QuotedStr( UpperCase( txt_Referencia.Text)));
   dm_Dados.FDQry_Produtos.Open;
 
 
@@ -134,7 +134,7 @@ end;
 procedure TFrm_PDV2.CalcularSubTotal;
 begin
   SubTotalVenda := SubtotalVenda + StrToFloat(txt_ItemTotal.Text);
-  txt_SubTotal.Text := FloatToStr(SubTotalVenda);  
+  //txt_SubTotal.Text := FloatToStr(SubTotalVenda);
 end;
 
 procedure TFrm_PDV2.CalculaTotalItem;
@@ -170,9 +170,9 @@ procedure TFrm_PDV2.MostraItensVenda;
 begin
   //Valida se tem algo digitado no campo de referência, se tiver algo,
   //Deixa a Query de itens aberta e em modo de Insert, insere os itens na tabela de itens
-  //Com a procedure PreencherGridItens, depois consulta os itens inserido.
+  //Com a procedure PreencherGridItens, depois consulta os itens inserido, e mostra na grid .
 
-  if txt_Referencia.Text <> '' then
+  {if txt_Referencia.Text <> '' then
   begin
 
     dm_Dados.FDQry_VendasItens.Close;
@@ -191,7 +191,7 @@ begin
     dm_Dados.FDQry_VendasItens.SQL.Add('SELECT * FROM VENDAS_ITENS WHERE CONTROLE_VENDA ='+ txt_ControleVenda.Text);
     dm_Dados.FDQry_VendasItens.Open();
 
-  end;
+  end;}
 end;
 
 procedure TFrm_PDV2.FormShow(Sender: TObject);
@@ -240,7 +240,7 @@ procedure TFrm_PDV2.PreencherGridIntens;
 //Insere os valores na tabela de itens, com base no que tem nos Edits.TXT's da tela.
 begin
   dm_Dados.FDQry_VendasItens.FieldByName('CONTROLE_VENDA').Value := txt_ControleVenda.Text;
-  dm_Dados.FDQry_VendasItens.FieldByName('REFERENCIA').Value := txt_Referencia.Text;
+  //dm_Dados.FDQry_VendasItens.FieldByName('REFERENCIA').Value := txt_Referencia.Text;
   dm_Dados.FDQry_VendasItens.FieldByName('VALOR_UNITARIO').Value := txt_ValorUnitario.Text;
   dm_Dados.FDQry_VendasItens.FieldByName('QTD').Value := txt_Qtd.Text;
   dm_Dados.FDQry_VendasItens.FieldByName('VALOR_TOTAL').Value := TotalItem;
@@ -268,22 +268,6 @@ begin
   CalculaTotalItem;
 end;
 
-{procedure TFrm_PDV2.txt_QtdExit(Sender: TObject);
-begin
-
-    if dm_Dados.FDQry_Produtos.IsEmpty then
-      begin
-        MsgAtencao('Produto Não encontrado');
-      end
-  Else
-    begin
-      Buscar;
-      CalculaTotalItem;
-      MostraItensVenda;
-      txt_Referencia.SetFocus;
-    end;
-
-end;}
 
 procedure TFrm_PDV2.txt_QtdKeyPress(Sender: TObject; var Key: Char);
 begin
@@ -299,17 +283,17 @@ begin
         CalculaTotalItem;
         MostraItensVenda;
         CalcularSubTotal;
-        txt_Referencia.SetFocus;
+        //txt_Referencia.SetFocus;
         LimparItem;
         LimparImagem;
-        txt_Referencia.Text := '';
+        //txt_Referencia.Text := '';
       end;
     end;
 end;
 
-procedure TFrm_PDV2.txt_ReferenciaChange(Sender: TObject);
+//procedure TFrm_PDV2.txt_ReferenciaChange(Sender: TObject);
 //Busca item a cada alteração no campo de referencia com a procedure "Buscar"
-begin
+{begin
   if txt_Referencia.Text = '' then
   begin
     //LimparItem;
@@ -318,8 +302,8 @@ begin
   begin
     Buscar;
   end;
-    
-end;
+
+end;}
 
 
 {procedure TFrm_PDV2.txt_ReferenciaExit(Sender: TObject);
@@ -364,7 +348,7 @@ begin
       CalcularSubTotal;
       LimparItem;
       LimparImagem;
-      txt_Referencia.Text := '';
+      //txt_Referencia.Text := '';
       dm_Dados.FDQry_VendasQuery.Edit;
       //dm_Dados.FDQry_VendasQuery.FieldByName('SUBTOTAL').Value := StrToFloat(txt_SubTotal.Text);
       dm_Dados.FDQry_VendasQuery.Post;

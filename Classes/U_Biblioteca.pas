@@ -164,12 +164,14 @@ Function  ValidaCPF(CPF : String): Boolean;
   var
   I, Soma, Digito: Integer;
   Digs: array [0..1] of Integer;
+  var CleanCPF : String ;
+  var TodosIguais : bOOLEAN;
 begin
   Result := False;
 
   // Remover caracteres não numéricos do CPF
   // para evitar problemas com máscaras
-  var CleanCPF := StringReplace(CPF, '.', '', [rfReplaceAll]);
+  CleanCPF := StringReplace(CPF, '.', '', [rfReplaceAll]);
   CleanCPF := StringReplace(CleanCPF, '-', '', [rfReplaceAll]);
 
   // Verificar se o CPF tem 11 dígitos
@@ -177,7 +179,7 @@ begin
     Exit;
 
   // Verificar se todos os dígitos são iguais
-  var TodosIguais := True;
+   TodosIguais := True;
   for I := 1 to 10 do
     if CleanCPF[I] <> CleanCPF[I + 1] then
     begin

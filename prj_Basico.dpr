@@ -23,7 +23,8 @@ uses
   U_CadastrosUsuarios in 'Forms\CadastrosGerais\U_CadastrosUsuarios.pas' {frm_CadastrosUsuarios},
   uCrpt in 'Classes\uCrpt.pas',
   U_login in 'Forms\login\U_login.pas' {Frm_login},
-  U_VENDAS in 'Forms\Vendas\U_VENDAS.pas' {Frm_PDV2};
+  U_VENDAS in 'Forms\Vendas\U_VENDAS.pas' {Frm_PDV2},
+  U_Inicial in 'Forms\U_Inicial.pas' {Frm_NewInicial};
 
 {$R *.res}
 begin
@@ -31,7 +32,7 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(Tdm_Dados, dm_Dados);
   Application.CreateForm(TLookUp, LookUp);
-  Application.CreateForm(Tfrm_inicio, frm_inicio);
+  Application.CreateForm(TFrm_NewInicial, Frm_NewInicial);
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
   Application.CreateForm(TFrm_PDV2, Frm_PDV2);
   Application.Run;

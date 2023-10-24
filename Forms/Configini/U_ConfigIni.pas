@@ -145,7 +145,6 @@ begin
 end;
 
 procedure Tfrm_ConfigIni.ValidaConexao;
-begin
   var vFileName : String;
 begin
   vFileName        := ExtractFilePath(application.ExeName) + 'config.ini';
@@ -171,8 +170,6 @@ begin
   except
     showmessage('Configuração de banco incorreta, valide as informações e tente novamente');
   end;
-end;
-
 end;
 
 end.
