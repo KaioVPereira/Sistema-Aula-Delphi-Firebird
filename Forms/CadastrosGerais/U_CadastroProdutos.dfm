@@ -3,8 +3,9 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   ClientHeight = 454
   ClientWidth = 816
   OnShow = FormShow
-  ExplicitWidth = 828
-  ExplicitHeight = 492
+  ExplicitWidth = 822
+  ExplicitHeight = 483
+  PixelsPerInch = 96
   TextHeight = 15
   object lb_codigo: TLabel [0]
     Left = 8
@@ -122,11 +123,11 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   inherited pn_cabecalho: TPanel
     Width = 816
     TabOrder = 1
-    ExplicitWidth = 812
+    ExplicitWidth = 816
     inherited Panel4: TPanel
       Left = 728
       Width = 87
-      ExplicitLeft = 724
+      ExplicitLeft = 728
       ExplicitWidth = 87
       inherited btn_sair: TBitBtn
         Width = 85
@@ -215,123 +216,68 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
     ListSource = LookUp.ds_fornec
     TabOrder = 9
   end
-  object dbmo_PesoBruto: TDBMoneyEdit [26]
-    Left = 8
-    Top = 240
-    Width = 70
-    Height = 23
-    CalculatorLook.ButtonWidth = 24
-    CalculatorLook.ButtonHeight = 24
-    CalculatorLook.ButtonColor = clSilver
-    CalculatorLook.Color = clWhite
-    CalculatorLook.Flat = False
-    CalculatorLook.Font.Charset = DEFAULT_CHARSET
-    CalculatorLook.Font.Color = clWindowText
-    CalculatorLook.Font.Height = -12
-    CalculatorLook.Font.Name = 'Segoe UI'
-    CalculatorLook.Font.Style = []
-    TabOrder = 10
-    Version = '1.1.2.2'
-    DataField = 'PESO_BRUTO'
-    DataSource = ds_cadastros
-  end
-  object dbmo_PesoLiquido: TDBMoneyEdit [27]
-    Left = 192
-    Top = 240
-    Width = 70
-    Height = 23
-    CalculatorLook.ButtonWidth = 24
-    CalculatorLook.ButtonHeight = 24
-    CalculatorLook.ButtonColor = clSilver
-    CalculatorLook.Color = clWhite
-    CalculatorLook.Flat = False
-    CalculatorLook.Font.Charset = DEFAULT_CHARSET
-    CalculatorLook.Font.Color = clWindowText
-    CalculatorLook.Font.Height = -12
-    CalculatorLook.Font.Name = 'Segoe UI'
-    CalculatorLook.Font.Style = []
-    TabOrder = 11
-    Version = '1.1.2.2'
-    DataField = 'PESO_LIQUIDO'
-    DataSource = ds_cadastros
-  end
-  object dbmo_qtd: TDBMoneyEdit [28]
-    Left = 8
-    Top = 336
-    Width = 70
-    Height = 23
-    CalculatorLook.ButtonWidth = 24
-    CalculatorLook.ButtonHeight = 24
-    CalculatorLook.ButtonColor = clSilver
-    CalculatorLook.Color = clWhite
-    CalculatorLook.Flat = False
-    CalculatorLook.Font.Charset = DEFAULT_CHARSET
-    CalculatorLook.Font.Color = clWindowText
-    CalculatorLook.Font.Height = -12
-    CalculatorLook.Font.Name = 'Segoe UI'
-    CalculatorLook.Font.Style = []
-    TabOrder = 12
-    Version = '1.1.2.2'
-    DataField = 'QTD'
-    DataSource = ds_cadastros
-  end
-  object dbmo_custo: TDBMoneyEdit [29]
-    Left = 8
-    Top = 400
-    Width = 70
-    Height = 23
-    CalculatorLook.ButtonWidth = 24
-    CalculatorLook.ButtonHeight = 24
-    CalculatorLook.ButtonColor = clSilver
-    CalculatorLook.Color = clWhite
-    CalculatorLook.Flat = False
-    CalculatorLook.Font.Charset = DEFAULT_CHARSET
-    CalculatorLook.Font.Color = clWindowText
-    CalculatorLook.Font.Height = -12
-    CalculatorLook.Font.Name = 'Segoe UI'
-    CalculatorLook.Font.Style = []
-    TabOrder = 13
-    Version = '1.1.2.2'
-    DataField = 'CUSTO'
-    DataSource = ds_cadastros
-  end
-  object dbmo_valorunitario: TDBMoneyEdit [30]
-    Left = 202
-    Top = 400
-    Width = 70
-    Height = 23
-    CalculatorLook.ButtonWidth = 24
-    CalculatorLook.ButtonHeight = 24
-    CalculatorLook.ButtonColor = clSilver
-    CalculatorLook.Color = clWhite
-    CalculatorLook.Flat = False
-    CalculatorLook.Font.Charset = DEFAULT_CHARSET
-    CalculatorLook.Font.Color = clWindowText
-    CalculatorLook.Font.Height = -12
-    CalculatorLook.Font.Name = 'Segoe UI'
-    CalculatorLook.Font.Style = []
-    TabOrder = 14
-    Version = '1.1.2.2'
-    DataField = 'VALOR_UNITARIO'
-    DataSource = ds_cadastros
-  end
-  object DBEdit1: TDBEdit [31]
+  object DBEdit1: TDBEdit [26]
     Left = 288
     Top = 72
     Width = 177
     Height = 23
     DataField = 'REFERENCIA'
     DataSource = ds_cadastros
-    TabOrder = 15
+    TabOrder = 10
   end
-  object btn_BuscaImagem: TBitBtn [32]
+  object btn_BuscaImagem: TBitBtn [27]
     Left = 328
     Top = 311
     Width = 75
     Height = 25
     Caption = 'Imagem'
-    TabOrder = 16
+    TabOrder = 11
     OnClick = btn_BuscaImagemClick
+  end
+  object DBEdit2: TDBEdit [28]
+    Left = 8
+    Top = 336
+    Width = 154
+    Height = 23
+    DataField = 'QTD'
+    DataSource = ds_cadastros
+    TabOrder = 12
+  end
+  object DBEdit3: TDBEdit [29]
+    Left = 8
+    Top = 240
+    Width = 87
+    Height = 23
+    DataField = 'PESO_BRUTO'
+    DataSource = ds_cadastros
+    TabOrder = 13
+  end
+  object DBEdit4: TDBEdit [30]
+    Left = 192
+    Top = 240
+    Width = 102
+    Height = 23
+    DataField = 'PESO_LIQUIDO'
+    DataSource = ds_cadastros
+    TabOrder = 14
+  end
+  object DBEdit5: TDBEdit [31]
+    Left = 8
+    Top = 400
+    Width = 90
+    Height = 23
+    DataField = 'CUSTO'
+    DataSource = ds_cadastros
+    TabOrder = 15
+  end
+  object DBEdit6: TDBEdit [32]
+    Left = 200
+    Top = 400
+    Width = 154
+    Height = 23
+    DataField = 'VALOR_UNITARIO'
+    DataSource = ds_cadastros
+    TabOrder = 16
   end
   inherited fd_QueryCadastro: TFDQuery
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
@@ -435,8 +381,8 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   end
   object OpenPictureDialog1: TOpenPictureDialog
     Filter = 
-      'Imagem JPEG ou JPG|*.jpg;*.jpeg;*.png;|JPEG Image File (*.jpg)|*' +
-      '.jpg|JPEG Image File (*.jpeg)|*.jpeg||*.png'
+      'Imagem JPEG ou JPG|*.jpg;*.jpeg;|JPEG Image File (*.jpg)|*.jpg|J' +
+      'PEG Image File (*.jpeg)|*.jpeg'
     Left = 592
     Top = 72
   end

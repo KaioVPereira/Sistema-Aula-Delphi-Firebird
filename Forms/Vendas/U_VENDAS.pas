@@ -26,7 +26,6 @@ type
     Label3: TLabel;
     txt_DescProd: TEdit;
     txt_Codigo: TEdit;
-    //txt_Referencia: TDBLUEdit;
     txt_Estoque: TEdit;
     Label4: TLabel;
     txt_ValorUnitario: TEdit;
@@ -58,13 +57,20 @@ type
     DBLookupComboBox1: TDBLookupComboBox;
     DBLookupComboBox2: TDBLookupComboBox;
     DBLookupComboBox3: TDBLookupComboBox;
+    txt_referencia: TEdit;
+    Edit2: TEdit;
+    Edit1: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    ScrollBox1: TScrollBox;
     procedure FormShow(Sender: TObject);
-    //procedure txt_ReferenciaChange(Sender: TObject);
     procedure txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
     procedure ckb_ColetaQTDClick(Sender: TObject);
     procedure txt_QtdChange(Sender: TObject);
     procedure txt_QtdKeyPress(Sender: TObject; var Key: Char);
     procedure DBLookupComboBox1Enter(Sender: TObject);
+    procedure txt_referenciaExit(Sender: TObject);
+    procedure txt_referenciaChange(Sender: TObject);
   private
     { Private declarations }
     Procedure Limpar;
@@ -103,7 +109,7 @@ begin
   //Buscando item com base no que foi escrito no txt_referencia
   dm_Dados.FDQry_Produtos.Close;
   dm_Dados.FDQry_Produtos.SQL.Clear;
-  //dm_Dados.FDQry_Produtos.SQL.Add('SELECT * FROM PRODUTOS WHERE REFERENCIA = ' +QuotedStr( UpperCase( txt_Referencia.Text)));
+  dm_Dados.FDQry_Produtos.SQL.Add('SELECT * FROM PRODUTOS WHERE REFERENCIA = ' +QuotedStr( UpperCase( txt_Referencia.Text)));
   dm_Dados.FDQry_Produtos.Open;
 
 
@@ -172,7 +178,7 @@ begin
   //Deixa a Query de itens aberta e em modo de Insert, insere os itens na tabela de itens
   //Com a procedure PreencherGridItens, depois consulta os itens inserido, e mostra na grid .
 
-  {if txt_Referencia.Text <> '' then
+  if txt_Referencia.Text <> '' then
   begin
 
     dm_Dados.FDQry_VendasItens.Close;
@@ -191,7 +197,7 @@ begin
     dm_Dados.FDQry_VendasItens.SQL.Add('SELECT * FROM VENDAS_ITENS WHERE CONTROLE_VENDA ='+ txt_ControleVenda.Text);
     dm_Dados.FDQry_VendasItens.Open();
 
-  end;}
+  end;
 end;
 
 procedure TFrm_PDV2.FormShow(Sender: TObject);
@@ -240,7 +246,7 @@ procedure TFrm_PDV2.PreencherGridIntens;
 //Insere os valores na tabela de itens, com base no que tem nos Edits.TXT's da tela.
 begin
   dm_Dados.FDQry_VendasItens.FieldByName('CONTROLE_VENDA').Value := txt_ControleVenda.Text;
-  //dm_Dados.FDQry_VendasItens.FieldByName('REFERENCIA').Value := txt_Referencia.Text;
+  dm_Dados.FDQry_VendasItens.FieldByName('REFERENCIA').Value := txt_Referencia.Text;
   dm_Dados.FDQry_VendasItens.FieldByName('VALOR_UNITARIO').Value := txt_ValorUnitario.Text;
   dm_Dados.FDQry_VendasItens.FieldByName('QTD').Value := txt_Qtd.Text;
   dm_Dados.FDQry_VendasItens.FieldByName('VALOR_TOTAL').Value := TotalItem;
@@ -283,17 +289,18 @@ begin
         CalculaTotalItem;
         MostraItensVenda;
         CalcularSubTotal;
-        //txt_Referencia.SetFocus;
+        txt_Referencia.SetFocus;
         LimparItem;
         LimparImagem;
-        //txt_Referencia.Text := '';
+        txt_Referencia.Text := '';
       end;
     end;
 end;
 
-//procedure TFrm_PDV2.txt_ReferenciaChange(Sender: TObject);
-//Busca item a cada alteração no campo de referencia com a procedure "Buscar"
-{begin
+
+procedure TFrm_PDV2.txt_referenciaChange(Sender: TObject);
+  //Busca item a cada alteração no campo de referencia com a procedure "Buscar"
+begin
   if txt_Referencia.Text = '' then
   begin
     //LimparItem;
@@ -303,11 +310,12 @@ end;
     Buscar;
   end;
 
-end;}
+end;
 
 
-{procedure TFrm_PDV2.txt_ReferenciaExit(Sender: TObject);
-//Se encontrar o item, coloca os textos dele, calcula o total do item,
+procedure TFrm_PDV2.txt_referenciaExit(Sender: TObject);
+begin
+  //Se encontrar o item, coloca os textos dele, calcula o total do item,
 //e mostra item na grid
 begin
   if (txt_Qtd.Enabled = false) and (txt_Referencia.Text <> '') then
@@ -324,7 +332,10 @@ begin
       txt_Referencia.SetFocus;
     end;
   end;
-end;}
+end
+end;
+
+
 
 procedure TFrm_PDV2.txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
 begin
@@ -348,7 +359,7 @@ begin
       CalcularSubTotal;
       LimparItem;
       LimparImagem;
-      //txt_Referencia.Text := '';
+      txt_Referencia.Text := '';
       dm_Dados.FDQry_VendasQuery.Edit;
       //dm_Dados.FDQry_VendasQuery.FieldByName('SUBTOTAL').Value := StrToFloat(txt_SubTotal.Text);
       dm_Dados.FDQry_VendasQuery.Post;

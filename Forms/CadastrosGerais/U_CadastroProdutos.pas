@@ -56,6 +56,11 @@ type
     Image1: TImage;
     btn_BuscaImagem: TBitBtn;
     OpenPictureDialog1: TOpenPictureDialog;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure btn_novoClick(Sender: TObject);
     procedure btn_gravarClick(Sender: TObject);
