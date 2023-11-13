@@ -1,14 +1,18 @@
 inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
-  BorderStyle = bsNone
   Caption = 'Consultar Produtos'
+  ClientHeight = 461
+  ClientWidth = 867
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
-  ExplicitLeft = -350
+  ExplicitWidth = 883
+  ExplicitHeight = 500
   PixelsPerInch = 96
   TextHeight = 15
   inherited Panel1: TPanel
+    Width = 867
     Height = 65
+    ExplicitWidth = 120
     ExplicitHeight = 65
     inherited txt_consultar: TEdit
       Left = 119
@@ -36,13 +40,14 @@ inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
       ExplicitWidth = 97
     end
     object Panel2: TPanel
-      Left = 895
+      Left = 736
       Top = 1
       Width = 130
       Height = 63
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 3
+      ExplicitLeft = -11
       object btn_sair: TButton
         Left = 32
         Top = 13
@@ -84,8 +89,8 @@ inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
   object DBGrid1: TDBGrid [1]
     Left = 0
     Top = 65
-    Width = 1026
-    Height = 354
+    Width = 867
+    Height = 396
     Align = alClient
     DataSource = DS_Consultas
     ReadOnly = True

@@ -1,20 +1,17 @@
 inherited frm_ConsultaUsuario: Tfrm_ConsultaUsuario
-  Align = alClient
   BorderIcons = []
-  BorderStyle = bsSizeToolWin
   Caption = 'frm_ConsultaUsuario'
   ClientHeight = 469
   ClientWidth = 1046
   FormStyle = fsMDIChild
-  ParentBiDiMode = False
   Visible = True
   WindowState = wsMaximized
-  ExplicitWidth = 1054
-  ExplicitHeight = 496
+  ExplicitWidth = 1062
+  ExplicitHeight = 508
+  PixelsPerInch = 96
   TextHeight = 15
   inherited Panel1: TPanel
     Width = 1046
-    ExplicitWidth = 1038
     inherited btn_consultar: TButton
       OnClick = btn_consultarClick
     end

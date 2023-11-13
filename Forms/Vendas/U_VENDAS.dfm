@@ -5,6 +5,7 @@ object Frm_PDV2: TFrm_PDV2
   Height = 850
   HorzScrollBar.Range = 1000
   HorzScrollBar.Tracking = True
+  VertScrollBar.Position = 189
   VertScrollBar.Range = 1000
   Caption = 'Vendas'
   Color = clActiveCaption
@@ -21,7 +22,7 @@ object Frm_PDV2: TFrm_PDV2
   TextHeight = 15
   object ScrollBox1: TScrollBox
     Left = 0
-    Top = 0
+    Top = -189
     Width = 1788
     Height = 1000
     HorzScrollBar.Range = 1038
@@ -29,10 +30,8 @@ object Frm_PDV2: TFrm_PDV2
     Align = alClient
     AutoScroll = False
     TabOrder = 0
-    ExplicitWidth = 1805
-    ExplicitHeight = 811
     object pn_Meio: TPanel
-      Left = 746
+      Left = 742
       Top = 123
       Width = 600
       Height = 873
@@ -41,9 +40,7 @@ object Frm_PDV2: TFrm_PDV2
       Color = clMoneyGreen
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 1181
-      ExplicitTop = 143
-      ExplicitHeight = 863
+      ExplicitLeft = 746
       object Label1: TLabel
         Left = 6
         Top = 64
@@ -111,8 +108,6 @@ object Frm_PDV2: TFrm_PDV2
         Color = clActiveCaption
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 6
-        ExplicitTop = 0
       end
       object txt_DescProd: TEdit
         Left = 6
@@ -232,19 +227,17 @@ object Frm_PDV2: TFrm_PDV2
     object pn_GridItens: TPanel
       Left = 0
       Top = 123
-      Width = 746
+      Width = 742
       Height = 873
       Align = alClient
       AutoSize = True
       Caption = 'pn_GridItens'
       TabOrder = 1
-      ExplicitTop = 137
-      ExplicitWidth = 1367
-      ExplicitHeight = 674
+      ExplicitWidth = 746
       object DBG_VendasItens: TDBGrid
         Left = 1
         Top = 42
-        Width = 744
+        Width = 740
         Height = 830
         Align = alClient
         DataSource = dm_Dados.DS_VendasItens
@@ -258,12 +251,12 @@ object Frm_PDV2: TFrm_PDV2
       object Panel1: TPanel
         Left = 1
         Top = 1
-        Width = 744
+        Width = 740
         Height = 41
         Align = alTop
         Caption = 'PRODUTOS'
         TabOrder = 1
-        ExplicitWidth = 1365
+        ExplicitWidth = 744
       end
     end
     object pn_Header: TPanel
@@ -344,34 +337,81 @@ object Frm_PDV2: TFrm_PDV2
       end
     end
     object pn_Direita: TPanel
-      Left = 1346
+      Left = 1342
       Top = 123
-      Width = 438
+      Width = 442
       Height = 873
       Align = alRight
       AutoSize = True
       Color = clMoneyGreen
       ParentBackground = False
       TabOrder = 3
-      ExplicitLeft = 1247
-      ExplicitTop = 143
-      ExplicitHeight = 863
+      ExplicitLeft = 1343
+      object Label11: TLabel
+        Left = 204
+        Top = 432
+        Width = 40
+        Height = 15
+        Caption = 'Label11'
+      end
+      object Label13: TLabel
+        Left = 114
+        Top = 176
+        Width = 220
+        Height = 54
+        Caption = 'DESCONTO'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -40
+        Font.Name = 'Segoe UI Black'
+        Font.Style = [fsBold, fsItalic]
+        ParentFont = False
+      end
+      object Label10: TLabel
+        Left = 113
+        Top = 41
+        Width = 227
+        Height = 54
+        Caption = 'SUB-TOTAL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -40
+        Font.Name = 'Segoe UI Black'
+        Font.Style = [fsBold, fsItalic]
+        ParentFont = False
+      end
+      object Label12: TLabel
+        Left = 153
+        Top = 317
+        Width = 130
+        Height = 54
+        Caption = 'TOTAL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -40
+        Font.Name = 'Segoe UI Black'
+        Font.Style = [fsBold, fsItalic]
+        ParentFont = False
+      end
       object Panel3: TPanel
         Left = 1
         Top = 1
-        Width = 436
+        Width = 440
         Height = 41
         Align = alTop
         Caption = 'PRODUTOS'
         Color = clActiveCaption
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 2
+        ExplicitWidth = 439
       end
-      object Edit2: TEdit
-        Left = 24
+      object txt_Subtotal: TEdit
+        Left = 28
         Top = 101
         Width = 393
         Height = 75
+        Enabled = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -50
@@ -383,11 +423,12 @@ object Frm_PDV2: TFrm_PDV2
         OnExit = txt_referenciaExit
         OnKeyPress = txt_ReferenciaKeyPress
       end
-      object Edit3: TEdit
-        Left = 24
+      object txt_TotalVenda: TEdit
+        Left = 28
         Top = 382
         Width = 393
         Height = 75
+        Enabled = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -50
@@ -399,24 +440,8 @@ object Frm_PDV2: TFrm_PDV2
         OnExit = txt_referenciaExit
         OnKeyPress = txt_ReferenciaKeyPress
       end
-      object Edit4: TEdit
-        Left = 24
-        Top = 523
-        Width = 393
-        Height = 75
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -50
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 3
-        OnChange = txt_referenciaChange
-        OnExit = txt_referenciaExit
-        OnKeyPress = txt_ReferenciaKeyPress
-      end
-      object Edit1: TEdit
-        Left = 24
+      object txt_Desconto: TEdit
+        Left = 28
         Top = 236
         Width = 393
         Height = 75
@@ -426,7 +451,8 @@ object Frm_PDV2: TFrm_PDV2
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 3
+        Text = '0,0'
         OnChange = txt_referenciaChange
         OnExit = txt_referenciaExit
         OnKeyPress = txt_ReferenciaKeyPress

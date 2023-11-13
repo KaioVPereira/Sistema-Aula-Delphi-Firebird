@@ -1,11 +1,12 @@
 inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
-  BorderStyle = bsNone
   Caption = 'Consulta Clientes'
+  ClientHeight = 454
   ClientWidth = 1082
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
   ExplicitWidth = 1098
+  ExplicitHeight = 493
   PixelsPerInch = 96
   TextHeight = 15
   inherited Panel1: TPanel
@@ -93,7 +94,7 @@ inherited frm_ConsultaClientes: Tfrm_ConsultaClientes
     Left = 0
     Top = 65
     Width = 1082
-    Height = 354
+    Height = 389
     Align = alClient
     DataSource = DS_Consultas
     ReadOnly = True

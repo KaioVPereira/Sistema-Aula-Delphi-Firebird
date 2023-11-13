@@ -11,7 +11,9 @@ object frm_MainConsultas: Tfrm_MainConsultas
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   OnClose = FormClose
+  PixelsPerInch = 96
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
@@ -20,7 +22,6 @@ object frm_MainConsultas: Tfrm_MainConsultas
     Height = 97
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 1022
     object txt_consultar: TEdit
       Left = 8
       Top = 48

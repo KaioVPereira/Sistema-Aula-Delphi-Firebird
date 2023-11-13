@@ -58,11 +58,14 @@ type
     DBLookupComboBox2: TDBLookupComboBox;
     DBLookupComboBox3: TDBLookupComboBox;
     txt_referencia: TEdit;
-    Edit2: TEdit;
-    Edit1: TEdit;
-    Edit3: TEdit;
-    Edit4: TEdit;
+    txt_Subtotal: TEdit;
+    txt_Desconto: TEdit;
+    txt_TotalVenda: TEdit;
     ScrollBox1: TScrollBox;
+    Label11: TLabel;
+    Label13: TLabel;
+    Label10: TLabel;
+    Label12: TLabel;
     procedure FormShow(Sender: TObject);
     procedure txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
     procedure ckb_ColetaQTDClick(Sender: TObject);
@@ -81,11 +84,13 @@ type
     Procedure LimparImagem;
     Procedure CalculaTotalItem;
     Procedure CalcularSubTotal;
+    procedure CalculaTotalVenda;
     procedure PreencherGridIntens;
     procedure MostraItensVenda;
 
     var TotalItem :double;
     var SubTotalVenda :double;
+    var TotalVenda : Double;
 
     var MemoryStream : TMemoryStream;
      Jpg : TJpegImage;
@@ -140,7 +145,7 @@ end;
 procedure TFrm_PDV2.CalcularSubTotal;
 begin
   SubTotalVenda := SubtotalVenda + StrToFloat(txt_ItemTotal.Text);
-  //txt_SubTotal.Text := FloatToStr(SubTotalVenda);
+  txt_SubTotal.Text := FloatToStr(SubTotalVenda);
 end;
 
 procedure TFrm_PDV2.CalculaTotalItem;
@@ -151,6 +156,12 @@ begin
 end;
 
 
+
+procedure TFrm_PDV2.CalculaTotalVenda;
+begin
+  TotalVenda := StrtoFloat(txt_Subtotal.Text) - StrToFloat(txt_Desconto.Text);
+  txt_TotalVenda.Text:=  FloatToStr(TotalVenda);
+end;
 
 procedure TFrm_PDV2.ckb_ColetaQTDClick(Sender: TObject);
 begin
@@ -289,6 +300,7 @@ begin
         CalculaTotalItem;
         MostraItensVenda;
         CalcularSubTotal;
+        CalculaTotalVenda;
         txt_Referencia.SetFocus;
         LimparItem;
         LimparImagem;
@@ -357,11 +369,12 @@ begin
       CalculaTotalItem;
       MostraItensVenda;
       CalcularSubTotal;
+      CalculaTotalVenda;
       LimparItem;
       LimparImagem;
       txt_Referencia.Text := '';
       dm_Dados.FDQry_VendasQuery.Edit;
-      //dm_Dados.FDQry_VendasQuery.FieldByName('SUBTOTAL').Value := StrToFloat(txt_SubTotal.Text);
+      dm_Dados.FDQry_VendasQuery.FieldByName('SUBTOTAL').Value := StrToFloat(txt_SubTotal.Text);
       dm_Dados.FDQry_VendasQuery.Post;
     end;
     end;

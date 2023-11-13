@@ -1,14 +1,18 @@
 inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
   Caption = 'Consulta Fornecedores'
   ClientHeight = 419
+  ClientWidth = 686
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
-  ExplicitWidth = 1034
+  ExplicitWidth = 702
+  ExplicitHeight = 458
+  PixelsPerInch = 96
   TextHeight = 15
   inherited Panel1: TPanel
+    Width = 686
     Height = 65
-    ExplicitWidth = 1018
+    ExplicitWidth = 120
     ExplicitHeight = 65
     inherited txt_consultar: TEdit
       Left = 120
@@ -35,14 +39,14 @@ inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
         'CIDADE')
     end
     object Panel2: TPanel
-      Left = 879
+      Left = 543
       Top = 1
       Width = 142
       Height = 63
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitLeft = 875
+      ExplicitLeft = -23
       object btn_sar: TButton
         Left = 48
         Top = 17
@@ -84,7 +88,7 @@ inherited frm_ConsultaFornecedor: Tfrm_ConsultaFornecedor
   object DBGrid1: TDBGrid [1]
     Left = 0
     Top = 65
-    Width = 1022
+    Width = 686
     Height = 354
     Align = alClient
     DataSource = DS_Consultas

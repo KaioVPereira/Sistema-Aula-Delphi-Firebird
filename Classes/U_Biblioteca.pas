@@ -11,13 +11,13 @@ interface
   procedure AtualizaFDQuery   (const pFDQuery : TFDQuery; pSQL : String);
   procedure AbreFormShowModal (pClass: TComponentClass; pForm :TForm);
   procedure AbreForm          (pClass: TComponentClass; pForm :TForm);
-  procedure MsgAtencao (pMsg: String);
-  procedure MsgInformacao (pMsg : String);
-  Procedure CarregarImagem(DataSet : TDataSet; BlobFieldName : String; ImageExibicao : TImage);
-  function  MsgPerguntar (pMsg: String; pFocoBtnSim : Boolean = true): Boolean;
-  procedure MsgErro (pMsg: String);
-  procedure EnableEdit(Form : TForm ; Valor : Boolean);
-  Function  ValidaCPF(CPF : String): Boolean;
+  procedure MsgAtencao        (pMsg: String);
+  procedure MsgInformacao     (pMsg : String);
+  Procedure CarregarImagem    (DataSet : TDataSet; BlobFieldName : String; ImageExibicao : TImage);
+  function  MsgPerguntar      (pMsg: String; pFocoBtnSim : Boolean = true): Boolean;
+  procedure MsgErro           (pMsg: String);
+  procedure EnableEdit        (Form : TForm ; Valor : Boolean);
+  Function  ValidaCPF         (CPF : String): Boolean;
   Var GravaUsuario : String;
 
   var MemoryStream : TMemoryStream;

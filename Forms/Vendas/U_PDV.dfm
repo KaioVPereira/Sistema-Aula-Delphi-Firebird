@@ -2,20 +2,18 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
   Caption = 'PDV'
   ClientHeight = 579
   ClientWidth = 1054
-  ExplicitWidth = 1066
-  ExplicitHeight = 617
+  ExplicitWidth = 1060
+  ExplicitHeight = 608
+  PixelsPerInch = 96
   TextHeight = 15
   inherited pn_cabecalho: TPanel
     Width = 1054
-    ExplicitWidth = 1050
-    inherited btn_sair: TBitBtn
-      Left = 978
-      Top = 1
-      Height = 39
-      Align = alRight
-      ExplicitLeft = 974
-      ExplicitTop = 1
-      ExplicitHeight = 39
+    ExplicitWidth = 1054
+    inherited Panel4: TPanel
+      Left = 969
+      inherited btn_sair: TBitBtn
+        Align = alRight
+      end
     end
     object btn_imprimir: TBitBtn
       Left = 878
@@ -34,7 +32,6 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Height = 72
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1050
     object Label1: TLabel
       Left = 8
       Top = 6
@@ -123,8 +120,6 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Height = 59
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 519
-    ExplicitWidth = 1050
     object Label5: TLabel
       Left = 321
       Top = 6
@@ -146,108 +141,6 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Height = 15
       Caption = 'Total:'
     end
-    object txt_totalSubTotal: TAdvMoneyEdit
-      Left = 322
-      Top = 27
-      Width = 103
-      Height = 23
-      EditType = etFloat
-      EmptyTextStyle = []
-      FlatLineColor = 11250603
-      FocusColor = clWindow
-      FocusFontColor = 3881787
-      Precision = 2
-      LabelFont.Charset = DEFAULT_CHARSET
-      LabelFont.Color = clWindowText
-      LabelFont.Height = -12
-      LabelFont.Name = 'Segoe UI'
-      LabelFont.Style = []
-      Lookup.Font.Charset = DEFAULT_CHARSET
-      Lookup.Font.Color = clWindowText
-      Lookup.Font.Height = -11
-      Lookup.Font.Name = 'Segoe UI'
-      Lookup.Font.Style = []
-      Lookup.Separator = ';'
-      Color = clWindow
-      ReadOnly = True
-      TabOrder = 0
-      Text = '0,00'
-      Visible = True
-      Version = '1.1.4.0'
-      CalculatorLook.Font.Charset = DEFAULT_CHARSET
-      CalculatorLook.Font.Color = clWindowText
-      CalculatorLook.Font.Height = -12
-      CalculatorLook.Font.Name = 'Segoe UI'
-      CalculatorLook.Font.Style = []
-    end
-    object txt_TotalDesconto: TAdvMoneyEdit
-      Left = 468
-      Top = 27
-      Width = 93
-      Height = 23
-      EditType = etFloat
-      EmptyTextStyle = []
-      FlatLineColor = 11250603
-      FocusColor = clWindow
-      FocusFontColor = 3881787
-      Precision = 2
-      LabelFont.Charset = DEFAULT_CHARSET
-      LabelFont.Color = clWindowText
-      LabelFont.Height = -12
-      LabelFont.Name = 'Segoe UI'
-      LabelFont.Style = []
-      Lookup.Font.Charset = DEFAULT_CHARSET
-      Lookup.Font.Color = clWindowText
-      Lookup.Font.Height = -11
-      Lookup.Font.Name = 'Segoe UI'
-      Lookup.Font.Style = []
-      Lookup.Separator = ';'
-      Color = clWindow
-      ReadOnly = True
-      TabOrder = 1
-      Text = '0,00'
-      Visible = True
-      Version = '1.1.4.0'
-      CalculatorLook.Font.Charset = DEFAULT_CHARSET
-      CalculatorLook.Font.Color = clWindowText
-      CalculatorLook.Font.Height = -12
-      CalculatorLook.Font.Name = 'Segoe UI'
-      CalculatorLook.Font.Style = []
-    end
-    object txt_TotalVenda: TAdvMoneyEdit
-      Left = 605
-      Top = 27
-      Width = 92
-      Height = 23
-      EditType = etFloat
-      EmptyTextStyle = []
-      FlatLineColor = 11250603
-      FocusColor = clWindow
-      FocusFontColor = 3881787
-      Precision = 2
-      LabelFont.Charset = DEFAULT_CHARSET
-      LabelFont.Color = clWindowText
-      LabelFont.Height = -12
-      LabelFont.Name = 'Segoe UI'
-      LabelFont.Style = []
-      Lookup.Font.Charset = DEFAULT_CHARSET
-      Lookup.Font.Color = clWindowText
-      Lookup.Font.Height = -11
-      Lookup.Font.Name = 'Segoe UI'
-      Lookup.Font.Style = []
-      Lookup.Separator = ';'
-      Color = clWindow
-      ReadOnly = True
-      TabOrder = 2
-      Text = '0,00'
-      Visible = True
-      Version = '1.1.4.0'
-      CalculatorLook.Font.Charset = DEFAULT_CHARSET
-      CalculatorLook.Font.Color = clWindowText
-      CalculatorLook.Font.Height = -12
-      CalculatorLook.Font.Name = 'Segoe UI'
-      CalculatorLook.Font.Style = []
-    end
   end
   object Panel3: TPanel [3]
     Left = 0
@@ -256,8 +149,6 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
     Height = 407
     Align = alClient
     TabOrder = 3
-    ExplicitWidth = 1050
-    ExplicitHeight = 406
     object Label6: TLabel
       Left = 11
       Top = 6
@@ -312,145 +203,6 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       TabOrder = 0
       OnClick = cbox_ProdutosClick
     end
-    object txt_QTD: TAdvMoneyEdit
-      Left = 178
-      Top = 27
-      Width = 121
-      Height = 23
-      EditType = etFloat
-      EmptyTextStyle = []
-      FlatLineColor = 11250603
-      FocusColor = clWindow
-      FocusFontColor = 3881787
-      Precision = 2
-      LabelFont.Charset = DEFAULT_CHARSET
-      LabelFont.Color = clWindowText
-      LabelFont.Height = -12
-      LabelFont.Name = 'Segoe UI'
-      LabelFont.Style = []
-      Lookup.Font.Charset = DEFAULT_CHARSET
-      Lookup.Font.Color = clWindowText
-      Lookup.Font.Height = -11
-      Lookup.Font.Name = 'Segoe UI'
-      Lookup.Font.Style = []
-      Lookup.Separator = ';'
-      Color = clWindow
-      TabOrder = 1
-      Text = '0,00'
-      Visible = True
-      OnChange = txt_QTDChange
-      OnExit = txt_QTDExit
-      Version = '1.1.4.0'
-      CalculatorLook.Font.Charset = DEFAULT_CHARSET
-      CalculatorLook.Font.Color = clWindowText
-      CalculatorLook.Font.Height = -12
-      CalculatorLook.Font.Name = 'Segoe UI'
-      CalculatorLook.Font.Style = []
-    end
-    object txt_ValorUnit: TAdvMoneyEdit
-      Left = 321
-      Top = 27
-      Width = 121
-      Height = 23
-      EditType = etFloat
-      EmptyTextStyle = []
-      FlatLineColor = 11250603
-      FocusColor = clWindow
-      FocusFontColor = 3881787
-      Precision = 2
-      LabelFont.Charset = DEFAULT_CHARSET
-      LabelFont.Color = clWindowText
-      LabelFont.Height = -12
-      LabelFont.Name = 'Segoe UI'
-      LabelFont.Style = []
-      Lookup.Font.Charset = DEFAULT_CHARSET
-      Lookup.Font.Color = clWindowText
-      Lookup.Font.Height = -11
-      Lookup.Font.Name = 'Segoe UI'
-      Lookup.Font.Style = []
-      Lookup.Separator = ';'
-      Color = clWindow
-      TabOrder = 2
-      Text = '0,00'
-      Visible = True
-      OnChange = txt_ValorUnitChange
-      OnExit = txt_ValorUnitExit
-      Version = '1.1.4.0'
-      CalculatorLook.Font.Charset = DEFAULT_CHARSET
-      CalculatorLook.Font.Color = clWindowText
-      CalculatorLook.Font.Height = -12
-      CalculatorLook.Font.Name = 'Segoe UI'
-      CalculatorLook.Font.Style = []
-    end
-    object txt_Desconto: TAdvMoneyEdit
-      Left = 463
-      Top = 27
-      Width = 121
-      Height = 23
-      EditType = etFloat
-      EmptyTextStyle = []
-      FlatLineColor = 11250603
-      FocusColor = clWindow
-      FocusFontColor = 3881787
-      Precision = 2
-      LabelFont.Charset = DEFAULT_CHARSET
-      LabelFont.Color = clWindowText
-      LabelFont.Height = -12
-      LabelFont.Name = 'Segoe UI'
-      LabelFont.Style = []
-      Lookup.Font.Charset = DEFAULT_CHARSET
-      Lookup.Font.Color = clWindowText
-      Lookup.Font.Height = -11
-      Lookup.Font.Name = 'Segoe UI'
-      Lookup.Font.Style = []
-      Lookup.Separator = ';'
-      Color = clWindow
-      TabOrder = 3
-      Text = '0,00'
-      Visible = True
-      OnChange = txt_DescontoChange
-      OnExit = txt_DescontoExit
-      Version = '1.1.4.0'
-      CalculatorLook.Font.Charset = DEFAULT_CHARSET
-      CalculatorLook.Font.Color = clWindowText
-      CalculatorLook.Font.Height = -12
-      CalculatorLook.Font.Name = 'Segoe UI'
-      CalculatorLook.Font.Style = []
-    end
-    object txt_SubTotal: TAdvMoneyEdit
-      Left = 599
-      Top = 27
-      Width = 121
-      Height = 23
-      EditType = etFloat
-      EmptyTextStyle = []
-      FlatLineColor = 11250603
-      FocusColor = clWindow
-      FocusFontColor = 3881787
-      Precision = 2
-      LabelFont.Charset = DEFAULT_CHARSET
-      LabelFont.Color = clWindowText
-      LabelFont.Height = -12
-      LabelFont.Name = 'Segoe UI'
-      LabelFont.Style = []
-      Lookup.Font.Charset = DEFAULT_CHARSET
-      Lookup.Font.Color = clWindowText
-      Lookup.Font.Height = -11
-      Lookup.Font.Name = 'Segoe UI'
-      Lookup.Font.Style = []
-      Lookup.Separator = ';'
-      Color = clWindow
-      ReadOnly = True
-      TabOrder = 4
-      Text = '0,00'
-      Visible = True
-      Version = '1.1.4.0'
-      CalculatorLook.Font.Charset = DEFAULT_CHARSET
-      CalculatorLook.Font.Color = clWindowText
-      CalculatorLook.Font.Height = -12
-      CalculatorLook.Font.Name = 'Segoe UI'
-      CalculatorLook.Font.Style = []
-    end
     object DBGrid1: TDBGrid
       Left = 1
       Top = 52
@@ -458,7 +210,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Height = 354
       Align = alBottom
       DataSource = ds_vendasItem
-      TabOrder = 5
+      TabOrder = 1
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -12
@@ -508,47 +260,13 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
           Visible = True
         end>
     end
-    object txt_Total: TAdvMoneyEdit
-      Left = 760
-      Top = 27
-      Width = 121
-      Height = 23
-      EditType = etFloat
-      EmptyTextStyle = []
-      FlatLineColor = 11250603
-      FocusColor = clWindow
-      FocusFontColor = 3881787
-      Precision = 2
-      LabelFont.Charset = DEFAULT_CHARSET
-      LabelFont.Color = clWindowText
-      LabelFont.Height = -12
-      LabelFont.Name = 'Segoe UI'
-      LabelFont.Style = []
-      Lookup.Font.Charset = DEFAULT_CHARSET
-      Lookup.Font.Color = clWindowText
-      Lookup.Font.Height = -11
-      Lookup.Font.Name = 'Segoe UI'
-      Lookup.Font.Style = []
-      Lookup.Separator = ';'
-      Color = clWindow
-      ReadOnly = True
-      TabOrder = 6
-      Text = '0,00'
-      Visible = True
-      Version = '1.1.4.0'
-      CalculatorLook.Font.Charset = DEFAULT_CHARSET
-      CalculatorLook.Font.Color = clWindowText
-      CalculatorLook.Font.Height = -12
-      CalculatorLook.Font.Name = 'Segoe UI'
-      CalculatorLook.Font.Style = []
-    end
     object btn_InserirItem: TButton
       Left = 887
       Top = 26
       Width = 75
       Height = 25
       Caption = 'Inserir Item'
-      TabOrder = 7
+      TabOrder = 2
       OnClick = btn_InserirItemClick
     end
     object btn_ExcluirItem: TButton
@@ -557,7 +275,7 @@ inherited frm_CadastroVendas: Tfrm_CadastroVendas
       Width = 75
       Height = 25
       Caption = 'Excluir Item'
-      TabOrder = 8
+      TabOrder = 3
       OnClick = btn_ExcluirItemClick
     end
   end
