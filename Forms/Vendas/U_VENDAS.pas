@@ -9,7 +9,7 @@ uses
   Vcl.Samples.Spin, JPEG, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client, Vcl.Buttons;
 
 
 type
@@ -46,7 +46,6 @@ type
     ckb_ColetaQTD: TCheckBox;
     txt_ControleVenda: TDBEdit;
     txt_Qtd: TEdit;
-    SpinEdit2: TSpinEdit;
     Fdqry_Func: TFDQuery;
     Fdqry_FuncNOME: TStringField;
     Fdqry_FuncLOGIN: TStringField;
@@ -61,11 +60,12 @@ type
     txt_Subtotal: TEdit;
     txt_Desconto: TEdit;
     txt_TotalVenda: TEdit;
-    ScrollBox1: TScrollBox;
-    Label11: TLabel;
     Label13: TLabel;
     Label10: TLabel;
     Label12: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
     procedure FormShow(Sender: TObject);
     procedure txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
     procedure ckb_ColetaQTDClick(Sender: TObject);

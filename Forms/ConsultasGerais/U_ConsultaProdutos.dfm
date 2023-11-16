@@ -12,7 +12,7 @@ inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
   inherited Panel1: TPanel
     Width = 867
     Height = 65
-    ExplicitWidth = 120
+    ExplicitWidth = 867
     ExplicitHeight = 65
     inherited txt_consultar: TEdit
       Left = 119
@@ -47,7 +47,6 @@ inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitLeft = -11
       object btn_sair: TButton
         Left = 32
         Top = 13
@@ -100,6 +99,52 @@ inherited frm_ConsultaProdutos: Tfrm_ConsultaProdutos
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'CODIGO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DESCRICAO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'UNIDADE'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PESO_LIQUIDO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PESO_BRUTO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'QTD'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CUSTO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VALOR_UNITARIO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'FORNECEDOR'
+        Visible = True
+      end>
   end
   inherited FD_qryConsultas: TFDQuery
     SQL.Strings = (
