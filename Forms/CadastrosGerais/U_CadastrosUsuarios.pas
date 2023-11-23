@@ -25,6 +25,7 @@ type
     Label4: TLabel;
     DB_controle: TDBEdit;
     fd_QueryCadastroDT_EXCLUIDO: TDateField;
+    fd_QueryCadastroCARGO: TStringField;
     procedure fd_QueryCadastroBeforePost(DataSet: TDataSet);
     procedure btn_gravarClick(Sender: TObject);
   private

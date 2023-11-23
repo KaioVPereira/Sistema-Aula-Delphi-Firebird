@@ -66,6 +66,7 @@ type
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
+    Panel4: TPanel;
     procedure FormShow(Sender: TObject);
     procedure txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
     procedure ckb_ColetaQTDClick(Sender: TObject);

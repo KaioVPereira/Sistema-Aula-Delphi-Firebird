@@ -478,7 +478,6 @@ object Frm_NewInicial: TFrm_NewInicial
     ParentBackground = False
     TabOrder = 2
     Visible = False
-    ExplicitTop = 0
     object btn_CadProdutos: TSpeedButton
       Left = 1
       Top = 321
@@ -1109,7 +1108,6 @@ object Frm_NewInicial: TFrm_NewInicial
     ParentBackground = False
     TabOrder = 3
     Visible = False
-    ExplicitTop = 0
     object btn_ConsProdutos: TSpeedButton
       Left = 1
       Top = 321
@@ -1738,9 +1736,5 @@ object Frm_NewInicial: TFrm_NewInicial
     TabOrder = 4
     Visible = False
     OnClick = Pn_FundoClick
-    ExplicitLeft = 0
-    ExplicitTop = 0
-    ExplicitWidth = 963
-    ExplicitHeight = 569
   end
 end

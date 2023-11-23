@@ -136,7 +136,7 @@ end;
 
 procedure TFrm_NewInicial.btn_CadUsuariosClick(Sender: TObject);
 begin
-  AbreFormShowModal(Tfrm_CadastroProdutos, frm_CadastroProdutos);
+  AbreFormShowModal(Tfrm_CadastrosUsuarios, frm_CadastrosUsuarios);
 end;
 
 end.

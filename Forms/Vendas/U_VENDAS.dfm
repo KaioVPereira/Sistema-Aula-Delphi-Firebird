@@ -2,10 +2,10 @@ object Frm_PDV2: TFrm_PDV2
   Left = 0
   Top = 0
   HorzScrollBar.Tracking = True
-  BorderStyle = bsNone
+  BorderIcons = [biMaximize]
   Caption = 'Vendas'
-  ClientHeight = 761
-  ClientWidth = 1821
+  ClientHeight = 722
+  ClientWidth = 1805
   Color = clActiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,24 +19,24 @@ object Frm_PDV2: TFrm_PDV2
   PixelsPerInch = 96
   TextHeight = 15
   object pn_Direita: TPanel
-    Left = 1349
-    Top = 110
+    Left = 1333
+    Top = 43
     Width = 472
-    Height = 651
+    Height = 679
     Align = alRight
     Anchors = []
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 1334
-    ExplicitTop = 123
-    ExplicitHeight = 655
+    ExplicitLeft = 1349
+    ExplicitTop = 110
+    ExplicitHeight = 651
     DesignSize = (
       472
-      651)
+      679)
     object Label13: TLabel
       Left = 143
-      Top = 183
+      Top = 192
       Width = 220
       Height = 54
       Anchors = []
@@ -51,7 +51,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label10: TLabel
       Left = 142
-      Top = 43
+      Top = 46
       Width = 227
       Height = 54
       Anchors = []
@@ -66,7 +66,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label12: TLabel
       Left = 182
-      Top = 330
+      Top = 345
       Width = 130
       Height = 54
       Anchors = []
@@ -79,30 +79,6 @@ object Frm_PDV2: TFrm_PDV2
       ParentFont = False
       ExplicitTop = 317
     end
-    object SpeedButton1: TSpeedButton
-      Left = 48
-      Top = 565
-      Width = 129
-      Height = 62
-      Anchors = []
-      ExplicitTop = 544
-    end
-    object SpeedButton2: TSpeedButton
-      Left = 193
-      Top = 564
-      Width = 128
-      Height = 62
-      Anchors = []
-      ExplicitTop = 543
-    end
-    object SpeedButton3: TSpeedButton
-      Left = 335
-      Top = 565
-      Width = 122
-      Height = 62
-      Anchors = []
-      ExplicitTop = 544
-    end
     object Panel3: TPanel
       Left = 1
       Top = 1
@@ -113,12 +89,10 @@ object Frm_PDV2: TFrm_PDV2
       Color = clActiveCaption
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitWidth = 468
     end
     object txt_Subtotal: TEdit
       Left = 57
-      Top = 106
+      Top = 112
       Width = 393
       Height = 75
       Anchors = []
@@ -133,11 +107,11 @@ object Frm_PDV2: TFrm_PDV2
       OnChange = txt_referenciaChange
       OnExit = txt_referenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
-      ExplicitTop = 101
+      ExplicitTop = 106
     end
     object txt_TotalVenda: TEdit
       Left = 57
-      Top = 392
+      Top = 410
       Width = 393
       Height = 75
       Anchors = []
@@ -152,11 +126,11 @@ object Frm_PDV2: TFrm_PDV2
       OnChange = txt_referenciaChange
       OnExit = txt_referenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
-      ExplicitTop = 377
+      ExplicitTop = 392
     end
     object txt_Desconto: TEdit
       Left = 57
-      Top = 246
+      Top = 258
       Width = 393
       Height = 75
       Anchors = []
@@ -171,26 +145,59 @@ object Frm_PDV2: TFrm_PDV2
       OnChange = txt_referenciaChange
       OnExit = txt_referenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
-      ExplicitTop = 236
+      ExplicitTop = 246
+    end
+    object Panel4: TPanel
+      Left = 1
+      Top = 604
+      Width = 470
+      Height = 74
+      Align = alBottom
+      TabOrder = 4
+      ExplicitTop = 576
+      object SpeedButton1: TSpeedButton
+        Left = 1
+        Top = 1
+        Width = 155
+        Height = 72
+        Align = alLeft
+      end
+      object SpeedButton2: TSpeedButton
+        Left = 156
+        Top = 1
+        Width = 158
+        Height = 72
+        Align = alClient
+        ExplicitLeft = 152
+        ExplicitWidth = 165
+      end
+      object SpeedButton3: TSpeedButton
+        Left = 314
+        Top = 1
+        Width = 155
+        Height = 72
+        Align = alRight
+        ExplicitLeft = 319
+      end
     end
   end
   object pn_GridItens: TPanel
     Left = 0
-    Top = 110
-    Width = 749
-    Height = 651
+    Top = 43
+    Width = 733
+    Height = 679
     Align = alClient
     AutoSize = True
     Caption = 'pn_GridItens'
     TabOrder = 1
-    ExplicitTop = 115
-    ExplicitWidth = 733
-    ExplicitHeight = 628
+    ExplicitTop = 110
+    ExplicitWidth = 749
+    ExplicitHeight = 651
     object DBG_VendasItens: TDBGrid
       Left = 1
       Top = 42
-      Width = 747
-      Height = 608
+      Width = 731
+      Height = 636
       Align = alClient
       DataSource = dm_Dados.DS_VendasItens
       TabOrder = 0
@@ -208,11 +215,13 @@ object Frm_PDV2: TFrm_PDV2
         item
           Expanded = False
           FieldName = 'REFERENCIA'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'VALOR_UNITARIO'
+          Width = 64
           Visible = True
         end
         item
@@ -223,6 +232,7 @@ object Frm_PDV2: TFrm_PDV2
         item
           Expanded = False
           FieldName = 'DESCONTO'
+          Width = 64
           Visible = True
         end
         item
@@ -233,6 +243,7 @@ object Frm_PDV2: TFrm_PDV2
         item
           Expanded = False
           FieldName = 'VALOR_TOTAL'
+          Width = 64
           Visible = True
         end
         item
@@ -244,50 +255,49 @@ object Frm_PDV2: TFrm_PDV2
     object Panel1: TPanel
       Left = 1
       Top = 1
-      Width = 747
+      Width = 731
       Height = 41
       Align = alTop
       Caption = 'PRODUTOS'
       TabOrder = 1
-      ExplicitWidth = 1344
+      ExplicitWidth = 747
     end
   end
   object pn_Header: TPanel
     Left = 0
     Top = 0
-    Width = 1821
-    Height = 110
+    Width = 1805
+    Height = 43
     Align = alTop
     AutoSize = True
     TabOrder = 2
-    ExplicitWidth = 1805
     DesignSize = (
-      1821
-      110)
+      1805
+      43)
     object Label7: TLabel
       Left = 16
-      Top = 1
+      Top = 2
       Width = 37
       Height = 15
       Caption = 'CAIXA:'
     end
     object Label8: TLabel
-      Left = 16
-      Top = 69
+      Left = 354
+      Top = 2
       Width = 63
       Height = 15
       Caption = 'VENDEDOR:'
     end
     object Label9: TLabel
-      Left = 296
-      Top = 65
+      Left = 195
+      Top = 2
       Width = 51
       Height = 15
       Caption = 'GERENTE:'
     end
     object txt_ControleVenda: TDBEdit
-      Left = 1408
-      Top = 22
+      Left = 1395
+      Top = 1
       Width = 56
       Height = 23
       Anchors = []
@@ -297,7 +307,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object DBLookupComboBox1: TDBLookupComboBox
       Left = 16
-      Top = 22
+      Top = 18
       Width = 145
       Height = 23
       DataField = 'CONTROLE_FUNC'
@@ -309,39 +319,39 @@ object Frm_PDV2: TFrm_PDV2
       OnEnter = DBLookupComboBox1Enter
     end
     object DBLookupComboBox2: TDBLookupComboBox
-      Left = 16
-      Top = 86
+      Left = 346
+      Top = 19
       Width = 145
       Height = 23
       TabOrder = 2
     end
     object DBLookupComboBox3: TDBLookupComboBox
-      Left = 296
-      Top = 86
+      Left = 195
+      Top = 18
       Width = 113
       Height = 23
       TabOrder = 3
     end
   end
   object pn_Meio: TPanel
-    Left = 749
-    Top = 110
+    Left = 733
+    Top = 43
     Width = 600
-    Height = 651
+    Height = 679
     Align = alRight
     AutoSize = True
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 3
-    ExplicitLeft = 739
-    ExplicitTop = 123
-    ExplicitHeight = 655
+    ExplicitLeft = 749
+    ExplicitTop = 110
+    ExplicitHeight = 651
     DesignSize = (
       600
-      651)
+      679)
     object Label1: TLabel
       Left = 6
-      Top = 67
+      Top = 70
       Width = 145
       Height = 15
       Anchors = []
@@ -350,7 +360,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label2: TLabel
       Left = 5
-      Top = 181
+      Top = 189
       Width = 142
       Height = 15
       Anchors = []
@@ -359,7 +369,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label3: TLabel
       Left = 6
-      Top = 255
+      Top = 266
       Width = 121
       Height = 15
       Anchors = []
@@ -368,7 +378,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label4: TLabel
       Left = 6
-      Top = 345
+      Top = 360
       Width = 52
       Height = 15
       Anchors = []
@@ -377,7 +387,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label5: TLabel
       Left = 5
-      Top = 484
+      Top = 505
       Width = 94
       Height = 15
       Anchors = []
@@ -386,7 +396,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label6: TLabel
       Left = 6
-      Top = 559
+      Top = 583
       Width = 74
       Height = 15
       Anchors = []
@@ -395,7 +405,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Image1: TImage
       Left = 312
-      Top = 371
+      Top = 392
       Width = 257
       Height = 247
       Anchors = []
@@ -405,7 +415,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object TLabel
       Left = 5
-      Top = 415
+      Top = 433
       Width = 76
       Height = 15
       Anchors = []
@@ -422,12 +432,10 @@ object Frm_PDV2: TFrm_PDV2
       Color = clActiveCaption
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = -3
-      ExplicitTop = -5
     end
     object txt_DescProd: TEdit
       Left = 6
-      Top = 203
+      Top = 213
       Width = 588
       Height = 40
       Anchors = []
@@ -439,11 +447,11 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitTop = 195
+      ExplicitTop = 203
     end
     object txt_Codigo: TEdit
       Left = 6
-      Top = 277
+      Top = 290
       Width = 589
       Height = 36
       Anchors = []
@@ -455,11 +463,11 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 2
-      ExplicitTop = 267
+      ExplicitTop = 277
     end
     object txt_Estoque: TEdit
       Left = 6
-      Top = 368
+      Top = 385
       Width = 260
       Height = 36
       Anchors = []
@@ -471,11 +479,11 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 3
-      ExplicitTop = 354
+      ExplicitTop = 368
     end
     object txt_ValorUnitario: TEdit
       Left = 6
-      Top = 507
+      Top = 530
       Width = 260
       Height = 36
       Anchors = []
@@ -488,11 +496,11 @@ object Frm_PDV2: TFrm_PDV2
       NumbersOnly = True
       ParentFont = False
       TabOrder = 4
-      ExplicitTop = 488
+      ExplicitTop = 507
     end
     object txt_ItemTotal: TEdit
       Left = 6
-      Top = 581
+      Top = 607
       Width = 260
       Height = 36
       Anchors = []
@@ -504,22 +512,22 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 5
-      ExplicitTop = 560
+      ExplicitTop = 581
     end
     object ckb_ColetaQTD: TCheckBox
       Left = 112
-      Top = 437
+      Top = 457
       Width = 169
       Height = 38
       Anchors = []
       Caption = 'COLETAR QUANTIDADE'
       TabOrder = 7
       OnClick = ckb_ColetaQTDClick
-      ExplicitTop = 421
+      ExplicitTop = 437
     end
     object txt_Qtd: TEdit
       Left = 6
-      Top = 437
+      Top = 457
       Width = 51
       Height = 36
       Anchors = []
@@ -535,11 +543,11 @@ object Frm_PDV2: TFrm_PDV2
       Text = '1'
       OnChange = txt_QtdChange
       OnKeyPress = txt_QtdKeyPress
-      ExplicitTop = 421
+      ExplicitTop = 437
     end
     object txt_referencia: TEdit
       Left = 6
-      Top = 89
+      Top = 94
       Width = 588
       Height = 75
       Anchors = []
@@ -553,7 +561,7 @@ object Frm_PDV2: TFrm_PDV2
       OnChange = txt_referenciaChange
       OnExit = txt_referenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
-      ExplicitTop = 85
+      ExplicitTop = 89
     end
   end
   object Fdqry_Func: TFDQuery

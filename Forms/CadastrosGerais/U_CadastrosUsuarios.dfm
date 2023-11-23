@@ -1,7 +1,8 @@
 inherited frm_CadastrosUsuarios: Tfrm_CadastrosUsuarios
   Caption = 'frm_CadastrosUsuarios'
   ClientHeight = 246
-  ExplicitHeight = 284
+  ExplicitHeight = 275
+  PixelsPerInch = 96
   TextHeight = 15
   object Label1: TLabel [0]
     Left = 8
@@ -110,6 +111,12 @@ inherited frm_CadastrosUsuarios: Tfrm_CadastrosUsuarios
     object fd_QueryCadastroDT_EXCLUIDO: TDateField
       FieldName = 'DT_EXCLUIDO'
       Origin = 'DT_EXCLUIDO'
+    end
+    object fd_QueryCadastroCARGO: TStringField
+      FieldName = 'CARGO'
+      Origin = 'CARGO'
+      FixedChar = True
+      Size = 2
     end
   end
   inherited fd_UpdCadastros: TFDUpdateSQL

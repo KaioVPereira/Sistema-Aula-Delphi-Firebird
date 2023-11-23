@@ -3,8 +3,8 @@ object Frm_login: TFrm_login
   Top = 0
   BorderStyle = bsNone
   Caption = 'Login'
-  ClientHeight = 198
-  ClientWidth = 327
+  ClientHeight = 213
+  ClientWidth = 333
   Color = clBtnHighlight
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,7 +12,7 @@ object Frm_login: TFrm_login
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = True
-  Position = poDefaultSizeOnly
+  Position = poMainFormCenter
   OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
@@ -150,13 +150,14 @@ object Frm_login: TFrm_login
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 327
+    Width = 333
     Height = 33
     Align = alTop
     Caption = 'TELA DE LOGIN'
     Color = clInactiveCaption
     ParentBackground = False
     TabOrder = 4
+    ExplicitWidth = 327
   end
   object fd_QueryLogin: TFDQuery
     Connection = dm_Dados.fd_Connection
