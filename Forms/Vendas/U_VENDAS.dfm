@@ -20,23 +20,22 @@ object Frm_PDV2: TFrm_PDV2
   TextHeight = 15
   object pn_Direita: TPanel
     Left = 1333
-    Top = 43
+    Top = 50
     Width = 472
-    Height = 679
+    Height = 672
     Align = alRight
     Anchors = []
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 1349
-    ExplicitTop = 110
-    ExplicitHeight = 651
+    ExplicitTop = 43
+    ExplicitHeight = 679
     DesignSize = (
       472
-      679)
+      672)
     object Label13: TLabel
       Left = 143
-      Top = 192
+      Top = 190
       Width = 220
       Height = 54
       Anchors = []
@@ -51,7 +50,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label10: TLabel
       Left = 142
-      Top = 46
+      Top = 45
       Width = 227
       Height = 54
       Anchors = []
@@ -66,7 +65,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label12: TLabel
       Left = 182
-      Top = 345
+      Top = 341
       Width = 130
       Height = 54
       Anchors = []
@@ -92,7 +91,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_Subtotal: TEdit
       Left = 57
-      Top = 112
+      Top = 110
       Width = 393
       Height = 75
       Anchors = []
@@ -107,11 +106,11 @@ object Frm_PDV2: TFrm_PDV2
       OnChange = txt_referenciaChange
       OnExit = txt_referenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
-      ExplicitTop = 106
+      ExplicitTop = 112
     end
     object txt_TotalVenda: TEdit
       Left = 57
-      Top = 410
+      Top = 405
       Width = 393
       Height = 75
       Anchors = []
@@ -126,11 +125,11 @@ object Frm_PDV2: TFrm_PDV2
       OnChange = txt_referenciaChange
       OnExit = txt_referenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
-      ExplicitTop = 392
+      ExplicitTop = 410
     end
     object txt_Desconto: TEdit
       Left = 57
-      Top = 258
+      Top = 255
       Width = 393
       Height = 75
       Anchors = []
@@ -145,59 +144,63 @@ object Frm_PDV2: TFrm_PDV2
       OnChange = txt_referenciaChange
       OnExit = txt_referenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
-      ExplicitTop = 246
+      ExplicitTop = 258
     end
     object Panel4: TPanel
       Left = 1
-      Top = 604
+      Top = 597
       Width = 470
       Height = 74
       Align = alBottom
       TabOrder = 4
-      ExplicitTop = 576
-      object SpeedButton1: TSpeedButton
+      ExplicitTop = 604
+      object btn_CancelaVenda: TSpeedButton
         Left = 1
         Top = 1
         Width = 155
         Height = 72
         Align = alLeft
+        Caption = 'Cancelar'
       end
-      object SpeedButton2: TSpeedButton
+      object btn_Pagamento: TSpeedButton
         Left = 156
         Top = 1
         Width = 158
         Height = 72
         Align = alClient
+        Caption = 'Pagamentos'
         ExplicitLeft = 152
         ExplicitWidth = 165
       end
-      object SpeedButton3: TSpeedButton
+      object btn_FinalizaVenda: TSpeedButton
         Left = 314
         Top = 1
         Width = 155
         Height = 72
         Align = alRight
-        ExplicitLeft = 319
+        Caption = 'Fanalizar'
+        OnClick = btn_FinalizaVendaClick
+        ExplicitLeft = 320
       end
     end
   end
   object pn_GridItens: TPanel
     Left = 0
-    Top = 43
+    Top = 50
     Width = 733
-    Height = 679
+    Height = 672
     Align = alClient
     AutoSize = True
     Caption = 'pn_GridItens'
     TabOrder = 1
-    ExplicitTop = 110
-    ExplicitWidth = 749
-    ExplicitHeight = 651
+    ExplicitLeft = -1
+    ExplicitTop = 71
+    ExplicitHeight = 679
     object DBG_VendasItens: TDBGrid
       Left = 1
       Top = 42
       Width = 731
-      Height = 636
+      Height = 629
       Align = alClient
       DataSource = dm_Dados.DS_VendasItens
       TabOrder = 0
@@ -260,54 +263,62 @@ object Frm_PDV2: TFrm_PDV2
       Align = alTop
       Caption = 'PRODUTOS'
       TabOrder = 1
-      ExplicitWidth = 747
     end
   end
   object pn_Header: TPanel
     Left = 0
     Top = 0
     Width = 1805
-    Height = 43
+    Height = 50
     Align = alTop
     AutoSize = True
     TabOrder = 2
     DesignSize = (
       1805
-      43)
+      50)
     object Label7: TLabel
-      Left = 16
-      Top = 2
+      Left = 136
+      Top = 5
       Width = 37
       Height = 15
       Caption = 'CAIXA:'
     end
     object Label8: TLabel
-      Left = 354
-      Top = 2
+      Left = 466
+      Top = 5
       Width = 63
       Height = 15
       Caption = 'VENDEDOR:'
     end
     object Label9: TLabel
-      Left = 195
-      Top = 2
+      Left = 315
+      Top = 5
       Width = 51
       Height = 15
       Caption = 'GERENTE:'
     end
+    object btn_NovaVenda: TSpeedButton
+      Left = 0
+      Top = 1
+      Width = 89
+      Height = 48
+      Caption = 'Nova Venda'
+      OnClick = btn_NovaVendaClick
+    end
     object txt_ControleVenda: TDBEdit
       Left = 1395
-      Top = 1
+      Top = 5
       Width = 56
       Height = 23
       Anchors = []
       DataField = 'CONTROLE_VENDA'
       DataSource = dm_Dados.DS_Vendas
       TabOrder = 0
+      ExplicitTop = 4
     end
-    object DBLookupComboBox1: TDBLookupComboBox
-      Left = 16
-      Top = 18
+    object Lkup_Caixa: TDBLookupComboBox
+      Left = 136
+      Top = 25
       Width = 145
       Height = 23
       DataField = 'CONTROLE_FUNC'
@@ -316,18 +327,18 @@ object Frm_PDV2: TFrm_PDV2
       ListField = 'NOME'
       ListSource = DS_Func
       TabOrder = 1
-      OnEnter = DBLookupComboBox1Enter
+      OnEnter = Lkup_CaixaEnter
     end
-    object DBLookupComboBox2: TDBLookupComboBox
-      Left = 346
-      Top = 19
+    object Lkup_Vendedor: TDBLookupComboBox
+      Left = 466
+      Top = 23
       Width = 145
       Height = 23
       TabOrder = 2
     end
-    object DBLookupComboBox3: TDBLookupComboBox
-      Left = 195
-      Top = 18
+    object Lkup_Gerente: TDBLookupComboBox
+      Left = 315
+      Top = 24
       Width = 113
       Height = 23
       TabOrder = 3
@@ -335,23 +346,22 @@ object Frm_PDV2: TFrm_PDV2
   end
   object pn_Meio: TPanel
     Left = 733
-    Top = 43
+    Top = 50
     Width = 600
-    Height = 679
+    Height = 672
     Align = alRight
     AutoSize = True
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 3
-    ExplicitLeft = 749
-    ExplicitTop = 110
-    ExplicitHeight = 651
+    ExplicitTop = 43
+    ExplicitHeight = 679
     DesignSize = (
       600
-      679)
+      672)
     object Label1: TLabel
       Left = 6
-      Top = 70
+      Top = 69
       Width = 145
       Height = 15
       Anchors = []
@@ -360,7 +370,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label2: TLabel
       Left = 5
-      Top = 189
+      Top = 187
       Width = 142
       Height = 15
       Anchors = []
@@ -369,7 +379,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label3: TLabel
       Left = 6
-      Top = 266
+      Top = 263
       Width = 121
       Height = 15
       Anchors = []
@@ -378,7 +388,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label4: TLabel
       Left = 6
-      Top = 360
+      Top = 356
       Width = 52
       Height = 15
       Anchors = []
@@ -387,7 +397,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label5: TLabel
       Left = 5
-      Top = 505
+      Top = 500
       Width = 94
       Height = 15
       Anchors = []
@@ -396,7 +406,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label6: TLabel
       Left = 6
-      Top = 583
+      Top = 577
       Width = 74
       Height = 15
       Anchors = []
@@ -405,7 +415,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Image1: TImage
       Left = 312
-      Top = 392
+      Top = 387
       Width = 257
       Height = 247
       Anchors = []
@@ -415,7 +425,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object TLabel
       Left = 5
-      Top = 433
+      Top = 428
       Width = 76
       Height = 15
       Anchors = []
@@ -435,7 +445,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_DescProd: TEdit
       Left = 6
-      Top = 213
+      Top = 211
       Width = 588
       Height = 40
       Anchors = []
@@ -447,11 +457,11 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitTop = 203
+      ExplicitTop = 213
     end
     object txt_Codigo: TEdit
       Left = 6
-      Top = 290
+      Top = 287
       Width = 589
       Height = 36
       Anchors = []
@@ -463,11 +473,11 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 2
-      ExplicitTop = 277
+      ExplicitTop = 290
     end
     object txt_Estoque: TEdit
       Left = 6
-      Top = 385
+      Top = 381
       Width = 260
       Height = 36
       Anchors = []
@@ -479,11 +489,11 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 3
-      ExplicitTop = 368
+      ExplicitTop = 385
     end
     object txt_ValorUnitario: TEdit
       Left = 6
-      Top = 530
+      Top = 524
       Width = 260
       Height = 36
       Anchors = []
@@ -496,11 +506,11 @@ object Frm_PDV2: TFrm_PDV2
       NumbersOnly = True
       ParentFont = False
       TabOrder = 4
-      ExplicitTop = 507
+      ExplicitTop = 530
     end
     object txt_ItemTotal: TEdit
       Left = 6
-      Top = 607
+      Top = 601
       Width = 260
       Height = 36
       Anchors = []
@@ -512,22 +522,22 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 5
-      ExplicitTop = 581
+      ExplicitTop = 607
     end
     object ckb_ColetaQTD: TCheckBox
       Left = 112
-      Top = 457
+      Top = 452
       Width = 169
       Height = 38
       Anchors = []
       Caption = 'COLETAR QUANTIDADE'
       TabOrder = 7
       OnClick = ckb_ColetaQTDClick
-      ExplicitTop = 437
+      ExplicitTop = 457
     end
     object txt_Qtd: TEdit
       Left = 6
-      Top = 457
+      Top = 452
       Width = 51
       Height = 36
       Anchors = []
@@ -543,11 +553,11 @@ object Frm_PDV2: TFrm_PDV2
       Text = '1'
       OnChange = txt_QtdChange
       OnKeyPress = txt_QtdKeyPress
-      ExplicitTop = 437
+      ExplicitTop = 457
     end
     object txt_referencia: TEdit
       Left = 6
-      Top = 94
+      Top = 90
       Width = 588
       Height = 75
       Anchors = []
@@ -561,7 +571,6 @@ object Frm_PDV2: TFrm_PDV2
       OnChange = txt_referenciaChange
       OnExit = txt_referenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
-      ExplicitTop = 89
     end
   end
   object Fdqry_Func: TFDQuery
