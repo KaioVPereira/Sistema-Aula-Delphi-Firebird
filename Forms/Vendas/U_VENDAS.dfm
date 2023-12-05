@@ -28,8 +28,6 @@ object Frm_PDV2: TFrm_PDV2
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 43
-    ExplicitHeight = 679
     DesignSize = (
       472
       672)
@@ -106,7 +104,6 @@ object Frm_PDV2: TFrm_PDV2
       OnChange = txt_referenciaChange
       OnExit = txt_referenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
-      ExplicitTop = 112
     end
     object txt_TotalVenda: TEdit
       Left = 57
@@ -125,11 +122,10 @@ object Frm_PDV2: TFrm_PDV2
       OnChange = txt_referenciaChange
       OnExit = txt_referenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
-      ExplicitTop = 410
     end
     object txt_Desconto: TEdit
       Left = 57
-      Top = 255
+      Top = 260
       Width = 393
       Height = 75
       Anchors = []
@@ -140,11 +136,8 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 3
-      Text = '0,0'
-      OnChange = txt_referenciaChange
-      OnExit = txt_referenciaExit
-      OnKeyPress = txt_ReferenciaKeyPress
-      ExplicitTop = 258
+      OnChange = txt_DescontoChange
+      OnKeyPress = txt_DescontoKeyPress
     end
     object Panel4: TPanel
       Left = 1
@@ -153,7 +146,6 @@ object Frm_PDV2: TFrm_PDV2
       Height = 74
       Align = alBottom
       TabOrder = 4
-      ExplicitTop = 604
       object btn_CancelaVenda: TSpeedButton
         Left = 1
         Top = 1
@@ -193,9 +185,6 @@ object Frm_PDV2: TFrm_PDV2
     AutoSize = True
     Caption = 'pn_GridItens'
     TabOrder = 1
-    ExplicitLeft = -1
-    ExplicitTop = 71
-    ExplicitHeight = 679
     object DBG_VendasItens: TDBGrid
       Left = 1
       Top = 42
@@ -314,7 +303,6 @@ object Frm_PDV2: TFrm_PDV2
       DataField = 'CONTROLE_VENDA'
       DataSource = dm_Dados.DS_Vendas
       TabOrder = 0
-      ExplicitTop = 4
     end
     object Lkup_Caixa: TDBLookupComboBox
       Left = 136
@@ -354,8 +342,6 @@ object Frm_PDV2: TFrm_PDV2
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 3
-    ExplicitTop = 43
-    ExplicitHeight = 679
     DesignSize = (
       600
       672)
@@ -457,7 +443,6 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitTop = 213
     end
     object txt_Codigo: TEdit
       Left = 6
@@ -473,7 +458,6 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 2
-      ExplicitTop = 290
     end
     object txt_Estoque: TEdit
       Left = 6
@@ -489,7 +473,6 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 3
-      ExplicitTop = 385
     end
     object txt_ValorUnitario: TEdit
       Left = 6
@@ -506,7 +489,6 @@ object Frm_PDV2: TFrm_PDV2
       NumbersOnly = True
       ParentFont = False
       TabOrder = 4
-      ExplicitTop = 530
     end
     object txt_ItemTotal: TEdit
       Left = 6
@@ -522,7 +504,6 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 5
-      ExplicitTop = 607
     end
     object ckb_ColetaQTD: TCheckBox
       Left = 112
@@ -533,7 +514,6 @@ object Frm_PDV2: TFrm_PDV2
       Caption = 'COLETAR QUANTIDADE'
       TabOrder = 7
       OnClick = ckb_ColetaQTDClick
-      ExplicitTop = 457
     end
     object txt_Qtd: TEdit
       Left = 6
@@ -553,7 +533,6 @@ object Frm_PDV2: TFrm_PDV2
       Text = '1'
       OnChange = txt_QtdChange
       OnKeyPress = txt_QtdKeyPress
-      ExplicitTop = 457
     end
     object txt_referencia: TEdit
       Left = 6

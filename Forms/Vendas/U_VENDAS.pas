@@ -78,6 +78,8 @@ type
     procedure txt_referenciaChange(Sender: TObject);
     procedure btn_NovaVendaClick(Sender: TObject);
     procedure btn_FinalizaVendaClick(Sender: TObject);
+    procedure txt_DescontoChange(Sender: TObject);
+    procedure txt_DescontoKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     Procedure Limpar;
@@ -165,9 +167,16 @@ end;
 
 procedure TFrm_PDV2.CalculaTotalVenda;
 begin
+  if txt_Desconto.Text <> '' then
+  begin
   TotalVenda := StrtoFloat(txt_Subtotal.Text) - StrToFloat(txt_Desconto.Text);
   txt_TotalVenda.Text:=  FloatToStr(TotalVenda);
-end;
+  end
+  else
+  TotalVenda := StrtoFloat(txt_Subtotal.Text);
+  txt_TotalVenda.Text:=  FloatToStr(TotalVenda);
+  end;
+
 
 procedure TFrm_PDV2.ckb_ColetaQTDClick(Sender: TObject);
 begin
@@ -230,7 +239,15 @@ end;
 
 procedure TFrm_PDV2.Limpar;
 begin
-
+    txt_DescProd.Text       := '';
+    txt_Codigo.Text         := '';
+    txt_Estoque.Text        := '';
+    txt_ValorUnitario.Text  := '0';
+    txt_ItemTotal.Text      := '0';
+    txt_Qtd.Text            := '1';
+    txt_Subtotal.Text       := '';
+    txt_TotalVenda.Text     := '';
+    txt_Desconto.Text       := '';
 end;
 
 procedure TFrm_PDV2.LimparImagem;
@@ -250,7 +267,7 @@ begin
     txt_ValorUnitario.Text  := '0';
     txt_ItemTotal.Text      := '0';
     txt_Qtd.Text            := '1';
-    ckb_ColetaQTD.Enabled := True;  
+    ckb_ColetaQTD.Enabled := True;
 end;
 
 procedure TFrm_PDV2.PreencherGridIntens;
@@ -279,15 +296,26 @@ end;
 
 procedure TFrm_PDV2.btn_FinalizaVendaClick(Sender: TObject);
 begin
-   if (dm_Dados.FDQry_VendasItens.State in [dsEdit, dsInsert]) and (dm_Dados.FDQry_VendasQuery.State in [dsEdit, dsInsert])  then
+  try
+    dm_Dados.FDQry_VendasQuery.Insert;
+    dm_Dados.FDQry_VendasItens.Insert;
+
+    if MsgPerguntar('Tem certeza?') then
     begin
-      if MsgPerguntar('Tem certeza?') then
-        begin
-          //fd_transaction.StartTransaction;
-          dm_Dados.FDQry_VendasItens.Post;
-          dm_Dados.FDQry_VendasQuery.Post;
-        end;
+    dm_Dados.FDQry_VendasItens.Post;
+    dm_Dados.FDQry_VendasQuery.Post;
+    dm_Dados.FDQry_VendasQuery.Close;
+    dm_Dados.FDQry_VendasItens.Close;
     end;
+
+  finally
+
+   MsgInformacao('Venda Finalizada com sucesso');
+   VendaAtiva('N');
+   Limpar;
+
+  end;
+
 end;
 
 procedure TFrm_PDV2.btn_NovaVendaClick(Sender: TObject);
@@ -304,6 +332,19 @@ begin
   btn_NovaVenda.Enabled := false;
   VendaAtiva('S');
 
+end;
+
+procedure TFrm_PDV2.txt_DescontoChange(Sender: TObject);
+begin
+  CalculaTotalVenda;
+end;
+
+procedure TFrm_PDV2.txt_DescontoKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    CalculaTotalItem;
+  end;
 end;
 
 procedure TFrm_PDV2.txt_QtdChange(Sender: TObject);
@@ -380,7 +421,7 @@ end;
 
 procedure TFrm_PDV2.txt_ReferenciaKeyPress(Sender: TObject; var Key: Char);
 begin
-  if Key = #13 then
+   if Key = #13 then
   begin
     if txt_Qtd.Enabled then
     begin
@@ -424,12 +465,12 @@ begin
     btn_CancelaVenda.Enabled := false;
     btn_Pagamento.Enabled := false;
     btn_FinalizaVenda.Enabled:= false;
+    btn_NovaVenda.Enabled:= true;
 
   end
 Else if Ativo = 'S' then
   begin
     txt_referencia.Enabled := True;
-    txt_Qtd.Enabled:= True;
     txt_Desconto.Enabled := True;
     Lkup_Caixa.Enabled := True;
     Lkup_Gerente.Enabled := True;
@@ -437,6 +478,7 @@ Else if Ativo = 'S' then
     btn_CancelaVenda.Enabled := True;
     btn_Pagamento.Enabled := True;
     btn_FinalizaVenda.Enabled:= True;
+    btn_NovaVenda.Enabled := false;
 
   end;
 

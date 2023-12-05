@@ -1736,5 +1736,7 @@ object Frm_NewInicial: TFrm_NewInicial
     TabOrder = 4
     Visible = False
     OnClick = Pn_FundoClick
+    ExplicitLeft = 372
+    ExplicitTop = 85
   end
 end
