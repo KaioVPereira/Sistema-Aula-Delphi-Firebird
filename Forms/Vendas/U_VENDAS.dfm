@@ -20,9 +20,9 @@ object Frm_PDV2: TFrm_PDV2
   TextHeight = 15
   object pn_Direita: TPanel
     Left = 1333
-    Top = 50
+    Top = 55
     Width = 472
-    Height = 672
+    Height = 667
     Align = alRight
     Anchors = []
     Color = clMoneyGreen
@@ -30,10 +30,10 @@ object Frm_PDV2: TFrm_PDV2
     TabOrder = 0
     DesignSize = (
       472
-      672)
+      667)
     object Label13: TLabel
       Left = 143
-      Top = 190
+      Top = 188
       Width = 220
       Height = 54
       Anchors = []
@@ -48,7 +48,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label10: TLabel
       Left = 142
-      Top = 45
+      Top = 44
       Width = 227
       Height = 54
       Anchors = []
@@ -62,11 +62,11 @@ object Frm_PDV2: TFrm_PDV2
       ExplicitTop = 41
     end
     object Label12: TLabel
-      Left = 182
-      Top = 341
+      Left = 190
+      Top = 342
       Width = 130
       Height = 54
-      Anchors = []
+      Alignment = taRightJustify
       Caption = 'TOTAL'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -74,7 +74,6 @@ object Frm_PDV2: TFrm_PDV2
       Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold, fsItalic]
       ParentFont = False
-      ExplicitTop = 317
     end
     object Panel3: TPanel
       Left = 1
@@ -89,7 +88,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_Subtotal: TEdit
       Left = 57
-      Top = 110
+      Top = 109
       Width = 393
       Height = 75
       Anchors = []
@@ -107,7 +106,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_TotalVenda: TEdit
       Left = 57
-      Top = 405
+      Top = 402
       Width = 393
       Height = 75
       Anchors = []
@@ -125,7 +124,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_Desconto: TEdit
       Left = 57
-      Top = 260
+      Top = 258
       Width = 393
       Height = 75
       Anchors = []
@@ -141,7 +140,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Panel4: TPanel
       Left = 1
-      Top = 597
+      Top = 592
       Width = 470
       Height = 74
       Align = alBottom
@@ -153,6 +152,7 @@ object Frm_PDV2: TFrm_PDV2
         Height = 72
         Align = alLeft
         Caption = 'Cancelar'
+        OnClick = btn_CancelaVendaClick
       end
       object btn_Pagamento: TSpeedButton
         Left = 156
@@ -178,9 +178,9 @@ object Frm_PDV2: TFrm_PDV2
   end
   object pn_GridItens: TPanel
     Left = 0
-    Top = 50
+    Top = 55
     Width = 733
-    Height = 672
+    Height = 667
     Align = alClient
     AutoSize = True
     Caption = 'pn_GridItens'
@@ -189,9 +189,8 @@ object Frm_PDV2: TFrm_PDV2
       Left = 1
       Top = 42
       Width = 731
-      Height = 629
+      Height = 624
       Align = alClient
-      DataSource = dm_Dados.DS_VendasItens
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -207,13 +206,11 @@ object Frm_PDV2: TFrm_PDV2
         item
           Expanded = False
           FieldName = 'REFERENCIA'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'VALOR_UNITARIO'
-          Width = 64
           Visible = True
         end
         item
@@ -224,7 +221,6 @@ object Frm_PDV2: TFrm_PDV2
         item
           Expanded = False
           FieldName = 'DESCONTO'
-          Width = 64
           Visible = True
         end
         item
@@ -235,7 +231,6 @@ object Frm_PDV2: TFrm_PDV2
         item
           Expanded = False
           FieldName = 'VALOR_TOTAL'
-          Width = 64
           Visible = True
         end
         item
@@ -258,59 +253,71 @@ object Frm_PDV2: TFrm_PDV2
     Left = 0
     Top = 0
     Width = 1805
-    Height = 50
+    Height = 55
     Align = alTop
     AutoSize = True
     TabOrder = 2
     DesignSize = (
       1805
-      50)
+      55)
     object Label7: TLabel
       Left = 136
-      Top = 5
+      Top = 7
       Width = 37
       Height = 15
       Caption = 'CAIXA:'
     end
     object Label8: TLabel
       Left = 466
-      Top = 5
+      Top = 7
       Width = 63
       Height = 15
       Caption = 'VENDEDOR:'
     end
     object Label9: TLabel
       Left = 315
-      Top = 5
+      Top = 7
       Width = 51
       Height = 15
       Caption = 'GERENTE:'
     end
     object btn_NovaVenda: TSpeedButton
-      Left = 0
+      Left = 1
       Top = 1
       Width = 89
-      Height = 48
+      Height = 53
+      Align = alLeft
       Caption = 'Nova Venda'
       OnClick = btn_NovaVendaClick
+      ExplicitHeight = 49
+    end
+    object btn_sair: TSpeedButton
+      Left = 1715
+      Top = 1
+      Width = 89
+      Height = 53
+      Align = alRight
+      Caption = 'Sair'
+      OnClick = btn_sairClick
+      ExplicitLeft = 638
+      ExplicitHeight = 48
     end
     object txt_ControleVenda: TDBEdit
       Left = 1395
-      Top = 5
+      Top = 8
       Width = 56
       Height = 23
       Anchors = []
       DataField = 'CONTROLE_VENDA'
-      DataSource = dm_Dados.DS_Vendas
+      DataSource = DS_Vendas
       TabOrder = 0
     end
     object Lkup_Caixa: TDBLookupComboBox
       Left = 136
-      Top = 25
+      Top = 27
       Width = 145
       Height = 23
       DataField = 'CONTROLE_FUNC'
-      DataSource = dm_Dados.DS_Vendas
       KeyField = 'CONTROLE_USUARIO'
       ListField = 'NOME'
       ListSource = DS_Func
@@ -319,14 +326,14 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Lkup_Vendedor: TDBLookupComboBox
       Left = 466
-      Top = 23
+      Top = 25
       Width = 145
       Height = 23
       TabOrder = 2
     end
     object Lkup_Gerente: TDBLookupComboBox
       Left = 315
-      Top = 24
+      Top = 26
       Width = 113
       Height = 23
       TabOrder = 3
@@ -334,9 +341,9 @@ object Frm_PDV2: TFrm_PDV2
   end
   object pn_Meio: TPanel
     Left = 733
-    Top = 50
+    Top = 55
     Width = 600
-    Height = 672
+    Height = 667
     Align = alRight
     AutoSize = True
     Color = clMoneyGreen
@@ -344,10 +351,10 @@ object Frm_PDV2: TFrm_PDV2
     TabOrder = 3
     DesignSize = (
       600
-      672)
+      667)
     object Label1: TLabel
       Left = 6
-      Top = 69
+      Top = 68
       Width = 145
       Height = 15
       Anchors = []
@@ -356,7 +363,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label2: TLabel
       Left = 5
-      Top = 187
+      Top = 186
       Width = 142
       Height = 15
       Anchors = []
@@ -365,7 +372,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label3: TLabel
       Left = 6
-      Top = 263
+      Top = 261
       Width = 121
       Height = 15
       Anchors = []
@@ -374,7 +381,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label4: TLabel
       Left = 6
-      Top = 356
+      Top = 353
       Width = 52
       Height = 15
       Anchors = []
@@ -383,7 +390,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label5: TLabel
       Left = 5
-      Top = 500
+      Top = 496
       Width = 94
       Height = 15
       Anchors = []
@@ -392,7 +399,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Label6: TLabel
       Left = 6
-      Top = 577
+      Top = 573
       Width = 74
       Height = 15
       Anchors = []
@@ -401,7 +408,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Image1: TImage
       Left = 312
-      Top = 387
+      Top = 383
       Width = 257
       Height = 247
       Anchors = []
@@ -411,7 +418,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object TLabel
       Left = 5
-      Top = 428
+      Top = 425
       Width = 76
       Height = 15
       Anchors = []
@@ -431,7 +438,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_DescProd: TEdit
       Left = 6
-      Top = 211
+      Top = 209
       Width = 588
       Height = 40
       Anchors = []
@@ -446,7 +453,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_Codigo: TEdit
       Left = 6
-      Top = 287
+      Top = 285
       Width = 589
       Height = 36
       Anchors = []
@@ -461,7 +468,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_Estoque: TEdit
       Left = 6
-      Top = 381
+      Top = 378
       Width = 260
       Height = 36
       Anchors = []
@@ -476,7 +483,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_ValorUnitario: TEdit
       Left = 6
-      Top = 524
+      Top = 520
       Width = 260
       Height = 36
       Anchors = []
@@ -492,7 +499,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_ItemTotal: TEdit
       Left = 6
-      Top = 601
+      Top = 596
       Width = 260
       Height = 36
       Anchors = []
@@ -507,7 +514,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object ckb_ColetaQTD: TCheckBox
       Left = 112
-      Top = 452
+      Top = 448
       Width = 169
       Height = 38
       Anchors = []
@@ -517,7 +524,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_Qtd: TEdit
       Left = 6
-      Top = 452
+      Top = 449
       Width = 51
       Height = 36
       Anchors = []
@@ -536,7 +543,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_referencia: TEdit
       Left = 6
-      Top = 90
+      Top = 89
       Width = 588
       Height = 75
       Anchors = []
@@ -556,8 +563,8 @@ object Frm_PDV2: TFrm_PDV2
     Connection = dm_Dados.fd_Connection
     SQL.Strings = (
       'SELECT * FROM USUARIO')
-    Left = 280
-    Top = 209
+    Left = 328
+    Top = 201
     object Fdqry_FuncNOME: TStringField
       FieldName = 'NOME'
       Origin = 'NOME'
@@ -587,5 +594,220 @@ object Frm_PDV2: TFrm_PDV2
     DataSet = Fdqry_Func
     Left = 1640
     Top = 264
+  end
+  object FDQry_VendasQuery: TFDQuery
+    Connection = dm_Dados.fd_Connection
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_VENDAS_HEADER_CONTROLE'
+    UpdateOptions.AutoIncFields = 'CONTROLE_VENDA'
+    SQL.Strings = (
+      'SELECT * FROM VENDAS_HEADER')
+    Left = 16
+    Top = 152
+    object FDQry_VendasQueryCONTROLE_VENDA: TFDAutoIncField
+      FieldName = 'CONTROLE_VENDA'
+      Origin = 'CONTROLE_VENDA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      IdentityInsert = True
+    end
+    object FDQry_VendasQueryCONTROLE_CLIENTE: TIntegerField
+      FieldName = 'CONTROLE_CLIENTE'
+      Origin = 'CONTROLE_CLIENTE'
+    end
+    object FDQry_VendasQueryDATA_MOV: TDateField
+      FieldName = 'DATA_MOV'
+      Origin = 'DATA_MOV'
+    end
+    object FDQry_VendasQuerySITUACAO: TStringField
+      FieldName = 'SITUACAO'
+      Origin = 'SITUACAO'
+      Size = 1
+    end
+    object FDQry_VendasQueryDATA_EMISSAO: TDateField
+      FieldName = 'DATA_EMISSAO'
+      Origin = 'DATA_EMISSAO'
+    end
+    object FDQry_VendasQueryDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
+    object FDQry_VendasQueryCONTROLE_FUNC: TIntegerField
+      FieldName = 'CONTROLE_FUNC'
+      Origin = 'CONTROLE_FUNC'
+    end
+    object FDQry_VendasQueryNOME_FUNC: TStringField
+      FieldName = 'NOME_FUNC'
+      Origin = 'NOME_FUNC'
+      Size = 60
+    end
+    object FDQry_VendasQuerySUBTOTAL: TSingleField
+      FieldName = 'SUBTOTAL'
+      Origin = 'SUBTOTAL'
+    end
+    object FDQry_VendasQueryTOTAL: TSingleField
+      FieldName = 'TOTAL'
+      Origin = 'TOTAL'
+    end
+    object FDQry_VendasQueryTERMINAL: TIntegerField
+      FieldName = 'TERMINAL'
+      Origin = 'TERMINAL'
+    end
+  end
+  object FDQry_VendasItens: TFDQuery
+    Connection = dm_Dados.fd_Connection
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_VENDAS_ITENS_CONTROLE'
+    UpdateOptions.AutoIncFields = 'CONTROLE_VENDA_ITEM'
+    SQL.Strings = (
+      '       SELECT * FROM VENDAS_ITENS')
+    Left = 8
+    Top = 208
+    object FDQry_VendasItensCONTROLE_VENDA_ITEM: TFDAutoIncField
+      FieldName = 'CONTROLE_VENDA_ITEM'
+      Origin = 'CONTROLE_VENDA_ITEM'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      IdentityInsert = True
+    end
+    object FDQry_VendasItensCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+    end
+    object FDQry_VendasItensQTD: TSingleField
+      FieldName = 'QTD'
+      Origin = 'QTD'
+    end
+    object FDQry_VendasItensVALOR_UNITARIO: TSingleField
+      FieldName = 'VALOR_UNITARIO'
+      Origin = 'VALOR_UNITARIO'
+    end
+    object FDQry_VendasItensDESCONTO: TSingleField
+      FieldName = 'DESCONTO'
+      Origin = 'DESCONTO'
+    end
+    object FDQry_VendasItensCONTROLE_VENDA: TIntegerField
+      FieldName = 'CONTROLE_VENDA'
+      Origin = 'CONTROLE_VENDA'
+    end
+    object FDQry_VendasItensDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
+    object FDQry_VendasItensVALOR_TOTAL: TSingleField
+      FieldName = 'VALOR_TOTAL'
+      Origin = 'VALOR_TOTAL'
+    end
+    object FDQry_VendasItensREFERENCIA: TStringField
+      FieldName = 'REFERENCIA'
+      Origin = 'REFERENCIA'
+      Size = 50
+    end
+    object FDQry_VendasItensTERMINAL: TIntegerField
+      FieldName = 'TERMINAL'
+      Origin = 'TERMINAL'
+    end
+  end
+  object FDQry_Produtos: TFDQuery
+    Connection = dm_Dados.fd_Connection
+    SQL.Strings = (
+      'SELECT * FROM PRODUTOS WHERE REFERENCIA = :REFERENCIA')
+    Left = 16
+    Top = 280
+    ParamData = <
+      item
+        Name = 'REFERENCIA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object FDQry_ProdutosCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object FDQry_ProdutosDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Size = 80
+    end
+    object FDQry_ProdutosDEPARTAMENTO: TIntegerField
+      FieldName = 'DEPARTAMENTO'
+      Origin = 'DEPARTAMENTO'
+    end
+    object FDQry_ProdutosCOLECAO: TIntegerField
+      FieldName = 'COLECAO'
+      Origin = 'COLECAO'
+    end
+    object FDQry_ProdutosGRUPO: TIntegerField
+      FieldName = 'GRUPO'
+      Origin = 'GRUPO'
+    end
+    object FDQry_ProdutosLINHA: TIntegerField
+      FieldName = 'LINHA'
+      Origin = 'LINHA'
+    end
+    object FDQry_ProdutosMARCA: TIntegerField
+      FieldName = 'MARCA'
+      Origin = 'MARCA'
+    end
+    object FDQry_ProdutosUNIDADE: TIntegerField
+      FieldName = 'UNIDADE'
+      Origin = 'UNIDADE'
+    end
+    object FDQry_ProdutosPESO_LIQUIDO: TSingleField
+      FieldName = 'PESO_LIQUIDO'
+      Origin = 'PESO_LIQUIDO'
+    end
+    object FDQry_ProdutosPESO_BRUTO: TSingleField
+      FieldName = 'PESO_BRUTO'
+      Origin = 'PESO_BRUTO'
+    end
+    object FDQry_ProdutosCONTROLE_FORNECEDOR: TIntegerField
+      FieldName = 'CONTROLE_FORNECEDOR'
+      Origin = 'CONTROLE_FORNECEDOR'
+    end
+    object FDQry_ProdutosQTD: TSingleField
+      FieldName = 'QTD'
+      Origin = 'QTD'
+    end
+    object FDQry_ProdutosCUSTO: TSingleField
+      FieldName = 'CUSTO'
+      Origin = 'CUSTO'
+    end
+    object FDQry_ProdutosVALOR_UNITARIO: TSingleField
+      FieldName = 'VALOR_UNITARIO'
+      Origin = 'VALOR_UNITARIO'
+    end
+    object FDQry_ProdutosDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
+    object FDQry_ProdutosREFERENCIA: TStringField
+      FieldName = 'REFERENCIA'
+      Origin = 'REFERENCIA'
+      Required = True
+      Size = 50
+    end
+    object FDQry_ProdutosIMAGEM: TBlobField
+      FieldName = 'IMAGEM'
+      Origin = 'IMAGEM'
+    end
+  end
+  object DS_Vendas: TDataSource
+    DataSet = FDQry_VendasQuery
+    Left = 104
+    Top = 152
+  end
+  object DS_VendasItens: TDataSource
+    DataSet = FDQry_VendasItens
+    Left = 104
+    Top = 208
+  end
+  object DS_Produtos: TDataSource
+    DataSet = FDQry_Produtos
+    Left = 104
+    Top = 272
   end
 end
