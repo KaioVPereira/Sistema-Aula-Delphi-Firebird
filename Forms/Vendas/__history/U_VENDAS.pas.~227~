@@ -191,7 +191,7 @@ begin
   end
   else if FDQry_Produtos.isempty = true then
   begin
-    //Se n√£o achar o item, deixa os campos em branco.
+    //Se n„o achar o item, deixa os campos em branco.
     LimparItem;
     LimparImagem;
   end;
@@ -236,7 +236,7 @@ begin
 
 procedure TFrm_PDV2.ckb_ColetaQTDClick(Sender: TObject);
 begin
-  //Deixando o campo de coletar quantidade ativo ou n√£o.
+  //Deixando o campo de coletar quantidade ativo ou n„o.
   if ckb_ColetaQTD.Checked = true then
   begin
      txt_Qtd.Enabled := true;
@@ -256,7 +256,7 @@ end;
 
 procedure TFrm_PDV2.MostraItensVenda;
 begin
-  //Valida se tem algo digitado no campo de refer√™ncia, se tiver algo,
+  //Valida se tem algo digitado no campo de referÍncia, se tiver algo,
   //Deixa a Query de itens aberta e em modo de Insert, insere os itens na tabela de itens
   //Com a procedure PreencherGridItens, depois consulta os itens inserido, e mostra na grid .
 
@@ -284,7 +284,7 @@ end;
 
 procedure TFrm_PDV2.FormShow(Sender: TObject);
 begin
-     //Coloca a Imagem padr√£o
+     //Coloca a Imagem padr„o
   //(Precisa ser melhorado)
   LimparImagem;
   TotalItem := 0;
@@ -307,7 +307,7 @@ begin
 end;
 
 procedure TFrm_PDV2.LimparImagem;
-//Busca imagem no diret√≥rio do execut√°vel, a imagem tem que ter o nome Doanload.jpg
+//Busca imagem no diretÛrio do execut·vel, a imagem tem que ter o nome Doanload.jpg
 var dirIMG : string;
 begin
   dirIMG :=(GetCurrentDir)+ '\download.jpg';
@@ -353,7 +353,7 @@ end;
 
 procedure TFrm_PDV2.btn_CancelaVendaClick(Sender: TObject);
 begin
-  if MsgPerguntar('Deseja cancelar o lan√ßamento da venda ?') then
+  if MsgPerguntar('Deseja cancelar o lanÁamento da venda ?') then
   begin
     FDQry_VendasQuery.Edit;
     FDQry_VendasQuery.FieldByName('SITUACAO').Value := 'C';
@@ -412,7 +412,7 @@ procedure TFrm_PDV2.btn_sairClick(Sender: TObject);
 begin
   if VendaStatus = true then
   begin
-    MsgAtencao('√â necess√°rio cancelar a venda, antes de sair');
+    MsgAtencao('… necess·rio cancelar a venda, antes de sair');
   end
   else
     self.Close;
@@ -432,7 +432,7 @@ begin
 end;
 
 procedure TFrm_PDV2.txt_QtdChange(Sender: TObject);
-//Chama a procedure de calcular o total do item toda vez que a quantidade tiver altera√ß√£o
+//Chama a procedure de calcular o total do item toda vez que a quantidade tiver alteraÁ„o
 begin
 
   if txt_Qtd.Text <> '' then
@@ -446,7 +446,7 @@ begin
     begin
       if FDQry_Produtos.IsEmpty then
         begin
-          MsgAtencao('Produto N√£o encontrado');
+          MsgAtencao('Produto N„o encontrado');
         end
     Else
       begin
@@ -465,7 +465,7 @@ end;
 
 
 procedure TFrm_PDV2.txt_referenciaChange(Sender: TObject);
-  //Busca item a cada altera√ß√£o no campo de referencia com a procedure "Buscar"
+  //Busca item a cada alteraÁ„o no campo de referencia com a procedure "Buscar"
 begin
   if txt_Referencia.Text = '' then
   begin
@@ -488,7 +488,7 @@ begin
   begin
     if FDQry_Produtos.IsEmpty then
       begin
-        MsgAtencao('Produto N√£o encontrado');
+        MsgAtencao('Produto N„o encontrado');
       end
   Else
     begin
@@ -515,7 +515,7 @@ begin
     begin
       if FDQry_Produtos.IsEmpty then
       begin
-        MsgAtencao('Produto N√£o encontrado');
+        MsgAtencao('Produto N„o encontrado');
       end
   Else
     begin

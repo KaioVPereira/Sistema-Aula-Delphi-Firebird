@@ -179,7 +179,7 @@ object Frm_PDV2: TFrm_PDV2
   object pn_GridItens: TPanel
     Left = 0
     Top = 55
-    Width = 733
+    Width = 910
     Height = 667
     Align = alClient
     AutoSize = True
@@ -188,9 +188,10 @@ object Frm_PDV2: TFrm_PDV2
     object DBG_VendasItens: TDBGrid
       Left = 1
       Top = 42
-      Width = 731
+      Width = 908
       Height = 624
       Align = alClient
+      DataSource = DS_VendasItens
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -201,6 +202,7 @@ object Frm_PDV2: TFrm_PDV2
         item
           Expanded = False
           FieldName = 'CONTROLE_VENDA_ITEM'
+          Width = 64
           Visible = True
         end
         item
@@ -242,7 +244,7 @@ object Frm_PDV2: TFrm_PDV2
     object Panel1: TPanel
       Left = 1
       Top = 1
-      Width = 731
+      Width = 908
       Height = 41
       Align = alTop
       Caption = 'PRODUTOS'
@@ -314,7 +316,7 @@ object Frm_PDV2: TFrm_PDV2
     end
     object Lkup_Caixa: TDBLookupComboBox
       Left = 136
-      Top = 27
+      Top = 26
       Width = 145
       Height = 23
       DataField = 'CONTROLE_FUNC'
@@ -340,106 +342,103 @@ object Frm_PDV2: TFrm_PDV2
     end
   end
   object pn_Meio: TPanel
-    Left = 733
+    Left = 910
     Top = 55
-    Width = 600
+    Width = 423
     Height = 667
     Align = alRight
-    AutoSize = True
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 3
     DesignSize = (
-      600
+      423
       667)
     object Label1: TLabel
-      Left = 6
-      Top = 68
+      Left = 9
+      Top = 48
       Width = 145
       Height = 15
       Anchors = []
       Caption = 'REFERENCIA DO PRODUTO:'
-      ExplicitTop = 64
     end
     object Label2: TLabel
       Left = 5
-      Top = 186
+      Top = 149
       Width = 142
       Height = 15
       Anchors = []
       Caption = 'DESCRI'#199#195'O DO PRODUTO:'
-      ExplicitTop = 174
+      ExplicitTop = 148
     end
     object Label3: TLabel
-      Left = 6
-      Top = 261
+      Left = 1
+      Top = 223
       Width = 121
       Height = 15
       Anchors = []
       Caption = 'CODIGO DO PRODUTO'
-      ExplicitTop = 246
+      ExplicitTop = 221
     end
     object Label4: TLabel
-      Left = 6
-      Top = 353
+      Left = 3
+      Top = 287
       Width = 52
       Height = 15
       Anchors = []
       Caption = 'ESTOQUE:'
-      ExplicitTop = 333
+      ExplicitTop = 284
     end
     object Label5: TLabel
-      Left = 5
-      Top = 496
+      Left = 6
+      Top = 427
       Width = 94
       Height = 15
       Anchors = []
       Caption = 'VALOR UNIT'#193'RIO:'
-      ExplicitTop = 467
+      ExplicitTop = 423
     end
     object Label6: TLabel
-      Left = 6
-      Top = 573
+      Left = 8
+      Top = 490
       Width = 74
       Height = 15
       Anchors = []
       Caption = 'VALOR TOTAL:'
-      ExplicitTop = 539
+      ExplicitTop = 486
     end
     object Image1: TImage
-      Left = 312
-      Top = 383
-      Width = 257
-      Height = 247
+      Left = 157
+      Top = 341
+      Width = 185
+      Height = 164
       Anchors = []
       Center = True
       Stretch = True
-      ExplicitTop = 354
+      ExplicitTop = 337
     end
     object TLabel
-      Left = 5
-      Top = 425
+      Left = 8
+      Top = 350
       Width = 76
       Height = 15
       Anchors = []
       Caption = 'QUANTIDADE:'
-      ExplicitTop = 400
+      ExplicitTop = 347
     end
     object Panel2: TPanel
       Left = 1
       Top = 1
-      Width = 598
+      Width = 424
       Height = 41
-      Align = alTop
       Caption = 'PRODUTOS'
       Color = clActiveCaption
       ParentBackground = False
       TabOrder = 0
     end
     object txt_DescProd: TEdit
-      Left = 6
-      Top = 209
-      Width = 588
+      Left = 3
+      Top = 171
+      Width = 328
       Height = 40
       Anchors = []
       Enabled = False
@@ -452,9 +451,9 @@ object Frm_PDV2: TFrm_PDV2
       TabOrder = 1
     end
     object txt_Codigo: TEdit
-      Left = 6
-      Top = 285
-      Width = 589
+      Left = 3
+      Top = 244
+      Width = 328
       Height = 36
       Anchors = []
       Enabled = False
@@ -467,9 +466,9 @@ object Frm_PDV2: TFrm_PDV2
       TabOrder = 2
     end
     object txt_Estoque: TEdit
-      Left = 6
-      Top = 378
-      Width = 260
+      Left = 3
+      Top = 308
+      Width = 51
       Height = 36
       Anchors = []
       Enabled = False
@@ -482,9 +481,9 @@ object Frm_PDV2: TFrm_PDV2
       TabOrder = 3
     end
     object txt_ValorUnitario: TEdit
-      Left = 6
-      Top = 520
-      Width = 260
+      Left = 3
+      Top = 448
+      Width = 122
       Height = 36
       Anchors = []
       Enabled = False
@@ -498,9 +497,9 @@ object Frm_PDV2: TFrm_PDV2
       TabOrder = 4
     end
     object txt_ItemTotal: TEdit
-      Left = 6
-      Top = 596
-      Width = 260
+      Left = 3
+      Top = 512
+      Width = 122
       Height = 36
       Anchors = []
       Enabled = False
@@ -513,9 +512,9 @@ object Frm_PDV2: TFrm_PDV2
       TabOrder = 5
     end
     object ckb_ColetaQTD: TCheckBox
-      Left = 112
-      Top = 448
-      Width = 169
+      Left = 62
+      Top = 376
+      Width = 65
       Height = 38
       Anchors = []
       Caption = 'COLETAR QUANTIDADE'
@@ -523,8 +522,8 @@ object Frm_PDV2: TFrm_PDV2
       OnClick = ckb_ColetaQTDClick
     end
     object txt_Qtd: TEdit
-      Left = 6
-      Top = 449
+      Left = 5
+      Top = 372
       Width = 51
       Height = 36
       Anchors = []
@@ -543,10 +542,11 @@ object Frm_PDV2: TFrm_PDV2
     end
     object txt_referencia: TEdit
       Left = 6
-      Top = 89
-      Width = 588
-      Height = 75
+      Top = 70
+      Width = 324
+      Height = 65
       Anchors = []
+      AutoSize = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -50
@@ -563,8 +563,8 @@ object Frm_PDV2: TFrm_PDV2
     Connection = dm_Dados.fd_Connection
     SQL.Strings = (
       'SELECT * FROM USUARIO')
-    Left = 328
-    Top = 201
+    Left = 24
+    Top = 329
     object Fdqry_FuncNOME: TStringField
       FieldName = 'NOME'
       Origin = 'NOME'
@@ -592,8 +592,8 @@ object Frm_PDV2: TFrm_PDV2
   end
   object DS_Func: TDataSource
     DataSet = Fdqry_Func
-    Left = 1640
-    Top = 264
+    Left = 104
+    Top = 328
   end
   object FDQry_VendasQuery: TFDQuery
     Connection = dm_Dados.fd_Connection
@@ -662,7 +662,7 @@ object Frm_PDV2: TFrm_PDV2
     UpdateOptions.AutoIncFields = 'CONTROLE_VENDA_ITEM'
     SQL.Strings = (
       '       SELECT * FROM VENDAS_ITENS')
-    Left = 8
+    Left = 16
     Top = 208
     object FDQry_VendasItensCONTROLE_VENDA_ITEM: TFDAutoIncField
       FieldName = 'CONTROLE_VENDA_ITEM'
@@ -713,7 +713,7 @@ object Frm_PDV2: TFrm_PDV2
     SQL.Strings = (
       'SELECT * FROM PRODUTOS WHERE REFERENCIA = :REFERENCIA')
     Left = 16
-    Top = 280
+    Top = 272
     ParamData = <
       item
         Name = 'REFERENCIA'

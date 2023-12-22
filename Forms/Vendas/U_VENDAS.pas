@@ -285,7 +285,7 @@ end;
 procedure TFrm_PDV2.FormShow(Sender: TObject);
 begin
      //Coloca a Imagem padrão
-  //(Precisa ser melhorado)
+     //(Precisa ser melhorado)
   LimparImagem;
   TotalItem := 0;
   SubTotalVenda := 0;
@@ -434,7 +434,6 @@ end;
 procedure TFrm_PDV2.txt_QtdChange(Sender: TObject);
 //Chama a procedure de calcular o total do item toda vez que a quantidade tiver alteração
 begin
-
   if txt_Qtd.Text <> '' then
   CalculaTotalItem;
 end;

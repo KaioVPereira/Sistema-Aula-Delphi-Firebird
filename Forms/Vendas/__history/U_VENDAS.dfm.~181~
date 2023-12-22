@@ -191,7 +191,6 @@ object Frm_PDV2: TFrm_PDV2
       Width = 731
       Height = 624
       Align = alClient
-      DataSource = dm_Dados.DS_VendasItens
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -207,13 +206,11 @@ object Frm_PDV2: TFrm_PDV2
         item
           Expanded = False
           FieldName = 'REFERENCIA'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'VALOR_UNITARIO'
-          Width = 64
           Visible = True
         end
         item
@@ -224,7 +221,6 @@ object Frm_PDV2: TFrm_PDV2
         item
           Expanded = False
           FieldName = 'DESCONTO'
-          Width = 64
           Visible = True
         end
         item
@@ -235,7 +231,6 @@ object Frm_PDV2: TFrm_PDV2
         item
           Expanded = False
           FieldName = 'VALOR_TOTAL'
-          Width = 64
           Visible = True
         end
         item
@@ -314,7 +309,7 @@ object Frm_PDV2: TFrm_PDV2
       Height = 23
       Anchors = []
       DataField = 'CONTROLE_VENDA'
-      DataSource = dm_Dados.DS_Vendas
+      DataSource = DS_Vendas
       TabOrder = 0
     end
     object Lkup_Caixa: TDBLookupComboBox
@@ -323,7 +318,6 @@ object Frm_PDV2: TFrm_PDV2
       Width = 145
       Height = 23
       DataField = 'CONTROLE_FUNC'
-      DataSource = dm_Dados.DS_Vendas
       KeyField = 'CONTROLE_USUARIO'
       ListField = 'NOME'
       ListSource = DS_Func
@@ -569,8 +563,8 @@ object Frm_PDV2: TFrm_PDV2
     Connection = dm_Dados.fd_Connection
     SQL.Strings = (
       'SELECT * FROM USUARIO')
-    Left = 280
-    Top = 209
+    Left = 328
+    Top = 201
     object Fdqry_FuncNOME: TStringField
       FieldName = 'NOME'
       Origin = 'NOME'
@@ -600,5 +594,220 @@ object Frm_PDV2: TFrm_PDV2
     DataSet = Fdqry_Func
     Left = 1640
     Top = 264
+  end
+  object FDQry_VendasQuery: TFDQuery
+    Connection = dm_Dados.fd_Connection
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_VENDAS_HEADER_CONTROLE'
+    UpdateOptions.AutoIncFields = 'CONTROLE_VENDA'
+    SQL.Strings = (
+      'SELECT * FROM VENDAS_HEADER')
+    Left = 16
+    Top = 152
+    object FDQry_VendasQueryCONTROLE_VENDA: TFDAutoIncField
+      FieldName = 'CONTROLE_VENDA'
+      Origin = 'CONTROLE_VENDA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      IdentityInsert = True
+    end
+    object FDQry_VendasQueryCONTROLE_CLIENTE: TIntegerField
+      FieldName = 'CONTROLE_CLIENTE'
+      Origin = 'CONTROLE_CLIENTE'
+    end
+    object FDQry_VendasQueryDATA_MOV: TDateField
+      FieldName = 'DATA_MOV'
+      Origin = 'DATA_MOV'
+    end
+    object FDQry_VendasQuerySITUACAO: TStringField
+      FieldName = 'SITUACAO'
+      Origin = 'SITUACAO'
+      Size = 1
+    end
+    object FDQry_VendasQueryDATA_EMISSAO: TDateField
+      FieldName = 'DATA_EMISSAO'
+      Origin = 'DATA_EMISSAO'
+    end
+    object FDQry_VendasQueryDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
+    object FDQry_VendasQueryCONTROLE_FUNC: TIntegerField
+      FieldName = 'CONTROLE_FUNC'
+      Origin = 'CONTROLE_FUNC'
+    end
+    object FDQry_VendasQueryNOME_FUNC: TStringField
+      FieldName = 'NOME_FUNC'
+      Origin = 'NOME_FUNC'
+      Size = 60
+    end
+    object FDQry_VendasQuerySUBTOTAL: TSingleField
+      FieldName = 'SUBTOTAL'
+      Origin = 'SUBTOTAL'
+    end
+    object FDQry_VendasQueryTOTAL: TSingleField
+      FieldName = 'TOTAL'
+      Origin = 'TOTAL'
+    end
+    object FDQry_VendasQueryTERMINAL: TIntegerField
+      FieldName = 'TERMINAL'
+      Origin = 'TERMINAL'
+    end
+  end
+  object FDQry_VendasItens: TFDQuery
+    Connection = dm_Dados.fd_Connection
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_VENDAS_ITENS_CONTROLE'
+    UpdateOptions.AutoIncFields = 'CONTROLE_VENDA_ITEM'
+    SQL.Strings = (
+      '       SELECT * FROM VENDAS_ITENS')
+    Left = 8
+    Top = 208
+    object FDQry_VendasItensCONTROLE_VENDA_ITEM: TFDAutoIncField
+      FieldName = 'CONTROLE_VENDA_ITEM'
+      Origin = 'CONTROLE_VENDA_ITEM'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      IdentityInsert = True
+    end
+    object FDQry_VendasItensCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+    end
+    object FDQry_VendasItensQTD: TSingleField
+      FieldName = 'QTD'
+      Origin = 'QTD'
+    end
+    object FDQry_VendasItensVALOR_UNITARIO: TSingleField
+      FieldName = 'VALOR_UNITARIO'
+      Origin = 'VALOR_UNITARIO'
+    end
+    object FDQry_VendasItensDESCONTO: TSingleField
+      FieldName = 'DESCONTO'
+      Origin = 'DESCONTO'
+    end
+    object FDQry_VendasItensCONTROLE_VENDA: TIntegerField
+      FieldName = 'CONTROLE_VENDA'
+      Origin = 'CONTROLE_VENDA'
+    end
+    object FDQry_VendasItensDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
+    object FDQry_VendasItensVALOR_TOTAL: TSingleField
+      FieldName = 'VALOR_TOTAL'
+      Origin = 'VALOR_TOTAL'
+    end
+    object FDQry_VendasItensREFERENCIA: TStringField
+      FieldName = 'REFERENCIA'
+      Origin = 'REFERENCIA'
+      Size = 50
+    end
+    object FDQry_VendasItensTERMINAL: TIntegerField
+      FieldName = 'TERMINAL'
+      Origin = 'TERMINAL'
+    end
+  end
+  object FDQry_Produtos: TFDQuery
+    Connection = dm_Dados.fd_Connection
+    SQL.Strings = (
+      'SELECT * FROM PRODUTOS WHERE REFERENCIA = :REFERENCIA')
+    Left = 16
+    Top = 280
+    ParamData = <
+      item
+        Name = 'REFERENCIA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object FDQry_ProdutosCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object FDQry_ProdutosDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Size = 80
+    end
+    object FDQry_ProdutosDEPARTAMENTO: TIntegerField
+      FieldName = 'DEPARTAMENTO'
+      Origin = 'DEPARTAMENTO'
+    end
+    object FDQry_ProdutosCOLECAO: TIntegerField
+      FieldName = 'COLECAO'
+      Origin = 'COLECAO'
+    end
+    object FDQry_ProdutosGRUPO: TIntegerField
+      FieldName = 'GRUPO'
+      Origin = 'GRUPO'
+    end
+    object FDQry_ProdutosLINHA: TIntegerField
+      FieldName = 'LINHA'
+      Origin = 'LINHA'
+    end
+    object FDQry_ProdutosMARCA: TIntegerField
+      FieldName = 'MARCA'
+      Origin = 'MARCA'
+    end
+    object FDQry_ProdutosUNIDADE: TIntegerField
+      FieldName = 'UNIDADE'
+      Origin = 'UNIDADE'
+    end
+    object FDQry_ProdutosPESO_LIQUIDO: TSingleField
+      FieldName = 'PESO_LIQUIDO'
+      Origin = 'PESO_LIQUIDO'
+    end
+    object FDQry_ProdutosPESO_BRUTO: TSingleField
+      FieldName = 'PESO_BRUTO'
+      Origin = 'PESO_BRUTO'
+    end
+    object FDQry_ProdutosCONTROLE_FORNECEDOR: TIntegerField
+      FieldName = 'CONTROLE_FORNECEDOR'
+      Origin = 'CONTROLE_FORNECEDOR'
+    end
+    object FDQry_ProdutosQTD: TSingleField
+      FieldName = 'QTD'
+      Origin = 'QTD'
+    end
+    object FDQry_ProdutosCUSTO: TSingleField
+      FieldName = 'CUSTO'
+      Origin = 'CUSTO'
+    end
+    object FDQry_ProdutosVALOR_UNITARIO: TSingleField
+      FieldName = 'VALOR_UNITARIO'
+      Origin = 'VALOR_UNITARIO'
+    end
+    object FDQry_ProdutosDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
+    object FDQry_ProdutosREFERENCIA: TStringField
+      FieldName = 'REFERENCIA'
+      Origin = 'REFERENCIA'
+      Required = True
+      Size = 50
+    end
+    object FDQry_ProdutosIMAGEM: TBlobField
+      FieldName = 'IMAGEM'
+      Origin = 'IMAGEM'
+    end
+  end
+  object DS_Vendas: TDataSource
+    DataSet = FDQry_VendasQuery
+    Left = 104
+    Top = 152
+  end
+  object DS_VendasItens: TDataSource
+    DataSet = FDQry_VendasItens
+    Left = 104
+    Top = 208
+  end
+  object DS_Produtos: TDataSource
+    DataSet = FDQry_Produtos
+    Left = 104
+    Top = 272
   end
 end
