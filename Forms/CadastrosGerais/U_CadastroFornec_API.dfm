@@ -2,8 +2,8 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
   Left = 0
   Top = 0
   Caption = 'Cadastro Fornecedor'
-  ClientHeight = 460
-  ClientWidth = 821
+  ClientHeight = 399
+  ClientWidth = 735
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

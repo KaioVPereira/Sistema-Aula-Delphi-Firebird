@@ -13,9 +13,7 @@ object Frm_NewInicial: TFrm_NewInicial
   Font.Name = 'Tahoma'
   Font.Style = []
   FormStyle = fsMDIForm
-  OldCreateOrder = False
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 13
   object Pn_Menu: TPanel
     Left = 0
@@ -1736,7 +1734,5 @@ object Frm_NewInicial: TFrm_NewInicial
     TabOrder = 4
     Visible = False
     OnClick = Pn_FundoClick
-    ExplicitLeft = 372
-    ExplicitTop = 85
   end
 end

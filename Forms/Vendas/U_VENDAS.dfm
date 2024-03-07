@@ -12,11 +12,9 @@ object Frm_PDV2: TFrm_PDV2
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OldCreateOrder = True
   ScreenSnap = True
   WindowState = wsMaximized
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 15
   object pn_Direita: TPanel
     Left = 1333
@@ -28,6 +26,8 @@ object Frm_PDV2: TFrm_PDV2
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 0
+    ExplicitLeft = 1329
+    ExplicitHeight = 666
     DesignSize = (
       472
       667)
@@ -121,6 +121,7 @@ object Frm_PDV2: TFrm_PDV2
       OnChange = txt_referenciaChange
       OnExit = txt_referenciaExit
       OnKeyPress = txt_ReferenciaKeyPress
+      ExplicitTop = 401
     end
     object txt_Desconto: TEdit
       Left = 57
@@ -145,6 +146,7 @@ object Frm_PDV2: TFrm_PDV2
       Height = 74
       Align = alBottom
       TabOrder = 4
+      ExplicitTop = 591
       object btn_CancelaVenda: TSpeedButton
         Left = 1
         Top = 1
@@ -185,6 +187,8 @@ object Frm_PDV2: TFrm_PDV2
     AutoSize = True
     Caption = 'pn_GridItens'
     TabOrder = 1
+    ExplicitWidth = 906
+    ExplicitHeight = 666
     object DBG_VendasItens: TDBGrid
       Left = 1
       Top = 42
@@ -202,7 +206,6 @@ object Frm_PDV2: TFrm_PDV2
         item
           Expanded = False
           FieldName = 'CONTROLE_VENDA_ITEM'
-          Width = 64
           Visible = True
         end
         item
@@ -249,6 +252,7 @@ object Frm_PDV2: TFrm_PDV2
       Align = alTop
       Caption = 'PRODUTOS'
       TabOrder = 1
+      ExplicitWidth = 904
     end
   end
   object pn_Header: TPanel
@@ -259,6 +263,7 @@ object Frm_PDV2: TFrm_PDV2
     Align = alTop
     AutoSize = True
     TabOrder = 2
+    ExplicitWidth = 1801
     DesignSize = (
       1805
       55)
@@ -291,7 +296,7 @@ object Frm_PDV2: TFrm_PDV2
       Align = alLeft
       Caption = 'Nova Venda'
       OnClick = btn_NovaVendaClick
-      ExplicitHeight = 49
+      ExplicitTop = -3
     end
     object btn_sair: TSpeedButton
       Left = 1715
@@ -305,7 +310,7 @@ object Frm_PDV2: TFrm_PDV2
       ExplicitHeight = 48
     end
     object txt_ControleVenda: TDBEdit
-      Left = 1395
+      Left = 1392
       Top = 8
       Width = 56
       Height = 23
@@ -313,6 +318,7 @@ object Frm_PDV2: TFrm_PDV2
       DataField = 'CONTROLE_VENDA'
       DataSource = DS_Vendas
       TabOrder = 0
+      ExplicitLeft = 1389
     end
     object Lkup_Caixa: TDBLookupComboBox
       Left = 136
@@ -350,6 +356,8 @@ object Frm_PDV2: TFrm_PDV2
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 3
+    ExplicitLeft = 906
+    ExplicitHeight = 666
     DesignSize = (
       423
       667)
@@ -495,6 +503,7 @@ object Frm_PDV2: TFrm_PDV2
       NumbersOnly = True
       ParentFont = False
       TabOrder = 4
+      ExplicitTop = 447
     end
     object txt_ItemTotal: TEdit
       Left = 3
@@ -510,6 +519,7 @@ object Frm_PDV2: TFrm_PDV2
       Font.Style = []
       ParentFont = False
       TabOrder = 5
+      ExplicitTop = 511
     end
     object ckb_ColetaQTD: TCheckBox
       Left = 62
@@ -520,6 +530,7 @@ object Frm_PDV2: TFrm_PDV2
       Caption = 'COLETAR QUANTIDADE'
       TabOrder = 7
       OnClick = ckb_ColetaQTDClick
+      ExplicitTop = 375
     end
     object txt_Qtd: TEdit
       Left = 5
@@ -539,6 +550,7 @@ object Frm_PDV2: TFrm_PDV2
       Text = '1'
       OnChange = txt_QtdChange
       OnKeyPress = txt_QtdKeyPress
+      ExplicitTop = 371
     end
     object txt_referencia: TEdit
       Left = 6

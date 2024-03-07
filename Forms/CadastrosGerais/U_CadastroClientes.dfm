@@ -1,8 +1,8 @@
 inherited frm_CadClientes: Tfrm_CadClientes
   Caption = 'Cadastro de Clientes'
-  ClientHeight = 296
   ClientWidth = 791
-  ExplicitLeft = -20
+  ExplicitLeft = 4
+  ExplicitTop = 4
   ExplicitWidth = 803
   TextHeight = 15
   object lb_controle: TLabel [0]

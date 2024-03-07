@@ -11,10 +11,8 @@ object frm_Principal: Tfrm_Principal
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OldCreateOrder = True
   OnClose = FormClose
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 15
   object pn_cabecalho: TPanel
     Left = 0

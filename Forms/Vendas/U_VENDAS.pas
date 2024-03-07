@@ -142,8 +142,6 @@ type
     procedure MostraItensVenda;
     procedure VendaAtiva(Ativo:Char);
 
-
-
     var TotalItem :double;
     var SubTotalVenda :double;
     var TotalVenda : Double;
@@ -391,6 +389,7 @@ begin
         FDQry_VendasQuery.Post;
 
       finally
+
         FDQry_VendasQuery.Close;
         FDQry_VendasItens.Close;
         MsgInformacao('Venda Finalizada com sucesso');

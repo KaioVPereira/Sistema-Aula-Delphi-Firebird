@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, IPPeerClient, REST.Client,
   Data.Bind.Components, Data.Bind.ObjectScope, Vcl.StdCtrls, system.JSON,
-  REST.Types;
+  REST.Types, REST.Json;
 
 type
   TFrm_CadFornecAPI = class(TForm)
@@ -86,7 +86,9 @@ begin
   for i := 0 to AtividadeSecundaria.Count -1 do
   begin
     AtividadeSecundariaValue := AtividadeSecundaria.Items[i];
-    Memo1.Lines.Add('ID da atividade: ' + AtividadeSecundariaValue.GetValue<string>('id'));
+    {Utilizando TJSON.Format para passar o JSON inteiro de uma vez no memo
+    Memo1.Lines.Add(TJson.Format(AtividadeSecundariaValue))}
+    Memo1.Lines.Add('ID da atividade: ' + AtividadeSecundariaValue.GetValue<String>('id'));
     Memo1.Lines.Add('Descrição da atividade: '+ AtividadeSecundariaValue.GetValue<string>('descricao'));
   end;
 

@@ -1,5 +1,4 @@
 object dm_Dados: Tdm_Dados
-  OldCreateOrder = True
   OnCreate = DataModuleCreate
   Height = 617
   Width = 918
