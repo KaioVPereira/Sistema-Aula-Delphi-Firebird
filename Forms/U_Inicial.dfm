@@ -4,8 +4,8 @@ object Frm_NewInicial: TFrm_NewInicial
   Align = alClient
   BorderStyle = bsNone
   Caption = 'In'#237'cio'
-  ClientHeight = 569
-  ClientWidth = 963
+  ClientHeight = 592
+  ClientWidth = 1001
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,12 +18,13 @@ object Frm_NewInicial: TFrm_NewInicial
   object Pn_Menu: TPanel
     Left = 0
     Top = 41
-    Width = 963
+    Width = 1001
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 963
     object SpeedButton1: TSpeedButton
       Left = 513
       Top = 0
@@ -459,23 +460,25 @@ object Frm_NewInicial: TFrm_NewInicial
   object Pn_Topo: TPanel
     Left = 0
     Top = 0
-    Width = 963
+    Width = 1001
     Height = 41
     Align = alTop
     Color = clTeal
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 963
   end
   object Pnl_Cadastros: TPanel
     Left = 185
     Top = 82
     Width = 185
-    Height = 487
+    Height = 510
     Align = alLeft
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
     Visible = False
+    ExplicitHeight = 487
     object btn_CadProdutos: TSpeedButton
       Left = 1
       Top = 321
@@ -1100,12 +1103,13 @@ object Frm_NewInicial: TFrm_NewInicial
     Left = 0
     Top = 82
     Width = 185
-    Height = 487
+    Height = 510
     Align = alLeft
     Color = clWhite
     ParentBackground = False
     TabOrder = 3
     Visible = False
+    ExplicitHeight = 487
     object btn_ConsProdutos: TSpeedButton
       Left = 1
       Top = 321
@@ -1727,12 +1731,14 @@ object Frm_NewInicial: TFrm_NewInicial
   object Pn_Fundo: TPanel
     Left = 370
     Top = 82
-    Width = 593
-    Height = 487
+    Width = 631
+    Height = 510
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 4
     Visible = False
     OnClick = Pn_FundoClick
+    ExplicitWidth = 593
+    ExplicitHeight = 487
   end
 end
