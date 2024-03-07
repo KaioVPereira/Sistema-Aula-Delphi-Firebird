@@ -2,16 +2,14 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
   Left = 0
   Top = 0
   Caption = 'Cadastro Fornecedor'
-  ClientHeight = 399
-  ClientWidth = 735
+  ClientHeight = 460
+  ClientWidth = 821
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
-  PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
     Left = 19
@@ -180,7 +178,7 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
   end
   object RESTClient1: TRESTClient
     Params = <>
-    HandleRedirects = True
+    SynchronizedEvents = False
     Left = 224
     Top = 16
   end

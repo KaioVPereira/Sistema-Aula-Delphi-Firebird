@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, IPPeerClient, REST.Client,
-  Data.Bind.Components, Data.Bind.ObjectScope, Vcl.StdCtrls, system.JSON;
+  Data.Bind.Components, Data.Bind.ObjectScope, Vcl.StdCtrls, system.JSON,
+  REST.Types;
 
 type
   TFrm_CadFornecAPI = class(TForm)
@@ -43,9 +44,6 @@ var
   Frm_CadFornecAPI: TFrm_CadFornecAPI;
 
 implementation
-
-uses
-  REST.Types;
 
 {$R *.dfm}
 
@@ -87,9 +85,9 @@ begin
   Memo1.Clear;
   for i := 0 to AtividadeSecundaria.Count -1 do
   begin
-    AtividadeSecundariaValue := AtividadeSecundaria.Items[i].GetValue('id');
-
-    Memo1.Lines.Add(estabelecimento.Values['ID'].Value);
+    AtividadeSecundariaValue := AtividadeSecundaria.Items[i];
+    Memo1.Lines.Add('ID da atividade: ' + AtividadeSecundariaValue.GetValue<string>('id'));
+    Memo1.Lines.Add('Descrição da atividade: '+ AtividadeSecundariaValue.GetValue<string>('descricao'));
   end;
 
 
