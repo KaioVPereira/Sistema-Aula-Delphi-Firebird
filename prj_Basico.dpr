@@ -24,7 +24,8 @@ uses
   uCrpt in 'Classes\uCrpt.pas',
   U_login in 'Forms\login\U_login.pas' {Frm_login},
   U_VENDAS in 'Forms\Vendas\U_VENDAS.pas' {Frm_PDV2},
-  U_Inicial in 'Forms\U_Inicial.pas' {Frm_NewInicial};
+  U_Inicial in 'Forms\U_Inicial.pas' {Frm_NewInicial},
+  U_CadastroFornec_API in 'Forms\CadastrosGerais\U_CadastroFornec_API.pas' {Frm_CadFornecAPI};
 
 {$R *.res}
 begin
@@ -35,5 +36,6 @@ begin
   Application.CreateForm(TFrm_NewInicial, Frm_NewInicial);
   Application.CreateForm(Tfrm_ConfigIni, frm_ConfigIni);
   Application.CreateForm(TFrm_PDV2, Frm_PDV2);
+  Application.CreateForm(TFrm_CadFornecAPI, Frm_CadFornecAPI);
   Application.Run;
 end.

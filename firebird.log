@@ -78,3 +78,37 @@ SUPORTE3 (Client)	Tue Jul 25 16:36:06 2023
 SUPORTE3 (Client)	Tue Jul 25 16:36:11 2023
 	INET/INET_connect: gethostbyname (SYSDBA) failed, error code = 11001
 
+
+SUPORTE3 (Client)	Thu Jan 11 11:10:46 2024
+	INET/inet_error: read errno = 10053
+
+
+SUPORTE3 (Client)	Thu Jan 11 11:10:49 2024
+	INET/inet_error: send errno = 10053
+
+
+SUPORTE3 (Client)	Thu Jan 11 11:10:49 2024
+	REMOTE INTERFACE/gds__detach: Unsuccesful detach from database. 
+	Uncommitted work may have been lost
+
+
+SUPORTE3 (Client)	Thu Jan 11 11:10:49 2024
+	INET/inet_error: send errno = 10053
+
+
+SUPORTE3 (Client)	Thu Jan 11 15:13:54 2024
+	INET/inet_error: read errno = 10053
+
+
+SUPORTE3 (Client)	Thu Jan 11 15:13:54 2024
+	INET/inet_error: send errno = 10053
+
+
+SUPORTE3 (Client)	Thu Jan 11 15:13:54 2024
+	REMOTE INTERFACE/gds__detach: Unsuccesful detach from database. 
+	Uncommitted work may have been lost
+
+
+SUPORTE3 (Client)	Thu Jan 11 15:13:54 2024
+	INET/inet_error: send errno = 10053
+

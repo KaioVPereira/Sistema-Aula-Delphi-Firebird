@@ -1,6 +1,7 @@
 inherited frm_CadastrosFornecedores: Tfrm_CadastrosFornecedores
   Caption = 'Cadastros Fornecedores'
   OnShow = FormShow
+  PixelsPerInch = 96
   TextHeight = 15
   object lb_controle: TLabel [0]
     Left = 8

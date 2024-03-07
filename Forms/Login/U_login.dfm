@@ -157,7 +157,6 @@ object Frm_login: TFrm_login
     Color = clInactiveCaption
     ParentBackground = False
     TabOrder = 4
-    ExplicitWidth = 327
   end
   object fd_QueryLogin: TFDQuery
     Connection = dm_Dados.fd_Connection

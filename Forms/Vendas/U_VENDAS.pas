@@ -355,36 +355,44 @@ procedure TFrm_PDV2.btn_CancelaVendaClick(Sender: TObject);
 begin
   if MsgPerguntar('Deseja cancelar o lançamento da venda ?') then
   begin
+    try
     FDQry_VendasQuery.Edit;
+    FDQry_VendasItens.Edit;
     FDQry_VendasQuery.FieldByName('SITUACAO').Value := 'C';
     FDQry_VendasQuery.FieldByName('DATA_MOV').Value := Now;
     FDQry_VendasQuery.FieldByName('DATA_EMISSAO').Value := Now;
     FDQry_VendasQuery.FieldByName('TOTAL').Value := txt_TotalVenda.Text;
     FDQry_VendasQuery.Post;
+    FDQry_VendasItens.Post
+    finally
     FDQry_VendasQuery.Close;
     FDQry_VendasItens.Close;
     VendaAtiva('N');
     Limpar;
+    end;
+
   end;
 end;
 
 procedure TFrm_PDV2.btn_FinalizaVendaClick(Sender: TObject);
 begin
-    FDQry_VendasQuery.Edit;
-    FDQry_VendasItens.Edit;
+
 
     if MsgPerguntar('Tem certeza?') then
     begin
       try
+        FDQry_VendasQuery.Edit;
+        FDQry_VendasItens.Edit;
         FDQry_VendasQuery.FieldByName('SITUACAO').Value := 'E';
         FDQry_VendasQuery.FieldByName('DATA_MOV').Value := Now;
         FDQry_VendasQuery.FieldByName('DATA_EMISSAO').Value := Now;
         FDQry_VendasQuery.FieldByName('TOTAL').Value := txt_TotalVenda.Text;
         FDQry_VendasItens.Post;
         FDQry_VendasQuery.Post;
+
+      finally
         FDQry_VendasQuery.Close;
         FDQry_VendasItens.Close;
-      finally
         MsgInformacao('Venda Finalizada com sucesso');
         VendaAtiva('N');
         Limpar;

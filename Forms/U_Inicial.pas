@@ -8,7 +8,8 @@ uses
   U_login, Vcl.Buttons, Vcl.ExtCtrls, U_ConsultaUsuario, U_CadastrosUsuarios,
   U_VENDAS, U_CadastroProdutos, U_CadastroCidades, U_CadastroClientes,
   U_CadastroEstados, U_CadastrosFornecedores, U_ConsultaClientes,
-  U_ConsultaFornecedores, U_ConsultaProdutos, U_ConsultaVendas;
+  U_ConsultaFornecedores, U_ConsultaProdutos, U_ConsultaVendas,
+  U_CadastroFornec_API;
 
 type
   TFrm_NewInicial = class(TForm)
@@ -126,7 +127,7 @@ end;
 
 procedure TFrm_NewInicial.btn_CadFornecClick(Sender: TObject);
 begin
-  AbreFormShowModal(Tfrm_CadastrosFornecedores, frm_CadastrosFornecedores);
+  AbreFormShowModal(TFrm_CadFornecAPI, Frm_CadFornecAPI);
 end;
 
 procedure TFrm_NewInicial.btn_CadProdutosClick(Sender: TObject);
