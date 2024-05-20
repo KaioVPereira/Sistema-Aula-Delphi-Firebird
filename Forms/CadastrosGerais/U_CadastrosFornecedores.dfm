@@ -1,7 +1,8 @@
 inherited frm_CadastrosFornecedores: Tfrm_CadastrosFornecedores
   Caption = 'Cadastros Fornecedores'
+  ClientHeight = 296
+  ClientWidth = 933
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 15
   object lb_controle: TLabel [0]
     Left = 8
@@ -74,7 +75,12 @@ inherited frm_CadastrosFornecedores: Tfrm_CadastrosFornecedores
     Caption = 'EMAIL:'
   end
   inherited pn_cabecalho: TPanel
+    Width = 933
     TabOrder = 1
+    ExplicitWidth = 929
+    inherited Panel4: TPanel
+      ExplicitLeft = 844
+    end
   end
   object cbox_UF: TDBLookupComboBox [11]
     Left = 8
@@ -181,6 +187,7 @@ inherited frm_CadastrosFornecedores: Tfrm_CadastrosFornecedores
     UpdateOptions.AutoIncFields = 'CONTROLE_FORNECEDOR'
     SQL.Strings = (
       'SELECT * FROM FORNECEDOR')
+    Left = 672
     object fd_QueryCadastroCONTROLE_FORNECEDOR: TIntegerField
       FieldName = 'CONTROLE_FORNECEDOR'
       Origin = 'CONTROLE_FORNECEDOR'
@@ -239,5 +246,15 @@ inherited frm_CadastrosFornecedores: Tfrm_CadastrosFornecedores
       Origin = 'UF'
       Size = 30
     end
+  end
+  inherited fd_UpdCadastros: TFDUpdateSQL
+    Left = 672
+  end
+  inherited fd_transaction: TFDTransaction
+    Left = 664
+  end
+  inherited ds_cadastros: TDataSource
+    Left = 664
+    Top = 48
   end
 end

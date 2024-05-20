@@ -24,7 +24,6 @@ object Frm_NewInicial: TFrm_NewInicial
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 963
     object SpeedButton1: TSpeedButton
       Left = 513
       Top = 0
@@ -226,8 +225,7 @@ object Frm_NewInicial: TFrm_NewInicial
       Transparent = False
       StyleElements = [seFont, seClient]
       OnClick = btn_MostraPnConsultasClick
-      ExplicitLeft = 248
-      ExplicitTop = 3
+      ExplicitTop = 1
     end
     object btn_MostraPnCadastro: TSpeedButton
       Left = 0
@@ -351,7 +349,6 @@ object Frm_NewInicial: TFrm_NewInicial
       Transparent = False
       StyleElements = [seFont, seClient]
       OnClick = btn_MostraPnCadastroClick
-      ExplicitLeft = 16
       ExplicitTop = 1
     end
     object btn_PDV: TSpeedButton
@@ -466,7 +463,6 @@ object Frm_NewInicial: TFrm_NewInicial
     Color = clTeal
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 963
   end
   object Pnl_Cadastros: TPanel
     Left = 185
@@ -478,7 +474,6 @@ object Frm_NewInicial: TFrm_NewInicial
     ParentBackground = False
     TabOrder = 2
     Visible = False
-    ExplicitHeight = 487
     object btn_CadProdutos: TSpeedButton
       Left = 1
       Top = 321
@@ -580,7 +575,7 @@ object Frm_NewInicial: TFrm_NewInicial
       Transparent = False
       StyleElements = [seFont, seClient]
       OnClick = btn_CadProdutosClick
-      ExplicitLeft = 2
+      ExplicitLeft = 3
     end
     object btn_CadUsuarios: TSpeedButton
       Left = 1
@@ -889,8 +884,7 @@ object Frm_NewInicial: TFrm_NewInicial
       Transparent = False
       StyleElements = [seFont, seClient]
       OnClick = btn_CadEstadosClick
-      ExplicitTop = 1
-      ExplicitWidth = 247
+      ExplicitLeft = 3
     end
     object btn_CadCidades: TSpeedButton
       Left = 1
@@ -1109,7 +1103,6 @@ object Frm_NewInicial: TFrm_NewInicial
     ParentBackground = False
     TabOrder = 3
     Visible = False
-    ExplicitHeight = 487
     object btn_ConsProdutos: TSpeedButton
       Left = 1
       Top = 321
@@ -1314,7 +1307,8 @@ object Frm_NewInicial: TFrm_NewInicial
       Transparent = False
       StyleElements = [seFont, seClient]
       OnClick = btn_ConsUsuariosClick
-      ExplicitLeft = 2
+      ExplicitLeft = 3
+      ExplicitTop = 0
     end
     object btn_ConsClientes: TSpeedButton
       Left = 1
@@ -1738,7 +1732,5 @@ object Frm_NewInicial: TFrm_NewInicial
     TabOrder = 4
     Visible = False
     OnClick = Pn_FundoClick
-    ExplicitWidth = 593
-    ExplicitHeight = 487
   end
 end
