@@ -2,8 +2,8 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
   Left = 0
   Top = 0
   Caption = 'Cadastro Fornecedor'
-  ClientHeight = 353
-  ClientWidth = 751
+  ClientHeight = 419
+  ClientWidth = 653
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,19 +22,19 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
   end
   object PageControl: TPageControl
     Left = 0
-    Top = 0
-    Width = 751
-    Height = 353
+    Top = 41
+    Width = 653
+    Height = 378
     ActivePage = DadosBasicos
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 786
-    ExplicitHeight = 394
+    ExplicitWidth = 747
+    ExplicitHeight = 377
     object DadosBasicos: TTabSheet
       Caption = 'Dados B'#225'sicos'
       object Label8: TLabel
-        Left = 15
-        Top = 103
+        Left = 16
+        Top = 63
         Width = 71
         Height = 13
         Caption = 'Raz'#227'o Social'
@@ -46,8 +46,8 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
         ParentFont = False
       end
       object Label9: TLabel
-        Left = 38
-        Top = 140
+        Left = 39
+        Top = 113
         Width = 48
         Height = 13
         Caption = 'Fantasia'
@@ -59,8 +59,8 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
         ParentFont = False
       end
       object Label10: TLabel
-        Left = 59
-        Top = 177
+        Left = 60
+        Top = 162
         Width = 27
         Height = 13
         Caption = 'CNPJ'
@@ -72,8 +72,8 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
         ParentFont = False
       end
       object Label14: TLabel
-        Left = 432
-        Top = 81
+        Left = 421
+        Top = 18
         Width = 132
         Height = 13
         Caption = 'Atividades Secund'#225'rias'
@@ -86,7 +86,7 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
       end
       object Label11: TLabel
         Left = 52
-        Top = 220
+        Top = 205
         Width = 35
         Height = 13
         Caption = 'E-mail'
@@ -99,10 +99,49 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
       end
       object Label12: TLabel
         Left = 43
-        Top = 258
+        Top = 248
         Width = 44
         Height = 13
         Caption = 'N'#250'mero'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label1: TLabel
+        Left = 43
+        Top = 334
+        Width = 43
+        Height = 13
+        Caption = 'Regime'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 421
+        Top = 183
+        Width = 116
+        Height = 13
+        Caption = 'Inscri'#231#245'es estaduais'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label3: TLabel
+        Left = 24
+        Top = 293
+        Width = 62
+        Height = 13
+        Caption = 'IE Principal'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -115,7 +154,7 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
         Top = 18
         Width = 137
         Height = 25
-        Caption = 'Consutla CNPJ'
+        Caption = 'Consultar CNPJ'
         TabOrder = 0
         OnClick = Btn_ConsultaCNPJpgClick
       end
@@ -127,55 +166,82 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
         TabOrder = 1
       end
       object txt_razaoPG: TEdit
-        Left = 91
-        Top = 96
+        Left = 93
+        Top = 63
         Width = 297
         Height = 21
         TabOrder = 2
       end
       object txt_fantasiaPG: TEdit
-        Left = 92
-        Top = 134
+        Left = 93
+        Top = 110
         Width = 297
         Height = 21
         TabOrder = 3
       end
       object txt_CNPJCadPG: TEdit
-        Left = 92
-        Top = 169
+        Left = 93
+        Top = 154
         Width = 297
         Height = 21
         TabOrder = 4
       end
       object Memo2: TMemo
-        Left = 432
-        Top = 100
-        Width = 265
-        Height = 180
+        Left = 421
+        Top = 37
+        Width = 204
+        Height = 140
         Lines.Strings = (
           '')
         TabOrder = 5
       end
       object Txt_EmailPG: TEdit
-        Left = 92
-        Top = 212
+        Left = 93
+        Top = 197
         Width = 297
         Height = 21
         TabOrder = 6
       end
       object txt_NumeroPG: TEdit
-        Left = 160
-        Top = 254
+        Left = 162
+        Top = 245
         Width = 228
         Height = 21
         TabOrder = 7
       end
       object txt_DDDPG: TEdit
         Left = 93
-        Top = 254
+        Top = 245
         Width = 49
         Height = 21
         TabOrder = 8
+      end
+      object cb_TipoRegime: TComboBox
+        Left = 92
+        Top = 324
+        Width = 108
+        Height = 21
+        TabOrder = 9
+        Items.Strings = (
+          'Normal'
+          'Simples Nacional'
+          'Lucro Presumido')
+      end
+      object mm_Inscricao: TMemo
+        Left = 421
+        Top = 197
+        Width = 204
+        Height = 140
+        Lines.Strings = (
+          '')
+        TabOrder = 10
+      end
+      object Edit1: TEdit
+        Left = 93
+        Top = 285
+        Width = 297
+        Height = 21
+        TabOrder = 11
       end
     end
     object TabSheet2: TTabSheet
@@ -183,22 +249,84 @@ object Frm_CadFornecAPI: TFrm_CadFornecAPI
       ImageIndex = 1
     end
   end
+  object pn_cabecalho: TPanel
+    Left = 0
+    Top = 0
+    Width = 653
+    Height = 41
+    Align = alTop
+    Color = clTeal
+    ParentBackground = False
+    TabOrder = 2
+    ExplicitWidth = 747
+    object btn_novo: TBitBtn
+      Left = 0
+      Top = 0
+      Width = 75
+      Height = 41
+      Caption = 'Novo'
+      TabOrder = 0
+    end
+    object btn_gravar: TBitBtn
+      Left = 81
+      Top = 0
+      Width = 75
+      Height = 41
+      Caption = 'Gravar'
+      TabOrder = 1
+    end
+    object btn_cancelar: TBitBtn
+      Left = 162
+      Top = 0
+      Width = 75
+      Height = 41
+      Caption = 'Cancelar'
+      TabOrder = 2
+    end
+    object btn_excluir: TBitBtn
+      Left = 243
+      Top = 0
+      Width = 75
+      Height = 41
+      Caption = 'Excluir'
+      TabOrder = 3
+    end
+    object Panel4: TPanel
+      Left = 565
+      Top = 1
+      Width = 87
+      Height = 39
+      Align = alRight
+      Caption = 'Panel4'
+      TabOrder = 4
+      ExplicitLeft = 659
+      object btn_sair: TBitBtn
+        Left = 1
+        Top = 1
+        Width = 85
+        Height = 37
+        Align = alClient
+        Caption = 'Sair'
+        TabOrder = 0
+      end
+    end
+  end
   object RESTClient1: TRESTClient
     Params = <>
     SynchronizedEvents = False
-    Left = 528
-    Top = 40
+    Left = 576
+    Top = 136
   end
   object RESTRequest1: TRESTRequest
     Client = RESTClient1
     Params = <>
     Response = RESTResponse1
     SynchronizedEvents = False
-    Left = 600
-    Top = 40
+    Left = 560
+    Top = 72
   end
   object RESTResponse1: TRESTResponse
-    Left = 448
-    Top = 40
+    Left = 592
+    Top = 72
   end
 end

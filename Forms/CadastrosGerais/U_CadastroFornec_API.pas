@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, IPPeerClient, REST.Client,
   Data.Bind.Components, Data.Bind.ObjectScope, Vcl.StdCtrls, system.JSON,
-  REST.Types, REST.Json, Vcl.ComCtrls;
+  REST.Types, REST.Json, Vcl.ComCtrls, Vcl.Buttons, Vcl.ExtCtrls;
 
 type
   TFrm_CadFornecAPI = class(TForm)
@@ -32,6 +32,19 @@ type
     txt_NumeroPG: TEdit;
     txt_DDDPG: TEdit;
     Label12: TLabel;
+    pn_cabecalho: TPanel;
+    btn_novo: TBitBtn;
+    btn_gravar: TBitBtn;
+    btn_cancelar: TBitBtn;
+    btn_excluir: TBitBtn;
+    Panel4: TPanel;
+    btn_sair: TBitBtn;
+    Label1: TLabel;
+    cb_TipoRegime: TComboBox;
+    Label2: TLabel;
+    mm_Inscricao: TMemo;
+    Label3: TLabel;
+    Edit1: TEdit;
     procedure Btn_ConsultaCNPJpgClick(Sender: TObject);
   private
     { Private declarations }
@@ -58,6 +71,11 @@ procedure TFrm_CadFornecAPI.Btn_ConsultaCNPJpgClick(Sender: TObject);
   estabelecimento : TJSONObject;
   AtividadeSecundaria : TJSONArray;
   AtividadeSecundariaValue :TJSONValue;
+
+  InscricaoEstadual : TJSONArray;
+  InscricaoEstadualValue : TJSONValue;
+
+
   teste : String;
   i: Integer;
 
@@ -70,32 +88,54 @@ begin
   if RESTResponse1.StatusCode  = 200
    then
    begin
+
     VJSONObject := RESTRequest1.Response.JSONValue AS TJSONObject;
     estabelecimento := VJSONObject.GetValue('estabelecimento') as TJSONObject;
     AtividadeSecundaria := estabelecimento.GetValue('atividades_secundarias') as TJSONArray;
-
-
+    InscricaoEstadual := estabelecimento.GetValue('inscricoes_estaduais') as TJSONArray;
 
     txt_razaoPG.Text := VJSONObject.Values['razao_social'].Value;
     txt_CNPJCadPG.Text := estabelecimento.Values['cnpj'].Value;
-    if estabelecimento.Values['nome_fantasia'].Value <> 'null'
+    if estabelecimento.Values['nome_fantasia'].Value = 'null'
       then
       begin
-        txt_fantasiaPG.Text := estabelecimento.Values['nome_fanstasia'].Value;
+        txt_fantasiaPG.Text := VJSONObject.Values['razao_social'].Value;
+      end
+      else
+      begin
+        txt_fantasiaPG.Text := estabelecimento.Values['nome_fantasia'].Value;
       end;
     Txt_EmailPG.Text := estabelecimento.Values['email'].Value;
     txt_numeroPG.Text := estabelecimento.Values['telefone1'].Value;
     txt_DDDPG.Text := estabelecimento.Values['ddd1'].Value;
 
-    Memo1.Clear;
+    mm_Inscricao.Clear;
+    Memo2.Clear;
     for i := 0 to AtividadeSecundaria.Count -1 do
     begin
       AtividadeSecundariaValue := AtividadeSecundaria.Items[i];
       {Utilizando TJSON.Format para passar o JSON inteiro de uma vez no memo
       Memo1.Lines.Add(TJson.Format(AtividadeSecundariaValue))}
+
       Memo2.Lines.Add('ID da atividade: ' + AtividadeSecundariaValue.GetValue<String>('id'));
       Memo2.Lines.Add('Descrição da atividade: '+ AtividadeSecundariaValue.GetValue<string>('descricao'));
+      Memo2.Lines.Add('');
     end;
+
+    for i := 0 to InscricaoEstadual.Count -1 do
+      begin
+        InscricaoEstadualValue := InscricaoEstadual.Items[i];
+        mm_Inscricao.Lines.Add('Incrição: ' + InscricaoEstadualValue.GetValue<string>('inscricao_estadual'));
+        if InscricaoEstadualValue.GetValue<string>('ativo') = 'false' then
+        begin
+          mm_Inscricao.Lines.Add('Situação da  Inscrição = Inativa')
+        end
+        else if InscricaoEstadualValue.GetValue<string>('ativo') = 'true' then
+        begin
+          mm_Inscricao.Lines.Add('Situação da  Inscrição = Ativa')
+        end;
+        mm_Inscricao.Lines.Add('');
+      end;
    end
    else if RESTResponse1.StatusCode =  400
     then

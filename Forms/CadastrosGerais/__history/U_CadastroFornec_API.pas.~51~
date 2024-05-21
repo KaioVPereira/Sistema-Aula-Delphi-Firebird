@@ -1,0 +1,136 @@
+unit U_CadastroFornec_API;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, IPPeerClient, REST.Client,
+  Data.Bind.Components, Data.Bind.ObjectScope, Vcl.StdCtrls, system.JSON,
+  REST.Types, REST.Json, Vcl.ComCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TFrm_CadFornecAPI = class(TForm)
+    RESTClient1: TRESTClient;
+    RESTRequest1: TRESTRequest;
+    RESTResponse1: TRESTResponse;
+    Memo1: TMemo;
+    PageControl: TPageControl;
+    DadosBasicos: TTabSheet;
+    TabSheet2: TTabSheet;
+    Btn_ConsultaCNPJpg: TButton;
+    txt_CNPJPG: TEdit;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    txt_razaoPG: TEdit;
+    txt_fantasiaPG: TEdit;
+    txt_CNPJCadPG: TEdit;
+    Label14: TLabel;
+    Memo2: TMemo;
+    Txt_EmailPG: TEdit;
+    Label11: TLabel;
+    txt_NumeroPG: TEdit;
+    txt_DDDPG: TEdit;
+    Label12: TLabel;
+    pn_cabecalho: TPanel;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    btn_novo: TBitBtn;
+    btn_gravar: TBitBtn;
+    btn_cancelar: TBitBtn;
+    btn_excluir: TBitBtn;
+    Panel4: TPanel;
+    btn_sair: TBitBtn;
+    Label1: TLabel;
+    cb_TipoRegime: TComboBox;
+    Label2: TLabel;
+    Memo3: TMemo;
+    Label3: TLabel;
+    Edit1: TEdit;
+    procedure Btn_ConsultaCNPJpgClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+const
+  _URL_CONSULTA_CNPJ = 'https://publica.cnpj.ws/cnpj/%s';
+
+var
+  Frm_CadFornecAPI: TFrm_CadFornecAPI;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrm_CadFornecAPI.Btn_ConsultaCNPJpgClick(Sender: TObject);
+  var
+  LCNPJ,
+  ResonseCNPJ : STRING;
+
+  VJSONObject :  TJSONObject;
+  estabelecimento : TJSONObject;
+  AtividadeSecundaria : TJSONArray;
+  AtividadeSecundariaValue :TJSONValue;
+  teste : String;
+  i: Integer;
+
+begin
+  LCNPJ := TRIM(txt_CNPJPG.Text);
+  RESTClient1.BaseURL := format(_URL_CONSULTA_CNPJ,[LCNPJ]);
+  RESTRequest1.Method := rmGET;
+  RESTRequest1.Execute;
+
+  if RESTResponse1.StatusCode  = 200
+   then
+   begin
+    VJSONObject := RESTRequest1.Response.JSONValue AS TJSONObject;
+    estabelecimento := VJSONObject.GetValue('estabelecimento') as TJSONObject;
+    AtividadeSecundaria := estabelecimento.GetValue('atividades_secundarias') as TJSONArray;
+
+
+
+    txt_razaoPG.Text := VJSONObject.Values['razao_social'].Value;
+    txt_CNPJCadPG.Text := estabelecimento.Values['cnpj'].Value;
+    if estabelecimento.Values['nome_fantasia'].Value <> 'null'
+      then
+      begin
+        txt_fantasiaPG.Text := estabelecimento.Values['nome_fanstasia'].Value;
+      end;
+    Txt_EmailPG.Text := estabelecimento.Values['email'].Value;
+    txt_numeroPG.Text := estabelecimento.Values['telefone1'].Value;
+    txt_DDDPG.Text := estabelecimento.Values['ddd1'].Value;
+
+    Memo1.Clear;
+    for i := 0 to AtividadeSecundaria.Count -1 do
+    begin
+      AtividadeSecundariaValue := AtividadeSecundaria.Items[i];
+      {Utilizando TJSON.Format para passar o JSON inteiro de uma vez no memo
+      Memo1.Lines.Add(TJson.Format(AtividadeSecundariaValue))}
+      Memo2.Lines.Add('ID da atividade: ' + AtividadeSecundariaValue.GetValue<String>('id'));
+      Memo2.Lines.Add('Descrição da atividade: '+ AtividadeSecundariaValue.GetValue<string>('descricao'));
+    end;
+   end
+   else if RESTResponse1.StatusCode =  400
+    then
+    begin
+      VJSONObject := RESTRequest1.Response.JSONValue AS TJSONObject;
+      ShowMessage(VJSONObject.Values['detalhes'].ToString)
+    end
+   else if RESTResponse1.StatusCode =  429
+    then
+    begin
+      VJSONObject := RESTRequest1.Response.JSONValue AS TJSONObject;
+      ShowMessage(VJSONObject.Values['detalhes'].ToString)
+    end;
+end;
+
+
+end.
+
+
+
+

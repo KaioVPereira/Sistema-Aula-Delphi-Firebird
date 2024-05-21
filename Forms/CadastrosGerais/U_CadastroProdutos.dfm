@@ -3,9 +3,8 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   ClientHeight = 454
   ClientWidth = 816
   OnShow = FormShow
-  ExplicitWidth = 822
-  ExplicitHeight = 483
-  PixelsPerInch = 96
+  ExplicitWidth = 828
+  ExplicitHeight = 492
   TextHeight = 15
   object lb_codigo: TLabel [0]
     Left = 8
@@ -123,11 +122,13 @@ inherited frm_CadastroProdutos: Tfrm_CadastroProdutos
   inherited pn_cabecalho: TPanel
     Width = 816
     TabOrder = 1
+    ExplicitLeft = 8
+    ExplicitTop = 4
     ExplicitWidth = 816
     inherited Panel4: TPanel
       Left = 728
       Width = 87
-      ExplicitLeft = 728
+      ExplicitLeft = 724
       ExplicitWidth = 87
       inherited btn_sair: TBitBtn
         Width = 85
